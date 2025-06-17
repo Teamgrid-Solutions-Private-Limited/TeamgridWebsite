@@ -1,0 +1,110 @@
+.technologiesSection {
+  width: 100%;
+  max-width: 1440px;
+  height: 679px;
+  background: #0B3C7B;
+  /* border-radius: 24px; */
+  margin: 0 auto;
+  padding: 48px 40px 0 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.headerRow {
+  width: 1206px;
+  height: 91px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.title {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 700;
+  font-family: 'PayPal Open', Arial, sans-serif;
+  line-height: 1;
+}
+
+.subtitle {
+  color: #e1e0e0;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'PayPal Open', Arial, sans-serif;
+  margin-top: 4px;
+}
+
+.ctaButton {
+  background: #1976f8;
+  color: #fff;
+  border: none;
+  border-radius: 32px;
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.ctaButton:hover {
+  background: #125bb5;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.card {
+  width: 384px;
+  min-width: 0;
+  height: 124px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.10);
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.cardText {
+  width: 251px;
+  height: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 9px;
+}
+
+.cardTitle {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  font-family: 'PayPal Open', Arial, sans-serif;
+}
+
+.cardDesc {
+  color: #e1e0e0;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'PayPal Open', Arial, sans-serif;
+} 
