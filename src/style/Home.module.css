@@ -1,0 +1,96 @@
+.mainBox {
+  width: 100%;
+  height: 859px;
+  background: var(--Colors-0B3C7B-500, #072449);
+  position: relative;
+}
+
+.heroBox {
+  position: absolute;
+  width: 848px;
+  height: 334px;
+  top: 329px;
+  left: 120px;
+  gap: 14px;
+}
+
+.taglineBox {
+  width: 848px;
+  height: 27px;
+}
+
+.tagline {
+  font-family: PayPal Open;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #e1e0e0;
+}
+
+.contentBox {
+  width: 848px;
+  height: 293px;
+  gap: 32px;
+}
+
+.headingBox {
+  width: 792px;
+  height: 110px;
+}
+
+.heading {
+  font-family: PayPal Open;
+  font-weight: 700;
+  font-size: 64px;
+  leading-trim: Cap height;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ffffff;
+}
+
+.descriptionBox {
+  position: relative;
+  top: 20px;
+  width: 848px;
+  height: 60px;
+}
+
+.description {
+  font-family: PayPal Open;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #e1e0e0;
+}
+
+.buttonGroup {
+  position:absolute;
+  width: 449;
+  height: 59;
+  gap: 15px;
+}
+
+.primaryBtn {
+  width: 204;
+  height: 59;
+  gap: 10px;
+  border-radius: 40px;
+  padding-top: 16px;
+  padding-right: 32px;
+  padding-bottom: 16px;
+  padding-left: 32px;
+}
+
+.secondaryBtn {
+  width: 230;
+  height: 59;
+  gap: 10px;
+  border-radius: 40px;
+  padding-top: 16px;
+  padding-right: 32px;
+  padding-bottom: 16px;
+  padding-left: 32px;
+  border-width: 1px;
+}
