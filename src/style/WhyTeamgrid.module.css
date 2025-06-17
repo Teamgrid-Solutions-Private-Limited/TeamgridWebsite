@@ -1,0 +1,175 @@
+.container {
+  position: relative;
+  overflow: hidden;
+  margin-top: 2517px;
+}
+
+.contentSection {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.headingWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 40px;
+  border: 1px solid transparent;
+  padding: 0;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 954px;
+  height: 91px;
+}
+
+.exploreButton{
+  width: 246px;
+  height: 59px;
+  gap: 10px;
+  border-radius: 39px;
+  border-width: 1px;
+  padding-top: 16px;
+  padding-right: 40px;
+  padding-bottom: 16px;
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #072449;
+  border: 1px solid #CACACA;
+  font-family: 'PayPal Open', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.exploreButton:hover {
+  background-color: #072449;
+  color: white;
+}
+
+.heading {
+  font-family: 'PayPal Open', sans-serif;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: var(--Colors-Neutral-900, #140E13);
+  margin: 0;
+  width: 379px;
+  height: 40px;
+}
+
+.subheading {
+  font-family: 'PayPal Open', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #333333;
+  margin: 0;
+  margin-top: 8px;
+  width: 954px;
+  height: 27px;
+}
+
+.mainContent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imageSection {
+  width: 690px;
+  height: 522px;
+  margin-bottom: 40px;
+  margin-right: 50px;
+}
+
+.teamImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+  width: 450px;
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.checkIcon {
+  color: #25BE5F;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+}
+
+.featureContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: calc(100% - 40px);
+}
+
+.featureTitle {
+  font-family: 'PayPal Open', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 120%;
+  color: #072449;
+  margin: 0;
+}
+
+.featureDescription {
+  font-family: 'PayPal Open', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 150%;
+  color: #333333;
+  margin: 0;
+}
+
+.buttonArrow {
+    width: 16;
+    height: 16;
+    
+
+}
+
+.buttonText {
+  width: 140px;
+  height: 27px;
+ 
+ 
+  font-family: 'PayPal Open', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #140E13;
+} 
