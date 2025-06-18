@@ -74,23 +74,36 @@ function Technologies() {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.down('md'));
 
+  // Group technologies into rows of 3 for exact 3-column layout
+  const rows = [];
+  for (let i = 0; i < technologies.length; i += 3) {
+    rows.push(technologies.slice(i, i + 3));
+  }
+
   return (
     <Box
       component="section"
       sx={{
-        bgcolor: 'primary.main',
+        bgcolor: '#0B3C7B',
         py: { xs: 5, md: 6 },
         px: { xs: 2, sm: 3, md: 5 },
       }}
     >
-      <Container maxWidth="xl">
+      <Container 
+        maxWidth={false}
+        sx={{ 
+          maxWidth: { xs: '100%', xl: '1440px' },
+          px: { xs: 2, sm: 3, md: 4, lg: 5 }
+        }}
+      >
         <Box 
           sx={{ 
             display: 'flex', 
             flexDirection: { xs: 'column', md: 'row' },
             justifyContent: 'space-between',
             alignItems: { xs: 'flex-start', md: 'center' },
-            mb: { xs: 4, md: 5 }
+            mb: { xs: 4, md: 5 },
+            pl: { md: 1 }
           }}
         >
           <Box sx={{ mb: { xs: 3, md: 0 } }}>
@@ -107,7 +120,7 @@ function Technologies() {
             </Typography>
             <Typography 
               variant="body2" 
-              color="grey.300" 
+              color="#e1e0e0" 
               sx={{ mt: 1 }}
             >
               Modern Technologies & Collaborative Tools
@@ -117,9 +130,9 @@ function Technologies() {
           <Button
             variant="contained"
             sx={{
-              bgcolor: 'secondary.light',
+              bgcolor: '#1976f8',
               '&:hover': {
-                bgcolor: 'secondary.main',
+                bgcolor: '#125bb5',
               },
               borderRadius: '32px',
               px: 4
@@ -130,59 +143,99 @@ function Technologies() {
           </Button>
         </Box>
         
-        <Grid container spacing={3}>
-          {technologies.map((tech, idx) => (
-            <Grid item xs={12} sm={6} md={4} key={tech.title}>
-              <Card 
-                sx={{ 
-                  bgcolor: 'rgba(255,255,255,0.04)', 
-                  borderRadius: 3,
-                  border: '1px solid rgba(255,255,255,0.10)',
-                  boxShadow: 'none',
-                  height: '100%',
-                  transition: 'transform 0.2s',
-                  '&:hover': {
-                    transform: 'translateY(-5px)',
-                  }
-                }}
-              >
-                <CardContent sx={{ 
-                  display: 'flex', 
-                  alignItems: 'flex-start',
-                  gap: 2,
-                  p: 3
-                }}>
-                  <Box
-                    component="img"
-                    src={tech.icon}
-                    alt={tech.title}
-                    sx={{
-                      width: 64,
-                      height: 64,
-                      objectFit: 'contain'
-                    }}
-                  />
-                  <Box>
-                    <Typography 
-                      variant="h3" 
-                      color="common.white" 
-                      gutterBottom
-                      sx={{ fontSize: '22px', fontWeight: 600 }}
-                    >
-                      {tech.title}
-                    </Typography>
-                    <Typography 
-                      variant="body2" 
-                      color="grey.300"
-                    >
-                      {tech.desc}
-                    </Typography>
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
+        <Box sx={{ mt: 1 }}>
+          {rows.map((row, rowIndex) => (
+            <Box 
+              key={rowIndex} 
+              sx={{ 
+                display: 'flex', 
+                flexDirection: { xs: 'column', md: 'row' },
+                mb: rowIndex < rows.length - 1 ? 4 : 0,
+                gap: { xs: 4, md: 4 }
+              }}
+            >
+              {row.map((tech, idx) => (
+                <Card 
+                  key={tech.title}
+                  sx={{ 
+                    bgcolor: 'rgba(255,255,255,0.04)', 
+                    borderRadius: 3,
+                    border: '1px solid rgba(255,255,255,0.10)',
+                    boxShadow: 'none',
+                    height: { xs: 'auto', md: '124px' },
+                    transition: 'all 0.2s ease',
+                    flexGrow: 1,
+                    flexBasis: 0,
+                    width: { xs: '100%', md: 'calc(33.333% - 32px)' },
+                    mb: { xs: 3, md: 0 },
+                    '&:hover': {
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
+                    }
+                  }}
+                >
+                  <CardContent sx={{ 
+                    display: 'flex', 
+                    alignItems: 'center',
+                    gap: 2.5,
+                    py: 2.5,
+                    px: 3,
+                    height: '100%'
+                  }}>
+                    <Box
+                      component="img"
+                      src={tech.icon}
+                      alt={tech.title}
+                      sx={{
+                        width: 64,
+                        height: 64,
+                        objectFit: 'contain',
+                        flexShrink: 0
+                      }}
+                    />
+                    <Box sx={{ flex: 1 }}>
+                      <Typography 
+                        variant="h3" 
+                        color="common.white" 
+                        sx={{ 
+                          fontSize: '20px', 
+                          fontWeight: 600,
+                          mb: 0.75,
+                          lineHeight: 1.2
+                        }}
+                      >
+                        {tech.title}
+                      </Typography>
+                      <Typography 
+                        variant="body2" 
+                        color="#e1e0e0"
+                        sx={{
+                          fontSize: '14px',
+                          fontWeight: 400,
+                          lineHeight: 1.4,
+                          opacity: 0.9
+                        }}
+                      >
+                        {tech.desc}
+                      </Typography>
+                    </Box>
+                  </CardContent>
+                </Card>
+              ))}
+              {/* Add empty placeholders if row has less than 3 items */}
+              {row.length < 3 && Array(3 - row.length).fill().map((_, i) => (
+                <Box 
+                  key={`empty-${i}`} 
+                  sx={{ 
+                    flexGrow: 1, 
+                    flexBasis: 0,
+                    display: { xs: 'none', md: 'block' }
+                  }}
+                />
+              ))}
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );
