@@ -11,15 +11,15 @@ import {
   useMediaQuery
 } from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import reactIcon from '../assets/Group 16.svg';
-import wordpressIcon from '../assets/Group 17.svg';
-import woocommerceIcon from '../assets/vector.svg';
-import shopifyIcon from '../assets/Group 19.svg';
-import nodejsIcon from '../assets/Group 20.svg';
+import reactIcon from '../assets/Group.svg';
+import wordpressIcon from '../assets/Vector.svg';
+import woocommerceIcon from '../assets/WooCommerce_logo 2.svg';
+import shopifyIcon from '../assets/shopify.svg';
+import nodejsIcon from '../assets/nodejs-3.svg';
 import postgresqlIcon from '../assets/postgresql.svg';
-import mongodbIcon from '../assets/Group 22.svg';
-import figmaIcon from '../assets/Group 23.svg';
-import postmanIcon from '../assets/Group 24.svg';
+import mongodbIcon from '../assets/mongodb-icon-1-1.svg';
+import figmaIcon from '../assets/figma-icon.svg';
+import postmanIcon from '../assets/Group 3.svg';
 
 const technologies = [
   {
@@ -132,7 +132,7 @@ function Technologies() {
             sx={{
               bgcolor: '#1976f8',
               '&:hover': {
-                bgcolor: '#125bb5',
+                bgcolor: '#003272',
               },
               borderRadius: '32px',
               px: 4
@@ -158,8 +158,8 @@ function Technologies() {
                 <Card 
                   key={tech.title}
                   sx={{ 
-                    bgcolor: 'rgba(255,255,255,0.04)', 
-                    borderRadius: 3,
+                    bgcolor: '#0B3C7B', 
+                    borderRadius: 7,
                     border: '1px solid rgba(255,255,255,0.10)',
                     boxShadow: 'none',
                     height: { xs: 'auto', md: '124px' },
@@ -169,6 +169,7 @@ function Technologies() {
                     width: { xs: '100%', md: 'calc(33.333% - 32px)' },
                     mb: { xs: 3, md: 0 },
                     '&:hover': {
+                      bgcolor: '#003272',
                       transform: 'translateY(-5px)',
                       boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
                     }
@@ -183,16 +184,53 @@ function Technologies() {
                     height: '100%'
                   }}>
                     <Box
-                      component="img"
-                      src={tech.icon}
-                      alt={tech.title}
                       sx={{
                         width: 64,
                         height: 64,
-                        objectFit: 'contain',
+                        bgcolor: '#1B5093',
+                        borderRadius: 3,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         flexShrink: 0
                       }}
-                    />
+                    >
+                      {tech.title === 'Postman' ? (
+                        <Box
+                          sx={{
+                            width: 44,
+                            height: 44,
+                            bgcolor: '#FF6C37',
+                            borderRadius: '50%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                          }}
+                        >
+                          <Box
+                            component="img"
+                            src={tech.icon}
+                            alt={tech.title}
+                            sx={{
+                              width: 28,
+                              height: 28,
+                              objectFit: 'contain',
+                            }}
+                          />
+                        </Box>
+                      ) : (
+                        <Box
+                          component="img"
+                          src={tech.icon}
+                          alt={tech.title}
+                          sx={{
+                            width: 40,
+                            height: 40,
+                            objectFit: 'contain',
+                          }}
+                        />
+                      )}
+                    </Box>
                     <Box sx={{ flex: 1 }}>
                       <Typography 
                         variant="h3" 
@@ -208,12 +246,12 @@ function Technologies() {
                       </Typography>
                       <Typography 
                         variant="body2" 
-                        color="#e1e0e0"
+                        color="common.white"
                         sx={{
                           fontSize: '14px',
                           fontWeight: 400,
                           lineHeight: 1.4,
-                          opacity: 0.9
+                          opacity: 0.8
                         }}
                       >
                         {tech.desc}
