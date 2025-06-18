@@ -1,0 +1,94 @@
+.letstalkContainer {
+  width: 1440px;
+  height: 592px;
+  background: var(--Colors-Primary-400, #085BC8);
+  background-image: url('../assets/Rectangle 25.svg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 100px;
+  box-sizing: border-box;
+}
+
+.contentBox {
+  width: 792px;
+  height: 428px;
+  background: rgba(18, 38, 64, 0.9);
+  border-radius: 24px;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  color: white;
+  box-sizing: border-box;
+}
+
+.mainHeading {
+  font-family: "PayPal Open", sans-serif;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 100%;
+  letter-spacing: normal;
+  margin-bottom: 20px;
+}
+
+.subHeading {
+  font-family: "PayPal Open", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 150%;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-family: "PayPal Open", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0%;
+  opacity: 0.8;
+  margin-bottom: 40px;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.buttonWhite {
+  background: white;
+  color: #122640;
+  border: none;
+  width: 156px;
+  height: 59px;
+  border-radius: 39px;
+  padding: 16px 40px;
+  font-family: "PayPal Open", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+
+.buttonOrange {
+  background: #FF5A2D;
+  color: white;
+  border: none;
+  width: 262px;
+  height: 59px;
+  border-radius: 39px;
+  padding: 16px 40px;
+  font-family: "PayPal Open", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: normal;
+  cursor: pointer;
+} 
