@@ -290,14 +290,22 @@ function Footer() {
         </Box>
 
         {/* Disclaimer and Copyright */}
-        <Box sx={{ mt: 8 }}>
+        <Box 
+          sx={{ 
+            mt: 8, 
+            pt: 4, 
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+          }}
+        >
           <Typography
             variant="body2"
             sx={{
               fontSize: '12px',
               lineHeight: 1.6,
               color: 'rgba(255,255,255,0.5)',
-              mb: 2
+              height: '48px',
+              display: 'flex',
+              alignItems: 'center',
             }}
           >
             Disclaimer : Content and services on this site are for general information only and may change. Teamgrid is not liable for outcomes influenced by third-party
@@ -308,7 +316,13 @@ function Footer() {
             variant="body2"
             sx={{
               fontSize: '12px',
-              color: 'rgba(255,255,255,0.5)'
+              lineHeight: 1.6,
+              color: 'rgba(255,255,255,0.5)',
+              width: '394px',
+              height: '25px',
+              display: 'flex',
+              alignItems: 'center',
+              mt: 1
             }}
           >
             © 2025 Teamgrid. All rights reserved.
