@@ -1,5 +1,16 @@
 import React from 'react';
-import styles from '../style/Technologies.module.css';
+import { 
+  Box, 
+  Typography, 
+  Button, 
+  Container, 
+  Grid, 
+  Card, 
+  CardContent,
+  useTheme,
+  useMediaQuery
+} from '@mui/material';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import reactIcon from '../assets/Group 16.svg';
 import wordpressIcon from '../assets/Group 17.svg';
 import woocommerceIcon from '../assets/vector.svg';
@@ -59,27 +70,121 @@ const technologies = [
 ];
 
 function Technologies() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
-    <div className={styles.technologiesSection}>
-      <div className={styles.headerRow}>
-        <div className={styles.headerText}>
-          <h2 className={styles.title}>Our Capabilities</h2>
-          <p className={styles.subtitle}>Modern Technologies & Collaborative Tools</p>
-        </div>
-        <button className={styles.ctaButton}>Get a Quote →</button>
-      </div>
-      <div className={styles.cardsGrid}>
-        {technologies.map((tech, idx) => (
-          <div className={styles.card} key={tech.title}>
-            <img src={tech.icon} alt={tech.title} className={styles.icon} />
-            <div className={styles.cardText}>
-              <div className={styles.cardTitle}>{tech.title}</div>
-              <div className={styles.cardDesc}>{tech.desc}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Box
+      component="section"
+      sx={{
+        bgcolor: 'primary.main',
+        py: { xs: 5, md: 6 },
+        px: { xs: 2, sm: 3, md: 5 },
+      }}
+    >
+      <Container maxWidth="xl">
+        <Box 
+          sx={{ 
+            display: 'flex', 
+            flexDirection: { xs: 'column', md: 'row' },
+            justifyContent: 'space-between',
+            alignItems: { xs: 'flex-start', md: 'center' },
+            mb: { xs: 4, md: 5 }
+          }}
+        >
+          <Box sx={{ mb: { xs: 3, md: 0 } }}>
+            <Typography 
+              variant="h2" 
+              color="common.white" 
+              sx={{ 
+                fontSize: { xs: '36px', sm: '40px', md: '48px' },
+                fontWeight: 700,
+                lineHeight: 1
+              }}
+            >
+              Our Capabilities
+            </Typography>
+            <Typography 
+              variant="body2" 
+              color="grey.300" 
+              sx={{ mt: 1 }}
+            >
+              Modern Technologies & Collaborative Tools
+            </Typography>
+          </Box>
+          
+          <Button
+            variant="contained"
+            sx={{
+              bgcolor: 'secondary.light',
+              '&:hover': {
+                bgcolor: 'secondary.main',
+              },
+              borderRadius: '32px',
+              px: 4
+            }}
+            endIcon={<ArrowRightAltIcon />}
+          >
+            Get a Quote
+          </Button>
+        </Box>
+        
+        <Grid container spacing={3}>
+          {technologies.map((tech, idx) => (
+            <Grid item xs={12} sm={6} md={4} key={tech.title}>
+              <Card 
+                sx={{ 
+                  bgcolor: 'rgba(255,255,255,0.04)', 
+                  borderRadius: 3,
+                  border: '1px solid rgba(255,255,255,0.10)',
+                  boxShadow: 'none',
+                  height: '100%',
+                  transition: 'transform 0.2s',
+                  '&:hover': {
+                    transform: 'translateY(-5px)',
+                  }
+                }}
+              >
+                <CardContent sx={{ 
+                  display: 'flex', 
+                  alignItems: 'flex-start',
+                  gap: 2,
+                  p: 3
+                }}>
+                  <Box
+                    component="img"
+                    src={tech.icon}
+                    alt={tech.title}
+                    sx={{
+                      width: 64,
+                      height: 64,
+                      objectFit: 'contain'
+                    }}
+                  />
+                  <Box>
+                    <Typography 
+                      variant="h3" 
+                      color="common.white" 
+                      gutterBottom
+                      sx={{ fontSize: '22px', fontWeight: 600 }}
+                    >
+                      {tech.title}
+                    </Typography>
+                    <Typography 
+                      variant="body2" 
+                      color="grey.300"
+                    >
+                      {tech.desc}
+                    </Typography>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 }
 

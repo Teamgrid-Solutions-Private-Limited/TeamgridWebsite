@@ -1,9 +1,11 @@
+/* Reset some basic elements */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* src/index.css or App.css */
+/* Import fonts */
 @font-face {
   font-family: "PayPal Open";
   src: url("/fonts/PayPalOpen-Regular.woff2") format("woff2");
@@ -11,7 +13,20 @@
   font-style: normal;
 }
 
-/* src/index.css */
+/* Global styles */
 body {
   font-family: "PayPal Open", Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* For smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better responsive images */
+img {
+  max-width: 100%;
+  height: auto;
 }
