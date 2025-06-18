@@ -159,7 +159,7 @@ function Technologies() {
                   key={tech.title}
                   sx={{ 
                     bgcolor: '#0B3C7B', 
-                    borderRadius: 3,
+                    borderRadius: 7,
                     border: '1px solid rgba(255,255,255,0.10)',
                     boxShadow: 'none',
                     height: { xs: 'auto', md: '124px' },
@@ -188,7 +188,7 @@ function Technologies() {
                         width: 64,
                         height: 64,
                         bgcolor: '#1B5093',
-                        borderRadius: 2,
+                        borderRadius: 3,
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
