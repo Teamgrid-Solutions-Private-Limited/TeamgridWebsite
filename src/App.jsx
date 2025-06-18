@@ -6,6 +6,7 @@ import WhoWeHelp from "./components/WhoWeHelp";
 import WhatWeDo from "./components/WhatWeDo";
 import WhyTeamgrid from "./components/WhyTeamgrid";
 import Technologies from "./components/Technologies";
+import Testimonials from "./components/Testimonials";
 import Letstalk from "./components/Letstalk";
 import Footer from "./components/Footer";
 
@@ -39,6 +40,7 @@ function App() {
       <WhatWeDo />
       <WhyTeamgrid />
       <Technologies />
+      <Testimonials />
       <Letstalk />
       <Footer />
     </Box>
