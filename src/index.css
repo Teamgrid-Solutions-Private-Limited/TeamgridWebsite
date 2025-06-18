@@ -1,4 +1,17 @@
-*{
+* {
   margin: 0;
   padding: 0;
+}
+
+/* src/index.css or App.css */
+@font-face {
+  font-family: "PayPal Open";
+  src: url("/fonts/PayPalOpen-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* src/index.css */
+body {
+  font-family: "PayPal Open", Arial, Helvetica, sans-serif;
 }
