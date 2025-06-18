@@ -7,6 +7,7 @@ import WhatWeDo from "./components/WhatWeDo";
 import WhyTeamgrid from "./components/WhyTeamgrid";
 import Technologies from "./components/Technologies";
 import Letstalk from "./components/Letstalk";
+import Footer from "./components/Footer";
 
 function App() {
   const theme = useTheme();
@@ -39,6 +40,7 @@ function App() {
       <WhyTeamgrid />
       <Technologies />
       <Letstalk />
+      <Footer />
     </Box>
   );
 }

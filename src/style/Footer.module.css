@@ -1,0 +1,30 @@
+.footerLink {
+  transition: all 0.2s ease;
+}
+
+.footerLink:hover {
+  transform: translateX(5px);
+}
+
+.newsletterInput {
+  transition: all 0.3s ease;
+}
+
+.newsletterInput:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sendButton {
+  transition: all 0.2s ease;
+}
+
+.sendButton:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .mobileFullWidth {
+    width: 100%;
+  }
+} 
