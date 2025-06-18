@@ -27,4 +27,18 @@
   .mobileFullWidth {
     width: 100%;
   }
+}
+
+.sectionTitle {
+  font-family: "PayPal Open";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: white;
+  margin-bottom: 24px;
+}
+
+.footerText {
+  font-family: "PayPal Open";
 } 
