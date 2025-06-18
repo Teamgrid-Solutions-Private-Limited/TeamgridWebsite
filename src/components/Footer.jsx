@@ -26,130 +26,131 @@ function Footer() {
         py: { xs: 6, md: 8 },
         bgcolor: '#051a36',
         color: 'white',
+        fontFamily: 'PayPal Open'
       }}
     >
-      <Container maxWidth="xl">
-        <Grid container spacing={4}>
+      <Container 
+        maxWidth="xl" 
+        sx={{ 
+          px: { xs: 2, md: 8 },
+          maxWidth: { xl: '1400px' }
+        }}
+      >
+        <Grid 
+          container 
+          spacing={{ xs: 4, md: 8 }}
+          sx={{
+            justifyContent: 'space-between'
+          }}
+        >
           {/* Blogs Section */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={2.5}>
             <Typography
               variant="h6"
-              sx={{
-                fontSize: '18px',
-                fontWeight: 600,
-                mb: 3,
-              }}
+              className={styles.sectionTitle}
+              sx={{ mb: 2 }}
             >
               Blogs
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 How AI Is Transforming Web & Mobile App Development in 2025
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 Choosing the Right Tech Stack for Scalable Product Development
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 Design Smarter: Why UI/UX Matters More Than Ever in AI-Powered Apps
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 Fixed-Cost vs. Dedicated Teams: What Works Best for Your Next Project?
               </Link>
             </Box>
           </Grid>
 
           {/* Quick Links */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={2.5}>
             <Typography
               variant="h6"
-              sx={{
-                fontSize: '18px',
-                fontWeight: 600,
-                mb: 3,
-              }}
+              className={styles.sectionTitle}
+              sx={{ mb: 2 }}
             >
               Quick Links
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 Home
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 About Us
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 What We Do
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 Technologies We Use
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 How We Work
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 Let's Talk
               </Link>
             </Box>
           </Grid>
 
           {/* Services */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={2.5}>
             <Typography
               variant="h6"
-              sx={{
-                fontSize: '18px',
-                fontWeight: 600,
-                mb: 3,
-              }}
+              className={styles.sectionTitle}
+              sx={{ mb: 2 }}
             >
               Services
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 Web Development
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 Mobile App Development
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 UI/UX Design
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 AI/ML & GenAI Solutions
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 E-commerce
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 WordPress & Shopify
               </Link>
             </Box>
           </Grid>
 
           {/* Policies */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={2.5}>
             <Typography
               variant="h6"
-              sx={{
-                fontSize: '18px',
-                fontWeight: 600,
-                mb: 3,
-              }}
+              className={styles.sectionTitle}
+              sx={{ mb: 2 }}
             >
               Policies
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 Terms & Conditions
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 Privacy Policy
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px' }} className={styles.footerLink}>
+              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
                 NDA Available on Request
               </Link>
             </Box>
@@ -171,17 +172,15 @@ function Footer() {
           <Box sx={{ maxWidth: '400px' }} className={isMobile ? styles.mobileFullWidth : ''}>
             <Typography
               variant="h6"
-              sx={{
-                fontSize: '20px',
-                fontWeight: 600,
-                mb: 2,
-              }}
+              className={styles.sectionTitle}
+              sx={{ mb: 2 }}
             >
               Need Assistance? Call Us!
             </Typography>
             
             <Typography
               variant="body2"
+              className={styles.footerText}
               sx={{
                 fontSize: '14px',
                 lineHeight: 1.6,
@@ -195,6 +194,7 @@ function Footer() {
             
             <Typography
               variant="h6"
+              className={styles.footerText}
               sx={{
                 fontSize: '20px',
                 fontWeight: 600,
@@ -206,6 +206,7 @@ function Footer() {
             
             <Typography
               variant="body2"
+              className={styles.footerText}
               sx={{
                 fontSize: '14px',
                 color: 'rgba(255,255,255,0.9)'
@@ -219,17 +220,15 @@ function Footer() {
           <Box sx={{ maxWidth: '450px' }} className={isMobile ? styles.mobileFullWidth : ''}>
             <Typography
               variant="h6"
-              sx={{
-                fontSize: '20px',
-                fontWeight: 600,
-                mb: 2,
-              }}
+              className={styles.sectionTitle}
+              sx={{ mb: 2 }}
             >
               Stay Connected with Our Newsletter
             </Typography>
             
             <Typography
               variant="body2"
+              className={styles.footerText}
               sx={{
                 fontSize: '14px',
                 lineHeight: 1.6,
@@ -245,7 +244,7 @@ function Footer() {
               fullWidth
               placeholder="Your email ID"
               variant="outlined"
-              className={styles.newsletterInput}
+              className={`${styles.newsletterInput} ${styles.footerText}`}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -299,6 +298,7 @@ function Footer() {
         >
           <Typography
             variant="body2"
+            className={styles.footerText}
             sx={{
               fontSize: '12px',
               lineHeight: 1.6,
@@ -314,6 +314,7 @@ function Footer() {
           
           <Typography
             variant="body2"
+            className={styles.footerText}
             sx={{
               fontSize: '12px',
               lineHeight: 1.6,
