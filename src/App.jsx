@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { Box, useMediaQuery, useTheme } from '@mui/material'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
+import WhoWeHelp from './components/WhoWeHelp'
+import WhatWeDo from './components/WhatWeDo'
 import WhyTeamgrid from './components/WhyTeamgrid'
 import Technologies from './components/Technologies'
 import Letstalk from './components/Letstalk'
@@ -30,6 +32,8 @@ function App() {
     }}>
       <Navbar />
       <Home />
+      <WhoWeHelp />
+      <WhatWeDo />
       <WhyTeamgrid />
       <Technologies />
       <Letstalk />
