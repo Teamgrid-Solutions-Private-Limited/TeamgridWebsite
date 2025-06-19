@@ -288,7 +288,7 @@ function WhatWeDo() {
                         backgroundColor: '#DDDDDD',
                         zIndex: 1
                       },
-                      '&:hover::after, &:nth-child(1)::after': {
+                      '&:hover::after, &:nth-of-type(1)::after': {
                         opacity: 0
                       },
                       '&:nth-of-type(-n+3)': {
@@ -320,7 +320,7 @@ function WhatWeDo() {
                         backgroundColor: '#DDDDDD',
                         zIndex: 1
                       },
-                      '&:hover::after, &:nth-child(1)::after': {
+                      '&:hover::after, &:nth-of-type(1)::after': {
                         opacity: 0
                       }
                     }

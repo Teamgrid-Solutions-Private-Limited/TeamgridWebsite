@@ -30,7 +30,7 @@ function Footer() {
       <Container maxWidth="xl">
         <Grid container spacing={4}>
           {/* Blogs Section */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
               sx={{
@@ -103,7 +103,7 @@ function Footer() {
           </Grid>
 
           {/* Quick Links */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
               sx={{
@@ -204,7 +204,7 @@ function Footer() {
           </Grid>
 
           {/* Services */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
               sx={{
@@ -305,7 +305,7 @@ function Footer() {
           </Grid>
 
           {/* Policies */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
               sx={{
