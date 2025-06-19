@@ -12,8 +12,8 @@ import {
   useMediaQuery
 } from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import teamImage from '../assets/Rectangle 51.png';
+import vectorIcon from '../assets/Vector.png';
 
 const features = [
   {
@@ -118,7 +118,13 @@ function WhyTeamgrid() {
           </Grid>
           
           <Grid item xs={12} md={5} lg={6}>
-            <Stack spacing={4}>
+            <Stack spacing={4} sx={{ 
+              width: '486px', 
+              height: '538px',
+             // gap: '32px',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
               {features.map((feature, index) => (
                 <Box
                   key={index}
@@ -128,12 +134,19 @@ function WhyTeamgrid() {
                     alignItems: 'flex-start',
                   }}
                 >
-                  <CheckCircleOutlineIcon 
+                  <Box 
+                    component="img" 
+                    src={vectorIcon} 
+                    alt="Check icon"
                     sx={{ 
-                      color: 'success.main', 
-                      fontSize: { xs: 24, md: 28 },
+                      width: '17.726999282836914px',
+                      height: '8.485000610351562px',
+                      position: 'relative',
+                      top: '8.24px',
+                      left: '3px',
+                      borderWidth: '2px',
                       mt: 0.5
-                    }} 
+                    }}
                   />
                   <Box>
                     <Typography 
