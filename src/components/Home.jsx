@@ -12,7 +12,9 @@ import {
   nodejsIcon,
   postgresqlIcon,
   postmanIcon,
-  muiIcon
+  muiIcon,
+  mongoIcon,
+  woo
 } from "../images";
 
 
