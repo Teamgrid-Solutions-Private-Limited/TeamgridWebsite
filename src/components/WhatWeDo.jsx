@@ -125,7 +125,6 @@ function WhatWeDo() {
                   sx={{
                     fontSize: { xs: '14px', md: '15px' },
                     lineHeight: 1.6,
-                    color: 'text.secondary',
                     mb: { xs: 2, md: 3 },
                     color: '#000000'
                   }}
