@@ -115,7 +115,7 @@ function WhatWeDo() {
                     fontSize: { xs: '22px', sm: '24px', md: '28px' },
                     fontWeight: 600,
                     mb: { xs: 1.5, md: 2 },
-                    color: '#0b3c7b'
+                    color: '#140E13'
                   }}
                 >
                   E-commerce
@@ -127,7 +127,8 @@ function WhatWeDo() {
                     fontSize: { xs: '14px', md: '15px' },
                     lineHeight: 1.6,
                     color: 'text.secondary',
-                    mb: { xs: 2, md: 3 }
+                    mb: { xs: 2, md: 3 },
+                    color: '#000000'
                   }}
                 >
                   We design and develop high-performing e-commerce platforms tailored to your business's needs. Whether it's checkout, we build seamless, scalable, and conversion-focused experiences that drive sales and customer loyalty.
@@ -137,10 +138,11 @@ function WhatWeDo() {
                   variant="text"
                   endIcon={<ArrowRightAltIcon />}
                   sx={{
-                    color: '#0b3c7b',
+                    color: 'black',
                     textTransform: 'none',
                     fontWeight: 500,
-                    border: '1px solid #0b3c7b',
+                    fontSize: { xs: '12px', sm: '14px', md: '16px' },
+                    border: '1px solid rgba(168, 189, 211, 1)',
                     borderRadius: '30px',
                     padding: '5px 15px',
                     width: 'fit-content',
@@ -191,22 +193,25 @@ function WhatWeDo() {
             <Box sx={{ 
               width: { xs: '100%', md: '50%' }, 
               position: 'relative',
-              height: { xs: 300, md: 'auto' },
+              height: { xs: 320, sm: 350, md: 'auto' },
               mt: { xs: 0, md: 0 },
               display: { xs: 'flex', md: 'block' },
-              justifyContent: 'center'
+              justifyContent: 'center',
+              overflow: 'visible'
             }}>
               <Box 
                 sx={{ 
                   display: { xs: 'block', md: 'flex' },
                   flexDirection: 'column', 
                   height: '100%',
-                  width: { xs: '70%', sm: 300, md: 382 }, 
+                  width: { xs: '75%', sm: '60%', md: 382 }, 
+                  maxWidth: { xs: 300, sm: 320, md: 382 },
                   position: { xs: 'absolute', md: 'absolute' }, 
-                  top: { xs: 20, md: 60 }, 
-                  left: { xs: '5%', md: 0 }, 
+                  top: { xs: 10, sm: 20, md: 60 }, 
+                  left: { xs: '50%', md: 0 }, 
+                  transform: { xs: 'translateX(-50%)', md: 'none' },
                   zIndex: 10,
-                  maxHeight: { xs: '80%', md: '100%' },
+                  maxHeight: { xs: '90%', md: '100%' },
                   filter: 'drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.18))'
                 }} 
                 component="img" 
@@ -218,10 +223,11 @@ function WhatWeDo() {
                   display: { xs: 'none', sm: 'flex' },
                   flexDirection: 'column', 
                   height: '100%',
-                  width: { sm: 280, md: 345 }, 
+                  width: { sm: 240, md: 280, lg: 345 }, 
                   position: 'absolute', 
-                  top: { xs: -5, md: -10 }, 
-                  left: { xs: 180, md: 250 }, 
+                  top: { sm: 0, md: -10 }, 
+                  left: { sm: '50%', md: 250 },
+                  transform: { sm: 'translateX(25%)', md: 'none' },
                   zIndex: 1,
                   maxHeight: { xs: '80%', md: '100%' },
                   filter: 'drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.18))'

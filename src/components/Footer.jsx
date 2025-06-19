@@ -13,7 +13,6 @@ import {
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import EmailIcon from '@mui/icons-material/Email';
-import styles from '../style/Footer.module.css';
 
 function Footer() {
   const theme = useTheme();
@@ -26,131 +25,339 @@ function Footer() {
         py: { xs: 6, md: 8 },
         bgcolor: '#051a36',
         color: 'white',
-        fontFamily: 'PayPal Open'
       }}
     >
-      <Container 
-        maxWidth="xl" 
-        sx={{ 
-          px: { xs: 2, md: 8 },
-          maxWidth: { xl: '1400px' }
-        }}
-      >
-        <Grid 
-          container 
-          spacing={{ xs: 4, md: 8 }}
-          sx={{
-            justifyContent: 'space-between'
-          }}
-        >
+      <Container maxWidth="xl">
+        <Grid container spacing={4}>
           {/* Blogs Section */}
-          <Grid item xs={12} sm={6} md={2.5}>
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
-              className={styles.sectionTitle}
-              sx={{ mb: 2 }}
+              sx={{
+                fontSize: '18px',
+                fontWeight: 600,
+                mb: 3,
+              }}
             >
               Blogs
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 How AI Is Transforming Web & Mobile App Development in 2025
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Choosing the Right Tech Stack for Scalable Product Development
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Design Smarter: Why UI/UX Matters More Than Ever in AI-Powered Apps
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Fixed-Cost vs. Dedicated Teams: What Works Best for Your Next Project?
               </Link>
             </Box>
           </Grid>
 
           {/* Quick Links */}
-          <Grid item xs={12} sm={6} md={2.5}>
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
-              className={styles.sectionTitle}
-              sx={{ mb: 2 }}
+              sx={{
+                fontSize: '18px',
+                fontWeight: 600,
+                mb: 3,
+              }}
             >
               Quick Links
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Home
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 About Us
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 What We Do
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Technologies We Use
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 How We Work
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Let's Talk
               </Link>
             </Box>
           </Grid>
 
           {/* Services */}
-          <Grid item xs={12} sm={6} md={2.5}>
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
-              className={styles.sectionTitle}
-              sx={{ mb: 2 }}
+              sx={{
+                fontSize: '18px',
+                fontWeight: 600,
+                mb: 3,
+              }}
             >
               Services
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Web Development
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Mobile App Development
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 UI/UX Design
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 AI/ML & GenAI Solutions
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 E-commerce
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 WordPress & Shopify
               </Link>
             </Box>
           </Grid>
 
           {/* Policies */}
-          <Grid item xs={12} sm={6} md={2.5}>
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
-              className={styles.sectionTitle}
-              sx={{ mb: 2 }}
+              sx={{
+                fontSize: '18px',
+                fontWeight: 600,
+                mb: 3,
+              }}
             >
               Policies
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Terms & Conditions
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Privacy Policy
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 NDA Available on Request
               </Link>
             </Box>
@@ -169,18 +376,20 @@ function Footer() {
           }}
         >
           {/* Contact Section */}
-          <Box sx={{ maxWidth: '400px' }} className={isMobile ? styles.mobileFullWidth : ''}>
+          <Box sx={{ maxWidth: '400px', width: { xs: '100%', md: 'auto' } }}>
             <Typography
               variant="h6"
-              className={styles.sectionTitle}
-              sx={{ mb: 2 }}
+              sx={{
+                fontSize: '20px',
+                fontWeight: 600,
+                mb: 2,
+              }}
             >
               Need Assistance? Call Us!
             </Typography>
             
             <Typography
               variant="body2"
-              className={styles.footerText}
               sx={{
                 fontSize: '14px',
                 lineHeight: 1.6,
@@ -194,7 +403,6 @@ function Footer() {
             
             <Typography
               variant="h6"
-              className={styles.footerText}
               sx={{
                 fontSize: '20px',
                 fontWeight: 600,
@@ -206,7 +414,6 @@ function Footer() {
             
             <Typography
               variant="body2"
-              className={styles.footerText}
               sx={{
                 fontSize: '14px',
                 color: 'rgba(255,255,255,0.9)'
@@ -217,18 +424,20 @@ function Footer() {
           </Box>
 
           {/* Newsletter Section */}
-          <Box sx={{ maxWidth: '450px' }} className={isMobile ? styles.mobileFullWidth : ''}>
+          <Box sx={{ maxWidth: '450px', width: { xs: '100%', md: 'auto' } }}>
             <Typography
               variant="h6"
-              className={styles.sectionTitle}
-              sx={{ mb: 2 }}
+              sx={{
+                fontSize: '20px',
+                fontWeight: 600,
+                mb: 2,
+              }}
             >
               Stay Connected with Our Newsletter
             </Typography>
             
             <Typography
               variant="body2"
-              className={styles.footerText}
               sx={{
                 fontSize: '14px',
                 lineHeight: 1.6,
@@ -244,7 +453,13 @@ function Footer() {
               fullWidth
               placeholder="Your email ID"
               variant="outlined"
-              className={`${styles.newsletterInput} ${styles.footerText}`}
+              sx={{
+                transition: 'all 0.3s ease',
+                '&:focus-within': {
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+                }
+              }}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -255,13 +470,14 @@ function Footer() {
                   <InputAdornment position="end">
                     <IconButton 
                       edge="end" 
-                      className={styles.sendButton}
                       sx={{ 
                         color: 'white', 
                         bgcolor: '#0b3c7b', 
-                        borderRadius: '50%', 
+                        borderRadius: '50%',
+                        transition: 'all 0.2s ease',
                         '&:hover': { 
-                          bgcolor: '#0a3266' 
+                          bgcolor: '#0a3266',
+                          transform: 'scale(1.1)'
                         } 
                       }}
                     >
@@ -289,23 +505,14 @@ function Footer() {
         </Box>
 
         {/* Disclaimer and Copyright */}
-        <Box 
-          sx={{ 
-            mt: 8, 
-            pt: 4, 
-            borderTop: '1px solid rgba(255,255,255,0.1)',
-          }}
-        >
+        <Box sx={{ mt: 8 }}>
           <Typography
             variant="body2"
-            className={styles.footerText}
             sx={{
               fontSize: '12px',
               lineHeight: 1.6,
               color: 'rgba(255,255,255,0.5)',
-              height: '48px',
-              display: 'flex',
-              alignItems: 'center',
+              mb: 2
             }}
           >
             Disclaimer : Content and services on this site are for general information only and may change. Teamgrid is not liable for outcomes influenced by third-party
@@ -314,16 +521,9 @@ function Footer() {
           
           <Typography
             variant="body2"
-            className={styles.footerText}
             sx={{
               fontSize: '12px',
-              lineHeight: 1.6,
-              color: 'rgba(255,255,255,0.5)',
-              width: '394px',
-              height: '25px',
-              display: 'flex',
-              alignItems: 'center',
-              mt: 1
+              color: 'rgba(255,255,255,0.5)'
             }}
           >
             © 2025 Teamgrid. All rights reserved.
