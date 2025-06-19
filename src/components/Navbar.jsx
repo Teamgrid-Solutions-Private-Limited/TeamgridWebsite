@@ -25,16 +25,16 @@ import logo from "../assets/Layer_1.svg";
 
 // Import service icons from assets
 import fileCodeIcon from "../assets/lucide_file-code.svg";
-import storageIcon from "../assets/Group 30.svg";
+import storageIcon from "../assets/Group 26.svg";
 import wordpressIcon from "../assets/ic_round-wordpress.svg";
 import mobileIcon from "../assets/Group 29.svg";
-import crossPlatformIcon from "../assets/Group 31.svg";
-import webAppIcon from "../assets/Group 33.svg";
-import designIcon from "../assets/lucide_pencil-ruler.svg";
-import prototypeIcon from "../assets/Group 35.svg";
-import systemsIcon from "../assets/Group 36.svg";
-import shopifyIcon from "../assets/shopify.svg";
-import wooCommerceIcon from "../assets/WooCommerce_logo 2.svg";
+import crossPlatformIcon from "../assets/Group 30.svg";
+import webAppIcon from "../assets/Group 31.svg";
+import designIcon from "../assets/Group 33.svg";
+import prototypeIcon from "../assets/lucide_pencil-ruler.svg";
+import systemsIcon from "../assets/Group 35.svg";
+import shopifyIcon from "../assets/Group 36.svg";
+import wooCommerceIcon from "../assets/Group11.svg";
 
 // Import MUI icons for mobile menu
 import WebIcon from '@mui/icons-material/Web';
@@ -85,17 +85,17 @@ function Navbar() {
         {
           title: "Front-End Development",
           description: "Fast, responsive, and pixel-perfect user interfaces.",
-          icon: <Box component="img" src={fileCodeIcon} alt="Front-End Development" sx={{ width: 20, height: 20 }} />
+          icon: <Box component="img" src={fileCodeIcon} alt="Front-End Development" height={40} width={40} sx={{ objectFit: 'contain' }} />
         },
         {
           title: "Back-End Development",
           description: "Scalable, secure, and efficient architecture.",
-          icon: <Box component="img" src={storageIcon} alt="Back-End Development" sx={{ width: 20, height: 20 }} />
+          icon: <Box component="img" src={storageIcon} alt="Back-End Development" height={45} width={45} sx={{ objectFit: 'contain' }} />
         },
         {
           title: "WordPress & CMS",
           description: "Custom WordPress sites with Elementor, and more.",
-          icon: <Box component="img" src={wordpressIcon} alt="WordPress & CMS" sx={{ width: 20, height: 20 }} />
+          icon: <Box component="img" src={wordpressIcon} alt="WordPress & CMS" height={45} width={45} sx={{ objectFit: 'contain' }} />
         }
       ]
     },
@@ -105,17 +105,17 @@ function Navbar() {
         {
           title: "iOS & Android Development",
           description: "Native mobile experiences that perform and scale.",
-          icon: <Box component="img" src={mobileIcon} alt="iOS & Android Development" sx={{ width: 20, height: 20 }} />
+          icon: <Box component="img" src={mobileIcon} alt="iOS & Android Development" height={45} width={45} sx={{ objectFit: 'contain' }} />
         },
         {
           title: "Cross-Platform Apps",
           description: "Build and deploy everywhere with React Native or Flutter.",
-          icon: <Box component="img" src={crossPlatformIcon} alt="Cross-Platform Apps" sx={{ width: 20, height: 20 }} />
+          icon: <Box component="img" src={crossPlatformIcon} alt="Cross-Platform Apps" height={45} width={45} sx={{ objectFit: 'contain' }} />
         },
         {
           title: "Progressive Web Apps",
           description: "Web apps that work offline and feel native.",
-          icon: <Box component="img" src={webAppIcon} alt="Progressive Web Apps" sx={{ width: 20, height: 20 }} />
+          icon: <Box component="img" src={webAppIcon} alt="Progressive Web Apps" height={45} width={45} sx={{ objectFit: 'contain' }} />
         }
       ]
     },
@@ -125,17 +125,17 @@ function Navbar() {
         {
           title: "UI/UX Design",
           description: "Intuitive, user-focused design for web and mobile.",
-          icon: <Box component="img" src={designIcon} alt="UI/UX Design" sx={{ width: 20, height: 20 }} />
+          icon: <Box component="img" src={designIcon} alt="UI/UX Design" height={45} width={45} sx={{ objectFit: 'contain' }} />
         },
         {
           title: "Prototyping & Wireframing",
           description: "Visualize fast using tools like Figma and Adobe XD.",
-          icon: <Box component="img" src={prototypeIcon} alt="Prototyping & Wireframing" sx={{ width: 20, height: 20 }} />
+          icon: <Box component="img" src={prototypeIcon} alt="Prototyping & Wireframing" height={35} width={35} sx={{ objectFit: 'contain' }} />
         },
         {
           title: "Design Systems",
           description: "Scalable design libraries to maintain brand consistency.",
-          icon: <Box component="img" src={systemsIcon} alt="Design Systems" sx={{ width: 20, height: 20 }} />
+          icon: <Box component="img" src={systemsIcon} alt="Design Systems" height={45} width={45} sx={{ objectFit: 'contain' }} />
         }
       ]
     },
@@ -145,12 +145,12 @@ function Navbar() {
         {
           title: "Shopify Development",
           description: "Custom stores with fast checkout and optimized UX.",
-          icon: <Box component="img" src={shopifyIcon} alt="Shopify Development" sx={{ width: 20, height: 20 }} />
+          icon: <Box component="img" src={shopifyIcon} alt="Shopify Development" height={45} width={45} sx={{ objectFit: 'contain' }} />
         },
         {
           title: "WooCommerce Integration",
           description: "Extend WordPress with powerful features.",
-          icon: <Box component="img" src={wooCommerceIcon} alt="WooCommerce Integration" sx={{ width: 20, height: 20 }} />
+          icon: <Box component="img" src={wooCommerceIcon} alt="WooCommerce Integration" height={45} width={45} sx={{ objectFit: 'contain' }} />
         }
       ]
     }
@@ -234,13 +234,15 @@ function Navbar() {
                   transform: 'translateX(-50%)',
                   width: '1248px',
                   mt:1.5,
-                  height: '368px',
+                  height: 'auto',
+                  minHeight: '300px',
+                  maxHeight: '500px',
                   borderRadius: '12px',
                   boxShadow: '0px 8px 24px rgba(0, 0, 0, 0.08)',
                   p: 3,
                   backgroundColor: '#fff',
                   zIndex: 1300,
-                  overflowY: 'hidden',
+                  overflowY: 'visible',
                   display: 'flex',
                   justifyContent: 'space-between'
                 }}
@@ -248,10 +250,10 @@ function Navbar() {
                 {serviceCategories.map((category, catIndex) => (
                   <Box key={catIndex} sx={{ 
                     width: '282px',
-                    height: '283px',
+                    height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
-                    overflowY: 'hidden'
+                    overflowY: 'visible'
                   }}>
                     <Typography 
                       variant="overline" 
@@ -260,7 +262,7 @@ function Navbar() {
                         color: 'text.secondary',
                         fontFamily: 'PayPal Open, sans-serif',
                         fontSize: '11px',
-                        mb: 2,
+                        mb: 1,
                         display: 'block',
                         textTransform: 'uppercase',
                         opacity: 0.7,
@@ -270,16 +272,19 @@ function Navbar() {
                       {category.title}
                     </Typography>
                     
-                    <Box sx={{ mt: 2 }}>
+                    <Box sx={{ mt: 1 }}>
                       {category.services.map((service, serviceIndex) => (
                         <Box 
                           key={serviceIndex} 
                           sx={{ 
-                            mb: 3,
+                            mb: 2,
                             display: 'flex',
-                            alignItems: 'flex-start',
+                            alignItems: 'center',
                             gap: 2,
                             cursor: 'pointer',
+                            width: '100%',
+                            height: 'auto',
+                            minHeight: '60px',
                             '&:hover': {
                               '& .service-title': {
                                 color: theme.palette.primary.main
@@ -297,12 +302,15 @@ function Navbar() {
                           }}
                         >
                           <Box sx={{ 
-                            mt: 0.5, 
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            width: '24px',
-                            height: '24px',
+                            width: '45px',
+                            height: '45px',
+                            flexShrink: 0,
+                            borderRadius: '8px',
+                            backgroundColor: 'rgba(11, 60, 123, 0.06)',
+                            padding: '8px'
                           }}>
                             {service.icon}
                           </Box>
@@ -315,7 +323,7 @@ function Navbar() {
                                 color: '#140E13',
                                 fontFamily: 'PayPal Open, sans-serif',
                                 fontSize: '15px',
-                                mb: 0.5,
+                                mb: 0.25,
                                 transition: 'color 0.2s'
                               }}
                             >
