@@ -9,14 +9,19 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import Rectangle40 from '../assets/Rectangle 40.svg';
+import Rectangle41 from '../assets/Rectangle 41.svg';
+import Rectangle45 from '../assets/Rectangle 45.svg';
+import Rectangle46 from '../assets/Rectangle 46.svg';
 
-// You'll need to replace these with your actual images or use these placeholders
-const image1 = "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80";
-const image2 = "https://images.unsplash.com/photo-1543269664-76bc3997d9ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80";
-const image3 = "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80";
-const image4 = "https://images.unsplash.com/photo-1542744173-8659b8e77b10?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80";
+// Replace image URLs with local assets
+const image1 = Rectangle40;
+const image2 = Rectangle41;
+const image3 = Rectangle45;
+const image4 = Rectangle46;
 
-function WhoWeHelp() {
+// Define component using named function
+const WhoWeHelp = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -109,121 +114,126 @@ function WhoWeHelp() {
             sx={{ 
               width: { xs: '100%', md: '55%' },
               position: 'relative',
-              height: { xs: '550px', md: '600px' }
+              height: { xs: '700px', md: '700px' },
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '24px'
             }}
           >
-            {/* Left top image */}
+            {/* Left Column Images */}
             <Box
               sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '48%',
-                height: '48%',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                bgcolor: '#f6efef',
-                zIndex: 1
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '24px',
+                width: '272.87px',
+                marginTop: '50px'
               }}
             >
               <Box
-                component="img"
-                src={image1}
-                alt="Team member"
                 sx={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block'
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  bgcolor: '#f6efef',
+                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.08)',
+                  height: '324.15px',
                 }}
-              />
+              >
+                <Box
+                  component="img"
+                  src={image1}
+                  alt="Team member"
+                  sx={{
+                    width: '272.87px',
+                    height: '324.15px',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
+              </Box>
+              
+              <Box
+                sx={{
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  bgcolor: '#f6efef',
+                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.08)',
+                  height: '324.15px',
+                }}
+              >
+                <Box
+                  component="img"
+                  src={image3}
+                  alt="Group discussion"
+                  sx={{
+                    width: '272.87px',
+                    height: '324.15px',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
+              </Box>
             </Box>
-            
-            {/* Right image (taller) */}
+           
+            {/* Right Column Images */}
             <Box
               sx={{
-                position: 'absolute',
-                top: 0,
-                right: 0,
-                width: '48%',
-                height: '65%',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                bgcolor: '#fce5e3',
-                zIndex: 1
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '24px',
+                width: '272.87px'
               }}
             >
               <Box
-                component="img"
-                src={image2}
-                alt="Team collaborating"
                 sx={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block'
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  bgcolor: '#fce5e3',
+                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.08)',
+                  height: '324.15px',
                 }}
-              />
-            </Box>
-            
-            {/* Bottom left image */}
-            <Box
-              sx={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                width: '48%',
-                height: '48%',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                bgcolor: '#f6efef',
-                zIndex: 1
-              }}
-            >
+              >
+                <Box
+                  component="img"
+                  src={image2}
+                  alt="Team collaborating"
+                  sx={{
+                    width: '272.87px',
+                    height: '324.15px',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
+              </Box>
+              
               <Box
-                component="img"
-                src={image3}
-                alt="Group discussion"
                 sx={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block'
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  bgcolor: '#fdecd2',
+                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.08)',
+                  height: '324.15px',
                 }}
-              />
-            </Box>
-            
-            {/* Bottom right image */}
-            <Box
-              sx={{
-                position: 'absolute',
-                bottom: 0,
-                right: 0,
-                width: '48%',
-                height: '32%',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                bgcolor: '#fdecd2',
-                zIndex: 1
-              }}
-            >
-              <Box
-                component="img"
-                src={image4}
-                alt="Person working"
-                sx={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block'
-                }}
-              />
+              >
+                <Box
+                  component="img"
+                  src={image4}
+                  alt="Person working"
+                  sx={{
+                    width: '272.87px',
+                    height: '324.15px',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
+              </Box>
             </Box>
           </Box>
         </Box>
       </Container>
     </Box>
   );
-}
+};
 
+// Export the component
 export default WhoWeHelp; 
