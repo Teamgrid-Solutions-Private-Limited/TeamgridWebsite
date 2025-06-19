@@ -101,8 +101,7 @@ const TestimonialCard = styled(Paper)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   borderRadius: theme.spacing(2),
-  backgroundColor: "#F9FAFB", // Light gray background
-  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.05)",
+  backgroundColor: "rgba(243, 243, 246, 1)", // Light gray background
   margin: theme.spacing(0, 1.5),
   flex: "0 0 auto",
   transition: "transform 0.3s ease, box-shadow 0.3s ease",
