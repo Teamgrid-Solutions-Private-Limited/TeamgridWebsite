@@ -287,7 +287,7 @@ function Navbar() {
                             minHeight: '60px',
                             '&:hover': {
                               '& .service-title': {
-                                color: theme.palette.primary.main
+                                color: '#0B3C7B'
                               },
                               backgroundColor: 'rgba(0, 0, 0, 0.02)',
                               borderRadius: '6px'
@@ -320,7 +320,7 @@ function Navbar() {
                               variant="subtitle1" 
                               sx={{ 
                                 fontWeight: 500, 
-                                color: '#140E13',
+                                color: '#0B3C7B',
                                 fontFamily: 'PayPal Open, sans-serif',
                                 fontSize: '15px',
                                 mb: 0.25,
@@ -495,7 +495,12 @@ function Navbar() {
                           >
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                               {service.icon}
-                              <Typography variant="body2" color="text.primary">
+                              <Typography 
+                                variant="body2" 
+                                sx={{
+                                  color: '#0B3C7B'
+                                }}
+                              >
                                 {service.title}
                               </Typography>
                             </Box>
