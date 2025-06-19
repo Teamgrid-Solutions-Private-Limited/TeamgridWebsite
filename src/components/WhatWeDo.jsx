@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Group15 from '../assets/Group 15.svg';
 
 // Sample ecommerce image - replace with your actual images
 const ecommerceImage = "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
@@ -52,30 +53,40 @@ function WhatWeDo() {
     >
       <Container maxWidth="xl">
         {/* Heading and intro text */}
-        <Box sx={{ mb: 5, maxWidth: '800px' }}>
+        <Box sx={{ mb: 5, maxWidth: '700px' }}>
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: '32px', md: '42px' },
-              fontWeight: 700,
+              fontFamily: 'PayPal Open',
+              fontWeight: 500,
+              fontSize: '56px',
+              lineHeight: '100%',
+              letterSpacing: 0,
               mb: 2,
-              color: 'text.primary'
+              color: 'text.primary',
+              textAlign: 'left'
             }}
           >
             What We Do
           </Typography>
 
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: '16px',
-              lineHeight: 1.6,
-              color: 'text.secondary',
-              mb: 3
-            }}
-          >
-            We build AI-powered web and mobile apps with innovative design and scalable development. Our team delivers seamless UI/UX and solutions to help your business grow smarter and faster.
-          </Typography>
+          <Box sx={{ width: '1200px', height: '41px' }}>
+            <Typography
+              variant="body1"
+              sx={{
+                fontFamily: 'PayPal Open',
+                fontWeight: 400,
+                fontSize: '18px',
+                lineHeight: '150%',
+                letterSpacing: 0,
+                color: 'text.secondary',
+                mb: 3,
+                textAlign: 'left'
+              }}
+            >
+              We build AI-powered web and mobile apps with innovative design and scalable development. Our team delivers seamless UI/UX and solutions to help your business grow smarter and faster.
+            </Typography>
+          </Box>
         </Box>
 
         {/* Main feature showcase - E-commerce */}
@@ -86,13 +97,32 @@ function WhatWeDo() {
             overflow: 'hidden',
             bgcolor: '#f8fafe',
             mb: 3,
-            p: { xs: 2, sm: 3, md: 4 }
+            p: { xs: 2, sm: 3, md: 4 },
+            backgroundImage: `url(${Group15})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            minHeight: '400px',
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end',
           }}
         >
-          <Grid container spacing={4}>
-            {/* Left side - text content */}
-            <Grid item xs={12} md={4}>
-              <Box sx={{ py: 2, pr: { md: 2 } }}>
+          <Grid container spacing={4} alignItems="center">
+            {/* Left side - E-commerce content in a white box */}
+            <Grid item xs={12} md={5} lg={4}>
+              <Box sx={{
+                bgcolor: 'transparent',
+                
+                
+                p: { xs: 2, sm: 3 },
+                maxWidth: 420,
+                ml: { md: 2 },
+                mt: { xs: 2, md: 6 },
+                mb: { xs: 2, md: 6 },
+                
+              }}>
                 <Typography
                   variant="h4"
                   sx={{
@@ -167,112 +197,66 @@ function WhatWeDo() {
                 </Box>
               </Box>
             </Grid>
-
-            {/* Right side - image showcase */}
-            <Grid item xs={12} md={8}>
-              <Box sx={{ position: 'relative' }}>
-                {/* Main image */}
-                <Box
-                  sx={{
-                    width: '100%',
-                    height: { xs: '250px', sm: '300px', md: '320px' },
-                    mb: 2,
-                    borderRadius: 2,
-                    overflow: 'hidden',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
-                  }}
-                >
-                  <Box
-                    component="img"
-                    src={ecommerceImage}
-                    alt="E-commerce showcase"
-                    sx={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </Box>
-
-                {/* Product image grid */}
-                <Grid container spacing={2}>
-                  {productImages.slice(0, 6).map((img, index) => (
-                    <Grid item xs={4} sm={2} key={index}>
-                      <Box
-                        sx={{
-                          height: { xs: '70px', sm: '80px', md: '90px' },
-                          borderRadius: 2,
-                          overflow: 'hidden',
-                          boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          src={img}
-                          alt={`Product ${index + 1}`}
-                          sx={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover'
-                          }}
-                        />
-                      </Box>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Box>
-            </Grid>
+            {/* The right side is left empty for the background image effect */}
           </Grid>
-        </Paper>
 
-        {/* Service categories */}
-        <Grid container spacing={2}>
-          {serviceCategories.map((service) => (
-            <Grid item xs={6} sm={4} md={2} key={service.id}>
-              <Card
-                sx={{
-                  borderRadius: 2,
-                  height: '100%',
-                  bgcolor: service.id === 1 ? '#0b3c7b' : 'white',
-                  border: service.id === 1 ? 'none' : '1px solid #e0e0e0',
-                  boxShadow: 'none',
-                  transition: 'all 0.2s',
-                  '&:hover': {
-                    transform: 'translateY(-5px)',
-                    boxShadow: '0 8px 16px rgba(0,0,0,0.1)'
-                  },
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  p: 1
-                }}
-              >
-                <CardContent sx={{ p: { xs: 1, sm: 2 } }}>
-                  <Typography
-                    variant="subtitle1"
+          {/* Service categories at the bottom inside the card */}
+          <Box sx={{ mt: { xs: 2, md: 4 } }}>
+            <Grid container spacing={1.25} /* 10px gap */>
+              {serviceCategories.map((service) => (
+                <Grid item xs={6} sm={4} md={2} key={service.id}>
+                  <Card
                     sx={{
-                      fontWeight: 600,
-                      mb: 0.5,
-                      color: service.id === 1 ? 'white' : 'text.primary',
-                      fontSize: { xs: '14px', sm: '16px' }
+                      width: '169px',
+                      height: '77px',
+                      borderRadius: '8px',
+                      bgcolor: service.id === 1 ? '#0b3c7b' : 'white',
+                      border: service.id === 1 ? 'none' : '1px solid #e0e0e0',
+                      boxShadow: 'none',
+                      transition: 'all 0.2s',
+                      '&:hover': {
+                        bgcolor: '#072449',
+                        transform: 'translateY(-5px)',
+                        boxShadow: '0 8px 16px rgba(0,0,0,0.1)'
+                      },
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      p: 0,
+                      m: 0
                     }}
                   >
-                    {service.name}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontSize: { xs: '10px', sm: '12px' },
-                      color: service.id === 1 ? 'rgba(255,255,255,0.7)' : 'text.secondary'
-                    }}
-                  >
-                    {service.description}
-                  </Typography>
-                </CardContent>
-              </Card>
+                    <CardContent sx={{ p: 0, pt: '16px', pr: '24px', pb: '16px', pl: '24px', '&:last-child': { pb: '16px' } }}>
+                      <Box sx={{ width: '121px', height: '45px', display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'center' }}>
+                        <Typography
+                          variant="subtitle1"
+                          sx={{
+                            fontWeight: 600,
+                            mb: 0,
+                            color: service.id === 1 ? 'white' : 'text.primary',
+                            fontSize: { xs: '14px', sm: '16px' }
+                          }}
+                        >
+                          {service.name}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            fontSize: { xs: '10px', sm: '12px' },
+                            color: service.id === 1 ? 'rgba(255,255,255,0.7)' : 'text.secondary',
+                            mb: 0
+                          }}
+                        >
+                          {service.description}
+                        </Typography>
+                      </Box>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
+          </Box>
+        </Paper>
       </Container>
     </Box>
   );
