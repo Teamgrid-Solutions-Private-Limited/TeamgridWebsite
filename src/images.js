@@ -41,6 +41,8 @@ import funiroLanding3Path from './assets/Funiro Landing Page 3.svg';
 import funiroLanding4Path from './assets/Funiro Landing Page 4.svg';
 import liveDiscussionPath from './assets/livediscussion.jpg';
 import layer1Path from './assets/Layer_1.svg';
+import mongoIconPath from "./assets/mongodb.svg";
+import wooIconPath from "./assets/Woo.svg";
 
 // Logos
 export const teamgridLogo = shortLogoPath;  // Use shortLogo as a fallback
@@ -60,6 +62,8 @@ export const muiIcon = muiIconPath;
 export const woocommerceIcon = woocommerceIconPath;
 export const groupIcon = groupIconPath;
 export const postmanAltIcon = postmanAltIconPath;
+export const mongoIcon = mongoIconPath;
+export const woo = wooIconPath;
 
 // Images and backgrounds
 export const rectangleImage1 = rectangleImage1Path;
