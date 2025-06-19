@@ -47,12 +47,17 @@ function WhyTeamgrid() {
       component="section" 
       sx={{ 
         py: { xs: 6, md: 10 },
-        mt: { xs: 0, sm: 0, md: 0 } // Adjust spacing based on design
+        mt: { xs: 0, sm: 0, md: 0 }, // Adjust spacing based on design
+        fontFamily: 'PayPal Open, sans-serif',
+        ml: { xs: '8px', sm: '16px', md: '32px' } // Reduced left margin/gap
       }}
     >
       <Container maxWidth="xl">
+
         <Box 
           sx={{ 
+            width: '1200px',
+            height: '92px',
             display: 'flex', 
             flexDirection: { xs: 'column', md: 'row' },
             justifyContent: 'space-between',
@@ -67,7 +72,8 @@ function WhyTeamgrid() {
               gutterBottom
               sx={{ 
                 fontSize: { xs: '36px', sm: '42px', md: '56px' },
-                fontWeight: 500
+                fontWeight: 500,
+                fontFamily: 'PayPal Open, sans-serif'
               }}
             >
               Why Teamgrid
@@ -75,7 +81,10 @@ function WhyTeamgrid() {
             <Typography 
               variant="subtitle1" 
               color="text.secondary"
-              sx={{ maxWidth: { xs: '100%', md: '954px' } }}
+              sx={{ 
+                maxWidth: { xs: '100%', md: '954px' },
+                fontFamily: 'PayPal Open, sans-serif'
+              }}
             >
               Flexible Talent. Reliable Delivery. Scalable Results.
             </Typography>
@@ -84,16 +93,21 @@ function WhyTeamgrid() {
           <Button
             variant="outlined"
             color="primary"
-            endIcon={<ArrowRightAltIcon />}
+            endIcon={<ArrowRightAltIcon sx={{ color: '#140E13' }} />}
             sx={{
               borderRadius: '39px',
               height: { xs: '48px', md: '59px' },
               px: 4,
               borderColor: 'rgba(202, 202, 202, 1)',
+              fontFamily: 'PayPal Open, sans-serif',
+              color: '#140E13',
               '&:hover': {
                 backgroundColor: 'primary.main',
                 color: 'white',
-                borderColor: 'primary.main'
+                borderColor: 'primary.main',
+                '& .MuiSvgIcon-root': {
+                  color: 'white'
+                }
               }
             }}
           >
@@ -117,13 +131,19 @@ function WhyTeamgrid() {
             />
           </Grid>
           
-          <Grid item xs={12} md={5} lg={6}>
+          <Grid item xs={12} md={5} lg={6} sx={{ 
+            pl: { xs: 0, md: 4 },
+            pr: { xs: 0, md: 4 },
+            display: 'flex',
+            justifyContent: { xs: 'center', md: 'flex-end' }
+          }}>
             <Stack spacing={4} sx={{ 
               width: '486px', 
               height: '538px',
-             // gap: '32px',
+              // gap: '32px',
               display: 'flex',
-              flexDirection: 'column'
+              flexDirection: 'column',
+              fontFamily: 'PayPal Open, sans-serif'
             }}>
               {features.map((feature, index) => (
                 <Box
@@ -153,14 +173,27 @@ function WhyTeamgrid() {
                       variant="h3" 
                       color="primary.main" 
                       gutterBottom
-                      sx={{ fontWeight: 700 }}
+                      sx={{ 
+                        fontWeight: 500,
+                        fontSize: '20px',
+                        lineHeight: '120%',
+                        letterSpacing: '0%',
+                        fontFamily: 'PayPal Open, sans-serif'
+                      }}
                     >
                       {feature.title}
                     </Typography>
                     <Typography 
                       variant="body2" 
                       color="text.secondary"
-                      sx={{ fontWeight: 300 }}
+                      sx={{ 
+                        fontFamily: 'PayPal Open, sans-serif',
+                        fontWeight: 400,
+                        fontSize: '16px',
+                        lineHeight: '150%',
+                        letterSpacing: '0%',
+                        color: '#140E13'
+                      }}
                     >
                       {feature.description}
                     </Typography>
