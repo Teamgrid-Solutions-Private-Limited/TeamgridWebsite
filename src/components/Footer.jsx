@@ -25,29 +25,19 @@ function Footer() {
         py: { xs: 6, md: 8 },
         bgcolor: '#051a36',
         color: 'white',
-        fontFamily: 'PayPal Open'
       }}
     >
-      <Container 
-        maxWidth="xl" 
-        sx={{ 
-          px: { xs: 2, md: 8 },
-          maxWidth: { xl: '1400px' }
-        }}
-      >
-        <Grid 
-          container 
-          spacing={{ xs: 4, md: 8 }}
-          sx={{
-            justifyContent: 'space-between'
-          }}
-        >
+      <Container maxWidth="xl">
+        <Grid container spacing={4}>
           {/* Blogs Section */}
-          <Grid item xs={12} sm={6} md={2.5}>
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
-              className={styles.sectionTitle}
-              sx={{ mb: 2 }}
+              sx={{
+                fontSize: '18px',
+                fontWeight: 600,
+                mb: 3,
+              }}
             >
               Blogs
             </Typography>
@@ -113,11 +103,14 @@ function Footer() {
           </Grid>
 
           {/* Quick Links */}
-          <Grid item xs={12} sm={6} md={2.5}>
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
-              className={styles.sectionTitle}
-              sx={{ mb: 2 }}
+              sx={{
+                fontSize: '18px',
+                fontWeight: 600,
+                mb: 3,
+              }}
             >
               Quick Links
             </Typography>
@@ -211,11 +204,14 @@ function Footer() {
           </Grid>
 
           {/* Services */}
-          <Grid item xs={12} sm={6} md={2.5}>
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
-              className={styles.sectionTitle}
-              sx={{ mb: 2 }}
+              sx={{
+                fontSize: '18px',
+                fontWeight: 600,
+                mb: 3,
+              }}
             >
               Services
             </Typography>
@@ -309,11 +305,14 @@ function Footer() {
           </Grid>
 
           {/* Policies */}
-          <Grid item xs={12} sm={6} md={2.5}>
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
-              className={styles.sectionTitle}
-              sx={{ mb: 2 }}
+              sx={{
+                fontSize: '18px',
+                fontWeight: 600,
+                mb: 3,
+              }}
             >
               Policies
             </Typography>
@@ -380,15 +379,17 @@ function Footer() {
           <Box sx={{ maxWidth: '400px', width: { xs: '100%', md: 'auto' } }}>
             <Typography
               variant="h6"
-              className={styles.sectionTitle}
-              sx={{ mb: 2 }}
+              sx={{
+                fontSize: '20px',
+                fontWeight: 600,
+                mb: 2,
+              }}
             >
               Need Assistance? Call Us!
             </Typography>
             
             <Typography
               variant="body2"
-              className={styles.footerText}
               sx={{
                 fontSize: '14px',
                 lineHeight: 1.6,
@@ -402,7 +403,6 @@ function Footer() {
             
             <Typography
               variant="h6"
-              className={styles.footerText}
               sx={{
                 fontSize: '20px',
                 fontWeight: 600,
@@ -414,7 +414,6 @@ function Footer() {
             
             <Typography
               variant="body2"
-              className={styles.footerText}
               sx={{
                 fontSize: '14px',
                 color: 'rgba(255,255,255,0.9)'
@@ -428,15 +427,17 @@ function Footer() {
           <Box sx={{ maxWidth: '450px', width: { xs: '100%', md: 'auto' } }}>
             <Typography
               variant="h6"
-              className={styles.sectionTitle}
-              sx={{ mb: 2 }}
+              sx={{
+                fontSize: '20px',
+                fontWeight: 600,
+                mb: 2,
+              }}
             >
               Stay Connected with Our Newsletter
             </Typography>
             
             <Typography
               variant="body2"
-              className={styles.footerText}
               sx={{
                 fontSize: '14px',
                 lineHeight: 1.6,
@@ -504,23 +505,14 @@ function Footer() {
         </Box>
 
         {/* Disclaimer and Copyright */}
-        <Box 
-          sx={{ 
-            mt: 8, 
-            pt: 4, 
-            borderTop: '1px solid rgba(255,255,255,0.1)',
-          }}
-        >
+        <Box sx={{ mt: 8 }}>
           <Typography
             variant="body2"
-            className={styles.footerText}
             sx={{
               fontSize: '12px',
               lineHeight: 1.6,
               color: 'rgba(255,255,255,0.5)',
-              height: '48px',
-              display: 'flex',
-              alignItems: 'center',
+              mb: 2
             }}
           >
             Disclaimer : Content and services on this site are for general information only and may change. Teamgrid is not liable for outcomes influenced by third-party
@@ -529,16 +521,9 @@ function Footer() {
           
           <Typography
             variant="body2"
-            className={styles.footerText}
             sx={{
               fontSize: '12px',
-              lineHeight: 1.6,
-              color: 'rgba(255,255,255,0.5)',
-              width: '394px',
-              height: '25px',
-              display: 'flex',
-              alignItems: 'center',
-              mt: 1
+              color: 'rgba(255,255,255,0.5)'
             }}
           >
             © 2025 Teamgrid. All rights reserved.
