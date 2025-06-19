@@ -4,7 +4,9 @@
   margin: 0;
   padding: 0;
 }
-
+.css-127evc8-MuiCardContent-root:last-child {
+  padding-bottom: 0px !important;
+}
 /* Import fonts */
 @font-face {
   font-family: "PayPal Open";
