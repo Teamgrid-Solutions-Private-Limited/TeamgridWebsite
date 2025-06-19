@@ -13,7 +13,6 @@ import {
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import EmailIcon from '@mui/icons-material/Email';
-import styles from '../style/Footer.module.css';
 
 function Footer() {
   const theme = useTheme();
@@ -54,16 +53,60 @@ function Footer() {
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 How AI Is Transforming Web & Mobile App Development in 2025
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Choosing the Right Tech Stack for Scalable Product Development
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Design Smarter: Why UI/UX Matters More Than Ever in AI-Powered Apps
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Fixed-Cost vs. Dedicated Teams: What Works Best for Your Next Project?
               </Link>
             </Box>
@@ -80,22 +123,88 @@ function Footer() {
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Home
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 About Us
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 What We Do
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Technologies We Use
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 How We Work
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Let's Talk
               </Link>
             </Box>
@@ -112,22 +221,88 @@ function Footer() {
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Web Development
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Mobile App Development
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 UI/UX Design
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 AI/ML & GenAI Solutions
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 E-commerce
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 WordPress & Shopify
               </Link>
             </Box>
@@ -144,13 +319,46 @@ function Footer() {
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Terms & Conditions
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 Privacy Policy
               </Link>
-              <Link href="#" underline="hover" color="inherit" sx={{ fontSize: '14px', maxWidth: '260px' }} className={`${styles.footerLink} ${styles.footerText}`}>
+              <Link 
+                href="#" 
+                underline="hover" 
+                color="inherit" 
+                sx={{ 
+                  fontSize: '14px',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateX(5px)'
+                  }
+                }}
+              >
                 NDA Available on Request
               </Link>
             </Box>
@@ -169,7 +377,7 @@ function Footer() {
           }}
         >
           {/* Contact Section */}
-          <Box sx={{ maxWidth: '400px' }} className={isMobile ? styles.mobileFullWidth : ''}>
+          <Box sx={{ maxWidth: '400px', width: { xs: '100%', md: 'auto' } }}>
             <Typography
               variant="h6"
               className={styles.sectionTitle}
@@ -217,7 +425,7 @@ function Footer() {
           </Box>
 
           {/* Newsletter Section */}
-          <Box sx={{ maxWidth: '450px' }} className={isMobile ? styles.mobileFullWidth : ''}>
+          <Box sx={{ maxWidth: '450px', width: { xs: '100%', md: 'auto' } }}>
             <Typography
               variant="h6"
               className={styles.sectionTitle}
@@ -244,7 +452,13 @@ function Footer() {
               fullWidth
               placeholder="Your email ID"
               variant="outlined"
-              className={`${styles.newsletterInput} ${styles.footerText}`}
+              sx={{
+                transition: 'all 0.3s ease',
+                '&:focus-within': {
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+                }
+              }}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -255,13 +469,14 @@ function Footer() {
                   <InputAdornment position="end">
                     <IconButton 
                       edge="end" 
-                      className={styles.sendButton}
                       sx={{ 
                         color: 'white', 
                         bgcolor: '#0b3c7b', 
-                        borderRadius: '50%', 
+                        borderRadius: '50%',
+                        transition: 'all 0.2s ease',
                         '&:hover': { 
-                          bgcolor: '#0a3266' 
+                          bgcolor: '#0a3266',
+                          transform: 'scale(1.1)'
                         } 
                       }}
                     >
