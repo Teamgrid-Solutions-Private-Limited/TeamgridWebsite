@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { Box, Typography, Button, Container, Stack } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+// Import from centralized images file
+import { 
+  shortLogo as teamgridLogo,
+  reactIcon,
+  bootstrapIcon, 
+  wordpressIcon,
+  figmaIcon,
+  shopifyIcon,
+  nodejsIcon,
+  postgresqlIcon,
+  postmanIcon,
+  muiIcon
+} from "../images";
 
-// Import local assets
-import teamgridLogo from "../assets/shortLogo.svg";
-import reactIcon from "../assets/react-2.svg";
-import bootstrapIcon from "../assets/bootstrap.svg";
-import wordpressIcon from "../assets/wordPress.svg";
-import figmaIcon from "../assets/figma-icon.svg";
-import shopifyIcon from "../assets/shopify.svg";
-import nodejsIcon from "../assets/nodejs-3.svg";
-import postgresqlIcon from "../assets/postgresql.svg";
-import postmanIcon from "../assets/postman.svg";
-import muiIcon from "../assets/material-ui-1 1.svg";
-import mongoIcon from "../assets/mongodb.svg";
-import woo from "../assets/Woo.svg";
 
 function Home() {
   const [isPaused, setIsPaused] = useState(false);

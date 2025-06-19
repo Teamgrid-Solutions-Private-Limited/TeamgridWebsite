@@ -12,35 +12,13 @@ import {
   useMediaQuery
 } from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import teamImage from '../assets/Rectangle 51.png';
-import vectorIcon from '../assets/Vector.png';
-
-const features = [
-  {
-    title: "Right Talent, Matched Your Needs",
-    description: "We align expertise with your business objectives and workflows."
-  },
-  {
-    title: "Flexible Engagement Models",
-    description: "Work the way you prefer — retainers, sprints, or fixed-cost projects."
-  },
-  {
-    title: "Trustworthy and Confidential",
-    description: "NDA-backed, process-driven, and fully aligned with your brand."
-  },
-  {
-    title: "Optional Project Oversight",
-    description: "NDA-backed, process-driven, and fully aligned with your brand."
-  },
-  {
-    title: "Seamless Collaboration",
-    description: "Slack, Trello, GitHub, or your tools — we work your way."
-  }
-];
+import { rectangleImage51, vectorIcon } from '../images';
+import data from '../data.json';
 
 function WhyTeamgrid() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { title, subtitle, buttonText, features } = data.whyTeamgrid;
 
   return (
     <Box 
@@ -70,14 +48,14 @@ function WhyTeamgrid() {
                 fontWeight: 500
               }}
             >
-              Why Teamgrid
+              {title}
             </Typography>
             <Typography 
               variant="subtitle1" 
               color="text.secondary"
               sx={{ maxWidth: { xs: '100%', md: '954px' } }}
             >
-              Flexible Talent. Reliable Delivery. Scalable Results.
+              {subtitle}
             </Typography>
           </Box>
           
@@ -97,7 +75,7 @@ function WhyTeamgrid() {
               }
             }}
           >
-            Explore Services
+            {buttonText}
           </Button>
         </Box>
         
@@ -105,7 +83,7 @@ function WhyTeamgrid() {
           <Grid item xs={12} md={7} lg={6}>
             <Box
               component="img"
-              src={teamImage}
+              src={rectangleImage51}
               alt="Team collaboration"
               sx={{
                 width: '100%',

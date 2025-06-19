@@ -9,10 +9,12 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import Rectangle40 from '../assets/Rectangle 40.svg';
-import Rectangle41 from '../assets/Rectangle 41.svg';
-import Rectangle45 from '../assets/Rectangle 45.svg';
-import Rectangle46 from '../assets/Rectangle 46.svg';
+import { 
+  rectangleImage1 as Rectangle40,
+  rectangleImage2 as Rectangle41,
+  rectangleImage3 as Rectangle45,
+  rectangleImage4 as Rectangle46,
+} from '../images';
 
 // Replace image URLs with local assets
 const image1 = Rectangle40;

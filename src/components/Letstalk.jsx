@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Button, Container, Stack, useTheme, useMediaQuery } from '@mui/material';
-import backgroundImage from '../assets/Rectangle 25.svg';
+import { rectangleImage25 as backgroundImage } from '../images';
 
 function Letstalk() {
   const theme = useTheme();

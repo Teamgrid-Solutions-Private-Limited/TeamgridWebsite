@@ -1,0 +1,259 @@
+{
+  "navbar": {
+    "menuItems": [
+      { "title": "Home", "hasSubmenu": false },
+      { "title": "About Us", "hasSubmenu": false },
+      {
+        "title": "What We Do",
+        "hasSubmenu": true,
+        "submenuItems": ["Web Development", "Mobile Development", "UI/UX Design"]
+      },
+      { "title": "Technologies We Use", "hasSubmenu": false },
+      { "title": "How we work", "hasSubmenu": false },
+      { "title": "Let's Talk", "hasSubmenu": false }
+    ]
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Powering growth through talent",
+      "title": "Extend Your Team, Accelerate Your Growth",
+      "description": "We helps agencies and startups scale smarter — with dedicated professionals, high-quality solutions, and flexible engagement models that fit your workflow and goals.",
+      "buttons": [
+        { "text": "Let's Talk", "variant": "contained", "link": "#lets-talk" },
+        { "text": "Explore Services", "variant": "outlined", "link": "#services" }
+      ]
+    }
+  },
+  "whoWeHelp": {
+    "title": "Who We Help",
+    "subtitle": "A Trusted Partner for Growing Teams",
+    "description": "We work with agencies, startups, and businesses of all sizes — supporting their teams and projects. We specialize in design, development, and everything in between that matters most.",
+    "buttonText": "Explore Services",
+    "images": [
+      {
+        "id": 1,
+        "src": "rectangleImage1",
+        "alt": "Team member",
+        "bgcolor": "#f6efef"
+      },
+      {
+        "id": 2,
+        "src": "rectangleImage2",
+        "alt": "Team collaborating",
+        "bgcolor": "#fce5e3"
+      },
+      {
+        "id": 3,
+        "src": "rectangleImage3",
+        "alt": "Group discussion",
+        "bgcolor": "#f6efef"
+      },
+      {
+        "id": 4,
+        "src": "rectangleImage4",
+        "alt": "Person working",
+        "bgcolor": "#fdecd2"
+      }
+    ]
+  },
+  "whatWeDo": {
+    "title": "What We Do",
+    "description": "We build AI-powered web and mobile apps with innovative design and scalable development. Our team delivers seamless UI/UX and solutions to help your business grow smarter and faster.",
+    "serviceCategories": [
+      { "id": 1, "name": "E-commerce", "description": "Convert visitors to sales" },
+      { "id": 2, "name": "Web Development", "description": "Clean, modern websites" },
+      { "id": 3, "name": "UI / UX", "description": "Design with purpose" },
+      { "id": 4, "name": "Mobile App Development", "description": "Apps that perform" },
+      { "id": 5, "name": "Dedicated Teams", "description": "Staff your team" },
+      { "id": 6, "name": "AI / ML / Digital", "description": "Enhance & drive results" }
+    ],
+    "ecommerce": {
+      "title": "E-commerce",
+      "description": "We design and develop high-performing e-commerce platforms tailored to your business's needs. Whether it's checkout, we build seamless, scalable, and conversion-focused experiences that drive sales and customer loyalty.",
+      "buttonText": "Explore Our Portfolio",
+      "images": {
+        "main": "funiroLanding3",
+        "products": "funiroLanding4"
+      }
+    }
+  },
+  "whyTeamgrid": {
+    "title": "Why Teamgrid",
+    "subtitle": "Flexible Talent. Reliable Delivery. Scalable Results.",
+    "buttonText": "Explore Services",
+    "mainImage": "rectangleImage51",
+    "checkIcon": "vectorIcon",
+    "features": [
+      {
+        "title": "Right Talent, Matched Your Needs",
+        "description": "We align expertise with your business objectives and workflows."
+      },
+      {
+        "title": "Flexible Engagement Models",
+        "description": "Work the way you prefer — retainers, sprints, or fixed-cost projects."
+      },
+      {
+        "title": "Trustworthy and Confidential",
+        "description": "NDA-backed, process-driven, and fully aligned with your brand."
+      },
+      {
+        "title": "Optional Project Oversight",
+        "description": "NDA-backed, process-driven, and fully aligned with your brand."
+      },
+      {
+        "title": "Seamless Collaboration",
+        "description": "Slack, Trello, GitHub, or your tools — we work your way."
+      }
+    ]
+  },
+  "technologies": {
+    "title": "Our Capabilities",
+    "subtitle": "Modern Technologies & Collaborative Tools",
+    "buttonText": "Get a Quote",
+    "technologies": [
+      {
+        "icon": "reactIcon",
+        "title": "ReactJS",
+        "desc": "Build fast, interactive UIs with component-based architecture."
+      },
+      {
+        "icon": "wordpressIcon",
+        "title": "WordPress",
+        "desc": "Flexible CMS for custom websites and content-rich platforms."
+      },
+      {
+        "icon": "woocommerceIcon",
+        "title": "WooCommerce",
+        "desc": "Power your online store with WordPress integration."
+      },
+      {
+        "icon": "shopifyIcon",
+        "title": "Shopify",
+        "desc": "Launch beautiful, high-converting e-commerce stores with ease."
+      },
+      {
+        "icon": "nodejsIcon",
+        "title": "Node.js",
+        "desc": "Build fast, scalable servers with non-blocking architecture."
+      },
+      {
+        "icon": "postgresqlIcon",
+        "title": "PostgreSQL",
+        "desc": "Reliable, powerful open-source relational database."
+      },
+      {
+        "icon": "mongodbIcon",
+        "title": "MongoDB",
+        "desc": "Flexible NoSQL database for modern applications."
+      },
+      {
+        "icon": "figmaIcon",
+        "title": "Figma",
+        "desc": "Collaborative UI/UX design and prototyping platform."
+      },
+      {
+        "icon": "postmanIcon",
+        "title": "Postman",
+        "desc": "Simplify API development, testing, and collaboration."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Trusted by teams for smart ideas and reliable execution.",
+    "buttonText": "Explore Testimonials",
+    "testimonialsRow1": [
+      {
+        "id": 1,
+        "quote": "Working with their team was a game-changer. They translated our product vision into a seamless web app with AI-powered features that impressed our investor.",
+        "name": "Amit Shaw",
+        "position": "CEO, Nexora Labs",
+        "avatar": "https://mui.com/static/images/avatar/1.jpg"
+      },
+      {
+        "id": 2,
+        "quote": "They've become an extension of our team. From design to delivery, their process is smooth, and their quality is consistently top-notch. We trust them with every sprint.",
+        "name": "Lisa Monroe",
+        "position": "Creative Director, PixelRiver",
+        "avatar": "https://mui.com/static/images/avatar/2.jpg"
+      },
+      {
+        "id": 3,
+        "quote": "We needed a cross-platform app fast, and they delivered in record time—beautiful UI, flawless performance, and full alignment with our brand.",
+        "name": "Jonas Malik",
+        "position": "Co-Founder, LoopRides",
+        "avatar": "https://mui.com/static/images/avatar/3.jpg"
+      }
+    ],
+    "testimonialsRow2": [
+      {
+        "id": 6,
+        "quote": "They've become an extension of our team. From design to delivery, their process is smooth, and their quality is consistently top-notch. We trust them with every sprint.",
+        "name": "Amelia Jen",
+        "position": "Creative Director, PixelRiver",
+        "avatar": "https://mui.com/static/images/avatar/4.jpg"
+      },
+      {
+        "id": 7,
+        "quote": "Working with their team was a game-changer. They translated our product vision into a seamless web app with AI-powered features that impressed our investor.",
+        "name": "Amit Shaw",
+        "position": "CEO, Nexora Labs",
+        "avatar": "https://mui.com/static/images/avatar/5.jpg"
+      },
+      {
+        "id": 8,
+        "quote": "They've become an extension of our team. From design to delivery, their process is smooth, and their quality is consistently top-notch. We trust them with every sprint.",
+        "name": "Lisa Monroe",
+        "position": "Creative Director, PixelRiver",
+        "avatar": "https://mui.com/static/images/avatar/6.jpg"
+      }
+    ]
+  },
+  "letsTalk": {
+    "title": "Let's Build Together",
+    "subtitle": "— Efficiently, Flexibly, and Reliably",
+    "description": "Whether you're scaling a team or shipping a project, Teamgrid is your partner in dependable delivery.",
+    "buttons": [
+      {
+        "text": "Let's Talk",
+        "variant": "contained",
+        "color": "white"
+      },
+      {
+        "text": "Request a Free Quote",
+        "variant": "contained",
+        "color": "#FF5A2D"
+      }
+    ],
+    "backgroundImage": "rectangleImage25"
+  },
+  "footer": {
+    "company": {
+      "name": "Teamgrid",
+      "logo": "teamgridLogo",
+      "description": "Teamgrid is a leading web and mobile app development company specializing in custom solutions, AI integration, and cutting-edge design. We help businesses transform their digital presence with expertise and innovation."
+    },
+    "quickLinks": [
+      "Home", "About Us", "What We Do", "Technologies We Use", "How We Work", "Let's Talk"
+    ],
+    "services": [
+      "Web Development", "Mobile App Development", "E-commerce Solutions", "UI/UX Design", "WordPress Development", "Staff Augmentation"
+    ],
+    "contact": {
+      "address": "123 Innovation Street, Tech Park, San Francisco, CA 94103, United States",
+      "email": "hello@teamgrid.com",
+      "phone": "+1 (555) 123-4567"
+    },
+    "social": {
+      "title": "Connect with us on social media",
+      "platforms": [
+        { "name": "Facebook", "icon": "Facebook", "color": "#1877F2" },
+        { "name": "Twitter", "icon": "Twitter", "color": "#1DA1F2" },
+        { "name": "LinkedIn", "icon": "LinkedIn", "color": "#0A66C2" },
+        { "name": "Instagram", "icon": "Instagram", "color": "#E4405F" },
+        { "name": "YouTube", "icon": "YouTube", "color": "#FF0000" }
+      ]
+    },
+    "copyright": "© 2023 Teamgrid. All rights reserved."
+  }
+} 

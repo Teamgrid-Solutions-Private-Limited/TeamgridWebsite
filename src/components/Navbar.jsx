@@ -21,7 +21,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import logo from "../assets/Layer_1.svg";
+import { layer1 as logo } from "../images";
 
 function Navbar() {
   const theme = useTheme();

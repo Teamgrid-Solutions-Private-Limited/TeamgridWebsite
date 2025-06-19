@@ -6,10 +6,21 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import styles from '../style/Footer.module.css';
+import data from '../data.json';
+
+// Map of icon components to use based on icon name from data.json
+const iconComponents = {
+  'Facebook': FacebookIcon,
+  'Twitter': TwitterIcon,
+  'LinkedIn': LinkedInIcon,
+  'Instagram': InstagramIcon,
+  'YouTube': YouTubeIcon
+};
 
 function FooterSocial() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { title, platforms } = data.footer.social;
 
   return (
     <Box 
@@ -36,75 +47,29 @@ function FooterSocial() {
           mb: { xs: 2, sm: 0 }
         }}
       >
-        Connect with us on social media
+        {title}
       </Typography>
 
       <Box sx={{ display: 'flex', gap: 1 }}>
-        <IconButton 
-          className={styles.socialButton} 
-          aria-label="Facebook"
-          sx={{ 
-            color: 'white', 
-            bgcolor: 'rgba(255,255,255,0.1)',
-            '&:hover': {
-              bgcolor: '#1877F2',
-            }
-          }}
-        >
-          <FacebookIcon />
-        </IconButton>
-        <IconButton 
-          className={styles.socialButton} 
-          aria-label="Twitter"
-          sx={{ 
-            color: 'white', 
-            bgcolor: 'rgba(255,255,255,0.1)',
-            '&:hover': {
-              bgcolor: '#1DA1F2',
-            }
-          }}
-        >
-          <TwitterIcon />
-        </IconButton>
-        <IconButton 
-          className={styles.socialButton} 
-          aria-label="LinkedIn"
-          sx={{ 
-            color: 'white', 
-            bgcolor: 'rgba(255,255,255,0.1)',
-            '&:hover': {
-              bgcolor: '#0A66C2',
-            }
-          }}
-        >
-          <LinkedInIcon />
-        </IconButton>
-        <IconButton 
-          className={styles.socialButton} 
-          aria-label="Instagram"
-          sx={{ 
-            color: 'white', 
-            bgcolor: 'rgba(255,255,255,0.1)',
-            '&:hover': {
-              bgcolor: '#E4405F',
-            }
-          }}
-        >
-          <InstagramIcon />
-        </IconButton>
-        <IconButton 
-          className={styles.socialButton} 
-          aria-label="YouTube"
-          sx={{ 
-            color: 'white', 
-            bgcolor: 'rgba(255,255,255,0.1)',
-            '&:hover': {
-              bgcolor: '#FF0000',
-            }
-          }}
-        >
-          <YouTubeIcon />
-        </IconButton>
+        {platforms.map((platform, index) => {
+          const IconComponent = iconComponents[platform.icon];
+          return (
+            <IconButton 
+              key={index}
+              className={styles.socialButton} 
+              aria-label={platform.name}
+              sx={{ 
+                color: 'white', 
+                bgcolor: 'rgba(255,255,255,0.1)',
+                '&:hover': {
+                  bgcolor: platform.color,
+                }
+              }}
+            >
+              <IconComponent />
+            </IconButton>
+          );
+        })}
       </Box>
     </Box>
   );

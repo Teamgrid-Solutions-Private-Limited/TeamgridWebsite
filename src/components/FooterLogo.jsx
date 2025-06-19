@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import styles from '../style/Footer.module.css';
+import { teamgridLogo } from '../images';
 
 function FooterLogo() {
   const theme = useTheme();
@@ -21,7 +22,7 @@ function FooterLogo() {
     >
       <Box 
         component="img"
-        src="/public/Teamgrid_logo.png" // Replace with your actual logo path
+        src={teamgridLogo}
         alt="Teamgrid Logo"
         sx={{
           height: '40px',
