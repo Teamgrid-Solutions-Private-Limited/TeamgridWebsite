@@ -13,10 +13,13 @@ import {
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import EmailIcon from '@mui/icons-material/Email';
+import data from '../data.json';
 
 function Footer() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  
+  const { quickLinks, services, contact, copyright } = data.footer;
 
   return (
     <Box
@@ -116,90 +119,23 @@ function Footer() {
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link 
-                href="#" 
-                underline="hover" 
-                color="inherit" 
-                sx={{ 
-                  fontSize: '14px',
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateX(5px)'
-                  }
-                }}
-              >
-                Home
-              </Link>
-              <Link 
-                href="#" 
-                underline="hover" 
-                color="inherit" 
-                sx={{ 
-                  fontSize: '14px',
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateX(5px)'
-                  }
-                }}
-              >
-                About Us
-              </Link>
-              <Link 
-                href="#" 
-                underline="hover" 
-                color="inherit" 
-                sx={{ 
-                  fontSize: '14px',
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateX(5px)'
-                  }
-                }}
-              >
-                What We Do
-              </Link>
-              <Link 
-                href="#" 
-                underline="hover" 
-                color="inherit" 
-                sx={{ 
-                  fontSize: '14px',
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateX(5px)'
-                  }
-                }}
-              >
-                Technologies We Use
-              </Link>
-              <Link 
-                href="#" 
-                underline="hover" 
-                color="inherit" 
-                sx={{ 
-                  fontSize: '14px',
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateX(5px)'
-                  }
-                }}
-              >
-                How We Work
-              </Link>
-              <Link 
-                href="#" 
-                underline="hover" 
-                color="inherit" 
-                sx={{ 
-                  fontSize: '14px',
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateX(5px)'
-                  }
-                }}
-              >
-                Let's Talk
-              </Link>
+              {quickLinks.map((link, index) => (
+                <Link 
+                  key={index}
+                  href="#" 
+                  underline="hover" 
+                  color="inherit" 
+                  sx={{ 
+                    fontSize: '14px',
+                    transition: 'all 0.2s ease',
+                    '&:hover': {
+                      transform: 'translateX(5px)'
+                    }
+                  }}
+                >
+                  {link}
+                </Link>
+              ))}
             </Box>
           </Grid>
 
@@ -217,90 +153,23 @@ function Footer() {
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Link 
-                href="#" 
-                underline="hover" 
-                color="inherit" 
-                sx={{ 
-                  fontSize: '14px',
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateX(5px)'
-                  }
-                }}
-              >
-                Web Development
-              </Link>
-              <Link 
-                href="#" 
-                underline="hover" 
-                color="inherit" 
-                sx={{ 
-                  fontSize: '14px',
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateX(5px)'
-                  }
-                }}
-              >
-                Mobile App Development
-              </Link>
-              <Link 
-                href="#" 
-                underline="hover" 
-                color="inherit" 
-                sx={{ 
-                  fontSize: '14px',
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateX(5px)'
-                  }
-                }}
-              >
-                UI/UX Design
-              </Link>
-              <Link 
-                href="#" 
-                underline="hover" 
-                color="inherit" 
-                sx={{ 
-                  fontSize: '14px',
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateX(5px)'
-                  }
-                }}
-              >
-                AI/ML & GenAI Solutions
-              </Link>
-              <Link 
-                href="#" 
-                underline="hover" 
-                color="inherit" 
-                sx={{ 
-                  fontSize: '14px',
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateX(5px)'
-                  }
-                }}
-              >
-                E-commerce
-              </Link>
-              <Link 
-                href="#" 
-                underline="hover" 
-                color="inherit" 
-                sx={{ 
-                  fontSize: '14px',
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateX(5px)'
-                  }
-                }}
-              >
-                WordPress & Shopify
-              </Link>
+              {services.map((service, index) => (
+                <Link 
+                  key={index}
+                  href="#" 
+                  underline="hover" 
+                  color="inherit" 
+                  sx={{ 
+                    fontSize: '14px',
+                    transition: 'all 0.2s ease',
+                    '&:hover': {
+                      transform: 'translateX(5px)'
+                    }
+                  }}
+                >
+                  {service}
+                </Link>
+              ))}
             </Box>
           </Grid>
 
@@ -409,7 +278,7 @@ function Footer() {
                 mb: 1,
               }}
             >
-              +91 - 98304 42666
+              {contact.phone}
             </Typography>
             
             <Typography
@@ -419,7 +288,7 @@ function Footer() {
                 color: 'rgba(255,255,255,0.9)'
               }}
             >
-              Mail us at info@teamgrid.com
+              Mail us at {contact.email}
             </Typography>
           </Box>
 
@@ -526,7 +395,7 @@ function Footer() {
               color: 'rgba(255,255,255,0.5)'
             }}
           >
-            © 2025 Teamgrid. All rights reserved.
+            {copyright}
           </Typography>
         </Box>
       </Container>

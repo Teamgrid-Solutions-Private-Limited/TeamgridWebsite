@@ -11,69 +11,45 @@ import {
   useMediaQuery
 } from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import reactIcon from '../assets/Group.svg';
-import wordpressIcon from '../assets/Vector.svg';
-import woocommerceIcon from '../assets/WooCommerce_logo 2.svg';
-import shopifyIcon from '../assets/shopify.svg';
-import nodejsIcon from '../assets/nodejs-3.svg';
-import postgresqlIcon from '../assets/postgresql.svg';
-import mongodbIcon from '../assets/mongodb-icon-1-1.svg';
-import figmaIcon from '../assets/figma-icon.svg';
-import postmanIcon from '../assets/Group 3.svg';
+import { 
+  groupIcon as reactIcon,
+  vectorSvg as wordpressIcon,
+  woocommerceIcon,
+  shopifyIcon,
+  nodejsIcon,
+  postgresqlIcon,
+  mongodbIcon,
+  figmaIcon,
+  group3 as postmanIcon
+} from '../images';
+import data from '../data.json';
 
-const technologies = [
-  {
-    icon: reactIcon,
-    title: 'ReactJS',
-    desc: 'Build fast, interactive UIs with component-based architecture.'
-  },
-  {
-    icon: wordpressIcon,
-    title: 'WordPress',
-    desc: 'Flexible CMS for custom websites and content-rich platforms.'
-  },
-  {
-    icon: woocommerceIcon,
-    title: 'WooCommerce',
-    desc: 'Power your online store with WordPress integration.'
-  },
-  {
-    icon: shopifyIcon,
-    title: 'Shopify',
-    desc: 'Launch beautiful, high-converting e-commerce stores with ease.'
-  },
-  {
-    icon: nodejsIcon,
-    title: 'Node.js',
-    desc: 'Build fast, scalable servers with non-blocking architecture.'
-  },
-  {
-    icon: postgresqlIcon,
-    title: 'PostgreSQL',
-    desc: 'Reliable, powerful open-source relational database.'
-  },
-  {
-    icon: mongodbIcon,
-    title: 'MongoDB',
-    desc: 'Flexible NoSQL database for modern applications.'
-  },
-  {
-    icon: figmaIcon,
-    title: 'Figma',
-    desc: 'Collaborative UI/UX design and prototyping platform.'
-  },
-  {
-    icon: postmanIcon,
-    title: 'Postman',
-    desc: 'Simplify API development, testing, and collaboration.'
-  },
-];
+// Map icon strings to the imported icon variables
+const iconMap = {
+  reactIcon,
+  wordpressIcon,
+  woocommerceIcon,
+  shopifyIcon,
+  nodejsIcon,
+  postgresqlIcon,
+  mongodbIcon,
+  figmaIcon,
+  postmanIcon
+};
 
 function Technologies() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.down('md'));
   const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
+
+  const { title, subtitle, buttonText, technologies: techData } = data.technologies;
+  
+  // Map icon string names to actual imported image paths
+  const technologies = techData.map(tech => ({
+    ...tech,
+    icon: iconMap[tech.icon]
+  }));
 
   return (
     <Box
@@ -112,7 +88,7 @@ function Technologies() {
                 lineHeight: 1.2
               }}
             >
-              Our Capabilities
+              {title}
             </Typography>
             <Typography 
               variant="body2" 
@@ -122,7 +98,7 @@ function Technologies() {
                 fontSize: { xs: '14px', sm: '15px', md: '16px' } 
               }}
             >
-              Modern Technologies & Collaborative Tools
+              {subtitle}
             </Typography>
           </Box>
           
@@ -142,7 +118,7 @@ function Technologies() {
             }}
             endIcon={<ArrowRightAltIcon />}
           >
-            Get a Quote
+            {buttonText}
           </Button>
         </Box>
         

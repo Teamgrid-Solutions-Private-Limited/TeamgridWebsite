@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Box, Typography, Paper, Button, Avatar, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography, Paper, Button, Avatar } from "@mui/material";
 import { styled } from "@mui/system";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -89,7 +89,7 @@ const QuoteIcon = styled(Box)(({ theme }) => ({
   fontSize: "2rem",
   marginBottom: theme.spacing(1),
   "& svg": {
-    fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" },
+    fontSize: "2.5rem",
   },
 }));
 
@@ -109,30 +109,18 @@ const TestimonialCard = styled(Paper)(({ theme }) => ({
     transform: "translateY(-5px)",
     boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.1)",
   },
+
   [theme.breakpoints.down("md")]: {
-    width: "300px",
+    width: "280px",
     padding: theme.spacing(3),
-    height: "260px",
-    maxHeight: "260px",
-    margin: theme.spacing(0, 1),
   },
   [theme.breakpoints.down("sm")]: {
-    width: "250px",
-    padding: theme.spacing(2.5),
-    height: "250px",
-    maxHeight: "250px",
-    margin: theme.spacing(0, 0.75),
-  },
-  [theme.breakpoints.only("xs")]: {
-    width: "220px",
+    width: "260px",
     padding: theme.spacing(2),
-    height: "260px",
-    maxHeight: "260px",
-    margin: theme.spacing(0, 0.5),
   },
 }));
 
-const TestimonialRow = styled(Box)(({ theme, direction, speed = 60 }) => ({
+const TestimonialRow = styled(Box)(({ theme, direction }) => ({
   display: "flex",
   overflowX: "hidden",
   padding: theme.spacing(2, 0),
@@ -141,8 +129,8 @@ const TestimonialRow = styled(Box)(({ theme, direction, speed = 60 }) => ({
   "& .scroll-content": {
     display: "flex",
     animation: direction === "left" 
-      ? `scroll-left ${speed}s linear infinite`
-      : `scroll-right ${speed}s linear infinite`,
+      ? "scroll-left 60s linear infinite"
+      : "scroll-right 60s linear infinite",
   },
   "@keyframes scroll-left": {
     "0%": { transform: "translateX(0)" },
@@ -152,9 +140,6 @@ const TestimonialRow = styled(Box)(({ theme, direction, speed = 60 }) => ({
     "0%": { transform: "translateX(-50%)" },
     "100%": { transform: "translateX(0)" },
   },
-  [theme.breakpoints.down("sm")]: {
-    padding: theme.spacing(1, 0),
-  },
 }));
 
 const ClientInfo = styled(Box)(({ theme }) => ({
@@ -162,9 +147,6 @@ const ClientInfo = styled(Box)(({ theme }) => ({
   alignItems: "center",
   marginTop: "auto",
   paddingTop: theme.spacing(3),
-  [theme.breakpoints.down("sm")]: {
-    paddingTop: theme.spacing(2),
-  },
 }));
 
 const ExploreButton = styled(Button)(({ theme }) => ({
@@ -177,23 +159,12 @@ const ExploreButton = styled(Button)(({ theme }) => ({
   backgroundColor: "white",
   "&:hover": {
     backgroundColor: theme.palette.grey[50],
-    borderColor: theme.palette.grey[400],
-  },
-  [theme.breakpoints.down("sm")]: {
-    padding: theme.spacing(1, 3),
   },
 }));
 
 const Testimonials = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.down('md'));
-  
   const row1Ref = useRef(null);
   const row2Ref = useRef(null);
-  
-  // Speed up animation on smaller screens
-  const animationSpeed = isMobile ? 40 : isTablet ? 50 : 60;
   
   // Pause animation on hover
   useEffect(() => {
@@ -205,44 +176,28 @@ const Testimonials = () => {
       e.currentTarget.style.animationPlayState = 'running';
     };
     
-    const handleTouchStart = (e) => {
-      e.currentTarget.style.animationPlayState = 'paused';
-    };
-    
-    const handleTouchEnd = (e) => {
-      e.currentTarget.style.animationPlayState = 'running';
-    };
-    
     const row1Element = row1Ref.current;
     const row2Element = row2Ref.current;
     
     if (row1Element) {
       row1Element.addEventListener('mouseenter', handleMouseEnter);
       row1Element.addEventListener('mouseleave', handleMouseLeave);
-      row1Element.addEventListener('touchstart', handleTouchStart);
-      row1Element.addEventListener('touchend', handleTouchEnd);
     }
     
     if (row2Element) {
       row2Element.addEventListener('mouseenter', handleMouseEnter);
       row2Element.addEventListener('mouseleave', handleMouseLeave);
-      row2Element.addEventListener('touchstart', handleTouchStart);
-      row2Element.addEventListener('touchend', handleTouchEnd);
     }
     
     return () => {
       if (row1Element) {
         row1Element.removeEventListener('mouseenter', handleMouseEnter);
         row1Element.removeEventListener('mouseleave', handleMouseLeave);
-        row1Element.removeEventListener('touchstart', handleTouchStart);
-        row1Element.removeEventListener('touchend', handleTouchEnd);
       }
       
       if (row2Element) {
         row2Element.removeEventListener('mouseenter', handleMouseEnter);
         row2Element.removeEventListener('mouseleave', handleMouseLeave);
-        row2Element.removeEventListener('touchstart', handleTouchStart);
-        row2Element.removeEventListener('touchend', handleTouchEnd);
       }
     };
   }, []);
@@ -250,22 +205,19 @@ const Testimonials = () => {
   const renderTestimonialCard = (testimonial) => (
     <TestimonialCard elevation={0} key={testimonial.id}>
       <QuoteIcon>
-        <FormatQuoteIcon sx={{ 
-          color: "#0056D2", 
-          fontSize: { xs: "1.5rem", sm: "1.8rem", md: "2.5rem" } 
-        }} />
+        <FormatQuoteIcon sx={{ color: "#0056D2" }} />
       </QuoteIcon>
       <Typography 
         variant="body1" 
         sx={{ 
-          mb: { xs: 1, sm: 1.5, md: 3 },
+          mb: 3,
           flex: 1,
           fontStyle: "normal",
-          fontSize: { xs: "0.8125rem", sm: "0.875rem", md: "1rem" },
-          lineHeight: 1.5,
+          fontSize: "1rem",
+          lineHeight: 1.6,
           overflow: "hidden",
           display: "-webkit-box",
-          WebkitLineClamp: { xs: 3, sm: 3, md: 4 },
+          WebkitLineClamp: 4,
           WebkitBoxOrient: "vertical",
         }}
       >
@@ -276,29 +228,17 @@ const Testimonials = () => {
           src={testimonial.avatar} 
           alt={testimonial.name}
           sx={{ 
-            width: { xs: 36, sm: 42, md: 56 }, 
-            height: { xs: 36, sm: 42, md: 56 },
-            mr: { xs: 1, sm: 1.5, md: 2 },
+            width: 56, 
+            height: 56,
+            mr: 2,
             border: "2px solid #F0F0F0"
           }}
         />
         <Box>
-          <Typography 
-            variant="subtitle1" 
-            fontWeight={600}
-            sx={{ 
-              fontSize: { xs: "0.8125rem", sm: "0.875rem", md: "1rem" } 
-            }}
-          >
+          <Typography variant="subtitle1" fontWeight={600}>
             {testimonial.name}
           </Typography>
-          <Typography 
-            variant="body2" 
-            color="text.secondary"
-            sx={{ 
-              fontSize: { xs: "0.6875rem", sm: "0.75rem", md: "0.875rem" } 
-            }}
-          >
+          <Typography variant="body2" color="text.secondary">
             {testimonial.position}
           </Typography>
         </Box>
@@ -309,34 +249,30 @@ const Testimonials = () => {
   return (
     <Box 
       sx={{ 
-        py: { xs: 6, sm: 8, md: 12 },
+        py: { xs: 8, md: 12 },
         backgroundColor: "#FFFFFF",
         overflow: "hidden",
-        width: "100%",
+        width: "100vw",
         position: "relative",
         marginLeft: "calc(-50vw + 50%)",
         marginRight: "calc(-50vw + 50%)",
       }}
       id="testimonials"
     >
-      <Box sx={{ 
-        px: { xs: 2, sm: 3, md: 4 },
-        maxWidth: "100%", 
-      }}>
+      <Box sx={{ px: { xs: 2, md: 4 } }}>
         <Box sx={{ 
           textAlign: "center", 
-          mb: { xs: 4, sm: 5, md: 8 },
+          mb: { xs: 6, md: 8 },
           maxWidth: "1200px",
           mx: "auto",
-          px: { xs: 1, sm: 2, md: 3 },
         }}>
           <Typography 
             variant="h2" 
             component="h2" 
             sx={{ 
               fontWeight: 700,
-              mb: { xs: 1, sm: 1.5, md: 2 },
-              fontSize: { xs: "1.75rem", sm: "2.25rem", md: "3rem" }
+              mb: 2,
+              fontSize: { xs: "2rem", md: "3rem" }
             }}
           >
             What Our Clients Say
@@ -347,8 +283,7 @@ const Testimonials = () => {
             sx={{ 
               fontWeight: 400,
               maxWidth: "600px",
-              mx: "auto",
-              fontSize: { xs: "0.9375rem", sm: "1rem", md: "1.25rem" }
+              mx: "auto"
             }}
           >
             Trusted by teams for smart ideas and reliable execution.
@@ -356,7 +291,7 @@ const Testimonials = () => {
         </Box>
 
         {/* First row - scrolling left to right */}
-        <TestimonialRow direction="left" speed={animationSpeed} sx={{ mb: { xs: 2, md: 3 } }}>
+        <TestimonialRow direction="left" sx={{ mb: 3 }}>
           <Box className="scroll-content" ref={row1Ref}>
             {testimonialsRow1.map(renderTestimonialCard)}
             {testimonialsRow1.map(testimonial => renderTestimonialCard({ ...testimonial, id: `${testimonial.id}-dup` }))}
@@ -364,7 +299,7 @@ const Testimonials = () => {
         </TestimonialRow>
 
         {/* Second row - scrolling right to left */}
-        <TestimonialRow direction="right" speed={animationSpeed}>
+        <TestimonialRow direction="right">
           <Box className="scroll-content" ref={row2Ref}>
             {testimonialsRow2.map(renderTestimonialCard)}
             {testimonialsRow2.map(testimonial => renderTestimonialCard({ ...testimonial, id: `${testimonial.id}-dup` }))}
@@ -374,7 +309,7 @@ const Testimonials = () => {
         <Box sx={{ 
           display: "flex", 
           justifyContent: "center", 
-          mt: { xs: 4, sm: 5, md: 8 },
+          mt: { xs: 6, md: 8 },
           maxWidth: "1200px",
           mx: "auto",
         }}>

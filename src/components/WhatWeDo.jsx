@@ -15,9 +15,8 @@ import {
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import WestIcon from '@mui/icons-material/West';
 
-// Import Funiro images from assets
-import funiroMainImage from '../assets/Funiro Landing Page 3.svg';
-import funiroProductsImage from '../assets/Funiro Landing Page 4.svg';
+// Import Funiro images from centralized file
+import { funiroLanding3 as funiroMainImage, funiroLanding4 as funiroProductsImage } from '../images';
 
 // Service categories
 const serviceCategories = [
