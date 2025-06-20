@@ -43,6 +43,17 @@ import liveDiscussionPath from './assets/livediscussion.jpg';
 import layer1Path from './assets/Layer_1.svg';
 import mongoIconPath from "./assets/mongodb.svg";
 import wooIconPath from "./assets/Woo.svg";
+import storageIconPath from "./assets/lucide_database-zap.svg";
+import fileCodeIconModal from "./assets/lucide_file-code.svg";
+import wordpressModal from "./assets/ic_round-wordpress.svg";
+import mobileIconModal from "./assets/lucide_tablet-smartphone.svg";
+import crossPlatformIconModal from "./assets/lucide_layout-template.svg";
+import webAppIconModal from "./assets/proicons_apps.svg";
+import designIconModal from "./assets/lucide_layout-template.svg";
+import prototypeIconModal from "./assets/lucide_pencil-ruler.svg";
+import systemsIconModal from "./assets/lucide_paintbrush-vertical.svg";
+import shopifyIconModalModal from "./assets/hugeicons_shopify.svg";
+import wooCommerceIconModalModal from "./assets/Group11.svg";
 
 // Logos
 export const teamgridLogo = shortLogoPath;  // Use shortLogo as a fallback
@@ -64,6 +75,17 @@ export const groupIcon = groupIconPath;
 export const postmanAltIcon = postmanAltIconPath;
 export const mongoIcon = mongoIconPath;
 export const woo = wooIconPath;
+export const storageIcon = storageIconPath;
+export const fileCodeIcon = fileCodeIconModal;
+export const wordpressIconModal = wordpressModal;
+export const mobileIcon = mobileIconModal;
+export const crossPlatformIcon = crossPlatformIconModal;
+export const webAppIcon = webAppIconModal;
+export const designIcon = designIconModal;
+export const prototypeIcon = prototypeIconModal;
+export const systemsIcon = systemsIconModal;
+export const shopifyIconModal = shopifyIconModalModal;
+export const wooCommerceIconModal = wooCommerceIconModalModal;
 
 // Images and backgrounds
 export const rectangleImage1 = rectangleImage1Path;

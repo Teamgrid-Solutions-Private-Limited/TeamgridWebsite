@@ -6,8 +6,6 @@ import {
   Container,
   Button,
   IconButton,
-  Menu,
-  MenuItem,
   Typography,
   List,
   ListItem,
@@ -16,34 +14,68 @@ import {
   Drawer,
   Collapse,
   Divider,
+  Stack,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import { layer1 as logo } from "../images";
+import {
+  layer1 as logo,
+  storageIcon,
+  fileCodeIcon,
+  wordpressIconModal as wordpressIcon,
+  mobileIcon,
+  crossPlatformIcon,
+  webAppIcon,
+  designIcon,
+  prototypeIcon,
+  systemsIcon,
+  shopifyIconModal as shopifyIcon,
+  wooCommerceIconModal as wooCommerceIcon,
+} from "../images";
 
 // Import service icons from assets
-import fileCodeIcon from "../assets/lucide_file-code.svg";
-import storageIcon from "../assets/Group 26.svg";
-import wordpressIcon from "../assets/ic_round-wordpress.svg";
-import mobileIcon from "../assets/Group 29.svg";
-import crossPlatformIcon from "../assets/Group 30.svg";
-import webAppIcon from "../assets/Group 31.svg";
-import designIcon from "../assets/Group 33.svg";
-import prototypeIcon from "../assets/lucide_pencil-ruler.svg";
-import systemsIcon from "../assets/Group 35.svg";
-import shopifyIcon from "../assets/Group 36.svg";
-import wooCommerceIcon from "../assets/Group11.svg";
 
 function Navbar() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isTablet = useMediaQuery(theme.breakpoints.between("md", "lg"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeTab, setActiveTab] = useState(0);
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
+  const navRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target)
+      ) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Close mobile drawer on resize
+  useEffect(() => {
+    if (!isMobile && mobileOpen) {
+      setMobileOpen(false);
+    }
+  }, [isMobile, mobileOpen]);
 
   // Handle hover on menu item
   const handleMenuHover = (index) => {
@@ -65,6 +97,24 @@ function Navbar() {
     setOpenSubmenu(openSubmenu === index ? null : index);
   };
 
+  // Handle click on menu item
+  const handleMenuClick = (index) => {
+    setActiveTab(index);
+
+    if (menuItems[index].hasSubmenu) {
+      // If it has submenu, toggle the dropdown
+      setActiveDropdown(activeDropdown === index ? null : index);
+    } else {
+      // If it's a regular tab, close any open dropdown
+      setActiveDropdown(null);
+    }
+
+    // On mobile, close the drawer for non-submenu items
+    if (isMobile && !menuItems[index].hasSubmenu) {
+      setMobileOpen(false);
+    }
+  };
+
   const serviceCategories = [
     {
       title: "WEB DEVELOPMENT",
@@ -72,44 +122,17 @@ function Navbar() {
         {
           title: "Front-End Development",
           description: "Fast, responsive, and pixel-perfect user interfaces.",
-          icon: (
-            <Box
-              component="img"
-              src={fileCodeIcon}
-              alt="Front-End Development"
-              height={40}
-              width={40}
-              sx={{ objectFit: "contain" }}
-            />
-          ),
+          icon: fileCodeIcon,
         },
         {
           title: "Back-End Development",
           description: "Scalable, secure, and efficient architecture.",
-          icon: (
-            <Box
-              component="img"
-              src={storageIcon}
-              alt="Back-End Development"
-              height={45}
-              width={45}
-              sx={{ objectFit: "contain" }}
-            />
-          ),
+          icon: storageIcon,
         },
         {
           title: "WordPress & CMS",
           description: "Custom WordPress sites with Elementor, and more.",
-          icon: (
-            <Box
-              component="img"
-              src={wordpressIcon}
-              alt="WordPress & CMS"
-              height={45}
-              width={45}
-              sx={{ objectFit: "contain" }}
-            />
-          ),
+          icon: wordpressIcon,
         },
       ],
     },
@@ -119,45 +142,18 @@ function Navbar() {
         {
           title: "iOS & Android Development",
           description: "Native mobile experiences that perform and scale.",
-          icon: (
-            <Box
-              component="img"
-              src={mobileIcon}
-              alt="iOS & Android Development"
-              height={45}
-              width={45}
-              sx={{ objectFit: "contain" }}
-            />
-          ),
+          icon: mobileIcon,
         },
         {
           title: "Cross-Platform Apps",
           description:
             "Build and deploy everywhere with React Native or Flutter.",
-          icon: (
-            <Box
-              component="img"
-              src={crossPlatformIcon}
-              alt="Cross-Platform Apps"
-              height={45}
-              width={45}
-              sx={{ objectFit: "contain" }}
-            />
-          ),
+          icon: crossPlatformIcon,
         },
         {
           title: "Progressive Web Apps",
           description: "Web apps that work offline and feel native.",
-          icon: (
-            <Box
-              component="img"
-              src={webAppIcon}
-              alt="Progressive Web Apps"
-              height={45}
-              width={45}
-              sx={{ objectFit: "contain" }}
-            />
-          ),
+          icon: webAppIcon,
         },
       ],
     },
@@ -167,45 +163,18 @@ function Navbar() {
         {
           title: "UI/UX Design",
           description: "Intuitive, user-focused design for web and mobile.",
-          icon: (
-            <Box
-              component="img"
-              src={designIcon}
-              alt="UI/UX Design"
-              height={45}
-              width={45}
-              sx={{ objectFit: "contain" }}
-            />
-          ),
+          icon: designIcon,
         },
         {
           title: "Prototyping & Wireframing",
           description: "Visualize fast using tools like Figma and Adobe XD.",
-          icon: (
-            <Box
-              component="img"
-              src={prototypeIcon}
-              alt="Prototyping & Wireframing"
-              height={35}
-              width={35}
-              sx={{ objectFit: "contain" }}
-            />
-          ),
+          icon: prototypeIcon,
         },
         {
           title: "Design Systems",
           description:
             "Scalable design libraries to maintain brand consistency.",
-          icon: (
-            <Box
-              component="img"
-              src={systemsIcon}
-              alt="Design Systems"
-              height={45}
-              width={45}
-              sx={{ objectFit: "contain" }}
-            />
-          ),
+          icon: systemsIcon,
         },
       ],
     },
@@ -215,30 +184,12 @@ function Navbar() {
         {
           title: "Shopify Development",
           description: "Custom stores with fast checkout and optimized UX.",
-          icon: (
-            <Box
-              component="img"
-              src={shopifyIcon}
-              alt="Shopify Development"
-              height={45}
-              width={45}
-              sx={{ objectFit: "contain" }}
-            />
-          ),
+          icon: shopifyIcon,
         },
         {
           title: "WooCommerce Integration",
           description: "Extend WordPress with powerful features.",
-          icon: (
-            <Box
-              component="img"
-              src={wooCommerceIcon}
-              alt="WooCommerce Integration"
-              height={45}
-              width={45}
-              sx={{ objectFit: "contain" }}
-            />
-          ),
+          icon: wooCommerceIcon,
         },
       ],
     },
@@ -264,19 +215,21 @@ function Navbar() {
         alignItems: "center",
         justifyContent: "space-between",
         flex: 1,
-        ml: 8,
+        ml: { md: 2, lg: 8 },
       }}
     >
       <List
         ref={menuRef}
         sx={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: { md: "flex-end", lg: "space-between" },
+          flexWrap: { md: "wrap", lg: "nowrap" },
           bgcolor: "transparent",
           padding: "8px",
-          pl: 10,
+          pl: { md: 2, lg: 10 },
           "& .MuiListItem-root": { width: "auto" },
-          minWidth: "600px",
+          minWidth: { md: "auto", lg: "600px" },
+          gap: { md: 1, lg: 2 },
         }}
       >
         {menuItems.map((item, index) => (
@@ -284,22 +237,34 @@ function Navbar() {
             key={index}
             sx={{ position: "relative" }}
             onMouseEnter={() => handleMenuHover(index)}
+            onClick={() => handleMenuClick(index)}
           >
             <ListItem
               sx={{
                 color: "primary.main",
-                px: 2,
+                px: { md: 1, lg: 2 },
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
                 "&:hover": { bgcolor: "#F3F3F6" },
-                bgcolor: activeDropdown === index ? "#F3F3F6" : "transparent",
+                bgcolor:
+                  activeTab === index || activeDropdown === index
+                    ? "#F3F3F6"
+                    : "transparent",
                 borderRadius: "30px",
                 transition: "all 0.2s",
                 fontWeight: 500,
+                fontSize: { md: "0.85rem", lg: "1rem" },
+                whiteSpace: "nowrap",
               }}
             >
-              <Typography variant="body1" sx={{ fontWeight: 500 }}>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontWeight: 500,
+                  fontSize: { md: "0.85rem", lg: "1rem" },
+                }}
+              >
                 {item.title}
               </Typography>
               {item.hasSubmenu && (
@@ -320,30 +285,34 @@ function Navbar() {
                   top: "84px",
                   left: "50%",
                   transform: "translateX(-50%)",
-                  width: "1248px",
+                  width: { md: "90vw", lg: "1248px" },
+                  maxWidth: "1248px",
                   mt: 1.5,
                   height: "auto",
                   minHeight: "300px",
-                  maxHeight: "500px",
+                  maxHeight: { md: "80vh", lg: "500px" },
                   borderRadius: "12px",
                   boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.08)",
                   p: 3,
                   backgroundColor: "#fff",
                   zIndex: 1300,
-                  overflowY: "visible",
+                  overflowY: "auto",
                   display: "flex",
+                  flexDirection: { md: "column", lg: "row" },
+                  flexWrap: { md: "wrap", lg: "nowrap" },
                   justifyContent: "space-between",
+                  gap: 3,
                 }}
               >
                 {serviceCategories.map((category, catIndex) => (
                   <Box
                     key={catIndex}
                     sx={{
-                      width: "282px",
+                      width: { md: "100%", lg: "282px" },
                       height: "100%",
                       display: "flex",
                       flexDirection: "column",
-                      overflowY: "visible",
+                      mb: { md: 3, lg: 0 },
                     }}
                   >
                     <Typography
@@ -377,6 +346,7 @@ function Navbar() {
                             height: "auto",
                             minHeight: "60px",
                             "&:hover": {
+                              bgcolor: "#F3F3F6",
                               "& .service-title": {
                                 color: "#0B3C7B",
                               },
@@ -403,11 +373,23 @@ function Navbar() {
                               borderRadius: "8px",
                               backgroundColor: "rgba(11, 60, 123, 0.06)",
                               padding: "8px",
+                              "&:hover": {
+                                bgcolor: "#FFFFFF",
+                              },
                             }}
                           >
-                            {service.icon}
+                            <Box
+                              component="img"
+                              src={service.icon}
+                              alt={service.title}
+                              sx={{
+                                width: "24px",
+                                height: "24px",
+                                objectFit: "contain",
+                              }}
+                            />
                           </Box>
-                          <Box>
+                          <Box sx={{ flexGrow: 1 }}>
                             <Typography
                               className="service-title"
                               variant="subtitle1"
@@ -450,13 +432,16 @@ function Navbar() {
         variant="contained"
         color="primary"
         sx={{
-          ml: 3,
-          height: 48,
+          ml: { md: 1, lg: 3 },
+          height: { md: 42, lg: 48 },
+          minWidth: { md: "120px", lg: "auto" },
           borderRadius: "37px",
           boxShadow: "none",
-          px: 4,
+          px: { md: 2, lg: 4 },
           fontWeight: 500,
           textTransform: "none",
+          fontSize: { md: "0.85rem", lg: "1rem" },
+          whiteSpace: "nowrap",
         }}
       >
         Get a Quote
@@ -465,11 +450,11 @@ function Navbar() {
   );
 
   const renderMobileMenu = () => (
-    <Box sx={{ display: { xs: "flex", md: "none" } }}>
+    <Box sx={{ display: { xs: "flex", md: "none" }, marginLeft: "auto" }}>
       <IconButton
         color="primary"
         aria-label="open drawer"
-        edge="start"
+        edge="end"
         onClick={handleDrawerToggle}
         sx={{ ml: 2 }}
       >
@@ -484,7 +469,11 @@ function Navbar() {
             width: { xs: "100%", sm: 320 },
             boxSizing: "border-box",
             p: 2,
+            overflow: "auto",
           },
+        }}
+        ModalProps={{
+          keepMounted: true, // Better mobile performance
         }}
       >
         <Box
@@ -503,7 +492,7 @@ function Navbar() {
             sx={{ height: 40, width: "auto" }}
           />
           <IconButton onClick={handleDrawerToggle}>
-            <MenuIcon />
+            <CloseIcon />
           </IconButton>
         </Box>
         <Divider sx={{ mb: 2 }} />
@@ -516,12 +505,16 @@ function Navbar() {
                   px: 2,
                   borderRadius: 2,
                   "&:hover": { bgcolor: "rgba(11, 60, 123, 0.04)" },
+                  bgcolor: activeTab === index ? "#F3F3F6" : "transparent",
                 }}
                 button
                 onClick={
                   item.hasSubmenu
                     ? () => handleSubmenuToggle(index)
-                    : handleDrawerToggle
+                    : () => {
+                        handleMenuClick(index);
+                        handleDrawerToggle();
+                      }
                 }
               >
                 <Box
@@ -591,17 +584,54 @@ function Navbar() {
                                 display: "flex",
                                 alignItems: "center",
                                 gap: 1,
+                                width: "100%",
                               }}
                             >
-                              {service.icon}
-                              <Typography
-                                variant="body2"
+                              <Box
                                 sx={{
-                                  color: "#0B3C7B",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  width: "36px",
+                                  height: "36px",
+                                  flexShrink: 0,
+                                  borderRadius: "8px",
+                                  backgroundColor: "rgba(11, 60, 123, 0.06)",
+                                  padding: "6px",
                                 }}
                               >
-                                {service.title}
-                              </Typography>
+                                <Box
+                                  component="img"
+                                  src={service.icon}
+                                  alt={service.title}
+                                  sx={{
+                                    width: "24px",
+                                    height: "24px",
+                                    objectFit: "contain",
+                                  }}
+                                />
+                              </Box>
+                              <Stack spacing={0.5} sx={{ flex: 1 }}>
+                                <Typography
+                                  variant="body2"
+                                  sx={{
+                                    color: "#0B3C7B",
+                                    fontWeight: 500,
+                                  }}
+                                >
+                                  {service.title}
+                                </Typography>
+                                <Typography
+                                  variant="caption"
+                                  sx={{
+                                    display: { xs: "none", sm: "block" },
+                                    color: "text.secondary",
+                                    fontSize: "11px",
+                                  }}
+                                >
+                                  {service.description}
+                                </Typography>
+                              </Stack>
                             </Box>
                           </ListItem>
                         ))}
@@ -635,8 +665,9 @@ function Navbar() {
       position="fixed"
       color="default"
       elevation={0}
+      ref={navRef}
       sx={{
-        py: 1,
+        py: { xs: 0.5, sm: 0.75, md: 1 },
         bgcolor: "#FFFFFF",
         backdropFilter: "blur(8px)",
         boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.05)",
@@ -653,18 +684,25 @@ function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          px: { xs: 2, md: 4, lg: 0 },
+          px: { xs: 2, md: 4, lg: 8, xl: 0 },
         }}
       >
-        <Toolbar disableGutters sx={{ width: "100%", display: "flex" }}>
+        <Toolbar
+          disableGutters
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           <Box
             component="img"
             src={logo}
             alt="logo"
             sx={{
-              height: { xs: 40, md: 58 },
+              height: { xs: 40, md: 48, lg: 58 },
               width: "auto",
-              mr: 4,
+              mr: { xs: 0, md: 2, lg: 4 },
             }}
           />
 
