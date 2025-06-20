@@ -325,7 +325,7 @@ const Testimonials = () => {
       id="testimonials"
     >
       <Box sx={{ 
-        px: { xs: 2, sm: 3, md: 4 },
+        // px: { xs: 2, sm: 3, md: 4 },
         maxWidth: "100%", 
       }}>
         <Box sx={{ 
@@ -333,7 +333,7 @@ const Testimonials = () => {
           mb: { xs: 4, sm: 5, md: 8 },
           maxWidth: "1200px",
           mx: "auto",
-          px: { xs: 1, sm: 2, md: 3 },
+          // px: { xs: 1, sm: 2, md: 3 },
         }}>
           <Typography 
             variant="h2" 

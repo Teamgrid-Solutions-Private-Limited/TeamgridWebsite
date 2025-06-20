@@ -103,6 +103,7 @@ function WhyTeamgrid() {
                   borderColor: "primary.main",
                 },
                 fontSize: { xs: "12px", sm: "14px", md: "16px" },
+                marginRight:"300px"
               }}
             >
               Explore Services
