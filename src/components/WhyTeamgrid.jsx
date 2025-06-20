@@ -79,7 +79,7 @@ function WhyTeamgrid() {
           </Button>
         </Box>
         
-        <Grid container spacing={4}>
+        <Grid container spacing={6}>
           <Grid item xs={12} md={7} lg={6}>
             <Box
               component="img"
