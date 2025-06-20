@@ -10,10 +10,10 @@ import {
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 // Import from centralized images file
-import { 
+import {
   shortLogo as teamgridLogo,
   reactIcon,
-  bootstrapIcon, 
+  bootstrapIcon,
   wordpressIcon,
   figmaIcon,
   shopifyIcon,
@@ -22,16 +22,16 @@ import {
   postmanIcon,
   muiIcon,
   mongoIcon,
-  woo
+  woo,
 } from "../images";
 import CloseIcon from "@mui/icons-material/Close";
-
 
 function Home() {
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.down("sm"));
   const isSm = useMediaQuery(theme.breakpoints.between("sm", "md"));
   const isMd = useMediaQuery(theme.breakpoints.between("md", "lg"));
+  const isIPadPro = useMediaQuery("(min-width:1024px) and (max-width:1366px)");
   const isLg = useMediaQuery(theme.breakpoints.up("lg"));
 
   const [isPaused, setIsPaused] = useState(false);
@@ -42,15 +42,17 @@ function Home() {
   // Dynamically adjust orbit scale based on screen size
   useEffect(() => {
     if (isXs) {
-      setOrbitScale(0.4);
+      setOrbitScale(0.65);
     } else if (isSm) {
-      setOrbitScale(0.5);
+      setOrbitScale(0.7);
     } else if (isMd) {
       setOrbitScale(0.8);
+    } else if (isIPadPro) {
+      setOrbitScale(0.85);
     } else {
       setOrbitScale(1);
     }
-  }, [isXs, isSm, isMd, isLg]);
+  }, [isXs, isSm, isMd, isIPadPro, isLg]);
 
   const techDescriptions = {
     React:
@@ -102,28 +104,43 @@ function Home() {
         maxWidth={false}
         sx={{
           position: "relative",
-          top: { xs: "55px", sm: "80px", md: "30px" },
-          py: { xs: 3, md: 10 },
-          height: { xs: "auto", md: "100vh" },
-          minHeight: { xs: "85vh", md: "auto" },
+          top: { xs: 0, sm: "80px", md: "30px" },
+          py: { xs: 0, md: 10 },
+          height: { xs: "calc(100vh - 56px)", md: "100vh" },
+          minHeight: { xs: "calc(100vh - 56px)", md: "auto" },
           display: "flex",
-          alignItems: { xs: "flex-start", md: "center" },
-          pt: { xs: 5, md: 10 },
-          px: { xs: 2, md: 6, lg: 8, xl: 23 },
+          alignItems: { xs: "center", md: "center" },
+          justifyContent: { xs: "center", md: "flex-start" },
+          pt: { xs: 0, md: 10 },
+          pb: { xs: 0, md: 10 },
+          px: { xs: 3, md: 4, lg: 6, xl: 23 },
           mx: 0,
           width: "100%",
           maxWidth: "none",
+          overflow: "hidden", // Prevent overflow issues with orbits
+          "&::before": {
+            // This creates space for the mobile status bar to ensure true vertical centering
+            content: '""',
+            display: { xs: "block", sm: "none" },
+            height: "env(safe-area-inset-top, 0px)",
+          },
         }}
       >
         <Box
           sx={{
-            width: { xs: "100%", md: "60%", lg: "50%" },
+            width: { xs: "100%", md: "55%", lg: "50%" },
             gap: 2,
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            zIndex: 5, // Ensure text is above orbital system on small screens
-            mb: { xs: 10, md: 0 }, // Add bottom margin on mobile
+            alignItems: { xs: "center", md: "flex-start" },
+            textAlign: { xs: "center", md: "left" },
+            zIndex: 5,
+            mb: { xs: 0, md: 0 },
+            position: "relative",
+            mt: { xs: 0, sm: 0, md: 0 },
+            transform: { xs: "translateY(-25px)", sm: "none", md: "none" },
+            paddingLeft: { md: "25px", lg: 0 },
           }}
         >
           <Typography
@@ -137,7 +154,13 @@ function Home() {
             variant="h1"
             sx={{
               color: "#ffffff",
-              fontSize: { xs: "28px", sm: "36px", md: "48px", lg: "64px" },
+              fontSize: {
+                xs: "28px",
+                sm: "36px",
+                md: "42px",
+                lg: "58px",
+                xl: "64px",
+              },
               fontWeight: 700,
               lineHeight: 1.1,
             }}
@@ -152,7 +175,7 @@ function Home() {
               color: "#E1E0E0",
               fontSize: { xs: "16px", md: "18px" },
               lineHeight: 1.6,
-              maxWidth: { xs: "100%", md: "90%" },
+              maxWidth: { xs: "90%", md: "90%" },
             }}
           >
             We helps agencies and startups scale smarter — with dedicated
@@ -161,9 +184,14 @@ function Home() {
           </Typography>
 
           <Stack
-            direction={{ xs: "column", sm: "row" }}
-            spacing={{ xs: 2, sm: 3 }}
-            sx={{ mt: { xs: 2, sm: 3 } }}
+            direction={{ xs: "column", sm: "column", md: "row" }}
+            spacing={{ xs: 2.5, sm: 3 }}
+            sx={{
+              mt: { xs: 4, sm: 3 },
+              width: { xs: "100%", md: "auto" },
+              maxWidth: { xs: "280px", md: "none" },
+            }}
+            alignItems="center"
           >
             <Button
               variant="contained"
@@ -211,19 +239,22 @@ function Home() {
       <Box
         sx={{
           position: "absolute",
-          top: { xs: "38%", sm: "38%", md: "5%" },
+          top: { xs: "50%", sm: "45%", md: "5%", lg: "5%" },
+          left: { xs: "50%", sm: "50%", md: "80%", lg: "85%", xl: "87%" },
+          right: { xs: "auto", sm: "-30%", md: 0 },
           bottom: { xs: "auto", sm: "-30%", md: "auto" },
-          right: { xs: "-15%", sm: "-30%", md: 0 },
-          left: { xs: "50%", sm: "50%", md: "87%", lg: "91%" },
-          transform: "translateX(-50%)",
-          width: { xs: "130%", sm: "120%", md: "100%", lg: "75%" },
-          height: "100%",
-          zIndex: { xs: 1, md: 0 },
+          transform: {
+            xs: "translate(-50%, -50%)",
+            md: "translateX(-50%)",
+          },
+          width: { xs: "100%", sm: "120%", md: "110%", lg: "100%", xl: "75%" },
+          height: { xs: "100%", sm: "100%", md: "100%" },
+          zIndex: 0,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          opacity: { xs: 0.9, md: 1 },
-          pointerEvents: { xs: "auto", md: "auto" }, // Re-enable pointer events on mobile
+          opacity: { xs: 0.35, sm: 0.6, md: 0.8, lg: 1 },
+          pointerEvents: { xs: "none", sm: "auto", md: "auto" },
         }}
       >
         {/* Orbital circles */}
@@ -231,16 +262,18 @@ function Home() {
           sx={{
             position: "relative",
             width: {
-              xs: `${600 * orbitScale}px`,
+              xs: `${700 * orbitScale}px`,
               sm: `${800 * orbitScale}px`,
-              md: `${1000 * orbitScale}px`,
-              lg: "1150px",
+              md: `${900 * orbitScale}px`,
+              lg: `${1000 * orbitScale}px`,
+              xl: "1150px",
             },
             height: {
-              xs: `${600 * orbitScale}px`,
+              xs: `${700 * orbitScale}px`,
               sm: `${800 * orbitScale}px`,
-              md: `${1000 * orbitScale}px`,
-              lg: "1150px",
+              md: `${900 * orbitScale}px`,
+              lg: `${1000 * orbitScale}px`,
+              xl: "1150px",
             },
           }}
         >
@@ -252,7 +285,7 @@ function Home() {
               left: "50%",
               transform: "translate(-50%, -50%)",
               zIndex: 10,
-              scale: { xs: 0.3, sm: 0.5, md: 1, lg: 1 },
+              scale: { xs: 0.55, sm: 0.5, md: 0.7, lg: 0.8, xl: 1 },
             }}
           >
             {/* Outer circle */}
@@ -417,15 +450,26 @@ function Home() {
                     ? `${1301 * orbitScale}px`
                     : `${1645 * orbitScale}px`,
                 borderRadius: "50%",
-                border: "1px solid #FFFFFF36",
+                border: {
+                  xs:
+                    index < 2
+                      ? "1.5px solid rgba(255, 255, 255, 0.25)"
+                      : "1px solid rgba(255, 255, 255, 0.15)",
+                  sm: "1px solid rgba(255, 255, 255, 0.2)",
+                  md: "1px solid rgba(255, 255, 255, 0.2)",
+                },
                 transform: "translate(-50%, -50%)",
-                animation: `rotate${index + 1} ${500}s linear infinite`,
+                animation: `rotate${index + 1} ${
+                  isXs ? 250 : isIPadPro ? 400 : 500
+                }s linear infinite`,
                 animationPlayState: isPaused ? "paused" : "running",
                 cursor: "pointer",
-                zIndex: 5 - index, // Higher z-index for inner orbits
+                zIndex: 5 - index,
                 display: {
-                  xs: index > 2 ? "none" : "block", // Hide outermost orbit on xs screens
-                  sm: "block",
+                  xs: index > 1 ? "none" : "block",
+                  sm: index > 2 ? "none" : "block",
+                  md: index > 2 ? "none" : "block",
+                  lg: "block",
                 },
                 "@keyframes rotate1": {
                   "0%": {
@@ -440,7 +484,7 @@ function Home() {
                     transform: "translate(-50%, -50%) rotate(0deg)",
                   },
                   "100%": {
-                    transform: "translate(-50%, -50%) rotate(360deg)",
+                    transform: "translate(-50%, -50%) rotate(-360deg)",
                   },
                 },
                 "@keyframes rotate3": {
@@ -456,17 +500,17 @@ function Home() {
                     transform: "translate(-50%, -50%) rotate(0deg)",
                   },
                   "100%": {
-                    transform: "translate(-50%, -50%) rotate(360deg)",
+                    transform: "translate(-50%, -50%) rotate(-360deg)",
                   },
                 },
               }}
               onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
+              onMouseLeave={() => !showDescription && setIsPaused(false)}
             >
               {/* White dots on the orbits */}
-              {[...Array(isXs || isSm ? 4 : 8)].map((_, dotIndex) => {
+              {[...Array(isXs ? 4 : isSm ? 4 : 8)].map((_, dotIndex) => {
                 const angle =
-                  dotIndex * (isXs || isSm ? 90 : 45) * (Math.PI / 180);
+                  dotIndex * (isXs ? 90 : isSm ? 90 : 45) * (Math.PI / 180);
                 const radius =
                   index === 0
                     ? 311.5 * orbitScale
@@ -481,14 +525,20 @@ function Home() {
                     key={`dot-${index}-${dotIndex}`}
                     sx={{
                       position: "absolute",
-                      width: { xs: "4px", sm: "6px" },
-                      height: { xs: "4px", sm: "6px" },
+                      width: { xs: "4px", sm: "4px", md: "6px" },
+                      height: { xs: "4px", sm: "4px", md: "6px" },
                       borderRadius: "50%",
-                      bgcolor: "#B2D2FC",
+                      bgcolor: isXs
+                        ? "rgba(178, 210, 252, 0.8)"
+                        : "rgba(178, 210, 252, 0.5)",
                       top: `calc(50% + ${Math.sin(angle) * radius}px)`,
                       left: `calc(50% + ${Math.cos(angle) * radius}px)`,
                       transform: "translate(-50%, -50%)",
                       pointerEvents: "none", // Let clicks pass through dots
+                      display: {
+                        xs: index > 1 ? "none" : "block",
+                        sm: "block",
+                      }, // Only show dots for inner orbits on mobile
                     }}
                   />
                 );
@@ -505,6 +555,7 @@ function Home() {
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => handleTechClick("React")}
                     orbitScale={orbitScale}
+                    isMobileView={isXs}
                   />
                   <TechIcon
                     name="Node.js"
@@ -514,6 +565,7 @@ function Home() {
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => handleTechClick("Node.js")}
                     orbitScale={orbitScale}
+                    isMobileView={isXs}
                   />
                   <TechIcon
                     name="PostgreSQL"
@@ -523,6 +575,7 @@ function Home() {
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => handleTechClick("PostgreSQL")}
                     orbitScale={orbitScale}
+                    isMobileView={isXs}
                   />
                 </>
               )}
@@ -538,6 +591,7 @@ function Home() {
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => handleTechClick("Figma")}
                     orbitScale={orbitScale}
+                    isMobileView={isXs}
                   />
                   <TechIcon
                     name="Bootstrap"
@@ -547,6 +601,7 @@ function Home() {
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => handleTechClick("Bootstrap")}
                     orbitScale={orbitScale}
+                    isMobileView={isXs}
                   />
                   <TechIcon
                     name="MongoDB"
@@ -556,6 +611,7 @@ function Home() {
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => handleTechClick("MongoDB")}
                     orbitScale={orbitScale}
+                    isMobileView={isXs}
                   />
                 </>
               )}
@@ -571,6 +627,7 @@ function Home() {
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => handleTechClick("WordPress")}
                     orbitScale={orbitScale}
+                    isMobileView={isXs}
                   />
                   <TechIcon
                     name="Postman"
@@ -580,6 +637,7 @@ function Home() {
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => handleTechClick("Postman")}
                     orbitScale={orbitScale}
+                    isMobileView={isXs}
                   />
                   <TechIcon
                     name="WooCommerce"
@@ -589,6 +647,7 @@ function Home() {
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => handleTechClick("WooCommerce")}
                     orbitScale={orbitScale}
+                    isMobileView={isXs}
                   />
                 </>
               )}
@@ -604,6 +663,7 @@ function Home() {
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => handleTechClick("Shopify")}
                     orbitScale={orbitScale}
+                    isMobileView={isXs}
                   />
                   <TechIcon
                     name="Material UI"
@@ -613,6 +673,7 @@ function Home() {
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => handleTechClick("Material UI")}
                     orbitScale={orbitScale}
+                    isMobileView={isXs}
                   />
                 </>
               )}
@@ -633,11 +694,61 @@ function TechIcon({
   onMouseLeave,
   onClick,
   orbitScale = 1,
+  isMobileView = false,
 }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isIPadPro = useMediaQuery("(min-width:1024px) and (max-width:1366px)");
 
   const getPosition = () => {
+    // Adjust positions for iPad Pro
+    if (isIPadPro) {
+      switch (position) {
+        case "top":
+          return { top: "0%", left: "50%", transform: "translate(-50%, -50%)" };
+        case "topRight":
+          return {
+            top: "15%",
+            left: "80%",
+            transform: "translate(-50%, -50%)",
+          };
+        case "right":
+          return {
+            top: "50%",
+            left: "95%",
+            transform: "translate(-50%, -50%)",
+          };
+        case "bottomRight":
+          return {
+            top: "85%",
+            left: "80%",
+            transform: "translate(-50%, -50%)",
+          };
+        case "bottom":
+          return {
+            top: "95%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          };
+        case "bottomLeft":
+          return {
+            top: "85%",
+            left: "15%",
+            transform: "translate(-50%, -50%)",
+          };
+        case "left":
+          return { top: "50%", left: "5%", transform: "translate(-50%, -50%)" };
+        case "topLeft":
+          return {
+            top: "15%",
+            left: "15%",
+            transform: "translate(-50%, -50%)",
+          };
+        default:
+          return { top: "0%", left: "50%", transform: "translate(-50%, -50%)" };
+      }
+    }
+    // Default positions for other screen sizes
     switch (position) {
       case "top":
         return { top: "0%", left: "50%", transform: "translate(-50%, -50%)" };
@@ -665,9 +776,9 @@ function TechIcon({
       sx={{
         position: "absolute",
         ...getPosition(),
-        zIndex: 20, // Ensure icons are always clickable
+        zIndex: 20,
         cursor: "pointer",
-        pointerEvents: "auto", // Explicitly enable pointer events
+        pointerEvents: "auto",
       }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -675,18 +786,20 @@ function TechIcon({
     >
       <Box
         sx={{
-          width: isMobile ? `${60 * orbitScale}px` : `${68 * orbitScale}px`,
-          height: isMobile ? `${60 * orbitScale}px` : `${68 * orbitScale}px`,
+          width: isMobile ? `${55 * orbitScale}px` : `${68 * orbitScale}px`,
+          height: isMobile ? `${55 * orbitScale}px` : `${68 * orbitScale}px`,
           borderRadius: "50%",
-          bgcolor: "#0D264F",
+          bgcolor: isMobileView ? "rgba(13, 38, 79, 0.8)" : "#0D264F",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          boxShadow: "0 0 20px rgba(0, 123, 255, 0.2)",
+          boxShadow: isMobileView
+            ? "0 0 15px rgba(0, 123, 255, 0.4)"
+            : "0 0 20px rgba(0, 123, 255, 0.2)",
           border: "1px solid #3B526F",
           "&:hover": {
             boxShadow: "0 0 30px rgba(0, 123, 255, 0.4)",
-            transform: "scale(1.1)",
+            transform: "scale(1.05)",
           },
           transition: "all 0.3s ease-in-out",
         }}
@@ -696,12 +809,12 @@ function TechIcon({
           src={icon}
           alt={name}
           sx={{
-            width: isMobile ? `${38 * orbitScale}px` : `${38 * orbitScale}px`,
-            height: isMobile ? `${38 * orbitScale}px` : `${38 * orbitScale}px`,
+            width: isMobile ? `${30 * orbitScale}px` : `${38 * orbitScale}px`,
+            height: isMobile ? `${30 * orbitScale}px` : `${38 * orbitScale}px`,
             objectFit: "contain",
-            transition: "transform 0.3s ease-in-out",
+            transition: "transform 0.2s ease-in-out",
             "&:hover": {
-              transform: "scale(1.1)",
+              transform: "scale(1.05)",
             },
           }}
         />
