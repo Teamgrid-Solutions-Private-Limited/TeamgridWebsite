@@ -214,17 +214,20 @@ function Navbar() {
         alignItems: "center",
         justifyContent: "space-between",
         flex: 1,
+        width: "100%",
       }}
     >
-       <Box
-            component="img"
-            src={logo}
-            alt="logo"
-            sx={{
-              height: { xs: 40, md: 48, lg: 58 },
-              width: "auto",
-            }}
-          />
+      <Box
+        component="img"
+        src={logo}
+        alt="logo"
+        sx={{
+          height: { xs: 40, md: 48, lg: 58 },
+          width: "auto",
+          mr: { md: 2, lg: 4 },
+          display: { xs: "none", md: "block" },
+        }}
+      />
       <List
         ref={menuRef}
         sx={{
@@ -235,6 +238,9 @@ function Navbar() {
           padding: 0,
           "& .MuiListItem-root": { width: "auto" },
           gap: { md: 0.5, lg: 1 },
+          flex: { md: "1 1 auto" },
+          mx: { md: 2, lg: 4 },
+          overflow: { md: "auto" },
         }}
       >
         {menuItems.map((item, index) => (
@@ -287,18 +293,18 @@ function Navbar() {
                 onMouseLeave={handleDropdownLeave}
                 sx={{
                   position: "fixed",
-                  top: "84px",
+                  top: { md: "76px", lg: "84px" },
                   left: "50%",
                   transform: "translateX(-50%)",
-                  width: { md: "90vw", lg: "1248px" },
+                  width: { md: "90vw", lg: "90vw", xl: "1248px" },
                   maxWidth: "1248px",
                   mt: 1.5,
                   height: "auto",
-                  minHeight: "300px",
+                  minHeight: { md: "250px", lg: "300px" },
                   maxHeight: { md: "80vh", lg: "500px" },
                   borderRadius: "12px",
                   boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.08)",
-                  p: 3,
+                  p: { md: 2, lg: 3 },
                   backgroundColor: "#fff",
                   zIndex: 1300,
                   overflowY: "auto",
@@ -306,7 +312,7 @@ function Navbar() {
                   flexDirection: { md: "column", lg: "row" },
                   flexWrap: { md: "wrap", lg: "nowrap" },
                   justifyContent: "space-between",
-                  gap: 3,
+                  gap: { md: 2, lg: 3 },
                 }}
               >
                 {serviceCategories.map((category, catIndex) => (
@@ -326,40 +332,41 @@ function Navbar() {
                         fontWeight: 400,
                         color: "text.secondary",
                         fontFamily: "PayPal Open, sans-serif",
-                        fontSize: "11px",
-                        mb: 1,
+                        fontSize: "12px",
+                        mb: 0,
                         display: "block",
                         textTransform: "uppercase",
                         opacity: 0.7,
                         letterSpacing: "0.5px",
+                        pl: 2.5,
                       }}
                     >
                       {category.title}
                     </Typography>
 
-                    <Box sx={{ mt: 1 }}>
+                    <Box sx={{ mt: 0 }}>
                       {category.services.map((service, serviceIndex) => (
                         <Box
                           key={serviceIndex}
                           sx={{
-                            mb: 2,
+                            mb: 0,
                             display: "flex",
                             alignItems: "center",
-                            gap: 2,
+                            gap: 1,
                             cursor: "pointer",
                             width: "100%",
                             height: "auto",
                             minHeight: "60px",
                             "&:hover": {
-                              bgcolor: "#F3F3F6",
+                              bgcolor: "#f2f2f5",
                               "& .service-title": {
                                 color: "#0B3C7B",
                               },
                               backgroundColor: "rgba(0, 0, 0, 0.02)",
-                              borderRadius: "6px",
+                              borderRadius: "20px",
                             },
-                            px: 1,
-                            py: 0.5,
+                            px: 2,
+                            py: 2,
                             transition: "all 0.2s ease",
                           }}
                           onClick={() => {
@@ -402,7 +409,7 @@ function Navbar() {
                                 fontWeight: 500,
                                 color: "#0B3C7B",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: "15px",
+                                fontSize: "14px",
                                 mb: 0.25,
                                 transition: "color 0.2s",
                               }}
@@ -414,7 +421,7 @@ function Navbar() {
                               sx={{
                                 color: "text.secondary",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: "13px",
+                                fontSize: "14px",
                                 lineHeight: 1.5,
                                 opacity: 0.8,
                               }}
@@ -446,9 +453,10 @@ function Navbar() {
           textTransform: "none",
           fontSize: { md: "0.85rem", lg: "1rem" },
           whiteSpace: "nowrap",
+          display: { xs: "none", md: "flex" },
         }}
       >
-       Lets Talk
+        Lets Talk
       </Button>
     </Box>
   );
@@ -460,9 +468,12 @@ function Navbar() {
         aria-label="open drawer"
         edge="end"
         onClick={handleDrawerToggle}
-        sx={{ ml: 2 }}
+        sx={{
+          ml: 2,
+          fontSize: "1.5rem",
+        }}
       >
-        <MenuIcon />
+        <MenuIcon fontSize="large" />
       </IconButton>
       <Drawer
         anchor="right"
@@ -499,7 +510,6 @@ function Navbar() {
             <CloseIcon />
           </IconButton>
         </Box>
-        <Divider sx={{ mb: 2 }} />
         <List sx={{ width: "100%" }}>
           {menuItems.map((item, index) => (
             <React.Fragment key={index}>
@@ -580,7 +590,7 @@ function Navbar() {
                             sx={{
                               pl: 6,
                               py: 1,
-                              "&:hover": { bgcolor: "rgba(11, 60, 123, 0.04)" },
+                              "&:hover": { bgcolor: "#f2f2f5" },
                             }}
                           >
                             <Box
@@ -647,7 +657,7 @@ function Navbar() {
             </React.Fragment>
           ))}
         </List>
-        <Box sx={{ position: "sticky", bottom: 16, px: 2, mt: 4 }}>
+        <Box sx={{ px: 2, pb:2 }}>
           <Button
             variant="contained"
             color="primary"
@@ -677,9 +687,9 @@ function Navbar() {
         boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.05)",
         zIndex: (theme) => theme.zIndex.drawer + 1,
         width: "100%",
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center'
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Container
@@ -689,7 +699,7 @@ function Navbar() {
           alignItems: "center",
           justifyContent: "space-between",
           px: { xs: 2, md: 4, lg: 8, xl: 0 },
-          width: "1400px"
+          maxWidth: { xs: "100%", xl: "1400px" },
         }}
       >
         <Toolbar
@@ -701,7 +711,17 @@ function Navbar() {
             alignItems: "center",
           }}
         >
-         
+          {/* Logo - visible on all screens */}
+          <Box
+            component="img"
+            src={logo}
+            alt="logo"
+            sx={{
+              height: { xs: 40, md: 48, lg: 58 },
+              width: "auto",
+              display: { xs: "block", md: "none" },
+            }}
+          />
 
           {renderDesktopMenu()}
           {renderMobileMenu()}
