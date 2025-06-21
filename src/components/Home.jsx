@@ -99,7 +99,8 @@ function Home() {
         overflow: "hidden",
         width: "100%",
         display:'flex',
-        justifyContent:'center'
+        justifyContent:'center',
+        alignItems:'center'
       }}
     >
       <Box
@@ -176,7 +177,7 @@ function Home() {
               width: { xs: "100%", md: "auto" },
               maxWidth: { xs: "280px", md: "none" },
             }}
-            alignItems="center"
+            // alignItems="center"
           >
             <Button
               variant="contained"
