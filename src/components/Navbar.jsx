@@ -205,7 +205,6 @@ function Navbar() {
     },
     { title: "Technologies We Use", hasSubmenu: false },
     { title: "How we work", hasSubmenu: false },
-    { title: "Let's Talk", hasSubmenu: false },
   ];
 
   const renderDesktopMenu = () => (
@@ -215,21 +214,27 @@ function Navbar() {
         alignItems: "center",
         justifyContent: "space-between",
         flex: 1,
-        ml: { md: 2, lg: 8 },
       }}
     >
+       <Box
+            component="img"
+            src={logo}
+            alt="logo"
+            sx={{
+              height: { xs: 40, md: 48, lg: 58 },
+              width: "auto",
+            }}
+          />
       <List
         ref={menuRef}
         sx={{
           display: "flex",
-          justifyContent: { md: "flex-end", lg: "space-between" },
-          flexWrap: { md: "wrap", lg: "nowrap" },
+          justifyContent: "center",
+          flexWrap: "nowrap",
           bgcolor: "transparent",
-          padding: "8px",
-          pl: { md: 2, lg: 10 },
+          padding: 0,
           "& .MuiListItem-root": { width: "auto" },
-          minWidth: { md: "auto", lg: "600px" },
-          gap: { md: 1, lg: 2 },
+          gap: { md: 0.5, lg: 1 },
         }}
       >
         {menuItems.map((item, index) => (
@@ -432,7 +437,6 @@ function Navbar() {
         variant="contained"
         color="primary"
         sx={{
-          ml: { md: 1, lg: 3 },
           height: { md: 42, lg: 48 },
           minWidth: { md: "120px", lg: "auto" },
           borderRadius: "37px",
@@ -444,7 +448,7 @@ function Navbar() {
           whiteSpace: "nowrap",
         }}
       >
-        Get a Quote
+       Lets Talk
       </Button>
     </Box>
   );
@@ -653,7 +657,7 @@ function Navbar() {
               py: 1.5,
             }}
           >
-            Get a Quote
+            Let's Talk
           </Button>
         </Box>
       </Drawer>
@@ -672,19 +676,20 @@ function Navbar() {
         backdropFilter: "blur(8px)",
         boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.05)",
         zIndex: (theme) => theme.zIndex.drawer + 1,
-        top: 0,
-        left: 0,
-        right: 0,
         width: "100%",
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
       }}
     >
       <Container
-        maxWidth="xl"
+        maxWidth="1400px"
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           px: { xs: 2, md: 4, lg: 8, xl: 0 },
+          width: "1400px"
         }}
       >
         <Toolbar
@@ -693,18 +698,10 @@ function Navbar() {
             width: "100%",
             display: "flex",
             justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <Box
-            component="img"
-            src={logo}
-            alt="logo"
-            sx={{
-              height: { xs: 40, md: 48, lg: 58 },
-              width: "auto",
-              mr: { xs: 0, md: 2, lg: 4 },
-            }}
-          />
+         
 
           {renderDesktopMenu()}
           {renderMobileMenu()}

@@ -64,6 +64,9 @@ function Technologies() {
         py: { xs: 4, sm: 5, md: 6 },
         overflow: "hidden", // Prevent any potential overflow issues
         width: "100%",
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
       }}
     >
       <Container
@@ -73,7 +76,7 @@ function Technologies() {
           alignItems: "center",
           justifyContent: "space-between",
           px: { xs: 2, md: 4, lg: 8, xl: 0 },
-          maxWidth: { xs: "100%", xl: "1440px" },
+          width:'1400px'
         }}
       >
         <Box

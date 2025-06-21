@@ -28,15 +28,19 @@ function WhyTeamgrid() {
         py: { xs: 6, md: 10 },
         width: "100%",
         backgroundColor: "#fff",
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
       }}
     >
       <Container
-        maxWidth="xl"
+        maxWidth="1400px"
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           px: { xs: 2, md: 4, lg: 8, xl: 0 },
+          width:'1400px'
         }}
       >
         <Toolbar

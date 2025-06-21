@@ -33,28 +33,30 @@ const WhoWeHelp = () => {
       sx={{
         py: { xs: 8, md: 12 },
         bgcolor: "#fff",
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        width:"100%"
       }}
     >
       <Container
-        maxWidth="xl"
+        maxWidth="1400px"
         sx={{
           px: { xs: 2, md: 4, lg: 8, xl: 0 },
+          width:'1400px',
         }}
       >
         <Box
           sx={{
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
-            alignItems: { xs: "flex-start", md: "center" },
-            justifyContent: "space-between",
-            gap: { xs: 4, md: 6 },
+         gap:'20px'
           }}
         >
           {/* Left Column - Text and Button */}
           <Box
             sx={{
-              width: { xs: "100%", md: "40%" },
-              maxWidth: { xs: "100%", md: "470px" },
+             
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",

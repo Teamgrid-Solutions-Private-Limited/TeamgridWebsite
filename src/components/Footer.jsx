@@ -28,14 +28,18 @@ function Footer() {
         py: { xs: 6, md: 8 },
         bgcolor: "#051a36",
         color: "white",
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
       }}
     >
       <Container
-        maxWidth="xl"
+        maxWidth="1400px"
         sx={{
           display: "flex",
           flexDirection: "column",
           px: { xs: 2, md: 4, lg: 8, xl: 0 },
+          width:'1400px'
         }}
       >
         <Grid container spacing={4}>

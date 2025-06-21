@@ -42,13 +42,17 @@ function WhatWeDo() {
       sx={{
         py: { xs: 5, md: 10 },
         bgcolor: "#fff",
-        overflow: "hidden", // Prevent horizontal scroll on small screens
+        overflow: "hidden", 
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
       }}
     >
       <Container
-        maxWidth="xl"
+        maxWidth="1400px"
         sx={{
           px: { xs: 2, md: 4, lg: 8, xl: 0 },
+          width:"1400px"
         }}
       >
         {/* Heading and intro text */}

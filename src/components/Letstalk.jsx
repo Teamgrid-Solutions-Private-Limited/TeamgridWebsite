@@ -36,13 +36,13 @@ function Letstalk() {
       }}
     >
       <Container
-        maxWidth="xl"
+        maxWidth="1400px"
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           px: { xs: 2, md: 4, lg: 8, xl: 0 },
-          maxWidth: { xs: "100%", xl: "1440px" },
+          width: "1400px" ,
         }}
       >
         <Box

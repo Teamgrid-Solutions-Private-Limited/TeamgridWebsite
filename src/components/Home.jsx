@@ -94,36 +94,25 @@ function Home() {
     <Box
       sx={{
         bgcolor: "#001C42",
-        minHeight: "100vh",
+        // minHeight: "100vh",
         position: "relative",
         overflow: "hidden",
         width: "100%",
+        display:'flex',
+        justifyContent:'center'
       }}
     >
-      <Container
-        maxWidth={false}
+      <Box
+        maxWidth={'1400px'}
         sx={{
           position: "relative",
-          top: { xs: 0, sm: "80px", md: "30px" },
-          py: { xs: 0, md: 10 },
           height: { xs: "calc(100vh - 56px)", md: "100vh" },
           minHeight: { xs: "calc(100vh - 56px)", md: "auto" },
           display: "flex",
           alignItems: { xs: "center", md: "center" },
-          justifyContent: { xs: "center", md: "flex-start" },
-          pt: { xs: 0, md: 10 },
-          pb: { xs: 0, md: 10 },
-          px: { xs: 3, md: 4, lg: 6, xl: 23 },
-          mx: 0,
-          width: "100%",
-          maxWidth: "none",
-          overflow: "hidden", // Prevent overflow issues with orbits
-          "&::before": {
-            // This creates space for the mobile status bar to ensure true vertical centering
-            content: '""',
-            display: { xs: "block", sm: "none" },
-            height: "env(safe-area-inset-top, 0px)",
-          },
+          px: { xs: 2, md: 4, lg: 8, xl: 0 },
+          // justifyContent: 'center',
+          width: "1400px",
         }}
       >
         <Box
@@ -132,15 +121,11 @@ function Home() {
             gap: 2,
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            alignItems: { xs: "center", md: "flex-start" },
-            textAlign: { xs: "center", md: "left" },
+            // justifyContent: "center",
+            // alignItems:  "flex-start" ,
+          
             zIndex: 5,
             mb: { xs: 0, md: 0 },
-            position: "relative",
-            mt: { xs: 0, sm: 0, md: 0 },
-            transform: { xs: "translateY(-25px)", sm: "none", md: "none" },
-            paddingLeft: { md: "25px", lg: 0 },
           }}
         >
           <Typography
@@ -233,7 +218,7 @@ function Home() {
             </Button>
           </Stack>
         </Box>
-      </Container>
+      </Box>
 
       {/* Orbital system with tech icons */}
       <Box
