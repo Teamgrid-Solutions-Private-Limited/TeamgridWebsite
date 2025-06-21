@@ -61,7 +61,7 @@ function Technologies() {
       component="section"
       sx={{
         bgcolor: "#0B3C7B",
-        py: { xs: 4, sm: 5, md: 6 },
+        py: { xs: 6, sm: 8, md: 12 },
         overflow: "hidden", // Prevent any potential overflow issues
         width: "100%",
         display:'flex',
@@ -75,7 +75,7 @@ function Technologies() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          px: { xs: 2, md: 4, lg: 8, xl: 0 },
+          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
           width:'1400px'
         }}
       >

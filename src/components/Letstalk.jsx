@@ -28,7 +28,7 @@ function Letstalk() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        py: { xs: 5, sm: 6, md: 0 },
+        py: { xs: 6, sm: 8, md: 12 },
         height: { xs: "auto", md: "592px" },
         overflow: "hidden",
         position: "relative",
@@ -41,7 +41,7 @@ function Letstalk() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          px: { xs: 2, md: 4, lg: 8, xl: 0 },
+          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
           width: "1400px" ,
         }}
       >

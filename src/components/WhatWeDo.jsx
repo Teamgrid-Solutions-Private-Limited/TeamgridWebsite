@@ -40,7 +40,7 @@ function WhatWeDo() {
     <Box
       component="section"
       sx={{
-        py: { xs: 5, md: 10 },
+        py: { xs: 6, sm: 8, md: 12 },
         bgcolor: "#fff",
         overflow: "hidden", 
         display:'flex',
@@ -51,7 +51,7 @@ function WhatWeDo() {
       <Container
         maxWidth="1400px"
         sx={{
-          px: { xs: 2, md: 4, lg: 8, xl: 0 },
+          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
           width:"1400px"
         }}
       >

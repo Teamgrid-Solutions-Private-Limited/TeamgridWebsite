@@ -25,7 +25,7 @@ function WhyTeamgrid() {
     <Box
       component="section"
       sx={{
-        py: { xs: 6, md: 10 },
+        py: { xs: 6, sm: 8, md: 12 },
         width: "100%",
         backgroundColor: "#fff",
         display: 'flex',
@@ -36,7 +36,7 @@ function WhyTeamgrid() {
       <Container
         maxWidth="1400px"
         sx={{
-          px: { xs: 2, md: 4, lg: 8, xl: 0 },
+          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
           width: '1400px',
           display: 'flex',
           flexDirection: 'column',

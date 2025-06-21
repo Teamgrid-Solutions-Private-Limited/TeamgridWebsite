@@ -308,8 +308,6 @@ const Testimonials = () => {
         overflow: "hidden",
         width: "100%",
         position: "relative",
-        marginLeft: "calc(-50vw + 50%)",
-        marginRight: "calc(-50vw + 50%)",
       }}
       id="testimonials"
     >
@@ -319,7 +317,7 @@ const Testimonials = () => {
       }}>
       <Box sx={{display:"flex",justifyContent:'center',mb:{xs: 4, sm: 5, md: 8}}}>
         <Box sx={{ 
-          px: { xs: 1, sm: 2, md: 3 },
+          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
           width:'1400px',
           
         }}>

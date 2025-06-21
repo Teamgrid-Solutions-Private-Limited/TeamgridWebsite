@@ -111,7 +111,7 @@ function Home() {
           minHeight: { xs: "calc(100vh - 56px)", md: "auto" },
           display: "flex",
           alignItems: { xs: "center", md: "center" },
-          px: { xs: 2, md: 4, lg: 8, xl: 0 },
+          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
           // justifyContent: 'center',
           width: "1400px",
         }}
