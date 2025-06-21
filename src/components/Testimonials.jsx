@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Box, Typography, Paper, Button, Avatar, useMediaQuery, useTheme } from "@mui/material";
 import { styled } from "@mui/system";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
@@ -137,7 +137,7 @@ const TestimonialCard = styled(Paper)(({ theme }) => ({
   },
 }));
 
-const TestimonialRow = styled(Box)(({ theme, direction, speed = 60 }) => ({
+const TestimonialRow = styled(Box)(({ theme, direction, speed = 60, isPaused }) => ({
   display: "flex",
   overflowX: "hidden",
   padding: theme.spacing(2, 0),
@@ -148,6 +148,7 @@ const TestimonialRow = styled(Box)(({ theme, direction, speed = 60 }) => ({
     animation: direction === "left" 
       ? `scroll-left ${speed}s linear infinite`
       : `scroll-right ${speed}s linear infinite`,
+    animationPlayState: isPaused ? 'paused' : 'running',
   },
   "@keyframes scroll-left": {
     "0%": { transform: "translateX(0)" },
@@ -196,64 +197,52 @@ const Testimonials = () => {
   
   const row1Ref = useRef(null);
   const row2Ref = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
   
   // Speed up animation on smaller screens
-  const animationSpeed = isMobile ? 40 : isTablet ? 50 : 60;
+  const animationSpeed = isMobile ? 80 : isTablet ? 100 : 120;
   
   // Pause animation on hover
   useEffect(() => {
-    const handleMouseEnter = (e) => {
-      e.currentTarget.style.animationPlayState = 'paused';
+    const handleMouseEnter = () => {
+      setIsPaused(true);
     };
     
-    const handleMouseLeave = (e) => {
-      e.currentTarget.style.animationPlayState = 'running';
+    const handleMouseLeave = () => {
+      setIsPaused(false);
     };
     
-    const handleTouchStart = (e) => {
-      e.currentTarget.style.animationPlayState = 'paused';
+    const handleTouchStart = () => {
+      setIsPaused(true);
     };
     
-    const handleTouchEnd = (e) => {
-      e.currentTarget.style.animationPlayState = 'running';
+    const handleTouchEnd = () => {
+      setIsPaused(false);
     };
     
-    const row1Element = row1Ref.current;
-    const row2Element = row2Ref.current;
+    // Add event listeners to all testimonial cards
+    const testimonialCards = document.querySelectorAll('[data-testimonial-card]');
     
-    if (row1Element) {
-      row1Element.addEventListener('mouseenter', handleMouseEnter);
-      row1Element.addEventListener('mouseleave', handleMouseLeave);
-      row1Element.addEventListener('touchstart', handleTouchStart);
-      row1Element.addEventListener('touchend', handleTouchEnd);
-    }
-    
-    if (row2Element) {
-      row2Element.addEventListener('mouseenter', handleMouseEnter);
-      row2Element.addEventListener('mouseleave', handleMouseLeave);
-      row2Element.addEventListener('touchstart', handleTouchStart);
-      row2Element.addEventListener('touchend', handleTouchEnd);
-    }
+    testimonialCards.forEach(card => {
+      card.addEventListener('mouseenter', handleMouseEnter);
+      card.addEventListener('mouseleave', handleMouseLeave);
+      card.addEventListener('touchstart', handleTouchStart);
+      card.addEventListener('touchend', handleTouchEnd);
+    });
     
     return () => {
-      if (row1Element) {
-        row1Element.removeEventListener('mouseenter', handleMouseEnter);
-        row1Element.removeEventListener('mouseleave', handleMouseLeave);
-        row1Element.removeEventListener('touchstart', handleTouchStart);
-        row1Element.removeEventListener('touchend', handleTouchEnd);
-      }
-      
-      if (row2Element) {
-        row2Element.removeEventListener('mouseenter', handleMouseEnter);
-        row2Element.removeEventListener('mouseleave', handleMouseLeave);
-        row2Element.removeEventListener('touchstart', handleTouchStart);
-        row2Element.removeEventListener('touchend', handleTouchEnd);
-      }
+      // Clean up event listeners
+      testimonialCards.forEach(card => {
+        card.removeEventListener('mouseenter', handleMouseEnter);
+        card.removeEventListener('mouseleave', handleMouseLeave);
+        card.removeEventListener('touchstart', handleTouchStart);
+        card.removeEventListener('touchend', handleTouchEnd);
+      });
     };
   }, []);
 
   const renderTestimonialCard = (testimonial) => (
-    <TestimonialCard elevation={0} key={testimonial.id}>
+    <TestimonialCard elevation={0} key={testimonial.id} data-testimonial-card>
       <QuoteIcon>
         <FormatQuoteIcon sx={{ 
           color: "#0056D2", 
@@ -325,19 +314,19 @@ const Testimonials = () => {
       id="testimonials"
     >
       <Box sx={{ 
-        // px: { xs: 2, sm: 3, md: 4 },
         maxWidth: "100%", 
+        width:"100%",
       }}>
+      <Box sx={{display:"flex",justifyContent:'center',mb:{xs: 4, sm: 5, md: 8}}}>
         <Box sx={{ 
-          textAlign: "center", 
-          mb: { xs: 4, sm: 5, md: 8 },
-          maxWidth: "1200px",
-          mx: "auto",
-          // px: { xs: 1, sm: 2, md: 3 },
+          px: { xs: 1, sm: 2, md: 3 },
+          width:'1400px',
+          
         }}>
           <Typography 
             variant="h2" 
             component="h2" 
+            textAlign={'center'}
             sx={{ 
               fontWeight: 700,
               mb: { xs: 1, sm: 1.5, md: 2 },
@@ -351,17 +340,16 @@ const Testimonials = () => {
             color="text.secondary" 
             sx={{ 
               fontWeight: 400,
-              maxWidth: "600px",
-              mx: "auto",
+              textAlign:'center',
               fontSize: { xs: "0.9375rem", sm: "1rem", md: "1.25rem" }
             }}
           >
             {subtitle}
           </Typography>
         </Box>
-
+   </Box>
         {/* First row - scrolling left to right */}
-        <TestimonialRow direction="left" speed={animationSpeed} sx={{ mb: { xs: 2, md: 3 } }}>
+        <TestimonialRow direction="left" speed={animationSpeed} isPaused={isPaused} sx={{ mb: { xs: 2, md: 3 } }}>
           <Box className="scroll-content" ref={row1Ref}>
             {testimonialsRow1.map(renderTestimonialCard)}
             {testimonialsRow1.map(testimonial => renderTestimonialCard({ ...testimonial, id: `${testimonial.id}-dup` }))}
@@ -369,7 +357,7 @@ const Testimonials = () => {
         </TestimonialRow>
 
         {/* Second row - scrolling right to left */}
-        <TestimonialRow direction="right" speed={animationSpeed}>
+        <TestimonialRow direction="right" speed={animationSpeed} isPaused={isPaused}>
           <Box className="scroll-content" ref={row2Ref}>
             {testimonialsRow2.map(renderTestimonialCard)}
             {testimonialsRow2.map(testimonial => renderTestimonialCard({ ...testimonial, id: `${testimonial.id}-dup` }))}
