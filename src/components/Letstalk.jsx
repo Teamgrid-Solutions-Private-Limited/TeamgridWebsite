@@ -49,7 +49,7 @@ function Letstalk() {
           sx={{
             width: "100%",
             display: "flex",
-            justifyContent: { xs: "center", md: "flex-start" },
+            justifyContent:  "flex-start" ,
           }}
         >
           <Box
