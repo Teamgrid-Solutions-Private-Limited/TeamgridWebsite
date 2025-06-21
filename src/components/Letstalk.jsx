@@ -29,7 +29,6 @@ function Letstalk() {
         alignItems: "center",
         justifyContent: "center",
         py: { xs: 6, sm: 8, md: 12 },
-        height: { xs: "auto", md: "592px" },
         overflow: "hidden",
         position: "relative",
         width: "100%",
@@ -54,24 +53,14 @@ function Letstalk() {
         >
           <Box
             sx={{
-              width: {
-                xs: "100%",
-                sm: "90%",
-                md: "70%",
-                lg: "50%",
-                xl: "792px",
-              },
-              maxWidth: { xs: "100%", sm: "600px", md: "792px" },
-              height: { xs: "auto", md: "auto" },
-              minHeight: { xs: "auto", md: "428px" },
-              bgcolor: "rgba(18, 38, 64, 0.9)",
+              width: '68%',
+              bgcolor: "#072449",
               borderRadius: { xs: 2, sm: 3 },
-              p: { xs: 3, sm: 4, md: 6, lg: 8 },
+              p: { xs: 3, sm: 4, md: 5, lg: 7 },
               display: "flex",
               flexDirection: "column",
               gap: { xs: 1, md: 1.25 },
               color: "white",
-              backdropFilter: "blur(10px)",
               boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)",
               position: "relative",
               zIndex: 2,
@@ -81,7 +70,7 @@ function Letstalk() {
               variant="h2"
               sx={{
                 fontWeight: 500,
-                fontSize: { xs: "28px", sm: "36px", md: "42px", lg: "56px" },
+                fontSize: { xs: "28px", sm: "34px", md: "40px", lg: "56px" },
                 lineHeight: 1.2,
                 mb: { xs: 1.5, sm: 2, md: 2.5 },
               }}
