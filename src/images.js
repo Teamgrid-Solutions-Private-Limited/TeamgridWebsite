@@ -72,6 +72,7 @@ import prototypeIconModal from "./assets/lucide_pencil-ruler.svg";
 import systemsIconModal from "./assets/lucide_paintbrush-vertical.svg";
 import shopifyIconModalModal from "./assets/hugeicons_shopify.svg";
 import wooCommerceIconModalModal from "./assets/Group11.svg";
+import mobileBackgroundPath from "./assets/backgroundImage.svg";
 
 // Cache map for SVG elements to prevent multiple loads
 const svgCache = new Map();
@@ -115,7 +116,7 @@ export const prototypeIcon = getSvgPath(prototypeIconModal);
 export const systemsIcon = getSvgPath(systemsIconModal);
 export const shopifyIconModal = getSvgPath(shopifyIconModalModal);
 export const wooCommerceIconModal = getSvgPath(wooCommerceIconModalModal);
-
+export const mobileBackground = mobileBackgroundPath;
 // Images and backgrounds - optimize loading for larger images
 export const rectangleImage1 = getSvgPath(rectangleImage1Path);
 export const rectangleImage2 = getSvgPath(rectangleImage2Path);

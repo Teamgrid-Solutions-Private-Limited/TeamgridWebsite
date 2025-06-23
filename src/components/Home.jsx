@@ -23,6 +23,7 @@ import {
   muiIcon,
   mongoIcon,
   woo,
+  mobileBackground,
 } from "../images";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -98,40 +99,66 @@ function Home() {
         position: "relative",
         overflow: "hidden",
         width: "100%",
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center'
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundImage: {
+          xs: `url(${mobileBackground})`,
+          sm: `url(${mobileBackground})`,
+          md: "none",
+        },
+        backgroundRepeat: "no-repeat",
+        backgroundSize: { xs: "cover", sm: "cover", md: "auto" },
+        backgroundPosition: { xs: "right bottom", sm: "right" },
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 28, 66, 0.4)", // Overlay to ensure text is readable
+          display: { xs: "block", sm: "block", md: "none" }, // Hide overlay on desktop
+          zIndex: 1,
+          pointerEvents: "none", // Allow clicks to pass through
+        },
       }}
     >
       <Box
-        maxWidth={'1400px'}
+        maxWidth={"1400px"}
         sx={{
           position: "relative",
-          height: { xs: "calc(100vh - 56px)", md: "100vh" },
-          minHeight: { xs: "calc(100vh - 56px)", md: "auto" },
+          height: { xs: "calc(100vh - 60px)", md: "100vh" },
+          minHeight: { xs: "calc(100vh - 60px)", md: "auto" },
           display: "flex",
           alignItems: { xs: "center", md: "center" },
           px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
           // justifyContent: 'center',
           width: "1400px",
+          zIndex: 2, // Ensure content is above the background
         }}
       >
         <Box
           sx={{
-            width: { xs: "100%", md: "55%", lg: "50%" },
+            width: { xs: "100%", md: "55%", lg: "60%" },
             gap: 2,
             display: "flex",
             flexDirection: "column",
             // justifyContent: "center",
             // alignItems:  "flex-start" ,
-          
             zIndex: 5,
             mb: { xs: 0, md: 0 },
+            p: { xs: 3, sm: 3, md: 0 }, // Add padding on mobile
+            borderRadius: { xs: 2, sm: 2, md: 0 }, // Add border radius on mobile
           }}
         >
           <Typography
             variant="subtitle1"
-            sx={{ color: "#E1E0E0", fontSize: { xs: "16px", sm: "16px", md: "18px" } }}
+            sx={{
+              color: "#E1E0E0",
+              fontSize: { xs: "16px", md: "18px" },
+              textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
+            }}
           >
             Powering growth through talent
           </Typography>
@@ -149,6 +176,7 @@ function Home() {
               },
               fontWeight: 700,
               lineHeight: 1.1,
+              textShadow: { xs: "0px 1px 3px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
             }}
           >
             Extend Your Team, <br />
@@ -161,7 +189,8 @@ function Home() {
               color: "#E1E0E0",
               fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
               lineHeight: 1.6,
-              maxWidth: { xs: "90%", md: "90%" },
+              maxWidth: { xs: "90%", md: "95%" },
+              textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
             }}
           >
             We helps agencies and startups scale smarter — with dedicated
@@ -223,8 +252,8 @@ function Home() {
       <Box
         sx={{
           position: "absolute",
-          top: { xs: "50%", sm: "45%", md: "5%", lg: "5%" },
-          left: { xs: "50%", sm: "50%", md: "80%", lg: "85%", xl: "87%" },
+          top: { xs: "50%", sm: "45%", md: "5%", lg: "5%", xl: "3.7%" },
+          left: { xs: "50%", sm: "50%", md: "93%", lg: "92%", xl: "83%" },
           right: { xs: "auto", sm: "-30%", md: 0 },
           bottom: { xs: "auto", sm: "-30%", md: "auto" },
           transform: {
@@ -233,8 +262,8 @@ function Home() {
           },
           width: { xs: "100%", sm: "120%", md: "110%", lg: "100%", xl: "75%" },
           height: { xs: "100%", sm: "100%", md: "100%" },
-          zIndex: 0,
-          display: "flex",
+          zIndex: 5, // Increase z-index to be above overlay
+          display: { xs: "none", sm: "none", md: "flex" },
           alignItems: "center",
           justifyContent: "center",
           opacity: { xs: 0.35, sm: 0.6, md: 0.8, lg: 1 },
@@ -272,35 +301,6 @@ function Home() {
               scale: { xs: 0.55, sm: 0.5, md: 0.7, lg: 0.8, xl: 1 },
             }}
           >
-            {/* Outer circle */}
-            <Box
-              sx={{
-                position: "absolute",
-                width: "491px",
-                height: "491px",
-                borderRadius: "50%",
-                background: "#0A2B55",
-                transform: "translate(-50%, -50%)",
-                top: "50%",
-                left: "50%",
-              }}
-            />
-
-            {/* Middle circle */}
-            <Box
-              sx={{
-                position: "absolute",
-                width: "373px",
-                height: "373px",
-                borderRadius: "50%",
-                background: "#0B3161",
-                transform: "translate(-50%, -50%)",
-                top: "50%",
-                left: "50%",
-                zIndex: 2,
-              }}
-            />
-
             {/* Inner circle with logo or description */}
             <Box
               sx={{
@@ -315,19 +315,19 @@ function Home() {
                 transform: "translate(-50%, -50%)",
                 top: "50%",
                 left: "50%",
-                zIndex: 3,
-                boxShadow: "0 0 40px rgba(17, 105, 207, 0.3)",
-                animation: showDescription ? "none" : "ripple 4s infinite",
+                zIndex: 4,
+                boxShadow: "0 0 30px #0B3161",
                 overflow: "hidden",
-                "@keyframes ripple": {
+                animation: showDescription ? "none" : "pulse 50s infinite",
+                "@keyframes pulse": {
                   "0%": {
-                    boxShadow: "0 0 0 0 rgba(75, 145, 241, 0.3)",
+                    boxShadow: "0 0 0 50px #0B3161",
                   },
                   "70%": {
-                    boxShadow: "0 0 0 20px rgba(75, 145, 241, 0)",
+                    boxShadow: "0 0 0 100px #0A2B55",
                   },
                   "100%": {
-                    boxShadow: "0 0 0 0 rgba(75, 145, 241, 0)",
+                    boxShadow: "0 0 0 130px #0A2B55",
                   },
                 },
               }}
@@ -341,6 +341,8 @@ function Home() {
                   sx={{
                     width: "105.968px",
                     height: "143.162px",
+                    position: "relative",
+                    zIndex: 5,
                   }}
                 />
               ) : (
@@ -446,7 +448,7 @@ function Home() {
                 },
                 transform: "translate(-50%, -50%)",
                 animation: `rotate${index + 1} ${
-                  isXs ? 250 : isIPadPro ? 400 : 500
+                  isXs ? 250 : isIPadPro ? 400 : 1000
                 }s linear infinite`,
                 animationPlayState: isPaused ? "paused" : "running",
                 cursor: "pointer",
@@ -490,8 +492,8 @@ function Home() {
                   },
                 },
               }}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => !showDescription && setIsPaused(false)}
+              // onMouseEnter={() => setIsPaused(true)}
+              // onMouseLeave={() => !showDescription && setIsPaused(false)}
             >
               {/* White dots on the orbits */}
               {[...Array(isXs ? 4 : isSm ? 4 : 8)].map((_, dotIndex) => {
@@ -599,6 +601,36 @@ function Home() {
                     orbitScale={orbitScale}
                     isMobileView={isXs}
                   />
+                  <TechIcon
+                    name="Bootstrap"
+                    icon={bootstrapIcon}
+                    position="left"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("Bootstrap")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
+                  <TechIcon
+                    name="Figma"
+                    icon={figmaIcon}
+                    position="bottom"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("Figma")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
+                  <TechIcon
+                    name="MongoDB"
+                    icon={mongoIcon}
+                    position="right"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("MongoDB")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
                 </>
               )}
 
@@ -608,7 +640,7 @@ function Home() {
                   <TechIcon
                     name="WordPress"
                     icon={wordpressIcon}
-                    position="topRight"
+                    position="top"
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => handleTechClick("WordPress")}
@@ -635,12 +667,132 @@ function Home() {
                     orbitScale={orbitScale}
                     isMobileView={isXs}
                   />
+                  <TechIcon
+                    name="WordPress"
+                    icon={wordpressIcon}
+                    position="bottomRight"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("WordPress")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
+                  <TechIcon
+                    name="Postman"
+                    icon={postmanIcon}
+                    position="topLeft"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("Postman")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
+                  <TechIcon
+                    name="WooCommerce"
+                    icon={woo}
+                    position="right"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("WooCommerce")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
                 </>
               )}
 
               {/* Orbit 4 - Outermost */}
               {index === 3 && (
                 <>
+                  <TechIcon
+                    name="Shopify"
+                    icon={shopifyIcon}
+                    position="top"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("Shopify")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
+                  <TechIcon
+                    name="Material UI"
+                    icon={muiIcon}
+                    position="top"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("Material UI")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
+                  <TechIcon
+                    name="Shopify"
+                    icon={shopifyIcon}
+                    position="bottom"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("Shopify")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
+                  <TechIcon
+                    name="Material UI"
+                    icon={muiIcon}
+                    position="bottom"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("Material UI")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
+                  <TechIcon
+                    name="Shopify"
+                    icon={shopifyIcon}
+                    position="right"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("Shopify")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
+                  <TechIcon
+                    name="Material UI"
+                    icon={muiIcon}
+                    position="right"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("Material UI")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
+                  <TechIcon
+                    name="Material UI"
+                    icon={muiIcon}
+                    position="left"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("Material UI")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
+                  <TechIcon
+                    name="Shopify"
+                    icon={shopifyIcon}
+                    position="left"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("Shopify")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
+                  <TechIcon
+                    name="Material UI"
+                    icon={muiIcon}
+                    position="bottomLeft"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onClick={() => handleTechClick("Material UI")}
+                    orbitScale={orbitScale}
+                    isMobileView={isXs}
+                  />
                   <TechIcon
                     name="Shopify"
                     icon={shopifyIcon}
@@ -762,9 +914,9 @@ function TechIcon({
       sx={{
         position: "absolute",
         ...getPosition(),
-        zIndex: 20,
+        zIndex: 20, // Ensure tech icons are above everything
         cursor: "pointer",
-        pointerEvents: "auto",
+        pointerEvents: "auto", // Ensure clicks are captured
       }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
