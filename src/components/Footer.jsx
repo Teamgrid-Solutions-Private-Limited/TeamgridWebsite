@@ -28,9 +28,9 @@ function Footer() {
         py: { xs: 6, md: 8 },
         bgcolor: "#051a36",
         color: "white",
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center'
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Container
@@ -39,16 +39,16 @@ function Footer() {
           display: "flex",
           flexDirection: "column",
           px: { xs: 2, md: 4, lg: 8, xl: 0 },
-          width:'1400px'
+          width: "1400px",
         }}
       >
-        <Grid container spacing={4}>
+        <Grid container spacing={{ xs: 2, sm: 2, md: 4, lg: 8, xl: 10}}>
           {/* Blogs Section */}
           <Grid xs={12} sm={6} md={3}>
             <Typography
               variant="h6"
               sx={{
-                fontSize: "18px",
+                fontSize: "20px",
                 fontWeight: 600,
                 mb: 3,
               }}
@@ -62,11 +62,13 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "14px",
+                  fontSize: "16px",
                   transition: "all 0.2s ease",
                   "&:hover": {
                     transform: "translateX(5px)",
+                    color:'#ffffff'
                   },
+                  color: "#A8B6C5",
                 }}
               >
                 How AI Is Transforming Web & Mobile App Development in 2025
@@ -76,11 +78,13 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "14px",
+                  fontSize: "16px",
                   transition: "all 0.2s ease",
                   "&:hover": {
                     transform: "translateX(5px)",
+                    color:'#ffffff'
                   },
+                  color: "#A8B6C5",
                 }}
               >
                 Choosing the Right Tech Stack for Scalable Product Development
@@ -90,11 +94,13 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "14px",
+                  fontSize: "16px",
                   transition: "all 0.2s ease",
                   "&:hover": {
                     transform: "translateX(5px)",
+                    color:'#ffffff'
                   },
+                  color: "#A8B6C5",
                 }}
               >
                 Design Smarter: Why UI/UX Matters More Than Ever in AI-Powered
@@ -105,11 +111,13 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "14px",
+                  fontSize: "16px",
                   transition: "all 0.2s ease",
                   "&:hover": {
                     transform: "translateX(5px)",
+                    color:'#ffffff'
                   },
+                  color: "#A8B6C5",
                 }}
               >
                 Fixed-Cost vs. Dedicated Teams: What Works Best for Your Next
@@ -123,7 +131,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "18px",
+                fontSize: "20px",
                 fontWeight: 600,
                 mb: 3,
               }}
@@ -139,11 +147,13 @@ function Footer() {
                   underline="hover"
                   color="inherit"
                   sx={{
-                    fontSize: "14px",
+                    fontSize: "16px",
                     transition: "all 0.2s ease",
                     "&:hover": {
                       transform: "translateX(5px)",
+                      color:'#ffffff'
                     },
+                    color: "#A8B6C5",
                   }}
                 >
                   {link}
@@ -157,7 +167,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "18px",
+                fontSize: "20px",
                 fontWeight: 600,
                 mb: 3,
               }}
@@ -173,11 +183,13 @@ function Footer() {
                   underline="hover"
                   color="inherit"
                   sx={{
-                    fontSize: "14px",
+                    fontSize: "16px",
                     transition: "all 0.2s ease",
                     "&:hover": {
                       transform: "translateX(5px)",
+                      color:'#ffffff'
                     },
+                    color: "#A8B6C5",
                   }}
                 >
                   {service}
@@ -191,7 +203,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "18px",
+                fontSize: "20px",
                 fontWeight: 600,
                 mb: 3,
               }}
@@ -205,10 +217,12 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "14px",
+                  fontSize: "16px",
                   transition: "all 0.2s ease",
+                  color: "#A8B6C5",
                   "&:hover": {
                     transform: "translateX(5px)",
+                    color:'#ffffff'
                   },
                 }}
               >
@@ -219,10 +233,12 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "14px",
+                  fontSize: "16px",
                   transition: "all 0.2s ease",
+                  color: "#A8B6C5",
                   "&:hover": {
                     transform: "translateX(5px)",
+                    color:'#ffffff'
                   },
                 }}
               >
@@ -233,10 +249,12 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "14px",
+                  fontSize: "16px",
                   transition: "all 0.2s ease",
+                  color: "#A8B6C5",
                   "&:hover": {
                     transform: "translateX(5px)",
+                    color:'#ffffff'
                   },
                 }}
               >
@@ -273,10 +291,10 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize: "14px",
+                fontSize: "16px",
                 lineHeight: 1.6,
                 mb: 2,
-                color: "rgba(255,255,255,0.7)",
+                color: "#A8B6C5",
               }}
             >
               Our experts are here to help. Contact us for personalised guidance
@@ -297,8 +315,8 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize: "14px",
-                color: "rgba(255,255,255,0.9)",
+                fontSize: "16px",
+                color: "#A8B6C5",
               }}
             >
               Mail us at {contact.email}
@@ -321,10 +339,10 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize: "14px",
+                fontSize: "16px",
                 lineHeight: 1.6,
                 mb: 3,
-                color: "rgba(255,255,255,0.7)",
+                color: "#A8B6C5",
               }}
             >
               Stay updated with expert insights, smart development tips, and
@@ -391,9 +409,9 @@ function Footer() {
           <Typography
             variant="body2"
             sx={{
-              fontSize: "12px",
+              fontSize: "16px",
               lineHeight: 1.6,
-              color: "rgba(255,255,255,0.5)",
+              color: "#A8B6C5",
               mb: 2,
             }}
           >
@@ -405,8 +423,8 @@ function Footer() {
           <Typography
             variant="body2"
             sx={{
-              fontSize: "12px",
-              color: "rgba(255,255,255,0.5)",
+              fontSize: "16px",
+              color: "#A8B6C5",
             }}
           >
             {copyright}
