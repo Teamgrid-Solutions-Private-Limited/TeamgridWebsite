@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -30,9 +30,56 @@ const serviceCategories = [
   { id: 5, name: "Dedicated Teams", description: "Staff your team" },
   { id: 6, name: "AI / ML / Digital", description: "Enhance & drive results" },
 ];
+const serviceContent = [
+  {
+    title: "E-commerce",
+    description:
+      "We design and develop high-performing e-commerce platforms tailored to your business's needs.",
+    image: funiroProductsImage,
+    overlayImage: funiroMainImage,
+  },
+  {
+    title: "Web Development",
+    description: "We create clean, modern websites that enhance user experience.",
+    image: funiroProductsImage,
+    overlayImage: funiroMainImage,
+  },
+  {
+    title: "UI / UX",
+    description: "Design with purpose to create engaging user experiences.",
+    image: funiroProductsImage,
+    overlayImage: funiroMainImage,
+  },
+  {
+    title: "Mobile App Development",
+    description: "We build apps that perform and meet your business needs.",
+    image: funiroProductsImage,
+    overlayImage: funiroMainImage,
+  },
+  {
+    title: "Dedicated Teams",
+    description: "We provide skilled professionals to seamlessly integrate with your team and scale your operations.",
+    image: funiroProductsImage,
+    overlayImage: funiroMainImage,
+  },
+  {
+    title: "AI / ML / Digital",
+    description: "Leverage AI and machine learning to transform your digital strategy and drive results.",
+    image: funiroProductsImage,
+    overlayImage: funiroMainImage,
+  },
+];
 
 function WhatWeDo() {
   const theme = useTheme();
+  const [index, setIndex] = useState(0);
+  const handlePrev = () => {
+    setIndex(index === 0 ? serviceContent.length - 1 : index - 1);
+  };
+
+  const handleNext = () => {
+    setIndex(index === serviceContent.length - 1 ? 0 : index + 1);
+  };
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isTablet = useMediaQuery(theme.breakpoints.down("lg"));
 
@@ -185,6 +232,7 @@ function WhatWeDo() {
                       mr: 1,
                       cursor: "pointer",
                     }}
+                    onClick={handlePrev}
                   >
                     <WestIcon
                       sx={{ fontSize: { xs: 18, sm: 20 }, color: "#0b3c7b" }}
@@ -201,6 +249,7 @@ function WhatWeDo() {
                       justifyContent: "center",
                       cursor: "pointer",
                     }}
+                    onClick={handleNext}
                   >
                     <WestIcon
                       sx={{
@@ -354,9 +403,10 @@ function WhatWeDo() {
                   },
                 }}
               >
-                {serviceCategories.map((service, index) => (
+                {serviceCategories.map((service, idx) => (
                   <Box
                     key={service.id}
+                    onClick={() => setIndex(idx)}
                     sx={{
                       display: "flex",
                       flexDirection: "column",
@@ -368,8 +418,7 @@ function WhatWeDo() {
                       cursor: "pointer",
                       borderRadius: 2,
                       transition: "all 0.3s ease",
-                      backgroundColor:
-                        service.id === 1 ? "#0b3c7b" : "transparent",
+                      backgroundColor: index === idx ? "#0b3c7b" : "transparent",
                       zIndex: 2,
                       "&:hover": {
                         backgroundColor: "#0b3c7b",
@@ -391,7 +440,7 @@ function WhatWeDo() {
                       sx={{
                         fontWeight: 600,
                         mb: 0.5,
-                        color: service.id === 1 ? "white" : "text.primary",
+                        color: index === idx ? "white" : "text.primary",
                         fontSize: { xs: "11px", sm: "14px", md: "16px" },
                         transition: "color 0.3s ease",
                       }}
@@ -403,10 +452,7 @@ function WhatWeDo() {
                       variant="body2"
                       sx={{
                         fontSize: { xs: "9px", sm: "11px", md: "12px" },
-                        color:
-                          service.id === 1
-                            ? "rgba(255,255,255,0.9)"
-                            : "text.secondary",
+                        color: index === idx ? "rgba(255,255,255,0.9)" : "text.secondary",
                         lineHeight: 1.2,
                         transition: "color 0.3s ease",
                       }}
