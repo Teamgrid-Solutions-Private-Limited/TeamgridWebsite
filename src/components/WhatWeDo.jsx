@@ -99,7 +99,8 @@ function WhatWeDo() {
         maxWidth="1400px"
         sx={{
           px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
-          width:"1400px"
+          width: "1400px",
+          overflow: "hidden"
         }}
       >
         {/* Heading and intro text */}
@@ -144,176 +145,134 @@ function WhatWeDo() {
             position: "relative",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              gap: 2,
-              height: "100%",
-              pb: { xs: "240px", sm: "210px", md: 0 }, // Add bottom padding on mobile for the grid
-            }}
-          >
-            {/* Left side - text content */}
-            <Box
-              sx={{
-                width: { xs: "100%", md: "50%" },
-                pt: { xs: 4, md: 0 },
-              }}
-              alignItems="center"
-              justifyContent="center"
-              display={"flex"}
-            >
-              <Box
-                sx={{ px: { xs: 3, md: 2 }, pr: { md: 2 } }}
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                height="100%"
-                width={{ xs: "100%", md: "80%" }}
-              >
-                <Typography
-                  variant="h4"
-                  sx={{
-                    fontSize: { xs: "22px", sm: "24px", md: "28px" },
-                    fontWeight: 600,
-                    mb: { xs: 1.5, md: 2 },
-                    color: "#140E13",
-                  }}
-                >
-                  E-commerce
-                </Typography>
-
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: { xs: "14px", md: "15px" },
-                    lineHeight: 1.6,
-                    mb: { xs: 2, md: 3 },
-                    color: "#000000",
-                  }}
-                >
-                  We design and develop high-performing e-commerce platforms
-                  tailored to your business's needs. Whether it's checkout, we
-                  build seamless, scalable, and conversion-focused experiences
-                  that drive sales and customer loyalty.
-                </Typography>
-
-                <Button
-                  variant="text"
-                  endIcon={<ArrowRightAltIcon />}
-                  sx={{
-                    color: "black",
-                    textTransform: "none",
-                    fontWeight: 500,
-                    fontSize: { xs: "12px", sm: "14px", md: "16px" },
-                    border: "1px solid rgba(168, 189, 211, 1)",
-                    borderRadius: "30px",
-                    padding: "5px 15px",
-                    width: "fit-content",
-                    "&:hover": {
-                      bgcolor: "transparent",
-                      opacity: 0.8,
-                    },
-                  }}
-                >
-                  Explore Our Portfolio
-                </Button>
-
-                <Box sx={{ display: "flex", mt: { xs: 3, md: 5 }, mb: 2 }}>
-                  <Box
+          <Box sx={{
+            transition: "transform 0.5s ease",
+            transform: `translateX(-${index * 100}%)`,
+            display: 'flex',
+            height:'100%'
+          }}>
+            {serviceContent.map((item, i) => (
+              <Grid container width={'100%'} key={i} minWidth={'100%'} spacing={3} height={'100%'}>
+                {/* Left side - text content */}
+                <Grid size={{ xs: 12, md: 6 }} display={"flex"} justifyContent={'center'} flexDirection={"column"} p={{xs:2.5,md:4,lg:5,xl:6}}>
+                  <Typography variant="h4"
                     sx={{
-                      width: { xs: 45, sm: 56 },
-                      height: { xs: 45, sm: 56 },
-                      borderRadius: "50%",
-                      bgcolor: "#edf1f7",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      mr: 1,
-                      cursor: "pointer",
-                    }}
-                    onClick={handlePrev}
-                  >
-                    <WestIcon
-                      sx={{ fontSize: { xs: 18, sm: 20 }, color: "#0b3c7b" }}
-                    />
-                  </Box>
-                  <Box
+                      fontSize: { xs: "22px", sm: "24px", md: "28px" },
+                      fontWeight: 600,
+                      mb: { xs: 1.5, md: 2 },
+                      color: "#140E13",
+                    }}>
+                    {item.title}
+                  </Typography>
+                  <Typography variant="body2"
                     sx={{
-                      width: { xs: 45, sm: 56 },
-                      height: { xs: 45, sm: 56 },
-                      borderRadius: "50%",
-                      bgcolor: "#edf1f7",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      cursor: "pointer",
-                    }}
-                    onClick={handleNext}
-                  >
-                    <WestIcon
+                      fontSize: { xs: "14px", md: "15px" },
+                      lineHeight: 1.6,
+                      mb: { xs: 2, md: 3 },
+                      color: "#000000",
+                    }}>
+                    {item.description}
+                  </Typography>
+                  <Box>
+                    <Button
+                      variant="text"
+                      endIcon={<ArrowRightAltIcon />}
                       sx={{
-                        fontSize: { xs: 18, sm: 20 },
-                        color: "#0b3c7b",
-                        transform: "rotate(180deg)",
+                        color: "black",
+                        textTransform: "none",
+                        fontWeight: 500,
+                        fontSize: { xs: "12px", sm: "14px", md: "16px" },
+                        border: "1px solid rgba(168, 189, 211, 1)",
+                        borderRadius: "30px",
+                        padding: "5px 15px",
+                        width: "fit-content",
+                        "&:hover": {
+                          bgcolor: "transparent",
+                          opacity: 0.8,
+                        },
                       }}
-                    />
-                  </Box>
-                </Box>
-              </Box>
-            </Box>
+                    >
+                      Explore Our Portfolio
+                    </Button>
 
-            {/* Right side - image showcase */}
-            <Box
-              sx={{
-                width: { xs: "100%", md: "50%" },
-                position: "relative",
-                height: { xs: 320, sm: 350, md: "auto" },
-                mt: { xs: 0, md: 0 },
-                display: { xs: "flex", md: "block" },
-                justifyContent: "center",
-                overflow: "visible",
-              }}
-            >
-              <Box
-                sx={{
-                  display: { xs: "block", md: "flex" },
-                  flexDirection: "column",
-                  height: "100%",
-                  width: { xs: "75%", sm: "60%", md: 382 },
-                  maxWidth: { xs: 300, sm: 320, md: 382 },
-                  position: { xs: "absolute", md: "absolute" },
-                  top: { xs: 10, sm: 20, md: 60 },
-                  left: { xs: "50%", md: 0 },
-                  transform: { xs: "translateX(-50%)", md: "none" },
-                  zIndex: 10,
-                  maxHeight: { xs: "90%", md: "100%" },
-                  filter: "drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.18))",
-                }}
-                component="img"
-                src={funiroProductsImage}
-                alt="Funiro products showcase"
-              />
-              <Box
-                sx={{
-                  display: { xs: "none", sm: "flex" },
-                  flexDirection: "column",
-                  height: "100%",
-                  width: { sm: 240, md: 280, lg: 345 },
-                  position: "absolute",
-                  top: { sm: 0, md: -10 },
-                  left: { sm: "50%", md: 250 },
-                  transform: { sm: "translateX(25%)", md: "none" },
-                  zIndex: 1,
-                  maxHeight: { xs: "80%", md: "100%" },
-                  filter: "drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.18))",
-                }}
-                component="img"
-                src={funiroMainImage}
-                alt="Funiro E-commerce showcase"
-              />
-            </Box>
+                    <Box sx={{ display: "flex", mt: { xs: 3, md: 5 }, mb: 2 }}>
+                      <Box
+                        sx={{
+                          width: { xs: 45, sm: 56 },
+                          height: { xs: 45, sm: 56 },
+                          borderRadius: "50%",
+                          bgcolor: "#edf1f7",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          mr: 1,
+                          cursor: "pointer",
+                        }}
+                        onClick={handlePrev}
+                      >
+                        <WestIcon
+                          sx={{ fontSize: { xs: 18, sm: 20 }, color: "#0b3c7b" }}
+                        />
+                      </Box>
+                      <Box
+                        sx={{
+                          width: { xs: 45, sm: 56 },
+                          height: { xs: 45, sm: 56 },
+                          borderRadius: "50%",
+                          bgcolor: "#edf1f7",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          cursor: "pointer",
+                        }}
+                        onClick={handleNext}
+                      >
+                        <WestIcon
+                          sx={{
+                            fontSize: { xs: 18, sm: 20 },
+                            color: "#0b3c7b",
+                            transform: "rotate(180deg)",
+                          }}
+                        />
+                      </Box>
+                    </Box>
+                  </Box>
+                </Grid>
+
+                {/* Right side - image showcase */}
+                <Grid
+                  size={{ xs: 12, md: 6 }}
+                  position={"relative"}
+                >
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      left: '3%',
+                      top: '3%',
+                      width:'50%',
+                      zIndex: 20
+                    }}
+                    component="img"
+                    src={item.image}
+                    alt="Funiro products showcase"
+                  />
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      left: '40%',
+                      width:'50%',
+                      top: '0px',
+                      zIndex: 10
+                    }}
+                    component="img"
+                    src={item.overlayImage}
+                    alt="Funiro E-commerce showcase"
+                  />
+                </Grid>
+              </Grid>
+            ))}
           </Box>
+
           <Box
             sx={{
               position: "absolute",
