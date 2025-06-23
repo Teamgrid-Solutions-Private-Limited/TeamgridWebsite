@@ -1,46 +1,46 @@
 // Centralized image imports
 
 // Import all assets
-import shortLogoPath from './assets/shortLogo.svg';
-import reactIconPath from './assets/react-2.svg';
-import bootstrapIconPath from './assets/bootstrap.svg';
-import wordpressIconPath from './assets/wordPress.svg';
-import figmaIconPath from './assets/figma-icon.svg';
-import shopifyIconPath from './assets/shopify.svg';
-import nodejsIconPath from './assets/nodejs-3.svg';
-import postgresqlIconPath from './assets/postgresql.svg';
-import postmanIconPath from './assets/postman.svg';
-import mongodbIconPath from './assets/mongodb-icon-1-1.svg';
-import muiIconPath from './assets/material-ui-1 1.svg';
-import woocommerceIconPath from './assets/WooCommerce_logo 2.svg';
-import groupIconPath from './assets/Group.svg';
-import postmanAltIconPath from './assets/Group 3.svg';
-import rectangleImage1Path from './assets/Rectangle 40.svg';
-import rectangleImage2Path from './assets/Rectangle 41.svg';
-import rectangleImage3Path from './assets/Rectangle 45.svg';
-import rectangleImage4Path from './assets/Rectangle 46.svg';
-import rectangleImage25Path from './assets/Rectangle 25.svg';
-import rectangleImage51Path from './assets/Rectangle 51.png';
-import rectangleImage51SVGPath from './assets/Rectangle 51.svg';
-import rectangleImage53Path from './assets/Rectangle 53.svg';
-import vectorIconPath from './assets/Vector.png';
-import vectorSvgPath from './assets/Vector.svg';
-import vector1Path from './assets/Vector (1).svg';
-import vector2Path from './assets/Vector (2).svg';
-import group3Path from './assets/Group 3.svg';
-import groupDash3Path from './assets/Group-3.svg';
-import group16Path from './assets/Group 16.svg';
-import group17Path from './assets/Group 17.svg';
-import group19Path from './assets/Group 19.svg';
-import group19PngPath from './assets/Group 19.png';
-import group20Path from './assets/Group 20.svg';
-import group22Path from './assets/Group 22.svg';
-import group23Path from './assets/Group 23.svg';
-import group24Path from './assets/Group 24.svg';
-import funiroLanding3Path from './assets/Funiro Landing Page 3.svg';
-import funiroLanding4Path from './assets/Funiro Landing Page 4.svg';
-import liveDiscussionPath from './assets/livediscussion.jpg';
-import layer1Path from './assets/Layer_1.svg';
+import shortLogoPath from "./assets/shortLogo.svg";
+import reactIconPath from "./assets/react-2.svg";
+import bootstrapIconPath from "./assets/bootstrap.svg";
+import wordpressIconPath from "./assets/wordPress.svg";
+import figmaIconPath from "./assets/figma-icon.svg";
+import shopifyIconPath from "./assets/shopify.svg";
+import nodejsIconPath from "./assets/nodejs-3.svg";
+import postgresqlIconPath from "./assets/postgresql.svg";
+import postmanIconPath from "./assets/postman.svg";
+import mongodbIconPath from "./assets/mongodb-icon-1-1.svg";
+import muiIconPath from "./assets/material-ui-1 1.svg";
+import woocommerceIconPath from "./assets/WooCommerce_logo 2.svg";
+import groupIconPath from "./assets/Group.svg";
+import postmanAltIconPath from "./assets/Group 3.svg";
+import rectangleImage1Path from "./assets/Rectangle 40.svg";
+import rectangleImage2Path from "./assets/Rectangle 41.svg";
+import rectangleImage3Path from "./assets/Rectangle 45.svg";
+import rectangleImage4Path from "./assets/Rectangle 46.svg";
+import rectangleImage25Path from "./assets/Rectangle 25.svg";
+import rectangleImage51Path from "./assets/Rectangle 51.png";
+import rectangleImage51SVGPath from "./assets/Rectangle 51.svg";
+import rectangleImage53Path from "./assets/Rectangle 53.svg";
+import vectorIconPath from "./assets/Vector.png";
+import vectorSvgPath from "./assets/Vector.svg";
+import vector1Path from "./assets/Vector (1).svg";
+import vector2Path from "./assets/Vector (2).svg";
+import group3Path from "./assets/Group 3.svg";
+import groupDash3Path from "./assets/Group-3.svg";
+import group16Path from "./assets/Group 16.svg";
+import group17Path from "./assets/Group 17.svg";
+import group19Path from "./assets/Group 19.svg";
+import group19PngPath from "./assets/Group 19.png";
+import group20Path from "./assets/Group 20.svg";
+import group22Path from "./assets/Group 22.svg";
+import group23Path from "./assets/Group 23.svg";
+import group24Path from "./assets/Group 24.svg";
+import funiroLanding3Path from "./assets/Funiro Landing Page 3.svg";
+import funiroLanding4Path from "./assets/Funiro Landing Page 4.svg";
+import liveDiscussionPath from "./assets/livediscussion.jpg";
+import layer1Path from "./assets/Layer_1.svg";
 import mongoIconPath from "./assets/mongodb.svg";
 import wooIconPath from "./assets/Woo.svg";
 import storageIconPath from "./assets/lucide_database-zap.svg";
@@ -54,9 +54,10 @@ import prototypeIconModal from "./assets/lucide_pencil-ruler.svg";
 import systemsIconModal from "./assets/lucide_paintbrush-vertical.svg";
 import shopifyIconModalModal from "./assets/hugeicons_shopify.svg";
 import wooCommerceIconModalModal from "./assets/Group11.svg";
+import mobileBackgroundPath from "./assets/backgroundImage.svg";
 
 // Logos
-export const teamgridLogo = shortLogoPath;  // Use shortLogo as a fallback
+export const teamgridLogo = shortLogoPath; // Use shortLogo as a fallback
 export const shortLogo = shortLogoPath;
 
 // Tech stack icons
@@ -86,6 +87,7 @@ export const prototypeIcon = prototypeIconModal;
 export const systemsIcon = systemsIconModal;
 export const shopifyIconModal = shopifyIconModalModal;
 export const wooCommerceIconModal = wooCommerceIconModalModal;
+export const mobileBackground = mobileBackgroundPath;
 
 // Images and backgrounds
 export const rectangleImage1 = rectangleImage1Path;
@@ -121,4 +123,4 @@ export const funiroLanding4 = funiroLanding4Path;
 
 // Other images
 export const liveDiscussion = liveDiscussionPath;
-export const layer1 = layer1Path; 
+export const layer1 = layer1Path;
