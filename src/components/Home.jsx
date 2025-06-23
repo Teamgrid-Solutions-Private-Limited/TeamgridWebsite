@@ -131,7 +131,7 @@ function Home() {
         >
           <Typography
             variant="subtitle1"
-            sx={{ color: "#E1E0E0", fontSize: { xs: "16px", md: "18px" } }}
+            sx={{ color: "#E1E0E0", fontSize: { xs: "16px", sm: "16px", md: "18px" } }}
           >
             Powering growth through talent
           </Typography>
@@ -142,10 +142,10 @@ function Home() {
               color: "#ffffff",
               fontSize: {
                 xs: "28px",
-                sm: "36px",
+                sm: "32px",
                 md: "42px",
-                lg: "58px",
-                xl: "64px",
+                lg: "48px",
+                xl: "56px",
               },
               fontWeight: 700,
               lineHeight: 1.1,
@@ -159,7 +159,7 @@ function Home() {
             variant="body1"
             sx={{
               color: "#E1E0E0",
-              fontSize: { xs: "16px", md: "18px" },
+              fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
               lineHeight: 1.6,
               maxWidth: { xs: "90%", md: "90%" },
             }}
@@ -183,15 +183,14 @@ function Home() {
               variant="contained"
               sx={{
                 bgcolor: "#007BFF",
-                borderRadius: "30px",
-                px: { xs: 4, sm: 7 },
-                py: 1.5,
+                borderRadius: "39px",
+                px: 5,
+                py: 2,
                 textTransform: "none",
-                fontSize: { xs: "14px", sm: "16px" },
+                fontSize: "16px",
                 fontWeight: 500,
                 boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
                 "&:hover": { bgcolor: "#0069d9" },
-                height: { xs: "45px", sm: "55px" },
                 width: { xs: "100%", sm: "auto" },
               }}
             >
@@ -204,14 +203,13 @@ function Home() {
               sx={{
                 color: "white",
                 borderColor: "rgba(255,255,255,0.3)",
-                borderRadius: "30px",
-                px: { xs: 3, sm: 4 },
-                py: 1.5,
+                borderRadius: "39px",
+                px: 5,
+                py: 2,
                 textTransform: "none",
-                fontSize: { xs: "14px", sm: "16px" },
+                fontSize: "16px",
                 fontWeight: 500,
                 "&:hover": { borderColor: "rgba(255,255,255,0.5)" },
-                height: { xs: "45px", sm: "55px" },
                 width: { xs: "100%", sm: "auto" },
               }}
             >
@@ -364,6 +362,7 @@ function Home() {
                       textAlign: "center",
                       fontWeight: 600,
                       mb: 1,
+                      fontSize: { xs: "18px", sm: "20px", md: "22px" },
                     }}
                   >
                     {activeTech}
@@ -374,7 +373,7 @@ function Home() {
                     sx={{
                       color: "#B2D2FC",
                       textAlign: "center",
-                      fontSize: "12px",
+                      fontSize: { xs: "16px", sm: "16px", md: "16px" },
                       lineHeight: 1.4,
                       maxHeight: "130px",
                       overflow: "auto",

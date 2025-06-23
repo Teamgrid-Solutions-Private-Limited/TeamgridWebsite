@@ -56,7 +56,7 @@ const WhoWeHelp = () => {
               <Typography
                 variant="h2"
                 sx={{
-                  fontSize: { xs: "32px", sm: "36px", md: "42px" },
+                  fontSize: { xs: "28px", sm: "32px", md: "42px", lg: "48px" },
                   fontWeight: 700,
                   mb: 1,
                   color: "#000",
@@ -68,7 +68,7 @@ const WhoWeHelp = () => {
               <Typography
                 variant="subtitle1"
                 sx={{
-                  fontSize: "16px",
+                  fontSize: { xs: "16px", sm: "18px", md: "20px" },
                   fontWeight: 500,
                   color: "text.secondary",
                   mb: 3,
@@ -80,7 +80,7 @@ const WhoWeHelp = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: "16px",
+                  fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
                   mb: 4,
                   color: "text.secondary",
                   lineHeight: 1.6,
@@ -96,9 +96,9 @@ const WhoWeHelp = () => {
                 color="primary"
                 endIcon={<ArrowRightAltIcon />}
                 sx={{
-                  borderRadius: "40px",
-                  px: 3,
-                  py: 1.5,
+                  borderRadius: "39px",
+                  px: 5,
+                  py: 2,
                   textTransform: "none",
                   fontSize: "16px",
                   boxShadow: "none",

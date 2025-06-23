@@ -215,8 +215,8 @@ const ClientInfo = styled(Box)(({ theme }) => ({
 }));
 
 const ExploreButton = styled(Button)(({ theme }) => ({
-  borderRadius: "50px",
-  padding: theme.spacing(1.5, 4),
+  borderRadius: "39px",
+  padding: theme.spacing(2, 5),
   textTransform: "none",
   fontWeight: 500,
   border: `1px solid ${theme.palette.grey[300]}`,
@@ -227,7 +227,7 @@ const ExploreButton = styled(Button)(({ theme }) => ({
     borderColor: theme.palette.grey[400],
   },
   [theme.breakpoints.down("sm")]: {
-    padding: theme.spacing(1, 3),
+    padding: theme.spacing(2, 5),
   },
 }));
 
@@ -306,18 +306,17 @@ const Testimonials = () => {
           mb: { xs: 1, sm: 1.5, md: 3 },
           flex: 1,
           fontStyle: "normal",
-          fontSize: { xs: "0.8125rem", sm: "0.875rem", md: "1rem" },
+          fontSize: { xs: "16px", sm: "16px", md: "18px" },
           lineHeight: 1.5,
           overflow: "hidden",
           display: "-webkit-box",
           WebkitLineClamp: { xs: 3, sm: 3, md: 4 },
           WebkitBoxOrient: "vertical",
-          // Special styling for single-card view
           '.single-card-view &': {
             lineHeight: 1.6,
-            fontSize: { xs: "0.9rem", sm: "1rem" },
-            mb: 1, // Reduce bottom margin
-            WebkitLineClamp: 6, // Show more lines in single card view
+            fontSize: { xs: "16px", sm: "16px", md: "18px" },
+            mb: 1,
+            WebkitLineClamp: 6,
           }
         }}
       >
@@ -332,7 +331,6 @@ const Testimonials = () => {
             height: { xs: 36, sm: 42, md: 56 },
             mr: { xs: 1, sm: 1.5, md: 2 },
             border: "2px solid #F0F0F0",
-            // Slightly larger avatar in single-card view
             '.single-card-view &': {
               width: { xs: 48, sm: 54 },
               height: { xs: 48, sm: 54 },
@@ -344,10 +342,9 @@ const Testimonials = () => {
             variant="subtitle1" 
             fontWeight={600}
             sx={{ 
-              fontSize: { xs: "0.8125rem", sm: "0.875rem", md: "1rem" },
-              // Slightly larger font in single-card view
+              fontSize: { xs: "16px", sm: "16px", md: "18px" },
               '.single-card-view &': {
-                fontSize: { xs: "0.9rem", sm: "1rem" },
+                fontSize: { xs: "16px", sm: "18px", md: "18px" },
               }
             }}
           >
@@ -357,10 +354,9 @@ const Testimonials = () => {
             variant="body2" 
             color="text.secondary"
             sx={{ 
-              fontSize: { xs: "0.6875rem", sm: "0.75rem", md: "0.875rem" },
-              // Slightly larger font in single-card view
+              fontSize: { xs: "16px", sm: "16px", md: "16px" },
               '.single-card-view &': {
-                fontSize: { xs: "0.75rem", sm: "0.875rem" },
+                fontSize: { xs: "16px", sm: "16px", md: "16px" },
               }
             }}
           >
@@ -399,7 +395,7 @@ const Testimonials = () => {
             sx={{ 
               fontWeight: 700,
               mb: { xs: 1, sm: 1.5, md: 2 },
-              fontSize: { xs: "1.75rem", sm: "2.25rem", md: "3rem" }
+              fontSize: { xs: "28px", sm: "32px", md: "42px", lg: "48px" }
             }}
           >
             {title}
@@ -410,7 +406,7 @@ const Testimonials = () => {
             sx={{ 
               fontWeight: 400,
               textAlign:'center',
-              fontSize: { xs: "0.9375rem", sm: "1rem", md: "1.25rem" }
+              fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "22px" }
             }}
           >
             {subtitle}
@@ -514,6 +510,13 @@ const Testimonials = () => {
           <ExploreButton 
             endIcon={<ArrowForwardIcon />}
             variant="outlined"
+            sx={{
+              borderRadius: "39px",
+              px: 5,
+              py: 2,
+              fontSize: "16px",
+              textTransform: "none",
+            }}
           >
             {buttonText}
           </ExploreButton>

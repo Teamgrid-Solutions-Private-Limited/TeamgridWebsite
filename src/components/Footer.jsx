@@ -49,7 +49,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: { xs: "18px", sm: "20px", md: "22px" },
                 fontWeight: 600,
                 mb: 3,
               }}
@@ -63,7 +63,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "16px",
+                  fontSize: { xs: "16px", sm: "16px", md: "16px" },
                   transition: "all 0.2s ease",
                   "&:hover": {
                     transform: "translateX(5px)",
@@ -79,7 +79,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "16px",
+                  fontSize: { xs: "16px", sm: "16px", md: "16px" },
                   transition: "all 0.2s ease",
                   "&:hover": {
                     transform: "translateX(5px)",
@@ -95,7 +95,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "16px",
+                  fontSize: { xs: "16px", sm: "16px", md: "16px" },
                   transition: "all 0.2s ease",
                   "&:hover": {
                     transform: "translateX(5px)",
@@ -112,7 +112,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "16px",
+                  fontSize: { xs: "16px", sm: "16px", md: "16px" },
                   transition: "all 0.2s ease",
                   "&:hover": {
                     transform: "translateX(5px)",
@@ -132,7 +132,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: { xs: "18px", sm: "20px", md: "22px" },
                 fontWeight: 600,
                 mb: 3,
               }}
@@ -148,7 +148,7 @@ function Footer() {
                   underline="hover"
                   color="inherit"
                   sx={{
-                    fontSize: "16px",
+                    fontSize: { xs: "16px", sm: "16px", md: "16px" },
                     transition: "all 0.2s ease",
                     "&:hover": {
                       transform: "translateX(5px)",
@@ -168,7 +168,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: { xs: "18px", sm: "20px", md: "22px" },
                 fontWeight: 600,
                 mb: 3,
               }}
@@ -184,7 +184,7 @@ function Footer() {
                   underline="hover"
                   color="inherit"
                   sx={{
-                    fontSize: "16px",
+                    fontSize: { xs: "16px", sm: "16px", md: "16px" },
                     transition: "all 0.2s ease",
                     "&:hover": {
                       transform: "translateX(5px)",
@@ -204,7 +204,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: { xs: "18px", sm: "20px", md: "22px" },
                 fontWeight: 600,
                 mb: 3,
               }}
@@ -218,7 +218,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "16px",
+                  fontSize: { xs: "16px", sm: "16px", md: "16px" },
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
                   "&:hover": {
@@ -234,7 +234,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "16px",
+                  fontSize: { xs: "16px", sm: "16px", md: "16px" },
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
                   "&:hover": {
@@ -250,7 +250,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: "16px",
+                  fontSize: { xs: "16px", sm: "16px", md: "16px" },
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
                   "&:hover": {
@@ -281,7 +281,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: { xs: "18px", sm: "20px", md: "22px" },
                 fontWeight: 600,
                 mb: 2,
               }}
@@ -292,7 +292,7 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize: "16px",
+                fontSize: { xs: "16px", sm: "16px", md: "18px" },
                 lineHeight: 1.6,
                 mb: 2,
                 color: "#A8B6C5",
@@ -305,7 +305,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: { xs: "18px", sm: "20px", md: "22px" },
                 fontWeight: 600,
                 mb: 1,
               }}
@@ -316,7 +316,7 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize: "16px",
+                fontSize: { xs: "16px", sm: "16px", md: "16px" },
                 color: "#A8B6C5",
               }}
             >
@@ -329,7 +329,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: { xs: "18px", sm: "20px", md: "22px" },
                 fontWeight: 600,
                 mb: 2,
               }}
@@ -340,7 +340,7 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize: "16px",
+                fontSize: { xs: "16px", sm: "16px", md: "18px" },
                 lineHeight: 1.6,
                 mb: 3,
                 color: "#A8B6C5",
@@ -407,7 +407,7 @@ function Footer() {
           <Typography
             variant="body2"
             sx={{
-              fontSize: "16px",
+              fontSize: { xs: "16px", sm: "16px", md: "18px" },
               lineHeight: 1.6,
               color: "#A8B6C5",
               mb: 2,
@@ -421,7 +421,7 @@ function Footer() {
           <Typography
             variant="body2"
             sx={{
-              fontSize: "16px",
+              fontSize: { xs: "16px", sm: "16px", md: "16px" },
               color: "#A8B6C5",
             }}
           >

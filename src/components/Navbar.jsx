@@ -273,7 +273,7 @@ function Navbar() {
                 variant="body1"
                 sx={{
                   fontWeight: 500,
-                  fontSize: { md: "0.85rem", lg: "1rem" },
+                  fontSize: "16px",
                 }}
               >
                 {item.title}
@@ -332,7 +332,7 @@ function Navbar() {
                         fontWeight: 400,
                         color: "text.secondary",
                         fontFamily: "PayPal Open, sans-serif",
-                        fontSize: "12px",
+                        fontSize: { xs: "16px", sm: "16px", md: "16px" },
                         mb: 0,
                         display: "block",
                         textTransform: "uppercase",
@@ -409,7 +409,7 @@ function Navbar() {
                                 fontWeight: 500,
                                 color: "#0B3C7B",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: "14px",
+                                fontSize: { xs: "16px", sm: "16px", md: "18px" },
                                 mb: 0.25,
                                 transition: "color 0.2s",
                               }}
@@ -421,7 +421,7 @@ function Navbar() {
                               sx={{
                                 color: "text.secondary",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: "14px",
+                                fontSize: { xs: "16px", sm: "16px", md: "16px" },
                                 lineHeight: 1.5,
                                 opacity: 0.8,
                               }}
@@ -444,14 +444,13 @@ function Navbar() {
         variant="contained"
         color="primary"
         sx={{
-          height: { md: 42, lg: 48 },
-          minWidth: { md: "120px", lg: "auto" },
-          borderRadius: "37px",
+          borderRadius: "39px",
+          px: 5,
+          py: 2,
           boxShadow: "none",
-          px: { md: 2, lg: 4 },
           fontWeight: 500,
           textTransform: "none",
-          fontSize: { md: "0.85rem", lg: "1rem" },
+          fontSize: "16px",
           whiteSpace: "nowrap",
           display: { xs: "none", md: "flex" },
         }}
@@ -543,6 +542,9 @@ function Navbar() {
                     variant="body1"
                     color="primary.main"
                     fontWeight={500}
+                    sx={{
+                      fontSize: "16px",
+                    }}
                   >
                     {item.title}
                   </Typography>
@@ -636,11 +638,13 @@ function Navbar() {
                                   {service.title}
                                 </Typography>
                                 <Typography
-                                  variant="caption"
+                                  variant="body2"
                                   sx={{
-                                    display: { xs: "none", sm: "block" },
                                     color: "text.secondary",
-                                    fontSize: "11px",
+                                    fontFamily: "PayPal Open, sans-serif",
+                                    fontSize: { xs: "16px", sm: "16px", md: "16px" },
+                                    lineHeight: 1.5,
+                                    opacity: 0.8,
                                   }}
                                 >
                                   {service.description}
@@ -663,8 +667,9 @@ function Navbar() {
             color="primary"
             fullWidth
             sx={{
-              borderRadius: "37px",
-              py: 1.5,
+              borderRadius: "39px",
+              py: 2,
+              px: 5,
             }}
           >
             Let's Talk

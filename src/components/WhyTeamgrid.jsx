@@ -50,7 +50,7 @@ function WhyTeamgrid() {
               color="text.primary"
               gutterBottom
               sx={{
-                fontSize: { xs: "28px", sm: "32px", md: "42px" },
+                fontSize: { xs: "28px", sm: "32px", md: "42px", lg: "48px" },
                 fontWeight: 700,
               }}
             >
@@ -60,7 +60,7 @@ function WhyTeamgrid() {
               variant="body1"
               color="text.secondary"
               sx={{
-                fontSize: { xs: "14px", sm: "16px" },
+                fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
                 lineHeight: 1.6,
                 mb: 3,
               }}
@@ -75,15 +75,16 @@ function WhyTeamgrid() {
               endIcon={<ArrowRightAltIcon />}
               sx={{
                 borderRadius: "39px",
-                height: { xs: "48px", md: "59px" },
-                px: 4,
+                px: 5,
+                py: 2,
                 borderColor: "rgba(202, 202, 202, 1)",
                 "&:hover": {
                   backgroundColor: "primary.main",
                   color: "white",
                   borderColor: "primary.main",
                 },
-                fontSize: { xs: "12px", sm: "14px", md: "16px" },
+                fontSize: "16px",
+                textTransform: "none",
               }}
             >
               Explore Services
@@ -133,7 +134,7 @@ function WhyTeamgrid() {
                       gutterBottom
                       sx={{
                         fontWeight: 600,
-                        fontSize: { xs: "18px", md: "20px" },
+                        fontSize: { xs: "18px", sm: "20px", md: "22px" },
                       }}
                     >
                       {feature.title}
@@ -142,7 +143,7 @@ function WhyTeamgrid() {
                       variant="body1"
                       color="text.secondary"
                       sx={{
-                        fontSize: { xs: "14px", md: "16px" },
+                        fontSize: { xs: "16px", sm: "16px", md: "18px" },
                         lineHeight: 1.6,
                       }}
                     >

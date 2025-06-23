@@ -106,7 +106,7 @@ function Technologies() {
                 variant="h2"
                 color="common.white"
                 sx={{
-                  fontSize: { xs: "28px", sm: "32px", md: "40px", lg: "48px" },
+                  fontSize: { xs: "28px", sm: "32px", md: "42px", lg: "48px" },
                   fontWeight: 700,
                   lineHeight: 1.2,
                 }}
@@ -118,7 +118,7 @@ function Technologies() {
                 color="#e1e0e0"
                 sx={{
                   mt: { xs: 0.5, sm: 1 },
-                  fontSize: { xs: "14px", sm: "15px", md: "16px" },
+                  fontSize: { xs: "16px", sm: "16px", md: "18px" },
                 }}
               >
                 {subtitle}
@@ -132,12 +132,13 @@ function Technologies() {
                 "&:hover": {
                   bgcolor: "#003272",
                 },
-                borderRadius: "32px",
-                px: { xs: 3, md: 4 },
-                py: { xs: 0.75, md: 1 },
-                fontSize: { xs: "13px", sm: "14px", md: "16px" },
+                borderRadius: "39px",
+                px: 5,
+                py: 2,
+                fontSize: "16px",
                 whiteSpace: "nowrap",
                 alignSelf: { xs: "flex-start", md: "center" },
+                textTransform: "none",
               }}
               endIcon={<ArrowRightAltIcon />}
             >
@@ -237,7 +238,7 @@ function Technologies() {
                       variant="h3"
                       color="common.white"
                       sx={{
-                        fontSize: { xs: "16px", sm: "18px", md: "20px" },
+                        fontSize: { xs: "18px", sm: "20px", md: "22px" },
                         fontWeight: 600,
                         mb: { xs: 0.5, md: 0.75 },
                         lineHeight: 1.2,
@@ -249,7 +250,7 @@ function Technologies() {
                       variant="body2"
                       color="common.white"
                       sx={{
-                        fontSize: { xs: "12px", sm: "13px", md: "14px" },
+                        fontSize: { xs: "16px", sm: "16px", md: "16px" },
                         fontWeight: 400,
                         lineHeight: 1.4,
                         opacity: 0.8,

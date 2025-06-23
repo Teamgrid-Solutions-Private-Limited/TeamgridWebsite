@@ -108,7 +108,7 @@ function WhatWeDo() {
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: "28px", sm: "32px", md: "42px" },
+              fontSize: { xs: "28px", sm: "32px", md: "42px", lg: "48px" },
               fontWeight: 700,
               mb: { xs: 1.5, md: 2 },
               color: "text.primary",
@@ -120,7 +120,7 @@ function WhatWeDo() {
           <Typography
             variant="body1"
             sx={{
-              fontSize: { xs: "14px", sm: "16px" },
+              fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
               lineHeight: 1.6,
               color: "text.secondary",
               mb: { xs: 2, md: 3 },
@@ -164,13 +164,15 @@ function WhatWeDo() {
                     }}>
                     {item.title}
                   </Typography>
-                  <Typography variant="body2"
+                  <Typography
+                    variant="body2"
                     sx={{
-                      fontSize: { xs: "14px", md: "15px" },
+                      fontSize: { xs: "16px", sm: "16px", md: "18px" },
+                      color: "#000000",
                       lineHeight: 1.6,
                       mb: { xs: 2, md: 3 },
-                      color: "#000000",
-                    }}>
+                    }}
+                  >
                     {item.description}
                   </Typography>
                   <Box>
@@ -181,10 +183,11 @@ function WhatWeDo() {
                         color: "black",
                         textTransform: "none",
                         fontWeight: 500,
-                        fontSize: { xs: "12px", sm: "14px", md: "16px" },
+                        fontSize: "16px",
                         border: "1px solid rgba(168, 189, 211, 1)",
-                        borderRadius: "30px",
-                        padding: "5px 15px",
+                        borderRadius: "39px",
+                        px: 5,
+                        py: 2,
                         width: "fit-content",
                         "&:hover": {
                           bgcolor: "transparent",
@@ -400,7 +403,7 @@ function WhatWeDo() {
                         fontWeight: 600,
                         mb: 0.5,
                         color: index === idx ? "white" : "text.primary",
-                        fontSize: { xs: "11px", sm: "14px", md: "16px" },
+                        fontSize: { xs: "16px", sm: "16px", md: "18px" },
                         transition: "color 0.3s ease",
                       }}
                     >
@@ -410,7 +413,7 @@ function WhatWeDo() {
                       className="service-description"
                       variant="body2"
                       sx={{
-                        fontSize: { xs: "9px", sm: "11px", md: "12px" },
+                        fontSize: { xs: "16px", sm: "16px", md: "16px" },
                         color: index === idx ? "rgba(255,255,255,0.9)" : "text.secondary",
                         lineHeight: 1.2,
                         transition: "color 0.3s ease",

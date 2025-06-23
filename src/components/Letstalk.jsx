@@ -70,7 +70,7 @@ function Letstalk() {
               variant="h2"
               sx={{
                 fontWeight: 500,
-                fontSize: { xs: "28px", sm: "34px", md: "40px", lg: "56px" },
+                fontSize: { xs: "28px", sm: "32px", md: "42px", lg: "48px" },
                 lineHeight: 1.2,
                 mb: { xs: 1.5, sm: 2, md: 2.5 },
               }}
@@ -94,7 +94,7 @@ function Letstalk() {
             <Typography
               variant="body1"
               sx={{
-                fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "20px" },
+                fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
                 fontWeight: 400,
                 lineHeight: 1.5,
                 opacity: 0.8,
@@ -123,12 +123,13 @@ function Letstalk() {
                     bgcolor: "rgba(255, 255, 255, 0.9)",
                   },
                   borderRadius: "39px",
-                  width: { xs: "100%", sm: "156px" },
-                  height: { xs: "44px", sm: "48px", md: "54px", lg: "59px" },
-                  fontSize: { xs: "15px", sm: "16px", md: "18px" },
+                  px: 5,
+                  py: 2,
+                  fontSize: "16px",
                   fontWeight: 400,
                   textTransform: "none",
                   transition: "all 0.3s ease",
+                  width: { xs: "100%", sm: "auto" },
                 }}
               >
                 Let's Talk
@@ -142,18 +143,15 @@ function Letstalk() {
                     bgcolor: "#e54b24",
                   },
                   borderRadius: "39px",
-                  width: { xs: "100%", sm: "220px", md: "262px" },
-                  height: { xs: "44px", sm: "48px", md: "54px", lg: "59px" },
-                  fontSize: { xs: "15px", sm: "16px", md: "18px" },
+                  px: 5,
+                  py: 2,
+                  fontSize: "16px",
                   fontWeight: 400,
                   textTransform: "none",
                   transition: "all 0.3s ease",
+                  width: { xs: "100%", sm: "auto" },
                   lineHeight: 1.1,
                   whiteSpace: { xs: "normal", sm: "nowrap" },
-                  padding: { xs: "6px 12px", sm: "6px 16px" },
-                  "& .MuiButton-label": {
-                    display: "inline-block",
-                  },
                 }}
               >
                 Request a Free Quote
