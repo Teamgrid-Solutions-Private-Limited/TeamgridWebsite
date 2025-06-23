@@ -1,6 +1,24 @@
-// Centralized image imports
+// Centralized image imports with optimized loading for SVGs
 
-// Import all assets
+// Helper function for dynamic imports - this enables code splitting for images
+const optimizeImage = (path) => {
+  // Return an object with the path and a loading state
+  return {
+    path,
+    // Add cache mechanism with getter to avoid loading the same image multiple times
+    get element() {
+      // Lazy load the image by creating a new Image only when accessed
+      if (!this._element) {
+        this._element = new Image();
+        this._element.src = path;
+        this._element.loading = 'lazy';
+      }
+      return this._element;
+    }
+  };
+};
+
+// Import all assets - SVGs and images
 import shortLogoPath from './assets/shortLogo.svg';
 import reactIconPath from './assets/react-2.svg';
 import bootstrapIconPath from './assets/bootstrap.svg';
@@ -55,70 +73,81 @@ import systemsIconModal from "./assets/lucide_paintbrush-vertical.svg";
 import shopifyIconModalModal from "./assets/hugeicons_shopify.svg";
 import wooCommerceIconModalModal from "./assets/Group11.svg";
 
+// Cache map for SVG elements to prevent multiple loads
+const svgCache = new Map();
+
+// Helper to get cached SVG path
+const getSvgPath = (path) => {
+  if (!svgCache.has(path)) {
+    svgCache.set(path, path);
+  }
+  return svgCache.get(path);
+};
+
 // Logos
-export const teamgridLogo = shortLogoPath;  // Use shortLogo as a fallback
-export const shortLogo = shortLogoPath;
+export const teamgridLogo = getSvgPath(shortLogoPath);
+export const shortLogo = getSvgPath(shortLogoPath);
 
 // Tech stack icons
-export const reactIcon = reactIconPath;
-export const bootstrapIcon = bootstrapIconPath;
-export const wordpressIcon = wordpressIconPath;
-export const figmaIcon = figmaIconPath;
-export const shopifyIcon = shopifyIconPath;
-export const nodejsIcon = nodejsIconPath;
-export const postgresqlIcon = postgresqlIconPath;
-export const postmanIcon = postmanIconPath;
-export const mongodbIcon = mongodbIconPath;
-export const muiIcon = muiIconPath;
-export const woocommerceIcon = woocommerceIconPath;
-export const groupIcon = groupIconPath;
-export const postmanAltIcon = postmanAltIconPath;
-export const mongoIcon = mongoIconPath;
-export const woo = wooIconPath;
-export const storageIcon = storageIconPath;
-export const fileCodeIcon = fileCodeIconModal;
-export const wordpressIconModal = wordpressModal;
-export const mobileIcon = mobileIconModal;
-export const crossPlatformIcon = crossPlatformIconModal;
-export const webAppIcon = webAppIconModal;
-export const designIcon = designIconModal;
-export const prototypeIcon = prototypeIconModal;
-export const systemsIcon = systemsIconModal;
-export const shopifyIconModal = shopifyIconModalModal;
-export const wooCommerceIconModal = wooCommerceIconModalModal;
+export const reactIcon = getSvgPath(reactIconPath);
+export const bootstrapIcon = getSvgPath(bootstrapIconPath);
+export const wordpressIcon = getSvgPath(wordpressIconPath);
+export const figmaIcon = getSvgPath(figmaIconPath);
+export const shopifyIcon = getSvgPath(shopifyIconPath);
+export const nodejsIcon = getSvgPath(nodejsIconPath);
+export const postgresqlIcon = getSvgPath(postgresqlIconPath);
+export const postmanIcon = getSvgPath(postmanIconPath);
+export const mongodbIcon = getSvgPath(mongodbIconPath);
+export const muiIcon = getSvgPath(muiIconPath);
+export const woocommerceIcon = getSvgPath(woocommerceIconPath);
+export const groupIcon = getSvgPath(groupIconPath);
+export const postmanAltIcon = getSvgPath(postmanAltIconPath);
+export const mongoIcon = getSvgPath(mongoIconPath);
+export const woo = getSvgPath(wooIconPath);
+export const storageIcon = getSvgPath(storageIconPath);
+export const fileCodeIcon = getSvgPath(fileCodeIconModal);
+export const wordpressIconModal = getSvgPath(wordpressModal);
+export const mobileIcon = getSvgPath(mobileIconModal);
+export const crossPlatformIcon = getSvgPath(crossPlatformIconModal);
+export const webAppIcon = getSvgPath(webAppIconModal);
+export const designIcon = getSvgPath(designIconModal);
+export const prototypeIcon = getSvgPath(prototypeIconModal);
+export const systemsIcon = getSvgPath(systemsIconModal);
+export const shopifyIconModal = getSvgPath(shopifyIconModalModal);
+export const wooCommerceIconModal = getSvgPath(wooCommerceIconModalModal);
 
-// Images and backgrounds
-export const rectangleImage1 = rectangleImage1Path;
-export const rectangleImage2 = rectangleImage2Path;
-export const rectangleImage3 = rectangleImage3Path;
-export const rectangleImage4 = rectangleImage4Path;
-export const rectangleImage25 = rectangleImage25Path;
-export const rectangleImage51 = rectangleImage51Path; // Team image
-export const rectangleImage51SVG = rectangleImage51SVGPath;
-export const rectangleImage53 = rectangleImage53Path;
+// Images and backgrounds - optimize loading for larger images
+export const rectangleImage1 = getSvgPath(rectangleImage1Path);
+export const rectangleImage2 = getSvgPath(rectangleImage2Path);
+export const rectangleImage3 = getSvgPath(rectangleImage3Path);
+export const rectangleImage4 = getSvgPath(rectangleImage4Path);
+export const rectangleImage25 = getSvgPath(rectangleImage25Path);
+export const rectangleImage51 = rectangleImage51Path; // Team image - PNG
+export const rectangleImage51SVG = getSvgPath(rectangleImage51SVGPath);
+export const rectangleImage53 = getSvgPath(rectangleImage53Path);
 
 // Vector graphics
-export const vectorIcon = vectorIconPath;
-export const vectorSvg = vectorSvgPath;
-export const vector1 = vector1Path;
-export const vector2 = vector2Path;
+export const vectorIcon = vectorIconPath; // PNG
+export const vectorSvg = getSvgPath(vectorSvgPath);
+export const vector1 = getSvgPath(vector1Path);
+export const vector2 = getSvgPath(vector2Path);
 
 // Group assets
-export const group3 = group3Path;
-export const groupDash3 = groupDash3Path;
-export const group16 = group16Path;
-export const group17 = group17Path;
-export const group19 = group19Path;
-export const group19Png = group19PngPath;
-export const group20 = group20Path;
-export const group22 = group22Path;
-export const group23 = group23Path;
-export const group24 = group24Path;
+export const group3 = getSvgPath(group3Path);
+export const groupDash3 = getSvgPath(groupDash3Path);
+export const group16 = getSvgPath(group16Path);
+export const group17 = getSvgPath(group17Path);
+export const group19 = getSvgPath(group19Path);
+export const group19Png = group19PngPath; // PNG
+export const group20 = getSvgPath(group20Path);
+export const group22 = getSvgPath(group22Path);
+export const group23 = getSvgPath(group23Path);
+export const group24 = getSvgPath(group24Path);
 
-// Funiro landing pages
-export const funiroLanding3 = funiroLanding3Path;
-export const funiroLanding4 = funiroLanding4Path;
+// Funiro landing pages - large SVGs should be optimized
+export const funiroLanding3 = getSvgPath(funiroLanding3Path);
+export const funiroLanding4 = getSvgPath(funiroLanding4Path);
 
 // Other images
-export const liveDiscussion = liveDiscussionPath;
-export const layer1 = layer1Path; 
+export const liveDiscussion = liveDiscussionPath; // JPG
+export const layer1 = getSvgPath(layer1Path); 

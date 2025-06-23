@@ -97,8 +97,8 @@ function WhyTeamgrid() {
               component="img"
               src={rectangleImage51}
               alt="Team collaboration"
+              loading="lazy"
               sx={{
-
                 width: "90%",
                 objectFit: "cover",
                 borderRadius: "8px",
@@ -120,6 +120,7 @@ function WhyTeamgrid() {
                     component="img"
                     src={vectorIcon}
                     alt="Check icon"
+                    loading="lazy"
                     sx={{
                       width: "24px",
                       height: "24px",

@@ -213,6 +213,7 @@ function Technologies() {
                           component="img"
                           src={tech.icon}
                           alt={tech.title}
+                          loading="lazy"
                           sx={{
                             width: { xs: 20, sm: 24, md: 28 },
                             height: { xs: 20, sm: 24, md: 28 },
@@ -225,6 +226,7 @@ function Technologies() {
                         component="img"
                         src={tech.icon}
                         alt={tech.title}
+                        loading="lazy"
                         sx={{
                           width: { xs: 28, sm: 34, md: 40 },
                           height: { xs: 28, sm: 34, md: 40 },

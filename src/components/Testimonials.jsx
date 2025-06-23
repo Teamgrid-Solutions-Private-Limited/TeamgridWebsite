@@ -326,6 +326,7 @@ const Testimonials = () => {
         <Avatar 
           src={testimonial.avatar} 
           alt={testimonial.name}
+          loading="lazy"
           sx={{ 
             width: { xs: 36, sm: 42, md: 56 }, 
             height: { xs: 36, sm: 42, md: 56 },

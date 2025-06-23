@@ -258,6 +258,7 @@ function WhatWeDo() {
                     component="img"
                     src={item.image}
                     alt="Funiro products showcase"
+                    loading="lazy"
                   />
                   <Box
                     sx={{
@@ -270,6 +271,7 @@ function WhatWeDo() {
                     component="img"
                     src={item.overlayImage}
                     alt="Funiro E-commerce showcase"
+                    loading="lazy"
                   />
                 </Grid>
               </Grid>

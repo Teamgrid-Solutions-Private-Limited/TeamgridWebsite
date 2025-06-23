@@ -21,7 +21,7 @@ function Letstalk() {
     <Box
       component="section"
       sx={{
-        background: `url(${backgroundImage}), #085BC8`,
+        backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -32,7 +32,9 @@ function Letstalk() {
         overflow: "hidden",
         position: "relative",
         width: "100%",
+        backgroundColor: "#085BC8", // Fallback color while image loads
       }}
+      loading="lazy"
     >
       <Container
         maxWidth="1400px"

@@ -120,6 +120,7 @@ const WhoWeHelp = () => {
                   component="img"
                   src={image1}
                   alt="Team member"
+                  loading="lazy"
                   sx={{
                     width: '100%',
                     maxWidth: '272px',
@@ -133,6 +134,7 @@ const WhoWeHelp = () => {
                   component="img"
                   src={image3}
                   alt="Team member"
+                  loading="lazy"
                   sx={{
                     width: '100%',
                     maxWidth: '272px',
@@ -150,6 +152,7 @@ const WhoWeHelp = () => {
                   component="img"
                   src={image2}
                   alt="Team member"
+                  loading="lazy"
                   sx={{
                     width: '100%',
                     maxWidth: '272px',
@@ -163,6 +166,7 @@ const WhoWeHelp = () => {
                   component="img"
                   src={image4}
                   alt="Team member"
+                  loading="lazy"
                   sx={{
                     width: '100%',
                     maxWidth: '272px',

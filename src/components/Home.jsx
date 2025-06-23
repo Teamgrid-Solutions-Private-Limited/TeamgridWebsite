@@ -337,6 +337,7 @@ function Home() {
                   component="img"
                   src={teamgridLogo}
                   alt="Teamgrid logo"
+                  loading="lazy"
                   sx={{
                     width: "105.968px",
                     height: "143.162px",
@@ -793,6 +794,7 @@ function TechIcon({
           component="img"
           src={icon}
           alt={name}
+          loading="lazy"
           sx={{
             width: isMobile ? `${30 * orbitScale}px` : `${38 * orbitScale}px`,
             height: isMobile ? `${30 * orbitScale}px` : `${38 * orbitScale}px`,

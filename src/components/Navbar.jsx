@@ -221,6 +221,7 @@ function Navbar() {
         component="img"
         src={logo}
         alt="logo"
+        loading="lazy"
         sx={{
           height: { xs: 40, md: 48, lg: 58 },
           width: "auto",
@@ -394,6 +395,7 @@ function Navbar() {
                               component="img"
                               src={service.icon}
                               alt={service.title}
+                              loading="lazy"
                               sx={{
                                 width: "24px",
                                 height: "24px",
@@ -503,6 +505,7 @@ function Navbar() {
             component="img"
             src={logo}
             alt="logo"
+            loading="lazy"
             sx={{ height: 40, width: "auto" }}
           />
           <IconButton onClick={handleDrawerToggle}>
@@ -620,6 +623,7 @@ function Navbar() {
                                   component="img"
                                   src={service.icon}
                                   alt={service.title}
+                                  loading="lazy"
                                   sx={{
                                     width: "24px",
                                     height: "24px",
@@ -721,6 +725,7 @@ function Navbar() {
             component="img"
             src={logo}
             alt="logo"
+            loading="lazy"
             sx={{
               height: { xs: 40, md: 48, lg: 58 },
               width: "auto",
