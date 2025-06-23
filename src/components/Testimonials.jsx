@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Box, Typography, Paper, Button, Avatar, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography, Paper, Button, Avatar, useMediaQuery, useTheme, IconButton } from "@mui/material";
 import { styled } from "@mui/system";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 // Sample data for testimonials
 const testimonialsRow1 = [
@@ -83,6 +85,9 @@ const testimonialsRow2 = [
   },
 ];
 
+// Combine testimonials for mobile slider
+const mobileTestimonials = [...testimonialsRow1.slice(0, 3), ...testimonialsRow2.slice(0, 3)];
+
 // Add these local constants at the top of the file, after the testimonial arrays
 const title = "What our clients say";
 const subtitle = "Real feedback from founders, product owners, and creative leaders who trusted us to build their vision.";
@@ -135,6 +140,38 @@ const TestimonialCard = styled(Paper)(({ theme }) => ({
     maxHeight: "260px",
     margin: theme.spacing(0, 0.5),
   },
+  // Special case for single card view on mobile
+  '.single-card-view &': {
+    [theme.breakpoints.down("md")]: {
+      width: "90%", // 90% of container width
+      maxWidth: "400px",
+      height: "300px",
+      maxHeight: "300px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "90%",
+      maxWidth: "350px",
+      height: "280px",
+      maxHeight: "280px",
+    }
+  }
+}));
+
+const SliderNavButton = styled(IconButton)(({ theme }) => ({
+  position: "absolute",
+  top: "50%",
+  transform: "translateY(-50%)",
+  backgroundColor: "white",
+  zIndex: 10,
+  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+  "&:hover": {
+    backgroundColor: "white",
+    boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.15)",
+  },
+  padding: theme.spacing(1),
+  [theme.breakpoints.up("sm")]: {
+    padding: theme.spacing(1.5),
+  },
 }));
 
 const TestimonialRow = styled(Box)(({ theme, direction, speed = 60, isPaused }) => ({
@@ -171,6 +208,10 @@ const ClientInfo = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
     paddingTop: theme.spacing(2),
   },
+  // Reduce padding-top in single-card view to minimize gap
+  '.single-card-view &': {
+    paddingTop: theme.spacing(1.5),
+  }
 }));
 
 const ExploreButton = styled(Button)(({ theme }) => ({
@@ -198,6 +239,7 @@ const Testimonials = () => {
   const row1Ref = useRef(null);
   const row2Ref = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
   
   // Speed up animation on smaller screens
   const animationSpeed = isMobile ? 80 : isTablet ? 100 : 120;
@@ -241,6 +283,15 @@ const Testimonials = () => {
     };
   }, []);
 
+  // Simple navigation for mobile slider - show one card at a time
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? mobileTestimonials.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev === mobileTestimonials.length - 1 ? 0 : prev + 1));
+  };
+
   const renderTestimonialCard = (testimonial) => (
     <TestimonialCard elevation={0} key={testimonial.id} data-testimonial-card>
       <QuoteIcon>
@@ -261,6 +312,13 @@ const Testimonials = () => {
           display: "-webkit-box",
           WebkitLineClamp: { xs: 3, sm: 3, md: 4 },
           WebkitBoxOrient: "vertical",
+          // Special styling for single-card view
+          '.single-card-view &': {
+            lineHeight: 1.6,
+            fontSize: { xs: "0.9rem", sm: "1rem" },
+            mb: 1, // Reduce bottom margin
+            WebkitLineClamp: 6, // Show more lines in single card view
+          }
         }}
       >
         {testimonial.quote}
@@ -273,7 +331,12 @@ const Testimonials = () => {
             width: { xs: 36, sm: 42, md: 56 }, 
             height: { xs: 36, sm: 42, md: 56 },
             mr: { xs: 1, sm: 1.5, md: 2 },
-            border: "2px solid #F0F0F0"
+            border: "2px solid #F0F0F0",
+            // Slightly larger avatar in single-card view
+            '.single-card-view &': {
+              width: { xs: 48, sm: 54 },
+              height: { xs: 48, sm: 54 },
+            }
           }}
         />
         <Box>
@@ -281,7 +344,11 @@ const Testimonials = () => {
             variant="subtitle1" 
             fontWeight={600}
             sx={{ 
-              fontSize: { xs: "0.8125rem", sm: "0.875rem", md: "1rem" } 
+              fontSize: { xs: "0.8125rem", sm: "0.875rem", md: "1rem" },
+              // Slightly larger font in single-card view
+              '.single-card-view &': {
+                fontSize: { xs: "0.9rem", sm: "1rem" },
+              }
             }}
           >
             {testimonial.name}
@@ -290,7 +357,11 @@ const Testimonials = () => {
             variant="body2" 
             color="text.secondary"
             sx={{ 
-              fontSize: { xs: "0.6875rem", sm: "0.75rem", md: "0.875rem" } 
+              fontSize: { xs: "0.6875rem", sm: "0.75rem", md: "0.875rem" },
+              // Slightly larger font in single-card view
+              '.single-card-view &': {
+                fontSize: { xs: "0.75rem", sm: "0.875rem" },
+              }
             }}
           >
             {testimonial.position}
@@ -345,7 +416,77 @@ const Testimonials = () => {
             {subtitle}
           </Typography>
         </Box>
-   </Box>
+      </Box>
+
+      {/* Mobile/Tablet Single Card Slider - only visible below md breakpoint */}
+      <Box 
+        sx={{ 
+          display: { xs: 'block', md: 'none' },
+          position: 'relative',
+          mb: 5,
+          px: { xs: 4, sm: 6 }
+        }}
+      >
+        {/* Left navigation button */}
+        <SliderNavButton 
+          onClick={handlePrev}
+          sx={{ 
+            left: { xs: 0, sm: 4 },
+          }}
+        >
+          <ArrowBackIosNewIcon fontSize="small" />
+        </SliderNavButton>
+
+        {/* Single card display with sliding effect */}
+        <Box 
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'relative',
+            overflow: 'hidden',
+            height: { xs: 310, sm: 330 }, // Increased height for larger cards
+            width: '100%'
+          }}
+          className="single-card-view" // Add class for special styling
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              position: 'absolute',
+              transition: 'transform 0.5s ease',
+              transform: `translateX(${activeIndex * -100}%)`,
+              width: '100%'
+            }}
+          >
+            {mobileTestimonials.map((testimonial, index) => (
+              <Box 
+                key={testimonial.id}
+                sx={{ 
+                  flex: '0 0 100%',
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
+                {renderTestimonialCard(testimonial)}
+              </Box>
+            ))}
+          </Box>
+        </Box>
+
+        {/* Right navigation button */}
+        <SliderNavButton 
+          onClick={handleNext}
+          sx={{ 
+            right: { xs: 0, sm: 4 },
+          }}
+        >
+          <ArrowForwardIosIcon fontSize="small" />
+        </SliderNavButton>
+      </Box>
+
+      {/* Original auto-scrolling rows - only visible on md and up */}
+      <Box sx={{ display: { xs: 'none', md: 'block' } }}>
         {/* First row - scrolling left to right */}
         <TestimonialRow direction="left" speed={animationSpeed} isPaused={isPaused} sx={{ mb: { xs: 2, md: 3 } }}>
           <Box className="scroll-content" ref={row1Ref}>
@@ -361,6 +502,7 @@ const Testimonials = () => {
             {testimonialsRow2.map(testimonial => renderTestimonialCard({ ...testimonial, id: `${testimonial.id}-dup` }))}
           </Box>
         </TestimonialRow>
+      </Box>
 
         <Box sx={{ 
           display: "flex", 
