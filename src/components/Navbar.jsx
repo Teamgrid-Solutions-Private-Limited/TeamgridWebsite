@@ -253,7 +253,7 @@ function Navbar() {
             <ListItem
               sx={{
                 color: "primary.main",
-                px: { md: 1, lg: 2 },
+                px: { md: 1, lg: 1.5, xl: 2 },
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
