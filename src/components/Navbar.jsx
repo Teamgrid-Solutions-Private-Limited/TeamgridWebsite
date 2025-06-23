@@ -566,7 +566,7 @@ function Navbar() {
                       <React.Fragment key={`cat-${catIndex}`}>
                         <ListItem
                           sx={{
-                            pl: 4,
+                            pl: 2.5,
                             py: 1,
                           }}
                         >
@@ -588,7 +588,7 @@ function Navbar() {
                             button
                             onClick={handleDrawerToggle}
                             sx={{
-                              pl: 6,
+                              pl: 2.5,
                               py: 1,
                               "&:hover": { bgcolor: "#f2f2f5" },
                             }}

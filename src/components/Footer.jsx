@@ -14,6 +14,7 @@ import {
 import SendIcon from "@mui/icons-material/Send";
 import EmailIcon from "@mui/icons-material/Email";
 import data from "../data.json";
+import { FiSend } from "react-icons/fi";
 
 function Footer() {
   const theme = useTheme();
@@ -42,7 +43,7 @@ function Footer() {
           width: "1400px",
         }}
       >
-        <Grid container spacing={{ xs: 2, sm: 2, md: 4, lg: 8, xl: 10}}>
+        <Grid container spacing={{ xs: 2, sm: 2, md: 4, lg: 8, xl: 10 }}>
           {/* Blogs Section */}
           <Grid xs={12} sm={6} md={3}>
             <Typography
@@ -66,7 +67,7 @@ function Footer() {
                   transition: "all 0.2s ease",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color:'#ffffff'
+                    color: "#ffffff",
                   },
                   color: "#A8B6C5",
                 }}
@@ -82,7 +83,7 @@ function Footer() {
                   transition: "all 0.2s ease",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color:'#ffffff'
+                    color: "#ffffff",
                   },
                   color: "#A8B6C5",
                 }}
@@ -98,7 +99,7 @@ function Footer() {
                   transition: "all 0.2s ease",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color:'#ffffff'
+                    color: "#ffffff",
                   },
                   color: "#A8B6C5",
                 }}
@@ -115,7 +116,7 @@ function Footer() {
                   transition: "all 0.2s ease",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color:'#ffffff'
+                    color: "#ffffff",
                   },
                   color: "#A8B6C5",
                 }}
@@ -151,7 +152,7 @@ function Footer() {
                     transition: "all 0.2s ease",
                     "&:hover": {
                       transform: "translateX(5px)",
-                      color:'#ffffff'
+                      color: "#ffffff",
                     },
                     color: "#A8B6C5",
                   }}
@@ -187,7 +188,7 @@ function Footer() {
                     transition: "all 0.2s ease",
                     "&:hover": {
                       transform: "translateX(5px)",
-                      color:'#ffffff'
+                      color: "#ffffff",
                     },
                     color: "#A8B6C5",
                   }}
@@ -222,7 +223,7 @@ function Footer() {
                   color: "#A8B6C5",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color:'#ffffff'
+                    color: "#ffffff",
                   },
                 }}
               >
@@ -238,7 +239,7 @@ function Footer() {
                   color: "#A8B6C5",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color:'#ffffff'
+                    color: "#ffffff",
                   },
                 }}
               >
@@ -254,7 +255,7 @@ function Footer() {
                   color: "#A8B6C5",
                   "&:hover": {
                     transform: "translateX(5px)",
-                    color:'#ffffff'
+                    color: "#ffffff",
                   },
                 }}
               >
@@ -276,7 +277,7 @@ function Footer() {
           }}
         >
           {/* Contact Section */}
-          <Box sx={{ maxWidth: "400px", width: { xs: "100%", md: "auto" } }}>
+          <Box sx={{ maxWidth: "40%", width: { xs: "100%", md: "auto" } }}>
             <Typography
               variant="h6"
               sx={{
@@ -324,7 +325,7 @@ function Footer() {
           </Box>
 
           {/* Newsletter Section */}
-          <Box sx={{ maxWidth: "450px", width: { xs: "100%", md: "auto" } }}>
+          <Box sx={{ maxWidth: "40%", width: { xs: "100%", md: "auto" } }}>
             <Typography
               variant="h6"
               sx={{
@@ -348,59 +349,56 @@ function Footer() {
               Stay updated with expert insights, smart development tips, and
               exclusive Teamgrid news—delivered straight to your inbox.
             </Typography>
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
+              <TextField
+                fullWidth
+                placeholder="Your email ID"
+                variant="outlined"
+                sx={{
+                  transition: "all 0.3s ease",
+                  "&:focus-within": {
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+                  },
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <EmailIcon sx={{ color: "rgba(255,255,255,0.5)" }} />
+                    </InputAdornment>
+                  ),
 
-            <TextField
-              fullWidth
-              placeholder="Your email ID"
-              variant="outlined"
-              sx={{
-                transition: "all 0.3s ease",
-                "&:focus-within": {
-                  transform: "translateY(-2px)",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-                },
-              }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <EmailIcon sx={{ color: "rgba(255,255,255,0.5)" }} />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      edge="end"
-                      sx={{
-                        color: "white",
-                        bgcolor: "#0b3c7b",
-                        borderRadius: "50%",
-                        transition: "all 0.2s ease",
-                        "&:hover": {
-                          bgcolor: "#0a3266",
-                          transform: "scale(1.1)",
-                        },
-                      }}
-                    >
-                      <SendIcon />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-                sx: {
-                  bgcolor: "rgba(255,255,255,0.05)",
-                  borderRadius: "50px",
+                  sx: {
+                    bgcolor: "rgba(255,255,255,0.05)",
+                    borderRadius: "50px",
+                    color: "white",
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "rgba(255,255,255,0.2)",
+                    },
+                    "&:hover .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "rgba(255,255,255,0.3)",
+                    },
+                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "rgba(255,255,255,0.5)",
+                    },
+                  },
+                }}
+              />
+              <IconButton
+                edge="end"
+                sx={{
                   color: "white",
-                  "& .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "rgba(255,255,255,0.2)",
+                  borderRadius: "50%",
+                  transition: "all 0.2s ease",
+                  "&:hover": {
+                    bgcolor: "#0a3266",
+                    transform: "scale(1.1)",
                   },
-                  "&:hover .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "rgba(255,255,255,0.3)",
-                  },
-                  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "rgba(255,255,255,0.5)",
-                  },
-                },
-              }}
-            />
+                }}
+              >
+                <FiSend size={24} />
+              </IconButton>
+            </Box>
           </Box>
         </Box>
 
