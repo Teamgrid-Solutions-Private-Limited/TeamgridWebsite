@@ -76,7 +76,6 @@ function Home() {
       sx={{
         bgcolor: "#001C42",
         // minHeight: "100vh",
-        position: "relative",
         overflow: "hidden",
         width: "100%",
         display: "flex",
@@ -119,8 +118,9 @@ function Home() {
       >
         <Box
           sx={{
-            width: { xs: "100%", md: "55%", lg: "48%", xl: "40%" }, // reduced width on large screens
-            maxWidth: { md: "600px", lg: "650px", xl: "700px" }, // limit max width
+            // reduced width on large screens
+             // limit max width
+             width: { xs: "100%", md: "55%", lg: "70%" },
             gap: 2,
             display: "flex",
             flexDirection: "column",
@@ -129,7 +129,8 @@ function Home() {
             p: { xs: 3, sm: 3, md: 0 },
             borderRadius: { xs: 2, sm: 2, md: 0 },
             background: "none",
-            pointerEvents: "auto", // allow pointer events only for text
+            pointerEvents: "auto",
+            overflow: "hidden", // allow pointer events only for text
           }}
         >
           <Typography
@@ -223,48 +224,44 @@ function Home() {
             </Button>
           </Stack>
         </Box>
-      </Box>
-
-      {/* Orbital system with tech icons */}
-      <Box
+         {/* Orbital system with tech icons */}
+        <Box
         sx={{
-          position: "absolute",
-          top: { xs: "50%", sm: "45%", md: "5%", lg: "5%", xl: "3.7%" },
-          left: { xs: "50%", sm: "50%", md: "93%", lg: "92%", xl: "83%" },
-          right: { xs: "auto", sm: "-30%", md: 0 },
-          bottom: { xs: "auto", sm: "-30%", md: "auto" },
-          transform: {
-            xs: "translate(-50%, -50%)",
-            md: "translateX(-50%)",
+          position: "relative",
+         right: 0,
+          top: "50%",
+          transform: "translateY(-50%)",
+          width: {
+            xs: `${700 * orbitScale}px`,
+            sm: `${800 * orbitScale}px`,
+            md: `${900 * orbitScale}px`,
+            lg: `${1000 * orbitScale}px`,
+            xl: "1150px",
           },
-          width: { xs: "100%", sm: "120%", md: "110%", lg: "100%", xl: "75%" },
-          height: { xs: "100%", sm: "100%", md: "100%" },
-          zIndex: 10, // raised z-index to be above text
+          height: {
+            xs: `${700 * orbitScale}px`,
+            sm: `${800 * orbitScale}px`,
+            md: `${900 * orbitScale}px`,
+            lg: `${1000 * orbitScale}px`,
+            xl: "1150px",
+          },
+          zIndex: 1,
           display: { xs: "none", sm: "none", md: "flex" },
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "flex-end",
           opacity: { xs: 0.35, sm: 0.6, md: 0.8, lg: 1 },
-          pointerEvents: "auto", // allow pointer events for icons
+          pointerEvents: "auto",
+          overflow: "visible",
         }}
       >
-        {/* Orbital circles */}
         <Box
           sx={{
             position: "relative",
-            width: {
-              xs: `${700 * orbitScale}px`,
-              sm: `${800 * orbitScale}px`,
-              md: `${900 * orbitScale}px`,
-              lg: `${1000 * orbitScale}px`,
-              xl: "1150px",
-            },
-            height: {
-              xs: `${700 * orbitScale}px`,
-              sm: `${800 * orbitScale}px`,
-              md: `${900 * orbitScale}px`,
-              lg: `${1000 * orbitScale}px`,
-              xl: "1150px",
-            },
+            left: "90%",
+            top: { md: "40%", lg: "50%", xl: "55%"},
+            transform: "translate(-50%, -50%)",
+            width: "100%",
+            height: "100%",
           }}
         >
           {/* Main blue circle with logo in center */}
@@ -796,6 +793,10 @@ function Home() {
           ))}
         </Box>
       </Box>
+      </Box>
+
+     
+      
     </Box>
   );
 }
