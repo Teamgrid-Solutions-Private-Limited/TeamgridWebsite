@@ -39,7 +39,8 @@ import {
 import data from "../data.json";
 
 // Get menu items from data.json
-const { menuItems: menuItemsData, serviceCategories: serviceCategoriesData } = data.navbar;
+const { menuItems: menuItemsData, serviceCategories: serviceCategoriesData } =
+  data.navbar;
 
 // Map icon names to imported icons
 const iconMap = {
@@ -53,7 +54,7 @@ const iconMap = {
   prototypeIcon,
   systemsIcon,
   shopifyIcon,
-  wooCommerceIcon
+  wooCommerceIcon,
 };
 
 function Navbar() {
@@ -75,7 +76,7 @@ function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      
+
       // Boolean state for immediate changes
       if (scrollPosition > 50) {
         setScrolled(true);
@@ -86,9 +87,9 @@ function Navbar() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -157,12 +158,12 @@ function Navbar() {
   };
 
   // Map serviceCategories data and convert icon strings to actual imported icons
-  const serviceCategories = serviceCategoriesData.map(category => ({
+  const serviceCategories = serviceCategoriesData.map((category) => ({
     ...category,
-    services: category.services.map(service => ({
+    services: category.services.map((service) => ({
       ...service,
-      icon: iconMap[service.icon]
-    }))
+      icon: iconMap[service.icon],
+    })),
   }));
 
   const menuItems = menuItemsData;
@@ -213,7 +214,7 @@ function Navbar() {
         {menuItems.map((item, index) => (
           <Box
             key={index}
-            sx={{ 
+            sx={{
               position: "relative",
               flexShrink: 1,
             }}
@@ -227,12 +228,16 @@ function Navbar() {
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
-                "&:hover": { 
-                  bgcolor: !scrolled ? "rgba(5, 64, 142, 0.2)" : "rgba(5, 64, 142, 0.05)" 
+                "&:hover": {
+                  bgcolor: !scrolled
+                    ? "rgba(5, 64, 142, 0.2)"
+                    : "rgba(5, 64, 142, 0.05)",
                 },
                 bgcolor:
                   activeTab === index || activeDropdown === index
-                    ? !scrolled ? "rgba(5, 64, 142, 0.2)" : "rgba(5, 64, 142, 0.05)"
+                    ? !scrolled
+                      ? "rgba(5, 64, 142, 0.2)"
+                      : "rgba(5, 64, 142, 0.05)"
                     : "transparent",
                 borderRadius: "30px",
                 transition: "none",
@@ -256,8 +261,8 @@ function Navbar() {
               {item.hasSubmenu && (
                 <KeyboardArrowDownIcon
                   fontSize="small"
-                  sx={{ 
-                    ml: 0.5, 
+                  sx={{
+                    ml: 0.5,
                     color: !scrolled ? "white" : "#05408E",
                     transition: "none",
                   }}
@@ -314,13 +319,19 @@ function Navbar() {
                         fontWeight: 400,
                         color: "text.secondary",
                         fontFamily: "PayPal Open, sans-serif",
-                        fontSize: { xs: "14px", sm: "14px", md: "15px", lg: "16px" },
+                        fontSize: {
+                          xs: "12px",
+                          sm: "12px",
+                          md: "12px",
+                          lg: "13px",
+                        },
                         mb: 0,
                         display: "block",
                         textTransform: "uppercase",
                         opacity: 0.7,
                         letterSpacing: "0.5px",
                         pl: 2.5,
+                        lineHeight: '150%',
                       }}
                     >
                       {category.title}
@@ -393,12 +404,17 @@ function Navbar() {
                                 fontWeight: 500,
                                 color: "#05408E",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: { xs: "16px", sm: "16px", md: "16px", lg: "18px" },
+                                fontSize: {
+                                  xs: "13px",
+                                  sm: "14px",
+                                  md: "14px",
+                                  lg: "14px",
+                                },
                                 mb: 0.25,
                                 transition: "color 0.2s",
                                 whiteSpace: "normal",
                                 wordWrap: "break-word",
-                                lineHeight: 1.2,
+                                lineHeight: '150%',
                               }}
                             >
                               {service.title}
@@ -408,8 +424,13 @@ function Navbar() {
                               sx={{
                                 color: "text.secondary",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: { xs: "12px", sm: "13px", md: "14px", lg: "16px" },
-                                lineHeight: 1.4,
+                                fontSize: {
+                                  xs: "13px",
+                                  sm: "14px",
+                                  md: "14px",
+                                  lg: "14px",
+                                },
+                                lineHeight: '150%',
                                 opacity: 0.8,
                                 whiteSpace: "normal",
                                 wordWrap: "break-word",
@@ -510,8 +531,8 @@ function Navbar() {
             src={scrollProgress < 0.5 ? layer2 : layer1}
             alt="logo"
             loading="lazy"
-            sx={{ 
-              height: 40, 
+            sx={{
+              height: 40,
               width: "auto",
               filter: "none",
             }}
@@ -520,7 +541,9 @@ function Navbar() {
             <CloseIcon />
           </IconButton>
         </Box>
-        <Box sx={{ p: 2, pb: 0, height: "calc(100% - 56px)", overflowY: "auto" }}>
+        <Box
+          sx={{ p: 2, pb: 0, height: "calc(100% - 56px)", overflowY: "auto" }}
+        >
           <List sx={{ width: "100%" }}>
             {menuItems.map((item, index) => (
               <React.Fragment key={index}>
@@ -530,7 +553,10 @@ function Navbar() {
                     px: 2,
                     borderRadius: 2,
                     "&:hover": { bgcolor: "rgba(5, 64, 142, 0.04)" },
-                    bgcolor: activeTab === index ? "rgba(5, 64, 142, 0.06)" : "transparent",
+                    bgcolor:
+                      activeTab === index
+                        ? "rgba(5, 64, 142, 0.06)"
+                        : "transparent",
                   }}
                   button
                   onClick={
@@ -604,7 +630,9 @@ function Navbar() {
                               sx={{
                                 pl: 2.5,
                                 py: 1,
-                                "&:hover": { bgcolor: "rgba(5, 64, 142, 0.04)" },
+                                "&:hover": {
+                                  bgcolor: "rgba(5, 64, 142, 0.04)",
+                                },
                               }}
                             >
                               <Box
@@ -655,7 +683,12 @@ function Navbar() {
                                     sx={{
                                       color: "text.secondary",
                                       fontFamily: "PayPal Open, sans-serif",
-                                      fontSize: { xs: "12px", sm: "13px", md: "14px", lg: "16px" },
+                                      fontSize: {
+                                        xs: "12px",
+                                        sm: "13px",
+                                        md: "14px",
+                                        lg: "16px",
+                                      },
                                       lineHeight: 1.4,
                                       opacity: 0.8,
                                       whiteSpace: "normal",
@@ -677,7 +710,9 @@ function Navbar() {
             ))}
           </List>
         </Box>
-        <Box sx={{ p: 2, mt: 'auto', borderTop: '1px solid rgba(0, 0, 0, 0.06)' }}>
+        <Box
+          sx={{ p: 2, mt: "auto", borderTop: "1px solid rgba(0, 0, 0, 0.06)" }}
+        >
           <Button
             variant="contained"
             sx={{
@@ -712,13 +747,13 @@ function Navbar() {
         sx={{
           py: { xs: 0.5, sm: 0.75, md: 1 },
           background: !scrolled
-            ? 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)'
-            : 'rgba(255, 255, 255, 0.95)',
+            ? "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)"
+            : "rgba(255, 255, 255, 0.95)",
           backdropFilter: scrolled ? "blur(8px)" : "none",
           boxShadow: scrolled ? "0px 2px 10px rgba(0, 0, 0, 0.05)" : "none",
           zIndex: (theme) => theme.zIndex.drawer + 1,
           width: "100%",
-          display: { xs: mobileOpen ? 'none' : 'flex', md: 'flex' },
+          display: { xs: mobileOpen ? "none" : "flex", md: "flex" },
           justifyContent: "center",
           alignItems: "center",
           transition: "none",
