@@ -22,7 +22,8 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import {
-  layer1 as logo,
+  layer1,
+  layer2,
   storageIcon,
   fileCodeIcon,
   wordpressIconModal as wordpressIcon,
@@ -35,8 +36,25 @@ import {
   shopifyIconModal as shopifyIcon,
   wooCommerceIconModal as wooCommerceIcon,
 } from "../images";
+import data from "../data.json";
 
-// Import service icons from assets
+// Get menu items from data.json
+const { menuItems: menuItemsData, serviceCategories: serviceCategoriesData } = data.navbar;
+
+// Map icon names to imported icons
+const iconMap = {
+  fileCodeIcon,
+  storageIcon,
+  wordpressIcon,
+  mobileIcon,
+  crossPlatformIcon,
+  webAppIcon,
+  designIcon,
+  prototypeIcon,
+  systemsIcon,
+  shopifyIcon,
+  wooCommerceIcon
+};
 
 function Navbar() {
   const theme = useTheme();
@@ -47,9 +65,32 @@ function Navbar() {
   const [openSubmenu, setOpenSubmenu] = useState(null);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
   const navRef = useRef(null);
+
+  // Handle scroll event to change navbar style with immediate changes, no animations
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      
+      // Boolean state for immediate changes
+      if (scrollPosition > 50) {
+        setScrolled(true);
+        setScrollProgress(1); // Full progress
+      } else {
+        setScrolled(false);
+        setScrollProgress(0); // No progress
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -115,97 +156,16 @@ function Navbar() {
     }
   };
 
-  const serviceCategories = [
-    {
-      title: "WEB DEVELOPMENT",
-      services: [
-        {
-          title: "Front-End Development",
-          description: "Fast, responsive, and pixel-perfect user interfaces.",
-          icon: fileCodeIcon,
-        },
-        {
-          title: "Back-End Development",
-          description: "Scalable, secure, and efficient architecture.",
-          icon: storageIcon,
-        },
-        {
-          title: "WordPress & CMS",
-          description: "Custom WordPress sites with Elementor, and more.",
-          icon: wordpressIcon,
-        },
-      ],
-    },
-    {
-      title: "MOBILE APP DEVELOPMENT",
-      services: [
-        {
-          title: "iOS & Android Development",
-          description: "Native mobile experiences that perform and scale.",
-          icon: mobileIcon,
-        },
-        {
-          title: "Cross-Platform Apps",
-          description:
-            "Build and deploy everywhere with React Native or Flutter.",
-          icon: crossPlatformIcon,
-        },
-        {
-          title: "Progressive Web Apps",
-          description: "Web apps that work offline and feel native.",
-          icon: webAppIcon,
-        },
-      ],
-    },
-    {
-      title: "UI/UX & DESIGN",
-      services: [
-        {
-          title: "UI/UX Design",
-          description: "Intuitive, user-focused design for web and mobile.",
-          icon: designIcon,
-        },
-        {
-          title: "Prototyping & Wireframing",
-          description: "Visualize fast using tools like Figma and Adobe XD.",
-          icon: prototypeIcon,
-        },
-        {
-          title: "Design Systems",
-          description:
-            "Scalable design libraries to maintain brand consistency.",
-          icon: systemsIcon,
-        },
-      ],
-    },
-    {
-      title: "E-COMMERCE SOLUTIONS",
-      services: [
-        {
-          title: "Shopify Development",
-          description: "Custom stores with fast checkout and optimized UX.",
-          icon: shopifyIcon,
-        },
-        {
-          title: "WooCommerce Integration",
-          description: "Extend WordPress with powerful features.",
-          icon: wooCommerceIcon,
-        },
-      ],
-    },
-  ];
+  // Map serviceCategories data and convert icon strings to actual imported icons
+  const serviceCategories = serviceCategoriesData.map(category => ({
+    ...category,
+    services: category.services.map(service => ({
+      ...service,
+      icon: iconMap[service.icon]
+    }))
+  }));
 
-  const menuItems = [
-    { title: "Home", hasSubmenu: false },
-    { title: "About Us", hasSubmenu: false },
-    {
-      title: "What We Do",
-      hasSubmenu: true,
-      submenuItems: ["Web Development", "Mobile Development", "UI/UX Design"],
-    },
-    { title: "Technologies We Use", hasSubmenu: false },
-    { title: "How we work", hasSubmenu: false },
-  ];
+  const menuItems = menuItemsData;
 
   const renderDesktopMenu = () => (
     <Box
@@ -215,18 +175,22 @@ function Navbar() {
         justifyContent: "space-between",
         flex: 1,
         width: "100%",
+        overflow: "visible",
       }}
     >
       <Box
         component="img"
-        src={logo}
+        src={scrollProgress < 0.5 ? layer2 : layer1}
         alt="logo"
         loading="lazy"
         sx={{
           height: { xs: 40, md: 48, lg: 58 },
           width: "auto",
-          mr: { md: 2, lg: 4 },
+          mr: { md: 1, lg: 2 },
           display: { xs: "none", md: "block" },
+          filter: "none",
+          flexShrink: 0,
+          transition: "none",
         }}
       />
       <List
@@ -239,42 +203,52 @@ function Navbar() {
           padding: 0,
           "& .MuiListItem-root": { width: "auto" },
           gap: { md: 0.5, lg: 1 },
-          flex: { md: "1 1 auto" },
-          mx: { md: 2, lg: 4 },
-          overflow: { md: "auto" },
+          flex: "1 1 auto",
+          mx: { md: 1, lg: 2 },
+          overflow: "visible",
+          maxWidth: "100%",
+          transition: "none",
         }}
       >
         {menuItems.map((item, index) => (
           <Box
             key={index}
-            sx={{ position: "relative" }}
+            sx={{ 
+              position: "relative",
+              flexShrink: 1,
+            }}
             onMouseEnter={() => handleMenuHover(index)}
             onClick={() => handleMenuClick(index)}
           >
             <ListItem
               sx={{
-                color: "primary.main",
-                px: { md: 1, lg: 1.5, xl: 2 },
+                color: !scrolled ? "white" : "#05408E",
+                px: { md: 0.5, lg: 1, xl: 1.5 },
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
-                "&:hover": { bgcolor: "#F3F3F6" },
+                "&:hover": { 
+                  bgcolor: !scrolled ? "rgba(5, 64, 142, 0.2)" : "rgba(5, 64, 142, 0.05)" 
+                },
                 bgcolor:
                   activeTab === index || activeDropdown === index
-                    ? "#F3F3F6"
+                    ? !scrolled ? "rgba(5, 64, 142, 0.2)" : "rgba(5, 64, 142, 0.05)"
                     : "transparent",
                 borderRadius: "30px",
-                transition: "all 0.2s",
+                transition: "none",
                 fontWeight: 500,
-                fontSize: { md: "0.85rem", lg: "1rem" },
+                fontSize: { md: "0.8rem", lg: "0.9rem", xl: "1rem" },
                 whiteSpace: "nowrap",
+                minWidth: 0,
               }}
             >
               <Typography
                 variant="body1"
                 sx={{
                   fontWeight: 500,
-                  fontSize: "16px",
+                  fontSize: { md: "14px", lg: "16px" },
+                  color: !scrolled ? "white" : "#05408E",
+                  transition: "none",
                 }}
               >
                 {item.title}
@@ -282,7 +256,11 @@ function Navbar() {
               {item.hasSubmenu && (
                 <KeyboardArrowDownIcon
                   fontSize="small"
-                  sx={{ ml: 0.5, color: "primary.main" }}
+                  sx={{ 
+                    ml: 0.5, 
+                    color: !scrolled ? "white" : "#05408E",
+                    transition: "none",
+                  }}
                 />
               )}
             </ListItem>
@@ -297,34 +275,37 @@ function Navbar() {
                   top: { md: "76px", lg: "84px" },
                   left: "50%",
                   transform: "translateX(-50%)",
-                  width: { md: "90vw", lg: "90vw", xl: "1248px" },
+                  width: { md: "95vw", lg: "95vw", xl: "1248px" },
                   maxWidth: "1248px",
                   mt: 1.5,
                   height: "auto",
                   minHeight: { md: "250px", lg: "300px" },
-                  maxHeight: { md: "80vh", lg: "500px" },
+                  maxHeight: { xs: "75vh", md: "75vh", lg: "80vh" },
                   borderRadius: "12px",
-                  boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.08)",
-                  p: { md: 2, lg: 3 },
+                  boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.15)",
+                  p: { xs: 1.5, md: 2, lg: 3 },
                   backgroundColor: "#fff",
                   zIndex: 1300,
                   overflowY: "auto",
+                  overflowX: "hidden",
                   display: "flex",
-                  flexDirection: { md: "column", lg: "row" },
-                  flexWrap: { md: "wrap", lg: "nowrap" },
-                  justifyContent: "space-between",
-                  gap: { md: 2, lg: 3 },
+                  flexDirection: { xs: "column", md: "column", lg: "row" },
+                  flexWrap: { xs: "nowrap", md: "nowrap", lg: "nowrap" },
+                  justifyContent: { xs: "flex-start", lg: "space-between" },
+                  gap: { xs: 1, md: 2, lg: 3 },
                 }}
               >
                 {serviceCategories.map((category, catIndex) => (
                   <Box
                     key={catIndex}
                     sx={{
-                      width: { md: "100%", lg: "282px" },
-                      height: "100%",
+                      width: { xs: "100%", md: "100%", lg: "23%" },
+                      minWidth: { lg: "250px" },
+                      height: "auto",
                       display: "flex",
                       flexDirection: "column",
-                      mb: { md: 3, lg: 0 },
+                      mb: { xs: 2, md: 2.5, lg: 0 },
+                      flexShrink: 0,
                     }}
                   >
                     <Typography
@@ -333,7 +314,7 @@ function Navbar() {
                         fontWeight: 400,
                         color: "text.secondary",
                         fontFamily: "PayPal Open, sans-serif",
-                        fontSize: { xs: "16px", sm: "16px", md: "16px" },
+                        fontSize: { xs: "14px", sm: "14px", md: "15px", lg: "16px" },
                         mb: 0,
                         display: "block",
                         textTransform: "uppercase",
@@ -352,22 +333,22 @@ function Navbar() {
                           sx={{
                             mb: 0,
                             display: "flex",
-                            alignItems: "center",
+                            alignItems: "flex-start",
                             gap: 1,
                             cursor: "pointer",
                             width: "100%",
                             height: "auto",
-                            minHeight: "60px",
+                            minHeight: { xs: "50px", md: "55px", lg: "60px" },
                             "&:hover": {
-                              bgcolor: "#f2f2f5",
+                              bgcolor: "rgba(5, 64, 142, 0.03)",
                               "& .service-title": {
-                                color: "#0B3C7B",
+                                color: "#05408E",
                               },
-                              backgroundColor: "rgba(0, 0, 0, 0.02)",
+                              backgroundColor: "rgba(5, 64, 142, 0.03)",
                               borderRadius: "20px",
                             },
-                            px: 2,
-                            py: 2,
+                            px: { xs: 1.5, md: 2 },
+                            py: { xs: 1.5, md: 2 },
                             transition: "all 0.2s ease",
                           }}
                           onClick={() => {
@@ -380,15 +361,16 @@ function Navbar() {
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
-                              width: "45px",
-                              height: "45px",
+                              width: { xs: "40px", md: "45px" },
+                              height: { xs: "40px", md: "45px" },
                               flexShrink: 0,
                               borderRadius: "8px",
-                              backgroundColor: "rgba(11, 60, 123, 0.06)",
-                              padding: "8px",
+                              backgroundColor: "rgba(5, 64, 142, 0.06)",
+                              padding: { xs: "6px", md: "8px" },
                               "&:hover": {
                                 bgcolor: "#FFFFFF",
                               },
+                              mt: "3px",
                             }}
                           >
                             <Box
@@ -403,17 +385,20 @@ function Navbar() {
                               }}
                             />
                           </Box>
-                          <Box sx={{ flexGrow: 1 }}>
+                          <Box sx={{ flexGrow: 1, minWidth: 0 }}>
                             <Typography
                               className="service-title"
                               variant="subtitle1"
                               sx={{
                                 fontWeight: 500,
-                                color: "#0B3C7B",
+                                color: "#05408E",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: { xs: "16px", sm: "16px", md: "18px" },
+                                fontSize: { xs: "16px", sm: "16px", md: "16px", lg: "18px" },
                                 mb: 0.25,
                                 transition: "color 0.2s",
+                                whiteSpace: "normal",
+                                wordWrap: "break-word",
+                                lineHeight: 1.2,
                               }}
                             >
                               {service.title}
@@ -423,9 +408,11 @@ function Navbar() {
                               sx={{
                                 color: "text.secondary",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: { xs: "16px", sm: "16px", md: "16px" },
-                                lineHeight: 1.5,
+                                fontSize: { xs: "12px", sm: "13px", md: "14px", lg: "16px" },
+                                lineHeight: 1.4,
                                 opacity: 0.8,
+                                whiteSpace: "normal",
+                                wordWrap: "break-word",
                               }}
                             >
                               {service.description}
@@ -444,17 +431,27 @@ function Navbar() {
 
       <Button
         variant="contained"
-        color="primary"
         sx={{
           borderRadius: "39px",
-          px: 5,
-          py: 2,
+          px: { md: 2, lg: 4, xl: 5 },
+          py: 1.5,
           boxShadow: "none",
           fontWeight: 500,
           textTransform: "none",
-          fontSize: "16px",
+          fontSize: { md: "14px", lg: "16px" },
           whiteSpace: "nowrap",
           display: { xs: "none", md: "flex" },
+          color: "white",
+          border: "none",
+          bgcolor: "#05408E",
+          "&:hover": {
+            bgcolor: "#05408E",
+            border: "none",
+            opacity: 0.9,
+          },
+          flexShrink: 0,
+          minWidth: { md: 100, lg: 140 },
+          transition: "none",
         }}
       >
         Lets Talk
@@ -465,13 +462,14 @@ function Navbar() {
   const renderMobileMenu = () => (
     <Box sx={{ display: { xs: "flex", md: "none" }, marginLeft: "auto" }}>
       <IconButton
-        color="primary"
         aria-label="open drawer"
         edge="end"
         onClick={handleDrawerToggle}
         sx={{
           ml: 2,
           fontSize: "1.5rem",
+          color: !scrolled ? "white" : "#05408E",
+          transition: "none",
         }}
       >
         <MenuIcon fontSize="large" />
@@ -484,9 +482,11 @@ function Navbar() {
           "& .MuiDrawer-paper": {
             width: { xs: "100%", sm: 320 },
             boxSizing: "border-box",
-            p: 2,
+            p: 0,
             overflow: "auto",
+            height: "100%",
           },
+          zIndex: (theme) => theme.zIndex.drawer + 2,
         }}
         ModalProps={{
           keepMounted: true, // Better mobile performance
@@ -497,184 +497,203 @@ function Navbar() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            p: 1,
-            mb: 2,
+            p: 2,
+            borderBottom: "1px solid rgba(0, 0, 0, 0.06)",
+            position: "sticky",
+            top: 0,
+            backgroundColor: "#fff",
+            zIndex: 10,
           }}
         >
           <Box
             component="img"
-            src={logo}
+            src={scrollProgress < 0.5 ? layer2 : layer1}
             alt="logo"
             loading="lazy"
-            sx={{ height: 40, width: "auto" }}
+            sx={{ 
+              height: 40, 
+              width: "auto",
+              filter: "none",
+            }}
           />
-          <IconButton onClick={handleDrawerToggle}>
+          <IconButton onClick={handleDrawerToggle} sx={{ color: "#05408E" }}>
             <CloseIcon />
           </IconButton>
         </Box>
-        <List sx={{ width: "100%" }}>
-          {menuItems.map((item, index) => (
-            <React.Fragment key={index}>
-              <ListItem
-                sx={{
-                  py: 1.5,
-                  px: 2,
-                  borderRadius: 2,
-                  "&:hover": { bgcolor: "rgba(11, 60, 123, 0.04)" },
-                  bgcolor: activeTab === index ? "#F3F3F6" : "transparent",
-                }}
-                button
-                onClick={
-                  item.hasSubmenu
-                    ? () => handleSubmenuToggle(index)
-                    : () => {
-                        handleMenuClick(index);
-                        handleDrawerToggle();
-                      }
-                }
-              >
-                <Box
+        <Box sx={{ p: 2, pb: 0, height: "calc(100% - 56px)", overflowY: "auto" }}>
+          <List sx={{ width: "100%" }}>
+            {menuItems.map((item, index) => (
+              <React.Fragment key={index}>
+                <ListItem
                   sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    width: "100%",
+                    py: 1.5,
+                    px: 2,
+                    borderRadius: 2,
+                    "&:hover": { bgcolor: "rgba(5, 64, 142, 0.04)" },
+                    bgcolor: activeTab === index ? "rgba(5, 64, 142, 0.06)" : "transparent",
                   }}
+                  button
+                  onClick={
+                    item.hasSubmenu
+                      ? () => handleSubmenuToggle(index)
+                      : () => {
+                          handleMenuClick(index);
+                          handleDrawerToggle();
+                        }
+                  }
                 >
-                  <Typography
-                    variant="body1"
-                    color="primary.main"
-                    fontWeight={500}
+                  <Box
                     sx={{
-                      fontSize: "16px",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      width: "100%",
                     }}
                   >
-                    {item.title}
-                  </Typography>
-                  {item.hasSubmenu &&
-                    (openSubmenu === index ? (
-                      <ExpandLessIcon color="primary" />
-                    ) : (
-                      <ExpandMoreIcon color="primary" />
-                    ))}
-                </Box>
-              </ListItem>
+                    <Typography
+                      variant="body1"
+                      color="#05408E"
+                      fontWeight={500}
+                      sx={{
+                        fontSize: "16px",
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                    {item.hasSubmenu &&
+                      (openSubmenu === index ? (
+                        <ExpandLessIcon sx={{ color: "#05408E" }} />
+                      ) : (
+                        <ExpandMoreIcon sx={{ color: "#05408E" }} />
+                      ))}
+                  </Box>
+                </ListItem>
 
-              {item.hasSubmenu && (
-                <Collapse
-                  in={openSubmenu === index}
-                  timeout="auto"
-                  unmountOnExit
-                >
-                  <List component="div" disablePadding>
-                    {serviceCategories.map((category, catIndex) => (
-                      <React.Fragment key={`cat-${catIndex}`}>
-                        <ListItem
-                          sx={{
-                            pl: 2.5,
-                            py: 1,
-                          }}
-                        >
-                          <Typography
-                            variant="overline"
-                            sx={{
-                              fontWeight: 500,
-                              color: "text.secondary",
-                              fontSize: "12px",
-                            }}
-                          >
-                            {category.title}
-                          </Typography>
-                        </ListItem>
-
-                        {category.services.map((service, serviceIndex) => (
+                {item.hasSubmenu && (
+                  <Collapse
+                    in={openSubmenu === index}
+                    timeout="auto"
+                    unmountOnExit
+                  >
+                    <List component="div" disablePadding>
+                      {serviceCategories.map((category, catIndex) => (
+                        <React.Fragment key={`cat-${catIndex}`}>
                           <ListItem
-                            key={`service-${catIndex}-${serviceIndex}`}
-                            button
-                            onClick={handleDrawerToggle}
                             sx={{
                               pl: 2.5,
                               py: 1,
-                              "&:hover": { bgcolor: "#f2f2f5" },
                             }}
                           >
-                            <Box
+                            <Typography
+                              variant="overline"
                               sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: 1,
-                                width: "100%",
+                                fontWeight: 500,
+                                color: "text.secondary",
+                                fontSize: "12px",
+                              }}
+                            >
+                              {category.title}
+                            </Typography>
+                          </ListItem>
+
+                          {category.services.map((service, serviceIndex) => (
+                            <ListItem
+                              key={`service-${catIndex}-${serviceIndex}`}
+                              button
+                              onClick={handleDrawerToggle}
+                              sx={{
+                                pl: 2.5,
+                                py: 1,
+                                "&:hover": { bgcolor: "rgba(5, 64, 142, 0.04)" },
                               }}
                             >
                               <Box
                                 sx={{
                                   display: "flex",
                                   alignItems: "center",
-                                  justifyContent: "center",
-                                  width: "36px",
-                                  height: "36px",
-                                  flexShrink: 0,
-                                  borderRadius: "8px",
-                                  backgroundColor: "rgba(11, 60, 123, 0.06)",
-                                  padding: "6px",
+                                  gap: 1,
+                                  width: "100%",
                                 }}
                               >
                                 <Box
-                                  component="img"
-                                  src={service.icon}
-                                  alt={service.title}
-                                  loading="lazy"
                                   sx={{
-                                    width: "24px",
-                                    height: "24px",
-                                    objectFit: "contain",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    width: "36px",
+                                    height: "36px",
+                                    flexShrink: 0,
+                                    borderRadius: "8px",
+                                    backgroundColor: "rgba(5, 64, 142, 0.06)",
+                                    padding: "6px",
                                   }}
-                                />
+                                >
+                                  <Box
+                                    component="img"
+                                    src={service.icon}
+                                    alt={service.title}
+                                    loading="lazy"
+                                    sx={{
+                                      width: "24px",
+                                      height: "24px",
+                                      objectFit: "contain",
+                                    }}
+                                  />
+                                </Box>
+                                <Stack spacing={0.5} sx={{ flex: 1 }}>
+                                  <Typography
+                                    variant="body2"
+                                    sx={{
+                                      color: "#05408E",
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {service.title}
+                                  </Typography>
+                                  <Typography
+                                    variant="body2"
+                                    sx={{
+                                      color: "text.secondary",
+                                      fontFamily: "PayPal Open, sans-serif",
+                                      fontSize: { xs: "12px", sm: "13px", md: "14px", lg: "16px" },
+                                      lineHeight: 1.4,
+                                      opacity: 0.8,
+                                      whiteSpace: "normal",
+                                      wordWrap: "break-word",
+                                    }}
+                                  >
+                                    {service.description}
+                                  </Typography>
+                                </Stack>
                               </Box>
-                              <Stack spacing={0.5} sx={{ flex: 1 }}>
-                                <Typography
-                                  variant="body2"
-                                  sx={{
-                                    color: "#0B3C7B",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {service.title}
-                                </Typography>
-                                <Typography
-                                  variant="body2"
-                                  sx={{
-                                    color: "text.secondary",
-                                    fontFamily: "PayPal Open, sans-serif",
-                                    fontSize: { xs: "16px", sm: "16px", md: "16px" },
-                                    lineHeight: 1.5,
-                                    opacity: 0.8,
-                                  }}
-                                >
-                                  {service.description}
-                                </Typography>
-                              </Stack>
-                            </Box>
-                          </ListItem>
-                        ))}
-                      </React.Fragment>
-                    ))}
-                  </List>
-                </Collapse>
-              )}
-            </React.Fragment>
-          ))}
-        </List>
-        <Box sx={{ px: 2, pb:2 }}>
+                            </ListItem>
+                          ))}
+                        </React.Fragment>
+                      ))}
+                    </List>
+                  </Collapse>
+                )}
+              </React.Fragment>
+            ))}
+          </List>
+        </Box>
+        <Box sx={{ p: 2, mt: 'auto', borderTop: '1px solid rgba(0, 0, 0, 0.06)' }}>
           <Button
             variant="contained"
-            color="primary"
-            fullWidth
             sx={{
               borderRadius: "39px",
               py: 2,
               px: 5,
+              backgroundColor: "#05408E",
+              color: "white",
+              border: "none",
+              "&:hover": {
+                backgroundColor: "#05408E",
+                border: "none",
+                opacity: 0.9,
+              },
             }}
+            fullWidth
           >
             Let's Talk
           </Button>
@@ -684,60 +703,73 @@ function Navbar() {
   );
 
   return (
-    <AppBar
-      position="fixed"
-      color="default"
-      elevation={0}
-      ref={navRef}
-      sx={{
-        py: { xs: 0.5, sm: 0.75, md: 1 },
-        bgcolor: "#FFFFFF",
-        backdropFilter: "blur(8px)",
-        boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.05)",
-        zIndex: (theme) => theme.zIndex.drawer + 1,
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Container
-        maxWidth="1400px"
+    <>
+      <AppBar
+        position="fixed"
+        color="default"
+        elevation={0}
+        ref={navRef}
         sx={{
-          display: "flex",
+          py: { xs: 0.5, sm: 0.75, md: 1 },
+          background: !scrolled
+            ? 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)'
+            : 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: scrolled ? "blur(8px)" : "none",
+          boxShadow: scrolled ? "0px 2px 10px rgba(0, 0, 0, 0.05)" : "none",
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          width: "100%",
+          display: { xs: mobileOpen ? 'none' : 'flex', md: 'flex' },
+          justifyContent: "center",
           alignItems: "center",
-          justifyContent: "space-between",
-          px: { xs: 2, md: 4, lg: 8, xl: 0 },
-          maxWidth: { xs: "100%", xl: "1400px" },
+          transition: "none",
+          maxHeight: { xs: 56, sm: 64, md: 70, lg: 80 },
+          overflow: "visible",
         }}
       >
-        <Toolbar
-          disableGutters
+        <Container
+          maxWidth="1400px"
           sx={{
-            width: "100%",
             display: "flex",
-            justifyContent: "space-between",
             alignItems: "center",
+            justifyContent: "space-between",
+            px: { xs: 2, md: 4, lg: 8, xl: 0 },
+            maxWidth: { xs: "100%", xl: "1400px" },
+            overflow: "visible",
           }}
         >
-          {/* Logo - visible on all screens */}
-          <Box
-            component="img"
-            src={logo}
-            alt="logo"
-            loading="lazy"
+          <Toolbar
+            disableGutters
             sx={{
-              height: { xs: 40, md: 48, lg: 58 },
-              width: "auto",
-              display: { xs: "block", md: "none" },
+              width: "100%",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              overflow: "visible",
+              minHeight: { xs: "56px", sm: "64px" },
+              py: 0,
             }}
-          />
+          >
+            {/* Logo - visible on all screens */}
+            <Box
+              component="img"
+              src={scrollProgress < 0.5 ? layer2 : layer1}
+              alt="logo"
+              loading="lazy"
+              sx={{
+                height: { xs: 40, md: 48, lg: 58 },
+                width: "auto",
+                display: { xs: "block", md: "none" },
+                filter: "none",
+                transition: "none",
+              }}
+            />
 
-          {renderDesktopMenu()}
-          {renderMobileMenu()}
-        </Toolbar>
-      </Container>
-    </AppBar>
+            {renderDesktopMenu()}
+            {renderMobileMenu()}
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </>
   );
 }
 

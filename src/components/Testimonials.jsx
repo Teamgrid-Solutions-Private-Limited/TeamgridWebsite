@@ -5,93 +5,52 @@ import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import data from "../data.json";
 
-// Sample data for testimonials
+// Get testimonials data from data.json
+const { testimonialsRow1: testimonialsRow1Data, testimonialsRow2: testimonialsRow2Data, title, subtitle, buttonText } = data.testimonials;
+
+// Add extra cards for continuous scroll effect
 const testimonialsRow1 = [
-  {
-    id: 1,
-    quote: "Working with their team was a game-changer. They translated our product vision into a seamless web app with AI-powered features that impressed our investor.",
-    name: "Amit Shaw",
-    position: "CEO, Nexora Labs",
-    avatar: "https://mui.com/static/images/avatar/1.jpg",
-  },
-  {
-    id: 2,
-    quote: "They've become an extension of our team. From design to delivery, their process is smooth, and their quality is consistently top-notch. We trust them with every sprint.",
-    name: "Lisa Monroe",
-    position: "Creative Director, PixelRiver",
-    avatar: "https://mui.com/static/images/avatar/2.jpg",
-  },
-  {
-    id: 3,
-    quote: "We needed a cross-platform app fast, and they delivered in record time—beautiful UI, flawless performance, and full alignment with our brand.",
-    name: "Jonas Malik",
-    position: "Co-Founder, LoopRides",
-    avatar: "https://mui.com/static/images/avatar/3.jpg",
-  },
+  ...testimonialsRow1Data,
   // Adding extra cards to create continuous scroll effect
   {
     id: 4,
-    quote: "Working with their team was a game-changer. They translated our product vision into a seamless web app with AI-powered features that impressed our investor.",
-    name: "Amit Shaw",
-    position: "CEO, Nexora Labs",
-    avatar: "https://mui.com/static/images/avatar/1.jpg",
+    quote: testimonialsRow1Data[0].quote,
+    name: testimonialsRow1Data[0].name,
+    position: testimonialsRow1Data[0].position,
+    avatar: testimonialsRow1Data[0].avatar,
   },
   {
     id: 5,
-    quote: "They've become an extension of our team. From design to delivery, their process is smooth, and their quality is consistently top-notch. We trust them with every sprint.",
-    name: "Lisa Monroe",
-    position: "Creative Director, PixelRiver",
-    avatar: "https://mui.com/static/images/avatar/2.jpg",
+    quote: testimonialsRow1Data[1].quote,
+    name: testimonialsRow1Data[1].name,
+    position: testimonialsRow1Data[1].position,
+    avatar: testimonialsRow1Data[1].avatar,
   },
 ];
 
 const testimonialsRow2 = [
-  {
-    id: 6,
-    quote: "They've become an extension of our team. From design to delivery, their process is smooth, and their quality is consistently top-notch. We trust them with every sprint.",
-    name: "Amelia Jen",
-    position: "Creative Director, PixelRiver",
-    avatar: "https://mui.com/static/images/avatar/4.jpg",
-  },
-  {
-    id: 7,
-    quote: "Working with their team was a game-changer. They translated our product vision into a seamless web app with AI-powered features that impressed our investor.",
-    name: "Amit Shaw",
-    position: "CEO, Nexora Labs",
-    avatar: "https://mui.com/static/images/avatar/5.jpg",
-  },
-  {
-    id: 8,
-    quote: "They've become an extension of our team. From design to delivery, their process is smooth, and their quality is consistently top-notch. We trust them with every sprint.",
-    name: "Lisa Monroe",
-    position: "Creative Director, PixelRiver",
-    avatar: "https://mui.com/static/images/avatar/6.jpg",
-  },
+  ...testimonialsRow2Data,
   // Adding extra cards to create continuous scroll effect
   {
     id: 9,
-    quote: "They've become an extension of our team. From design to delivery, their process is smooth, and their quality is consistently top-notch. We trust them with every sprint.",
-    name: "Amelia Jen",
-    position: "Creative Director, PixelRiver",
-    avatar: "https://mui.com/static/images/avatar/4.jpg",
+    quote: testimonialsRow2Data[0].quote,
+    name: testimonialsRow2Data[0].name,
+    position: testimonialsRow2Data[0].position,
+    avatar: testimonialsRow2Data[0].avatar,
   },
   {
     id: 10,
-    quote: "Working with their team was a game-changer. They translated our product vision into a seamless web app with AI-powered features that impressed our investor.",
-    name: "Amit Shaw",
-    position: "CEO, Nexora Labs",
-    avatar: "https://mui.com/static/images/avatar/5.jpg",
+    quote: testimonialsRow2Data[1].quote,
+    name: testimonialsRow2Data[1].name,
+    position: testimonialsRow2Data[1].position,
+    avatar: testimonialsRow2Data[1].avatar,
   },
 ];
 
 // Combine testimonials for mobile slider
-const mobileTestimonials = [...testimonialsRow1.slice(0, 3), ...testimonialsRow2.slice(0, 3)];
-
-// Add these local constants at the top of the file, after the testimonial arrays
-const title = "What our clients say";
-const subtitle = "Real feedback from founders, product owners, and creative leaders who trusted us to build their vision.";
-const buttonText = "Explore more testimonials";
+const mobileTestimonials = [...testimonialsRow1Data, ...testimonialsRow2Data];
 
 // Custom styled quote icon
 const QuoteIcon = styled(Box)(({ theme }) => ({

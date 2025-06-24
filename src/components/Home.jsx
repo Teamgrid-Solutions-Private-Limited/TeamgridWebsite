@@ -26,6 +26,11 @@ import {
   mobileBackground,
 } from "../images";
 import CloseIcon from "@mui/icons-material/Close";
+import data from "../data.json";
+
+// Get hero data from data.json
+const { subtitle, title, description, buttons } = data.home.hero;
+const { techDescriptions } = data.home;
 
 function Home() {
   const theme = useTheme();
@@ -54,31 +59,6 @@ function Home() {
       setOrbitScale(1);
     }
   }, [isXs, isSm, isMd, isIPadPro, isLg]);
-
-  const techDescriptions = {
-    React:
-      "React is a JavaScript library for building user interfaces with a component-based architecture.",
-    "Node.js":
-      "Node.js is a JavaScript runtime built on Chrome's V8 engine for building scalable network applications.",
-    PostgreSQL:
-      "PostgreSQL is a powerful, open-source object-relational database system with a strong reputation.",
-    MongoDB:
-      "MongoDB is a source-available cross-platform document-oriented database program, using JSON-like documents.",
-    Figma:
-      "Figma is a cloud-based design tool for collaborative interface design, prototyping, and design systems.",
-    Bootstrap:
-      "Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.",
-    WordPress:
-      "WordPress is a free and open-source content management system written in PHP and paired with a MySQL database.",
-    Postman:
-      "Postman is an API platform for building and using APIs. It simplifies API development workflow.",
-    WooCommerce:
-      "WooCommerce is an open-source e-commerce plugin for WordPress, designed for online merchants.",
-    Shopify:
-      "Shopify is an e-commerce platform for online stores and retail point-of-sale systems.",
-    "Material UI":
-      "Material UI is a popular React UI framework that implements Google's Material Design.",
-  };
 
   const handleTechClick = (tech) => {
     setActiveTech(tech);
@@ -160,7 +140,7 @@ function Home() {
               textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
             }}
           >
-            Powering growth through talent
+            {subtitle}
           </Typography>
 
           <Typography
@@ -179,8 +159,7 @@ function Home() {
               textShadow: { xs: "0px 1px 3px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
             }}
           >
-            Extend Your Team, <br />
-            Accelerate Your Growth
+            {title}
           </Typography>
 
           <Typography
@@ -193,9 +172,7 @@ function Home() {
               textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
             }}
           >
-            We helps agencies and startups scale smarter — with dedicated
-            professionals, high-quality solutions, and flexible engagement{" "}
-            models that fit your workflow and goals.
+            {description}
           </Typography>
 
           <Stack
@@ -209,7 +186,7 @@ function Home() {
             // alignItems="center"
           >
             <Button
-              variant="contained"
+              variant={buttons[0].variant}
               sx={{
                 bgcolor: "#007BFF",
                 borderRadius: "39px",
@@ -223,11 +200,11 @@ function Home() {
                 width: { xs: "100%", sm: "auto" },
               }}
             >
-              Let's Talk
+              {buttons[0].text}
             </Button>
 
             <Button
-              variant="outlined"
+              variant={buttons[1].variant}
               endIcon={<ArrowForwardIcon />}
               sx={{
                 color: "white",
@@ -242,7 +219,7 @@ function Home() {
                 width: { xs: "100%", sm: "auto" },
               }}
             >
-              Explore Services
+              {buttons[1].text}
             </Button>
           </Stack>
         </Box>

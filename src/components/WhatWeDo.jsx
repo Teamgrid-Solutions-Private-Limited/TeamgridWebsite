@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import WestIcon from "@mui/icons-material/West";
+import data from "../data.json";
 
 // Import Funiro images from centralized file
 import {
@@ -21,54 +22,15 @@ import {
   funiroLanding4 as funiroProductsImage,
 } from "../images";
 
-// Service categories
-const serviceCategories = [
-  { id: 1, name: "E-commerce", description: "Convert visitors to sales" },
-  { id: 2, name: "Web Development", description: "Clean, modern websites" },
-  { id: 3, name: "UI / UX", description: "Design with purpose" },
-  { id: 4, name: "Mobile App Development", description: "Apps that perform" },
-  { id: 5, name: "Dedicated Teams", description: "Staff your team" },
-  { id: 6, name: "AI / ML / Digital", description: "Enhance & drive results" },
-];
-const serviceContent = [
-  {
-    title: "E-commerce",
-    description:
-      "We design and develop high-performing e-commerce platforms tailored to your business's needs.",
-    image: funiroProductsImage,
-    overlayImage: funiroMainImage,
-  },
-  {
-    title: "Web Development",
-    description: "We create clean, modern websites that enhance user experience.",
-    image: funiroProductsImage,
-    overlayImage: funiroMainImage,
-  },
-  {
-    title: "UI / UX",
-    description: "Design with purpose to create engaging user experiences.",
-    image: funiroProductsImage,
-    overlayImage: funiroMainImage,
-  },
-  {
-    title: "Mobile App Development",
-    description: "We build apps that perform and meet your business needs.",
-    image: funiroProductsImage,
-    overlayImage: funiroMainImage,
-  },
-  {
-    title: "Dedicated Teams",
-    description: "We provide skilled professionals to seamlessly integrate with your team and scale your operations.",
-    image: funiroProductsImage,
-    overlayImage: funiroMainImage,
-  },
-  {
-    title: "AI / ML / Digital",
-    description: "Leverage AI and machine learning to transform your digital strategy and drive results.",
-    image: funiroProductsImage,
-    overlayImage: funiroMainImage,
-  },
-];
+// Get service categories and content from data.json
+const { serviceCategories, serviceContent: serviceContentData } = data.whatWeDo;
+
+// Add images to the service content
+const serviceContent = serviceContentData.map(service => ({
+  ...service,
+  image: funiroProductsImage,
+  overlayImage: funiroMainImage
+}));
 
 function WhatWeDo() {
   const theme = useTheme();
@@ -114,7 +76,7 @@ function WhatWeDo() {
               color: "text.primary",
             }}
           >
-            What We Do
+            {data.whatWeDo.title}
           </Typography>
 
           <Typography
@@ -126,9 +88,7 @@ function WhatWeDo() {
               mb: { xs: 2, md: 3 },
             }}
           >
-            We build AI-powered web and mobile apps with innovative design and
-            scalable development. Our team delivers seamless UI/UX and solutions
-            to help your business grow smarter and faster.
+            {data.whatWeDo.description}
           </Typography>
         </Box>
 
@@ -195,7 +155,7 @@ function WhatWeDo() {
                         },
                       }}
                     >
-                      Explore Our Portfolio
+                      {item.buttonText}
                     </Button>
 
                     <Box sx={{ display: "flex", mt: { xs: 3, md: 5 }, mb: 2 }}>

@@ -11,6 +11,83 @@
       { "title": "Technologies We Use", "hasSubmenu": false },
       { "title": "How we work", "hasSubmenu": false },
       { "title": "Let's Talk", "hasSubmenu": false }
+    ],
+    "serviceCategories": [
+      {
+        "title": "WEB DEVELOPMENT",
+        "services": [
+          {
+            "title": "Front-End Development",
+            "description": "Fast, responsive, and pixel-perfect user interfaces.",
+            "icon": "fileCodeIcon"
+          },
+          {
+            "title": "Back-End Development",
+            "description": "Scalable, secure, and efficient architecture.",
+            "icon": "storageIcon"
+          },
+          {
+            "title": "WordPress & CMS",
+            "description": "Custom WordPress sites with Elementor, and more.",
+            "icon": "wordpressIcon"
+          }
+        ]
+      },
+      {
+        "title": "MOBILE APP DEVELOPMENT",
+        "services": [
+          {
+            "title": "iOS & Android Development",
+            "description": "Native mobile experiences that perform and scale.",
+            "icon": "mobileIcon"
+          },
+          {
+            "title": "Cross-Platform Apps",
+            "description": "Build and deploy everywhere with React Native or Flutter.",
+            "icon": "crossPlatformIcon"
+          },
+          {
+            "title": "Progressive Web Apps",
+            "description": "Web apps that work offline and feel native.",
+            "icon": "webAppIcon"
+          }
+        ]
+      },
+      {
+        "title": "UI/UX & DESIGN",
+        "services": [
+          {
+            "title": "UI/UX Design",
+            "description": "Intuitive, user-focused design for web and mobile.",
+            "icon": "designIcon"
+          },
+          {
+            "title": "Prototyping & Wireframing",
+            "description": "Visualize fast using tools like Figma and Adobe XD.",
+            "icon": "prototypeIcon"
+          },
+          {
+            "title": "Design Systems",
+            "description": "Scalable design libraries to maintain brand consistency.",
+            "icon": "systemsIcon"
+          }
+        ]
+      },
+      {
+        "title": "E-COMMERCE SOLUTIONS",
+        "services": [
+          {
+            "title": "Shopify Development",
+            "description": "Custom stores with fast checkout and optimized UX.",
+            "icon": "shopifyIcon"
+          },
+          {
+            "title": "WooCommerce Integration",
+            "description": "Extend WordPress with powerful features.",
+            "icon": "wooCommerceIcon"
+          }
+        ]
+      }
     ]
   },
   "home": {
@@ -22,6 +99,19 @@
         { "text": "Let's Talk", "variant": "contained", "link": "#lets-talk" },
         { "text": "Explore Services", "variant": "outlined", "link": "#services" }
       ]
+    },
+    "techDescriptions": {
+      "React": "React is a JavaScript library for building user interfaces with a component-based architecture.",
+      "Node.js": "Node.js is a JavaScript runtime built on Chrome's V8 engine for building scalable network applications.",
+      "PostgreSQL": "PostgreSQL is a powerful, open-source object-relational database system with a strong reputation.",
+      "MongoDB": "MongoDB is a source-available cross-platform document-oriented database program, using JSON-like documents.",
+      "Figma": "Figma is a cloud-based design tool for collaborative interface design, prototyping, and design systems.",
+      "Bootstrap": "Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.",
+      "WordPress": "WordPress is a free and open-source content management system written in PHP and paired with a MySQL database.",
+      "Postman": "Postman is an API platform for building and using APIs. It simplifies API development workflow.",
+      "WooCommerce": "WooCommerce is an open-source e-commerce plugin for WordPress, designed for online merchants.",
+      "Shopify": "Shopify is an e-commerce platform for online stores and retail point-of-sale systems.",
+      "Material UI": "Material UI is a popular React UI framework that implements Google's Material Design."
     }
   },
   "whoWeHelp": {
@@ -66,6 +156,38 @@
       { "id": 4, "name": "Mobile App Development", "description": "Apps that perform" },
       { "id": 5, "name": "Dedicated Teams", "description": "Staff your team" },
       { "id": 6, "name": "AI / ML / Digital", "description": "Enhance & drive results" }
+    ],
+    "serviceContent": [
+      {
+        "title": "E-commerce",
+        "description": "We design and develop high-performing e-commerce platforms tailored to your business's needs. Whether it's checkout, we build seamless, scalable, and conversion-focused experiences that drive sales and customer loyalty.",
+        "buttonText": "Explore Our Portfolio"
+      },
+      {
+        "title": "Web Development",
+        "description": "We create clean, modern websites that enhance user experience.",
+        "buttonText": "Explore Our Portfolio"
+      },
+      {
+        "title": "UI / UX",
+        "description": "Design with purpose to create engaging user experiences.",
+        "buttonText": "Explore Our Portfolio"
+      },
+      {
+        "title": "Mobile App Development",
+        "description": "We build apps that perform and meet your business needs.",
+        "buttonText": "Explore Our Portfolio"
+      },
+      {
+        "title": "Dedicated Teams",
+        "description": "We provide skilled professionals to seamlessly integrate with your team and scale your operations.",
+        "buttonText": "Explore Our Portfolio"
+      },
+      {
+        "title": "AI / ML / Digital",
+        "description": "Leverage AI and machine learning to transform your digital strategy and drive results.",
+        "buttonText": "Explore Our Portfolio"
+      }
     ],
     "ecommerce": {
       "title": "E-commerce",

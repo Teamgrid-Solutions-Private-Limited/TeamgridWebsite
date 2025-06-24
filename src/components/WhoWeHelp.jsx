@@ -15,6 +15,10 @@ import {
   rectangleImage3 as Rectangle45,
   rectangleImage4 as Rectangle46,
 } from "../images";
+import data from "../data.json";
+
+// Get WhoWeHelp data from data.json
+const { title, subtitle, description, buttonText } = data.whoWeHelp;
 
 // Replace image URLs with local assets
 const image1 = Rectangle40;
@@ -62,7 +66,7 @@ const WhoWeHelp = () => {
                   color: "#000",
                 }}
               >
-                Who We Help
+                {title}
               </Typography>
 
               <Typography
@@ -74,7 +78,7 @@ const WhoWeHelp = () => {
                   mb: 3,
                 }}
               >
-                A Trusted Partner for Growing Teams
+                {subtitle}
               </Typography>
 
               <Typography
@@ -86,9 +90,7 @@ const WhoWeHelp = () => {
                   lineHeight: 1.6,
                 }}
               >
-                We work with agencies, startups, and businesses of all sizes —
-                supporting their teams and projects. We specialize in design,
-                development, and everything in between that matters most.
+                {description}
               </Typography>
 
               <Button
@@ -105,7 +107,7 @@ const WhoWeHelp = () => {
                   alignSelf: "flex-start",
                 }}
               >
-                Explore Services
+                {buttonText}
               </Button>
             </Box>
           </Grid>

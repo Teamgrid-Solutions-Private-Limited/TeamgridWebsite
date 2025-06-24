@@ -9,6 +9,10 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { rectangleImage25 as backgroundImage } from "../images";
+import data from "../data.json";
+
+// Get letsTalk data from data.json
+const { title, subtitle, description, buttons } = data.letsTalk;
 
 function Letstalk() {
   const theme = useTheme();
@@ -77,7 +81,7 @@ function Letstalk() {
                 mb: { xs: 1.5, sm: 2, md: 2.5 },
               }}
             >
-              Let's Build Together
+              {title}
             </Typography>
 
             <Typography
@@ -90,7 +94,7 @@ function Letstalk() {
                 mb: { xs: 1.5, sm: 2, md: 2.5 },
               }}
             >
-              — Efficiently, Flexibly, and Reliably
+              {subtitle}
             </Typography>
 
             <Typography
@@ -103,8 +107,7 @@ function Letstalk() {
                 mb: { xs: 3, sm: 4, md: 5 },
               }}
             >
-              Whether you're scaling a team or shipping a project, Teamgrid is
-              your partner in dependable delivery.
+              {description}
             </Typography>
 
             <Stack
@@ -119,7 +122,7 @@ function Letstalk() {
               <Button
                 variant="contained"
                 sx={{
-                  bgcolor: "white",
+                  bgcolor: buttons[0].color,
                   color: "#122640",
                   "&:hover": {
                     bgcolor: "rgba(255, 255, 255, 0.9)",
@@ -134,13 +137,13 @@ function Letstalk() {
                   width: { xs: "100%", sm: "auto" },
                 }}
               >
-                Let's Talk
+                {buttons[0].text}
               </Button>
 
               <Button
                 variant="contained"
                 sx={{
-                  bgcolor: "#FF5A2D",
+                  bgcolor: buttons[1].color,
                   "&:hover": {
                     bgcolor: "#e54b24",
                   },
@@ -156,7 +159,7 @@ function Letstalk() {
                   whiteSpace: { xs: "normal", sm: "nowrap" },
                 }}
               >
-                Request a Free Quote
+                {buttons[1].text}
               </Button>
             </Stack>
           </Box>

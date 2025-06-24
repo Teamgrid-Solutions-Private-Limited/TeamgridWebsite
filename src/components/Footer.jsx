@@ -19,8 +19,10 @@ import { FiSend } from "react-icons/fi";
 function Footer() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const currentYear = new Date().getFullYear();
 
   const { quickLinks, services, contact, copyright } = data.footer;
+  const dynamicCopyright = copyright.replace(/\d{4}/, currentYear);
 
   return (
     <Box
@@ -425,7 +427,7 @@ function Footer() {
               color: "#A8B6C5",
             }}
           >
-            {copyright}
+            {dynamicCopyright}
           </Typography>
         </Box>
       </Container>

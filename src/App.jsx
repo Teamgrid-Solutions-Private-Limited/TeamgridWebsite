@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import WhoWeHelp from "./components/WhoWeHelp";
@@ -24,17 +25,9 @@ function App() {
     };
   }, []);
 
-  return (
-    <Box
-      sx={{
-        overflow: "hidden",
-        // Mobile optimization
-        "& > *": {
-          maxWidth: "100vw",
-        },
-      }}
-    >
-      <Navbar />
+  // The MainPage component that contains all sections
+  const MainPage = () => (
+    <>
       <Home />
       <WhoWeHelp />
       <WhatWeDo />
@@ -42,8 +35,28 @@ function App() {
       <Technologies />
       <Testimonials />
       <Letstalk />
-      <Footer />
-    </Box>
+    </>
+  );
+
+  return (
+    <BrowserRouter>
+      <Box
+        sx={{
+          overflowX: "hidden",
+          // Mobile optimization
+          "& > *": {
+            maxWidth: "100vw",
+          },
+        }}
+      >
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+        <Footer />
+      </Box>
+    </BrowserRouter>
   );
 }
 

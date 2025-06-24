@@ -59,6 +59,7 @@ import funiroLanding3Path from './assets/Funiro Landing Page 3.svg';
 import funiroLanding4Path from './assets/Funiro Landing Page 4.svg';
 import liveDiscussionPath from './assets/livediscussion.jpg';
 import layer1Path from './assets/Layer_1.svg';
+import layer2Path from './assets/Layer_2.svg';
 import mongoIconPath from "./assets/mongodb.svg";
 import wooIconPath from "./assets/Woo.svg";
 import storageIconPath from "./assets/lucide_database-zap.svg";
@@ -151,4 +152,5 @@ export const funiroLanding4 = getSvgPath(funiroLanding4Path);
 
 // Other images
 export const liveDiscussion = liveDiscussionPath; // JPG
-export const layer1 = getSvgPath(layer1Path); 
+export const layer1 = getSvgPath(layer1Path);
+export const layer2 = getSvgPath(layer2Path); 
