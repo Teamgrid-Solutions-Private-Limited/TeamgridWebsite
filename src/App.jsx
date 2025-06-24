@@ -39,7 +39,7 @@ function App() {
   );
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/teamgrid">
       <Box
         sx={{
           overflowX: "hidden",
