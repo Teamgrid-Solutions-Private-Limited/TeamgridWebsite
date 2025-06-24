@@ -113,23 +113,23 @@ function Home() {
           display: "flex",
           alignItems: { xs: "center", md: "center" },
           px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
-          // justifyContent: 'center',
           width: "1400px",
           zIndex: 2, // Ensure content is above the background
         }}
       >
         <Box
           sx={{
-            width: { xs: "100%", md: "55%", lg: "60%" },
+            width: { xs: "100%", md: "55%", lg: "48%", xl: "40%" }, // reduced width on large screens
+            maxWidth: { md: "600px", lg: "650px", xl: "700px" }, // limit max width
             gap: 2,
             display: "flex",
             flexDirection: "column",
-            // justifyContent: "center",
-            // alignItems:  "flex-start" ,
             zIndex: 5,
             mb: { xs: 0, md: 0 },
-            p: { xs: 3, sm: 3, md: 0 }, // Add padding on mobile
-            borderRadius: { xs: 2, sm: 2, md: 0 }, // Add border radius on mobile
+            p: { xs: 3, sm: 3, md: 0 },
+            borderRadius: { xs: 2, sm: 2, md: 0 },
+            background: "none",
+            pointerEvents: "auto", // allow pointer events only for text
           }}
         >
           <Typography
@@ -239,12 +239,12 @@ function Home() {
           },
           width: { xs: "100%", sm: "120%", md: "110%", lg: "100%", xl: "75%" },
           height: { xs: "100%", sm: "100%", md: "100%" },
-          zIndex: 1, // Increase z-index to be above overlay
+          zIndex: 10, // raised z-index to be above text
           display: { xs: "none", sm: "none", md: "flex" },
           alignItems: "center",
           justifyContent: "center",
           opacity: { xs: 0.35, sm: 0.6, md: 0.8, lg: 1 },
-          pointerEvents: { xs: "none", sm: "auto", md: "auto" },
+          pointerEvents: "auto", // allow pointer events for icons
         }}
       >
         {/* Orbital circles */}
