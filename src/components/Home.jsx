@@ -262,7 +262,7 @@ function Home() {
           },
           width: { xs: "100%", sm: "120%", md: "110%", lg: "100%", xl: "75%" },
           height: { xs: "100%", sm: "100%", md: "100%" },
-          zIndex: 5, // Increase z-index to be above overlay
+          zIndex: 1, // Increase z-index to be above overlay
           display: { xs: "none", sm: "none", md: "flex" },
           alignItems: "center",
           justifyContent: "center",
