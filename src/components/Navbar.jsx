@@ -223,7 +223,7 @@ function Navbar() {
             <ListItem
               sx={{
                 color: !scrolled ? "white" : "#05408E",
-                px: { md: 0.5, lg: 1, xl: 1.5 },
+                px: { md: 1, lg: 1.5, xl: 2 },
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
@@ -507,7 +507,7 @@ function Navbar() {
         >
           <Box
             component="img"
-            src={scrollProgress < 0.5 ? layer2 : layer1}
+            src={layer1}
             alt="logo"
             loading="lazy"
             sx={{ 
