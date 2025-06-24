@@ -839,53 +839,6 @@ function TechIcon({
   const isIPadPro = useMediaQuery("(min-width:1024px) and (max-width:1366px)");
 
   const getPosition = () => {
-    // Adjust positions for iPad Pro
-    if (isIPadPro) {
-      switch (position) {
-        case "top":
-          return { top: "0%", left: "50%", transform: "translate(-50%, -50%)" };
-        case "topRight":
-          return {
-            top: "15%",
-            left: "80%",
-            transform: "translate(-50%, -50%)",
-          };
-        case "right":
-          return {
-            top: "50%",
-            left: "95%",
-            transform: "translate(-50%, -50%)",
-          };
-        case "bottomRight":
-          return {
-            top: "85%",
-            left: "80%",
-            transform: "translate(-50%, -50%)",
-          };
-        case "bottom":
-          return {
-            top: "95%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          };
-        case "bottomLeft":
-          return {
-            top: "85%",
-            left: "15%",
-            transform: "translate(-50%, -50%)",
-          };
-        case "left":
-          return { top: "50%", left: "5%", transform: "translate(-50%, -50%)" };
-        case "topLeft":
-          return {
-            top: "15%",
-            left: "15%",
-            transform: "translate(-50%, -50%)",
-          };
-        default:
-          return { top: "0%", left: "50%", transform: "translate(-50%, -50%)" };
-      }
-    }
     // Default positions for other screen sizes
     switch (position) {
       case "top":
