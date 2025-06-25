@@ -51,6 +51,7 @@ function WhatWeDo() {
       sx={{
         py: { xs: 6, sm: 8, md: 12 },
         bgcolor: "#fff",
+        width: "100%",
         overflow: "hidden", 
         display:'flex',
         justifyContent:'center',
@@ -58,10 +59,11 @@ function WhatWeDo() {
       }}
     >
       <Container
-        maxWidth="1400px"
+        maxWidth="1200px"
         sx={{
           px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
-          width: "1400px",
+          width: "100%",
+          maxWidth: "1200px",
           overflow: "hidden"
         }}
       >

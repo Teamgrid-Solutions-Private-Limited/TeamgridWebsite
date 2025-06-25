@@ -75,7 +75,7 @@ function Home() {
     <Box
       sx={{
         bgcolor: "#001C42",
-        // minHeight: "100vh",
+        minHeight: "100vh",
         overflow: "hidden",
         width: "100%",
         display: "flex",
@@ -104,7 +104,7 @@ function Home() {
       }}
     >
       <Box
-        maxWidth={"1400px"}
+        maxWidth={"1200px"}
         sx={{
           position: "relative",
           height: { xs: "calc(100vh - 60px)", md: "100vh" },
@@ -112,7 +112,8 @@ function Home() {
           display: "flex",
           alignItems: { xs: "center", md: "center" },
           px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
-          width: "1400px",
+          maxWidth: "1200px",
+          width: "100%",
           zIndex: 2, // Ensure content is above the background
         }}
       >
@@ -120,13 +121,12 @@ function Home() {
           sx={{
             // reduced width on large screens
              // limit max width
-             width: { xs: "100%", md: "55%", lg: "70%" },
+            //  width: "0%" ,
             gap: 2,
             display: "flex",
             flexDirection: "column",
             zIndex: 5,
             mb: { xs: 0, md: 0 },
-            p: { xs: 3, sm: 3, md: 0 },
             borderRadius: { xs: 2, sm: 2, md: 0 },
             background: "none",
             pointerEvents: "auto",
@@ -160,7 +160,13 @@ function Home() {
               textShadow: { xs: "0px 1px 3px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
             }}
           >
-            {title}
+            {title.split(",").map((part, idx, arr) => (
+              <React.Fragment key={idx}>
+                {part}
+                {idx < arr.length - 1 && ","}
+                {idx < arr.length - 1 && <br />}
+              </React.Fragment>
+            ))}
           </Typography>
 
           <Typography
@@ -262,6 +268,7 @@ function Home() {
             transform: "translate(-50%, -50%)",
             width: "100%",
             height: "100%",
+            // overflowY: "hidden",
           }}
         >
           {/* Main blue circle with logo in center */}

@@ -176,7 +176,7 @@ function Navbar() {
         justifyContent: "space-between",
         flex: 1,
         width: "100%",
-        overflow: "visible",
+        overflow: "hidden",
       }}
     >
       <Box
@@ -206,7 +206,7 @@ function Navbar() {
           gap: { md: 0.5, lg: 1 },
           flex: "1 1 auto",
           mx: { md: 1, lg: 2 },
-          overflow: "visible",
+          overflow: "hidden",
           maxWidth: "100%",
           transition: "none",
         }}
@@ -758,18 +758,19 @@ function Navbar() {
           alignItems: "center",
           transition: "none",
           maxHeight: { xs: 56, sm: 64, md: 70, lg: 80 },
-          overflow: "visible",
+          overflow: "hidden",
         }}
       >
         <Container
-          maxWidth="1400px"
+          maxWidth="1200px"
           sx={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             px: { xs: 2, md: 4, lg: 8, xl: 0 },
-            maxWidth: { xs: "100%", xl: "1400px" },
-            overflow: "visible",
+            width: "100%",
+            overflow: "hidden",
+            maxWidth: "1200px" ,
           }}
         >
           <Toolbar
@@ -779,12 +780,12 @@ function Navbar() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              overflow: "visible",
+              overflow: "hidden",
               minHeight: { xs: "56px", sm: "64px" },
               py: 0,
             }}
           >
-            {/* Logo - visible on all screens */}
+            {/* Logo - hidden on all screens */}
             <Box
               component="img"
               src={scrollProgress < 0.5 ? layer2 : layer1}

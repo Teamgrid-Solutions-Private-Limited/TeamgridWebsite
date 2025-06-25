@@ -37,12 +37,13 @@ function Footer() {
       }}
     >
       <Container
-        maxWidth="1400px"
+        maxWidth="1200px"
         sx={{
           display: "flex",
           flexDirection: "column",
           px: { xs: 2, md: 4, lg: 8, xl: 0 },
-          width: "1400px",
+          maxWidth: "1200px",
+          width: "100%",
         }}
       >
         <Grid container spacing={{ xs: 2, sm: 2, md: 4, lg: 8, xl: 10 }}>
