@@ -319,12 +319,7 @@ function Navbar() {
                         fontWeight: 400,
                         color: "text.secondary",
                         fontFamily: "PayPal Open, sans-serif",
-                        fontSize: {
-                          xs: "12px",
-                          sm: "12px",
-                          md: "12px",
-                          lg: "13px",
-                        },
+                        fontSize: "12px",
                         mb: 0,
                         display: "block",
                         textTransform: "uppercase",
@@ -351,15 +346,15 @@ function Navbar() {
                             height: "auto",
                             minHeight: { xs: "50px", md: "55px", lg: "60px" },
                             "&:hover": {
-                              bgcolor: "rgba(5, 64, 142, 0.03)",
+                              bgcolor: "rgba(14, 65, 133, 0.03)",
                               "& .service-title": {
                                 color: "#05408E",
                               },
                               backgroundColor: "rgba(5, 64, 142, 0.03)",
                               borderRadius: "20px",
                             },
-                            px: { xs: 1.5, md: 2 },
-                            py: { xs: 1.5, md: 2 },
+                            px: { xs: 1.2, md: 1.5 },
+                            py: { xs: 1.2, md: 1.5 },
                             transition: "all 0.2s ease",
                           }}
                           onClick={() => {
@@ -404,12 +399,7 @@ function Navbar() {
                                 fontWeight: 500,
                                 color: "#05408E",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: {
-                                  xs: "13px",
-                                  sm: "14px",
-                                  md: "14px",
-                                  lg: "14px",
-                                },
+                                fontSize: "14px",
                                 mb: 0.25,
                                 transition: "color 0.2s",
                                 whiteSpace: "normal",
@@ -424,12 +414,7 @@ function Navbar() {
                               sx={{
                                 color: "text.secondary",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: {
-                                  xs: "13px",
-                                  sm: "14px",
-                                  md: "14px",
-                                  lg: "14px",
-                                },
+                                fontSize: "14px",
                                 lineHeight: '150%',
                                 opacity: 0.8,
                                 whiteSpace: "normal",
@@ -674,6 +659,7 @@ function Navbar() {
                                     sx={{
                                       color: "#05408E",
                                       fontWeight: 500,
+                                      fontSize: "14px",
                                     }}
                                   >
                                     {service.title}
@@ -683,12 +669,7 @@ function Navbar() {
                                     sx={{
                                       color: "text.secondary",
                                       fontFamily: "PayPal Open, sans-serif",
-                                      fontSize: {
-                                        xs: "12px",
-                                        sm: "13px",
-                                        md: "14px",
-                                        lg: "16px",
-                                      },
+                                      fontSize: "14px",
                                       lineHeight: 1.4,
                                       opacity: 0.8,
                                       whiteSpace: "normal",
