@@ -34,10 +34,11 @@ function WhyTeamgrid() {
       }}
     >
       <Container
-        maxWidth="1400px"
+        maxWidth="1200px"
         sx={{
           px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
-          width: '1400px',
+          width: '100%',
+          maxWidth: "1200px",
           display: 'flex',
           flexDirection: 'column',
           gap: "20px"
@@ -91,21 +92,22 @@ function WhyTeamgrid() {
             </Button>
           </Grid>
         </Grid>
-        <Grid container spacing={3} sx={{display:'flex',flexDirection:{xs:"column",md:'row'}}}>
-          <Grid size={{xs:12,md:8}}>
+        <Grid container spacing={4} sx={{display:'flex',flexDirection:{xs:"column",md:'row'}}}>
+          <Grid size={{xs:12,md:6}}>
             <Box
               component="img"
               src={rectangleImage51}
               alt="Team collaboration"
               loading="lazy"
               sx={{
-                width: "90%",
+                width: "100%",
+                height: "100%",
                 objectFit: "cover",
-                borderRadius: "8px",
+                borderRadius: "10px",
               }}
             />
           </Grid >
-          <Grid size={{xs:12,md:4}} sx={{display:'flex',alignItems:'center'}}>
+          <Grid size={{xs:12,md:6}} sx={{display:'flex',alignItems:'center'}}>
             <Stack spacing={4}>
               {features.map((feature, index) => (
                 <Box

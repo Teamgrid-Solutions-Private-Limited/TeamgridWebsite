@@ -176,7 +176,7 @@ function Navbar() {
         justifyContent: "space-between",
         flex: 1,
         width: "100%",
-        overflow: "visible",
+        overflow: "hidden",
       }}
     >
       <Box
@@ -206,7 +206,7 @@ function Navbar() {
           gap: { md: 0.5, lg: 1 },
           flex: "1 1 auto",
           mx: { md: 1, lg: 2 },
-          overflow: "visible",
+          overflow: "hidden",
           maxWidth: "100%",
           transition: "none",
         }}
@@ -319,12 +319,7 @@ function Navbar() {
                         fontWeight: 400,
                         color: "text.secondary",
                         fontFamily: "PayPal Open, sans-serif",
-                        fontSize: {
-                          xs: "12px",
-                          sm: "12px",
-                          md: "12px",
-                          lg: "13px",
-                        },
+                        fontSize: "12px",
                         mb: 0,
                         display: "block",
                         textTransform: "uppercase",
@@ -351,15 +346,15 @@ function Navbar() {
                             height: "auto",
                             minHeight: { xs: "50px", md: "55px", lg: "60px" },
                             "&:hover": {
-                              bgcolor: "rgba(5, 64, 142, 0.03)",
+                              bgcolor: "rgba(14, 65, 133, 0.03)",
                               "& .service-title": {
                                 color: "#05408E",
                               },
                               backgroundColor: "rgba(5, 64, 142, 0.03)",
                               borderRadius: "20px",
                             },
-                            px: { xs: 1.5, md: 2 },
-                            py: { xs: 1.5, md: 2 },
+                            px: { xs: 1.2, md: 1.5 },
+                            py: { xs: 1.2, md: 1.5 },
                             transition: "all 0.2s ease",
                           }}
                           onClick={() => {
@@ -404,12 +399,7 @@ function Navbar() {
                                 fontWeight: 500,
                                 color: "#05408E",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: {
-                                  xs: "13px",
-                                  sm: "14px",
-                                  md: "14px",
-                                  lg: "14px",
-                                },
+                                fontSize: "14px",
                                 mb: 0.25,
                                 transition: "color 0.2s",
                                 whiteSpace: "normal",
@@ -424,12 +414,7 @@ function Navbar() {
                               sx={{
                                 color: "text.secondary",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: {
-                                  xs: "13px",
-                                  sm: "14px",
-                                  md: "14px",
-                                  lg: "14px",
-                                },
+                                fontSize: "14px",
                                 lineHeight: '150%',
                                 opacity: 0.8,
                                 whiteSpace: "normal",
@@ -674,6 +659,7 @@ function Navbar() {
                                     sx={{
                                       color: "#05408E",
                                       fontWeight: 500,
+                                      fontSize: "14px",
                                     }}
                                   >
                                     {service.title}
@@ -683,12 +669,7 @@ function Navbar() {
                                     sx={{
                                       color: "text.secondary",
                                       fontFamily: "PayPal Open, sans-serif",
-                                      fontSize: {
-                                        xs: "12px",
-                                        sm: "13px",
-                                        md: "14px",
-                                        lg: "16px",
-                                      },
+                                      fontSize: "14px",
                                       lineHeight: 1.4,
                                       opacity: 0.8,
                                       whiteSpace: "normal",
@@ -758,18 +739,19 @@ function Navbar() {
           alignItems: "center",
           transition: "none",
           maxHeight: { xs: 56, sm: 64, md: 70, lg: 80 },
-          overflow: "visible",
+          overflow: "hidden",
         }}
       >
         <Container
-          maxWidth="1400px"
+          maxWidth="1200px"
           sx={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             px: { xs: 2, md: 4, lg: 8, xl: 0 },
-            maxWidth: { xs: "100%", xl: "1400px" },
-            overflow: "visible",
+            width: "100%",
+            overflow: "hidden",
+            maxWidth: "1200px" ,
           }}
         >
           <Toolbar
@@ -779,12 +761,12 @@ function Navbar() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              overflow: "visible",
+              overflow: "hidden",
               minHeight: { xs: "56px", sm: "64px" },
               py: 0,
             }}
           >
-            {/* Logo - visible on all screens */}
+            {/* Logo - hidden on all screens */}
             <Box
               component="img"
               src={scrollProgress < 0.5 ? layer2 : layer1}

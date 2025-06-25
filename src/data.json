@@ -9,8 +9,7 @@
         "submenuItems": ["Web Development", "Mobile Development", "UI/UX Design"]
       },
       { "title": "Technologies We Use", "hasSubmenu": false },
-      { "title": "How we work", "hasSubmenu": false },
-      { "title": "Let's Talk", "hasSubmenu": false }
+      { "title": "How we work", "hasSubmenu": false }
     ],
     "serviceCategories": [
       {
