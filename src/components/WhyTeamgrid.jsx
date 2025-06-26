@@ -28,31 +28,37 @@ function WhyTeamgrid() {
         py: { xs: 6, sm: 8, md: 12 },
         width: "100%",
         backgroundColor: "#fff",
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Container
         maxWidth="1200px"
         sx={{
           px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
-          width: '100%',
+          width: "100%",
           maxWidth: "1200px",
-          display: 'flex',
-          flexDirection: 'column',
-          gap: "20px"
+          display: "flex",
+          flexDirection: "column",
+          gap: 4,
         }}
       >
-        <Grid container >
-          <Grid size={{xs:12,md:6}} sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Grid container>
+          <Grid
+            size={{ xs: 12, md: 6 }}
+            sx={{ display: "flex", flexDirection: "column" }}
+          >
             <Typography
               variant="h2"
               color="text.primary"
               gutterBottom
               sx={{
-                fontSize: { xs: "28px", sm: "32px", md: "42px", lg: "48px" },
-                fontWeight: 700,
+                fontWeight: 500,
+                fontSize: "56px",
+                lineHeight: "100%",
+                letterSpacing: 0,
+                color: "#140E13",
               }}
             >
               {title}
@@ -61,15 +67,24 @@ function WhyTeamgrid() {
               variant="body1"
               color="text.secondary"
               sx={{
-                fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
-                lineHeight: 1.6,
-                mb: 3,
+                fontWeight: "400",
+                fontSize: "18px",
+                lineHeight: "150%",
+                letterSpacing: "0%",
               }}
             >
               {subtitle}
             </Typography>
           </Grid>
-          <Grid size={{xs:12,md:6}} sx={{ display: 'flex', alignItems: 'center', justifyContent: {xs:"flex-start",md:'flex-end'}, }}>
+
+          <Grid
+            size={{ xs: 12, md: 6 }}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: { xs: "flex-start", md: "flex-end" },
+            }}
+          >
             <Button
               variant="outlined"
               color="primary"
@@ -84,7 +99,11 @@ function WhyTeamgrid() {
                   color: "white",
                   borderColor: "primary.main",
                 },
-                fontSize: "16px",
+                fontWeight: 400,
+                fontSize: "18px",
+                lineHeight: "150%",
+                letterSpacing: "0%",
+                color: "#140E13",
                 textTransform: "none",
               }}
             >
@@ -92,8 +111,12 @@ function WhyTeamgrid() {
             </Button>
           </Grid>
         </Grid>
-        <Grid container spacing={4} sx={{display:'flex',flexDirection:{xs:"column",md:'row'}}}>
-          <Grid size={{xs:12,md:6}}>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 4, lg: 8, xl: 10 }}
+          sx={{ display: "flex", flexDirection: { xs: "column", md: "row" } }}
+        >
+          <Grid size={{ xs: 12, md: 7 }}>
             <Box
               component="img"
               src={rectangleImage51}
@@ -106,8 +129,11 @@ function WhyTeamgrid() {
                 borderRadius: "10px",
               }}
             />
-          </Grid >
-          <Grid size={{xs:12,md:6}} sx={{display:'flex',alignItems:'center'}}>
+          </Grid>
+          <Grid
+            size={{ xs: 12, md: 5 }}
+            sx={{ display: "flex", alignItems: "center" }}
+          >
             <Stack spacing={4}>
               {features.map((feature, index) => (
                 <Box
@@ -124,8 +150,8 @@ function WhyTeamgrid() {
                     alt="Check icon"
                     loading="lazy"
                     sx={{
-                      width: "24px",
-                      height: "24px",
+                      width: "20px",
+                      height: "20px",
                       objectFit: "contain",
                       mt: 0.5,
                     }}
@@ -136,8 +162,12 @@ function WhyTeamgrid() {
                       color="primary.main"
                       gutterBottom
                       sx={{
-                        fontWeight: 600,
-                        fontSize: { xs: "18px", sm: "20px", md: "22px" },
+                        fontWeight: 500,
+                        fontSize: "20px",
+                        leadingTrim: "Cap height",
+                        lineHeight: "120%",
+                        letterSpacing: "0%",
+                        color: "#05408E",
                       }}
                     >
                       {feature.title}
@@ -146,8 +176,11 @@ function WhyTeamgrid() {
                       variant="body1"
                       color="text.secondary"
                       sx={{
-                        fontSize: { xs: "16px", sm: "16px", md: "18px" },
-                        lineHeight: 1.6,
+                     fontWeight: 400,
+                     fontSize: "16px",
+                     lineHeight: "150%",
+                     letterSpacing: "0%",
+                     color: "#140E13"
                       }}
                     >
                       {feature.description}

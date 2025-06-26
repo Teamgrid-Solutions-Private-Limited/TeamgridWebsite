@@ -41,14 +41,16 @@ function Footer() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          px: { xs: 2, md: 4, lg: 8, xl: 0 },
+          px: {
+            xs: 2.5, md: 4, lg: 8, xl: 0
+          },
           maxWidth: "1200px",
           width: "100%",
         }}
       >
-        <Grid container spacing={{ xs: 2, sm: 2, md: 4, lg: 4, xl: 4 }}>
+        <Grid container spacing={{ xs: 2, sm: 2, md: 3, lg: 4, xl: 4 }}>
           {/* Blogs Section */}
-          <Grid xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <Typography
               variant="h6"
               sx={{
@@ -135,7 +137,7 @@ function Footer() {
           </Grid>
 
           {/* Quick Links */}
-          <Grid xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 2.5 }}>
             <Typography
               variant="h6"
               sx={{
@@ -172,7 +174,7 @@ function Footer() {
           </Grid>
 
           {/* Services */}
-          <Grid xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 2.5 }}>
             <Typography
               variant="h6"
               sx={{
@@ -209,7 +211,7 @@ function Footer() {
           </Grid>
 
           {/* Policies */}
-          <Grid xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 2.5 }}>
             <Typography
               variant="h6"
               sx={{

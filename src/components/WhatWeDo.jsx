@@ -26,10 +26,10 @@ import {
 const { serviceCategories, serviceContent: serviceContentData } = data.whatWeDo;
 
 // Add images to the service content
-const serviceContent = serviceContentData.map(service => ({
+const serviceContent = serviceContentData.map((service) => ({
   ...service,
   image: funiroProductsImage,
-  overlayImage: funiroMainImage
+  overlayImage: funiroMainImage,
 }));
 
 function WhatWeDo() {
@@ -52,10 +52,10 @@ function WhatWeDo() {
         py: { xs: 6, sm: 8, md: 12 },
         bgcolor: "#fff",
         width: "100%",
-        overflow: "hidden", 
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center'
+        overflow: "hidden",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Container
@@ -64,18 +64,27 @@ function WhatWeDo() {
           px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
           width: "100%",
           maxWidth: "1200px",
-          overflow: "hidden"
+          overflow: "hidden",
         }}
       >
         {/* Heading and intro text */}
-        <Box sx={{ mb: { xs: 4, md: 5 }, maxWidth: "800px" }}>
+        <Box
+          sx={{
+            mb: { xs: 4, md: 5 },
+            maxWidth: "100%",
+            display: "flex",
+            flexDirection: "column",
+            gap: 3,
+          }}
+        >
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: "28px", sm: "32px", md: "42px", lg: "48px" },
-              fontWeight: 700,
-              mb: { xs: 1.5, md: 2 },
-              color: "text.primary",
+              fontSize: { xs: "32px", sm: "45px", md: "56px" },
+              fontWeight: 500,
+              lineHeight: "100%",
+              letterSpacing: 0,
+              color: "#140E13",
             }}
           >
             {data.whatWeDo.title}
@@ -84,10 +93,11 @@ function WhatWeDo() {
           <Typography
             variant="body1"
             sx={{
-              fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
-              lineHeight: 1.6,
-              color: "text.secondary",
-              mb: { xs: 2, md: 3 },
+              fontSize: "18px",
+              fontWeight: 400,
+              lineHeight: "150%",
+              letterSpacing: 0,
+              color: "#000000",
             }}
           >
             {data.whatWeDo.description}
@@ -107,32 +117,52 @@ function WhatWeDo() {
             position: "relative",
           }}
         >
-          <Box sx={{
-            transition: "transform 0.5s ease",
-            transform: `translateX(-${index * 100}%)`,
-            display: 'flex',
-            height:'100%'
-          }}>
+          <Box
+            sx={{
+              transition: "transform 0.5s ease",
+              transform: `translateX(-${index * 100}%)`,
+              display: "flex",
+              height: "100%",
+            }}
+          >
             {serviceContent.map((item, i) => (
-              <Grid container width={'100%'} key={i} minWidth={'100%'} spacing={3} height={'100%'}>
+              <Grid
+                container
+                width={"100%"}
+                key={i}
+                minWidth={"100%"}
+                spacing={3}
+                height={"100%"}
+              >
                 {/* Left side - text content */}
-                <Grid size={{ xs: 12, md: 6 }} display={"flex"} justifyContent={'center'} flexDirection={"column"} p={{xs:2.5,md:4,lg:5,xl:6}}>
-                  <Typography variant="h4"
+                <Grid
+                  size={{ xs: 12, md: 6 }}
+                  display={"flex"}
+                  justifyContent={"center"}
+                  flexDirection={"column"}
+                  p={{ xs: 2.5, md: 4, lg: 5, xl: 6 }}
+                  gap={{ xs: 1, sm: 2, md: 3 }}
+                >
+                  <Typography
+                    variant="h4"
                     sx={{
-                      fontSize: { xs: "22px", sm: "24px", md: "28px" },
-                      fontWeight: 600,
-                      mb: { xs: 1.5, md: 2 },
+                      fontSize: { xs: "24px", sm: "32px", md: "40px" },
+                      fontWeight: 500,
+                      lineHeight: "100%",
+                      letterSpacing: 0,
                       color: "#140E13",
-                    }}>
+                    }}
+                  >
                     {item.title}
                   </Typography>
                   <Typography
                     variant="body2"
                     sx={{
-                      fontSize: { xs: "16px", sm: "16px", md: "18px" },
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      lineHeight: "150%",
+                      letterSpacing: 0,
                       color: "#000000",
-                      lineHeight: 1.6,
-                      mb: { xs: 2, md: 3 },
                     }}
                   >
                     {item.description}
@@ -142,10 +172,12 @@ function WhatWeDo() {
                       variant="text"
                       endIcon={<ArrowRightAltIcon />}
                       sx={{
-                        color: "black",
+                        color: "#000000",
                         textTransform: "none",
-                        fontWeight: 500,
                         fontSize: "16px",
+                        fontWeight: 500,
+                        lineHeight: "100%",
+                        letterSpacing: 0,
                         border: "1px solid rgba(168, 189, 211, 1)",
                         borderRadius: "39px",
                         px: 5,
@@ -160,7 +192,7 @@ function WhatWeDo() {
                       {item.buttonText}
                     </Button>
 
-                    <Box sx={{ display: "flex", mt: { xs: 3, md: 5 }, mb: 2 }}>
+                    <Box sx={{ display: "flex", mt: { xs: 3, md: 3 }, mb: 2 }}>
                       <Box
                         sx={{
                           width: { xs: 45, sm: 56 },
@@ -176,7 +208,10 @@ function WhatWeDo() {
                         onClick={handlePrev}
                       >
                         <WestIcon
-                          sx={{ fontSize: { xs: 18, sm: 20 }, color: "#0b3c7b" }}
+                          sx={{
+                            fontSize: { xs: 18, sm: 20 },
+                            color: "#0b3c7b",
+                          }}
                         />
                       </Box>
                       <Box
@@ -184,7 +219,7 @@ function WhatWeDo() {
                           width: { xs: 45, sm: 56 },
                           height: { xs: 45, sm: 56 },
                           borderRadius: "50%",
-                          bgcolor: "#edf1f7",
+                          bgcolor: "#FFFFFFA6",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -205,17 +240,14 @@ function WhatWeDo() {
                 </Grid>
 
                 {/* Right side - image showcase */}
-                <Grid
-                  size={{ xs: 12, md: 6 }}
-                  position={"relative"}
-                >
+                <Grid size={{ xs: 12, md: 6 }} position={"relative"}>
                   <Box
                     sx={{
-                      position: 'absolute',
-                      left: '3%',
-                      top: '3%',
-                      width:'50%',
-                      zIndex: 20
+                      position: "absolute",
+                      left: "3%",
+                      top: "3%",
+                      width: "50%",
+                      zIndex: 20,
                     }}
                     component="img"
                     src={item.image}
@@ -224,11 +256,11 @@ function WhatWeDo() {
                   />
                   <Box
                     sx={{
-                      position: 'absolute',
-                      left: '40%',
-                      width:'50%',
-                      top: '0px',
-                      zIndex: 10
+                      position: "absolute",
+                      left: "40%",
+                      width: "50%",
+                      top: "0px",
+                      zIndex: 10,
                     }}
                     component="img"
                     src={item.overlayImage}
@@ -271,7 +303,7 @@ function WhatWeDo() {
                   justifyContent: "center",
                   position: "relative",
                   minHeight: "80px",
-                  gap: "2px",
+                  gap: "18px",
 
                   // Special styles for small screens
                   "@media (max-width: 600px)": {
@@ -344,15 +376,17 @@ function WhatWeDo() {
                       cursor: "pointer",
                       borderRadius: 2,
                       transition: "all 0.3s ease",
-                      backgroundColor: index === idx ? "#0b3c7b" : "transparent",
+                      backgroundColor:
+                        index === idx ? "#0b3c7b" : "transparent",
                       zIndex: 2,
+                      gap: 1,
                       "&:hover": {
                         backgroundColor: "#0b3c7b",
                         "& .service-text": {
                           color: "white",
                         },
                         "& .service-description": {
-                          color: "rgba(255,255,255,0.9)",
+                          color: "#9EAAB8",
                         },
                         "&::after": {
                           opacity: 0,
@@ -364,10 +398,11 @@ function WhatWeDo() {
                       className="service-text"
                       variant="subtitle1"
                       sx={{
-                        fontWeight: 600,
-                        mb: 0.5,
-                        color: index === idx ? "white" : "text.primary",
-                        fontSize: { xs: "16px", sm: "16px", md: "18px" },
+                        fontSize: "16px",
+                        fontWeight: 500,
+                        lineHeight: "100%",
+                        letterSpacing: 0,
+                        color: index === idx ? "#FFFFFF" : "#072449",
                         transition: "color 0.3s ease",
                       }}
                     >
@@ -377,9 +412,11 @@ function WhatWeDo() {
                       className="service-description"
                       variant="body2"
                       sx={{
-                        fontSize: { xs: "16px", sm: "16px", md: "16px" },
-                        color: index === idx ? "rgba(255,255,255,0.9)" : "text.secondary",
-                        lineHeight: 1.2,
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "100%",
+                        letterSpacing: 0,
+                        color: index === idx ? "#9EAAB8" : "#0724498C",
                         transition: "color 0.3s ease",
                       }}
                     >

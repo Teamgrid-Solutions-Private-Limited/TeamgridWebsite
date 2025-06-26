@@ -64,9 +64,9 @@ function Technologies() {
         py: { xs: 6, sm: 8, md: 12 },
         overflow: "hidden", // Prevent any potential overflow issues
         width: "100%",
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center'
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Container
@@ -76,7 +76,7 @@ function Technologies() {
           alignItems: "center",
           justifyContent: "space-between",
           px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
-          width:'100%',
+          width: "100%",
           maxWidth: "1200px",
         }}
       >
@@ -101,15 +101,21 @@ function Technologies() {
               sx={{
                 mb: { xs: 2, sm: 3, md: 0 },
                 width: { xs: "100%", md: "auto" },
+                display: "flex",
+                flexDirection: "column",
+                gap: { xs: 0.8, sm: 1, md: 1.5 },
               }}
             >
               <Typography
                 variant="h2"
                 color="common.white"
                 sx={{
-                  fontSize: { xs: "28px", sm: "32px", md: "42px", lg: "48px" },
-                  fontWeight: 700,
-                  lineHeight: 1.2,
+                  fontWeight: 500,
+                  fontSize: { xs: "32px", sm: "45px", md: "56px" },
+                  leadingTrim: "Cap height",
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#FAFAFA",
                 }}
               >
                 {title}
@@ -119,7 +125,10 @@ function Technologies() {
                 color="#e1e0e0"
                 sx={{
                   mt: { xs: 0.5, sm: 1 },
-                  fontSize: { xs: "16px", sm: "16px", md: "18px" },
+                  fontWeight: 400,
+                  fontSize: "18px",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
                 }}
               >
                 {subtitle}
@@ -136,7 +145,11 @@ function Technologies() {
                 borderRadius: "39px",
                 px: 5,
                 py: 2,
+                fontWeight: 400,
                 fontSize: "16px",
+                lineHeight: "150%",
+                letterSpacing: "0%",
+                color: "#FFFFFF",
                 whiteSpace: "nowrap",
                 alignSelf: { xs: "flex-start", md: "center" },
                 textTransform: "none",
@@ -236,15 +249,23 @@ function Technologies() {
                       />
                     )}
                   </Box>
-                  <Box sx={{ flex: 1 }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 1,
+                      py: { xs: 0.2, sm: 0.5, md: 0.8 },
+                    }}
+                  >
                     <Typography
                       variant="h3"
                       color="common.white"
                       sx={{
-                        fontSize: { xs: "18px", sm: "20px", md: "22px" },
-                        fontWeight: 600,
-                        mb: { xs: 0.5, md: 0.75 },
-                        lineHeight: 1.2,
+                        fontWeight: 500,
+                        fontSize: "20px",
+                        lineHeight: "100%",
+                        letterSpacing: "0%",
+                        color: "#FFFFFF",
                       }}
                     >
                       {tech.title}
@@ -253,10 +274,11 @@ function Technologies() {
                       variant="body2"
                       color="common.white"
                       sx={{
-                        fontSize: { xs: "16px", sm: "16px", md: "16px" },
                         fontWeight: 400,
-                        lineHeight: 1.4,
-                        opacity: 0.8,
+                        fontSize: "14px",
+                        lineHeight: "150%",
+                        letterSpacing: "0%",
+                        color: "#E3EFFF",
                       }}
                     >
                       {tech.desc}
