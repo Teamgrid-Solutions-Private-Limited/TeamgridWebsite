@@ -185,9 +185,9 @@ function Navbar() {
         alt="logo"
         loading="lazy"
         sx={{
-          height: { xs: 40, md: 48, lg: 58 },
-          width: "auto",
-          mr: { md: 1, lg: 2 },
+          width: "158px",
+          height: "50px",
+          mr: 0,
           display: { xs: "none", md: "block" },
           filter: "none",
           flexShrink: 0,
@@ -208,7 +208,7 @@ function Navbar() {
           mx: { md: 1, lg: 2 },
           overflow: "hidden",
           maxWidth: "100%",
-          transition: "none",
+          transition: "background 0.25s, color 0.25s",
         }}
       >
         {menuItems.map((item, index) => (
@@ -240,7 +240,7 @@ function Navbar() {
                       : "rgba(5, 64, 142, 0.05)"
                     : "transparent",
                 borderRadius: "30px",
-                transition: "none",
+                transition: "background 0.25s, color 0.25s",
                 fontWeight: 500,
                 fontSize: { md: "0.8rem", lg: "0.9rem", xl: "1rem" },
                 whiteSpace: "nowrap",
@@ -253,7 +253,7 @@ function Navbar() {
                   fontWeight: 500,
                   fontSize: { md: "14px", lg: "16px" },
                   color: !scrolled ? "white" : "#05408E",
-                  transition: "none",
+                  transition: "color 0.25s",
                 }}
               >
                 {item.title}
@@ -264,7 +264,7 @@ function Navbar() {
                   sx={{
                     ml: 0.5,
                     color: !scrolled ? "white" : "#05408E",
-                    transition: "none",
+                    transition: "color 0.25s",
                   }}
                 />
               )}
@@ -401,7 +401,7 @@ function Navbar() {
                                 fontFamily: "PayPal Open, sans-serif",
                                 fontSize: "14px",
                                 mb: 0.25,
-                                transition: "color 0.2s",
+                                transition: "color 0.25s",
                                 whiteSpace: "normal",
                                 wordWrap: "break-word",
                                 lineHeight: '150%',
@@ -457,7 +457,7 @@ function Navbar() {
           },
           flexShrink: 0,
           minWidth: { md: 100, lg: 140 },
-          transition: "none",
+          transition: "background 0.25s, color 0.25s",
         }}
       >
         Lets Talk
@@ -737,7 +737,7 @@ function Navbar() {
           display: { xs: mobileOpen ? "none" : "flex", md: "flex" },
           justifyContent: "center",
           alignItems: "center",
-          transition: "none",
+          transition: "background 0.25s, color 0.25s, box-shadow 0.25s",
           maxHeight: { xs: 56, sm: 64, md: 70, lg: 80 },
           overflow: "hidden",
         }}
