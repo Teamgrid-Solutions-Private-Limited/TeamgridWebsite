@@ -127,15 +127,17 @@ function Letstalk() {
                 variant="contained"
                 sx={{
                   bgcolor: buttons[0].color,
-                  color: "#122640",
+                  color: "#140E13",
                   "&:hover": {
                     bgcolor: "rgba(255, 255, 255, 0.9)",
                   },
                   borderRadius: "39px",
                   px: 5,
                   py: 2,
-                  fontSize: "16px",
+                  fontSize: "18px",
                   fontWeight: 400,
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
                   textTransform: "none",
                   transition: "all 0.3s ease",
                   width: { xs: "100%", sm: "auto" },
@@ -154,13 +156,16 @@ function Letstalk() {
                   borderRadius: "39px",
                   px: 5,
                   py: 2,
-                  fontSize: "16px",
+                  fontSize: "18px",
                   fontWeight: 400,
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
                   textTransform: "none",
                   transition: "all 0.3s ease",
                   width: { xs: "100%", sm: "auto" },
                   lineHeight: 1.1,
                   whiteSpace: { xs: "normal", sm: "nowrap" },
+                  color: "#FFFFFF",
                 }}
               >
                 {buttons[1].text}
