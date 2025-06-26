@@ -1,14 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Box, Typography, Paper, Button, Avatar, useMediaQuery, useTheme, IconButton } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Paper,
+  Button,
+  Avatar,
+  useMediaQuery,
+  useTheme,
+  IconButton,
+} from "@mui/material";
 import { styled } from "@mui/system";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import data from "../data.json";
 
 // Get testimonials data from data.json
-const { testimonialsRow1: testimonialsRow1Data, testimonialsRow2: testimonialsRow2Data, title, subtitle, buttonText } = data.testimonials;
+const {
+  testimonialsRow1: testimonialsRow1Data,
+  testimonialsRow2: testimonialsRow2Data,
+  title,
+  subtitle,
+  buttonText,
+} = data.testimonials;
 
 // Add extra cards for continuous scroll effect
 const testimonialsRow1 = [
@@ -56,20 +71,20 @@ const mobileTestimonials = [...testimonialsRow1Data, ...testimonialsRow2Data];
 const QuoteIcon = styled(Box)(({ theme }) => ({
   color: "#0056D2", // Blue color for quote icon
   fontSize: "2rem",
-  marginBottom: theme.spacing(1),
+  // marginBottom: theme.spacing(1),
   "& svg": {
     fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" },
   },
 }));
 
 const TestimonialCard = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(4),
-  width: "350px",
-  height: "280px",
-  maxHeight: "280px",
+  padding: theme.spacing(2.5),
+  width: "384px",
+  height: "289px",
+  maxHeight: "289px",
   display: "flex",
   flexDirection: "column",
-  borderRadius: theme.spacing(2),
+  borderRadius: theme.spacing(2.5),
   backgroundColor: "rgba(243, 243, 246, 1)", // Light gray background
   margin: theme.spacing(0, 1.5),
   flex: "0 0 auto",
@@ -100,7 +115,7 @@ const TestimonialCard = styled(Paper)(({ theme }) => ({
     margin: theme.spacing(0, 0.5),
   },
   // Special case for single card view on mobile
-  '.single-card-view &': {
+  ".single-card-view &": {
     [theme.breakpoints.down("md")]: {
       width: "90%", // 90% of container width
       maxWidth: "400px",
@@ -112,8 +127,8 @@ const TestimonialCard = styled(Paper)(({ theme }) => ({
       maxWidth: "350px",
       height: "280px",
       maxHeight: "280px",
-    }
-  }
+    },
+  },
 }));
 
 const SliderNavButton = styled(IconButton)(({ theme }) => ({
@@ -133,44 +148,47 @@ const SliderNavButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-const TestimonialRow = styled(Box)(({ theme, direction, speed = 60, isPaused }) => ({
-  display: "flex",
-  overflowX: "hidden",
-  padding: theme.spacing(2, 0),
-  width: "100%",
-  position: "relative",
-  "& .scroll-content": {
+const TestimonialRow = styled(Box)(
+  ({ theme, direction, speed = 60, isPaused }) => ({
     display: "flex",
-    animation: direction === "left" 
-      ? `scroll-left ${speed}s linear infinite`
-      : `scroll-right ${speed}s linear infinite`,
-    animationPlayState: isPaused ? 'paused' : 'running',
-  },
-  "@keyframes scroll-left": {
-    "0%": { transform: "translateX(0)" },
-    "100%": { transform: "translateX(-50%)" },
-  },
-  "@keyframes scroll-right": {
-    "0%": { transform: "translateX(-50%)" },
-    "100%": { transform: "translateX(0)" },
-  },
-  [theme.breakpoints.down("sm")]: {
-    padding: theme.spacing(1, 0),
-  },
-}));
+    overflowX: "hidden",
+    padding: theme.spacing(1.5, 0),
+    width: "100%",
+    position: "relative",
+    "& .scroll-content": {
+      display: "flex",
+      animation:
+        direction === "left"
+          ? `scroll-left ${speed}s linear infinite`
+          : `scroll-right ${speed}s linear infinite`,
+      animationPlayState: isPaused ? "paused" : "running",
+    },
+    "@keyframes scroll-left": {
+      "0%": { transform: "translateX(0)" },
+      "100%": { transform: "translateX(-50%)" },
+    },
+    "@keyframes scroll-right": {
+      "0%": { transform: "translateX(-50%)" },
+      "100%": { transform: "translateX(0)" },
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1, 0),
+    },
+  })
+);
 
 const ClientInfo = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   marginTop: "auto",
-  paddingTop: theme.spacing(3),
+  paddingTop: theme.spacing(0.5),
   [theme.breakpoints.down("sm")]: {
-    paddingTop: theme.spacing(2),
+    paddingTop: theme.spacing(0.5),
   },
   // Reduce padding-top in single-card view to minimize gap
-  '.single-card-view &': {
-    paddingTop: theme.spacing(1.5),
-  }
+  ".single-card-view &": {
+    paddingTop: theme.spacing(0.5),
+  },
 }));
 
 const ExploreButton = styled(Button)(({ theme }) => ({
@@ -192,132 +210,163 @@ const ExploreButton = styled(Button)(({ theme }) => ({
 
 const Testimonials = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.down('md'));
-  
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.down("md"));
+
   const row1Ref = useRef(null);
   const row2Ref = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  
+
   // Speed up animation on smaller screens
   const animationSpeed = isMobile ? 80 : isTablet ? 100 : 120;
-  
+
   // Pause animation on hover
   useEffect(() => {
     const handleMouseEnter = () => {
       setIsPaused(true);
     };
-    
+
     const handleMouseLeave = () => {
       setIsPaused(false);
     };
-    
+
     const handleTouchStart = () => {
       setIsPaused(true);
     };
-    
+
     const handleTouchEnd = () => {
       setIsPaused(false);
     };
-    
+
     // Add event listeners to all testimonial cards
-    const testimonialCards = document.querySelectorAll('[data-testimonial-card]');
-    
-    testimonialCards.forEach(card => {
-      card.addEventListener('mouseenter', handleMouseEnter);
-      card.addEventListener('mouseleave', handleMouseLeave);
-      card.addEventListener('touchstart', handleTouchStart);
-      card.addEventListener('touchend', handleTouchEnd);
+    const testimonialCards = document.querySelectorAll(
+      "[data-testimonial-card]"
+    );
+
+    testimonialCards.forEach((card) => {
+      card.addEventListener("mouseenter", handleMouseEnter);
+      card.addEventListener("mouseleave", handleMouseLeave);
+      card.addEventListener("touchstart", handleTouchStart);
+      card.addEventListener("touchend", handleTouchEnd);
     });
-    
+
     return () => {
       // Clean up event listeners
-      testimonialCards.forEach(card => {
-        card.removeEventListener('mouseenter', handleMouseEnter);
-        card.removeEventListener('mouseleave', handleMouseLeave);
-        card.removeEventListener('touchstart', handleTouchStart);
-        card.removeEventListener('touchend', handleTouchEnd);
+      testimonialCards.forEach((card) => {
+        card.removeEventListener("mouseenter", handleMouseEnter);
+        card.removeEventListener("mouseleave", handleMouseLeave);
+        card.removeEventListener("touchstart", handleTouchStart);
+        card.removeEventListener("touchend", handleTouchEnd);
       });
     };
   }, []);
 
   // Simple navigation for mobile slider - show one card at a time
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev === 0 ? mobileTestimonials.length - 1 : prev - 1));
+    setActiveIndex((prev) =>
+      prev === 0 ? mobileTestimonials.length - 1 : prev - 1
+    );
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev === mobileTestimonials.length - 1 ? 0 : prev + 1));
+    setActiveIndex((prev) =>
+      prev === mobileTestimonials.length - 1 ? 0 : prev + 1
+    );
   };
 
   const renderTestimonialCard = (testimonial) => (
     <TestimonialCard elevation={0} key={testimonial.id} data-testimonial-card>
       <QuoteIcon>
-        <FormatQuoteIcon sx={{ 
-          color: "#0056D2", 
-          fontSize: { xs: "1.5rem", sm: "1.8rem", md: "2.5rem" } 
-        }} />
+        <FormatQuoteIcon
+          sx={{
+            color: "#0056D2",
+            fontSize: { xs: "2.5rem", sm: "4rem", md: "4rem" },
+          }}
+        />
       </QuoteIcon>
-      <Typography 
-        variant="body1" 
-        sx={{ 
-          mb: { xs: 1, sm: 1.5, md: 3 },
+      <Typography
+        variant="body1"
+        sx={{
+          mb: 1,
           flex: 1,
-          fontStyle: "normal",
-          fontSize: { xs: "16px", sm: "16px", md: "18px" },
-          lineHeight: 1.5,
+          fontWeight: 400,
+          fontSize: "16px",
+          lineHeight: "150%",
+          letterSpacing: "0%",
+          color: "#000000",
           overflow: "hidden",
           display: "-webkit-box",
           WebkitLineClamp: { xs: 3, sm: 3, md: 4 },
           WebkitBoxOrient: "vertical",
-          '.single-card-view &': {
-            lineHeight: 1.6,
-            fontSize: { xs: "16px", sm: "16px", md: "18px" },
+          ".single-card-view &": {
+            fontWeight: 400,
+            fontSize: "16px",
+            lineHeight: "150%",
+            letterSpacing: "0%",
+            color: "#000000",
             mb: 1,
             WebkitLineClamp: 6,
-          }
+          },
         }}
       >
         {testimonial.quote}
       </Typography>
       <ClientInfo>
-        <Avatar 
-          src={testimonial.avatar} 
+        <Avatar
+          src={testimonial.avatar}
           alt={testimonial.name}
           loading="lazy"
-          sx={{ 
-            width: { xs: 36, sm: 42, md: 56 }, 
+          sx={{
+            width: { xs: 36, sm: 42, md: 56 },
             height: { xs: 36, sm: 42, md: 56 },
             mr: { xs: 1, sm: 1.5, md: 2 },
             border: "2px solid #F0F0F0",
-            '.single-card-view &': {
-              width: { xs: 48, sm: 54 },
-              height: { xs: 48, sm: 54 },
-            }
+            ".single-card-view &": {
+              width: 54,
+              height: 54,
+            },
           }}
         />
         <Box>
-          <Typography 
-            variant="subtitle1" 
+          <Typography
+            variant="subtitle1"
             fontWeight={600}
-            sx={{ 
-              fontSize: { xs: "16px", sm: "16px", md: "18px" },
-              '.single-card-view &': {
-                fontSize: { xs: "16px", sm: "18px", md: "18px" },
-              }
+            sx={{
+              fontWeight: 700,
+              fontSize: "16px",
+              lineHeight: "150%",
+              letterSpacing: 0,
+              color: "#000000",
+
+              ".single-card-view &": {
+                fontWeight: 700,
+                fontSize: "16px",
+                lineHeight: "150%",
+                letterSpacing: 0,
+                color: "#000000",
+              },
             }}
           >
             {testimonial.name}
           </Typography>
-          <Typography 
-            variant="body2" 
+          <Typography
+            variant="body2"
             color="text.secondary"
-            sx={{ 
-              fontSize: { xs: "16px", sm: "16px", md: "16px" },
-              '.single-card-view &': {
-                fontSize: { xs: "16px", sm: "16px", md: "16px" },
-              }
+            sx={{
+              fontSize: "14px",
+              fontWeight: 400,
+              lineHeight: "150%",
+              letterSpacing: 0,
+              color: "#858585",
+
+              ".single-card-view &": {
+                fontSize: "14px",
+                fontWeight: 400,
+                lineHeight: "150%",
+                letterSpacing: 0,
+                color: "#858585",
+              },
             }}
           >
             {testimonial.position}
@@ -328,8 +377,8 @@ const Testimonials = () => {
   );
 
   return (
-    <Box 
-      sx={{ 
+    <Box
+      sx={{
         py: { xs: 6, sm: 8, md: 12 },
         backgroundColor: "#FFFFFF",
         overflow: "hidden",
@@ -338,136 +387,172 @@ const Testimonials = () => {
       }}
       id="testimonials"
     >
-      <Box sx={{ 
-        maxWidth: "100%", 
-        width:"100%",
-      }}>
-      <Box sx={{display:"flex",justifyContent:'center',mb:{xs: 4, sm: 5, md: 8}}}>
-        <Box sx={{ 
-          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
-          width:'1400px',
-          
-        }}>
-          <Typography 
-            variant="h2" 
-            component="h2" 
-            textAlign={'center'}
-            sx={{ 
-              fontWeight: 700,
-              mb: { xs: 1, sm: 1.5, md: 2 },
-              fontSize: { xs: "28px", sm: "32px", md: "42px", lg: "48px" }
-            }}
-          >
-            {title}
-          </Typography>
-          <Typography 
-            variant="h6" 
-            color="text.secondary" 
-            sx={{ 
-              fontWeight: 400,
-              textAlign:'center',
-              fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "22px" }
-            }}
-          >
-            {subtitle}
-          </Typography>
-        </Box>
-      </Box>
-
-      {/* Mobile/Tablet Single Card Slider - only visible below md breakpoint */}
-      <Box 
-        sx={{ 
-          display: { xs: 'block', md: 'none' },
-          position: 'relative',
-          mb: 5,
-          px: { xs: 4, sm: 6 }
+      <Box
+        sx={{
+          maxWidth: "100%",
+          width: "100%",
         }}
       >
-        {/* Left navigation button */}
-        <SliderNavButton 
-          onClick={handlePrev}
-          sx={{ 
-            left: { xs: 0, sm: 4 },
-          }}
-        >
-          <ArrowBackIosNewIcon fontSize="small" />
-        </SliderNavButton>
-
-        {/* Single card display with sliding effect */}
-        <Box 
+        <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            position: 'relative',
-            overflow: 'hidden',
-            height: { xs: 310, sm: 330 }, // Increased height for larger cards
-            width: '100%'
+            display: "flex",
+            justifyContent: "center",
+            mb: { xs: 4, sm: 5, md: 8 },
           }}
-          className="single-card-view" // Add class for special styling
         >
           <Box
             sx={{
-              display: 'flex',
-              position: 'absolute',
-              transition: 'transform 0.5s ease',
-              transform: `translateX(${activeIndex * -100}%)`,
-              width: '100%'
+              px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
+              width: "1400px",
             }}
           >
-            {mobileTestimonials.map((testimonial, index) => (
-              <Box 
-                key={testimonial.id}
-                sx={{ 
-                  flex: '0 0 100%',
-                  display: 'flex',
-                  justifyContent: 'center'
-                }}
-              >
-                {renderTestimonialCard(testimonial)}
-              </Box>
-            ))}
+            <Typography
+              variant="h2"
+              component="h2"
+              textAlign={"center"}
+              sx={{
+                fontWeight: 500,
+                fontSize: { xs: "32px", sm: "42px", md: "56px" },
+                leadingTrim: "Cap height",
+                lineHeight: "100%",
+                letterSpacing: 0,
+                textAlign: "center",
+                color: "#140E13",
+              }}
+            >
+              {title}
+            </Typography>
+            <Typography
+              variant="h6"
+              color="text.secondary"
+              sx={{
+                fontWeight: 400,
+                fontSize: "18px",
+                lineHeight: "150%",
+                letterSpacing: 0,
+                textAlign: "center",
+                color: "#140E13",
+              }}
+            >
+              {subtitle}
+            </Typography>
           </Box>
         </Box>
 
-        {/* Right navigation button */}
-        <SliderNavButton 
-          onClick={handleNext}
-          sx={{ 
-            right: { xs: 0, sm: 4 },
+        {/* Mobile/Tablet Single Card Slider - only visible below md breakpoint */}
+        <Box
+          sx={{
+            display: { xs: "block", md: "none" },
+            position: "relative",
+            mb: 5,
+            px: { xs: 4, sm: 6 },
           }}
         >
-          <ArrowForwardIosIcon fontSize="small" />
-        </SliderNavButton>
-      </Box>
+          {/* Left navigation button */}
+          <SliderNavButton
+            onClick={handlePrev}
+            sx={{
+              left: { xs: 0, sm: 4 },
+            }}
+          >
+            <ArrowBackIosNewIcon fontSize="small" />
+          </SliderNavButton>
 
-      {/* Original auto-scrolling rows - only visible on md and up */}
-      <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-        {/* First row - scrolling left to right */}
-        <TestimonialRow direction="left" speed={animationSpeed} isPaused={isPaused} sx={{ mb: { xs: 2, md: 3 } }}>
-          <Box className="scroll-content" ref={row1Ref}>
-            {testimonialsRow1.map(renderTestimonialCard)}
-            {testimonialsRow1.map(testimonial => renderTestimonialCard({ ...testimonial, id: `${testimonial.id}-dup` }))}
+          {/* Single card display with sliding effect */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              position: "relative",
+              overflow: "hidden",
+              height: { xs: 310, sm: 330 }, // Increased height for larger cards
+              width: "100%",
+            }}
+            className="single-card-view" // Add class for special styling
+          >
+            <Box
+              sx={{
+                display: "flex",
+                position: "absolute",
+                transition: "transform 0.5s ease",
+                transform: `translateX(${activeIndex * -100}%)`,
+                width: "100%",
+              }}
+            >
+              {mobileTestimonials.map((testimonial, index) => (
+                <Box
+                  key={testimonial.id}
+                  sx={{
+                    flex: "0 0 100%",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  {renderTestimonialCard(testimonial)}
+                </Box>
+              ))}
+            </Box>
           </Box>
-        </TestimonialRow>
 
-        {/* Second row - scrolling right to left */}
-        <TestimonialRow direction="right" speed={animationSpeed} isPaused={isPaused}>
-          <Box className="scroll-content" ref={row2Ref}>
-            {testimonialsRow2.map(renderTestimonialCard)}
-            {testimonialsRow2.map(testimonial => renderTestimonialCard({ ...testimonial, id: `${testimonial.id}-dup` }))}
-          </Box>
-        </TestimonialRow>
-      </Box>
+          {/* Right navigation button */}
+          <SliderNavButton
+            onClick={handleNext}
+            sx={{
+              right: { xs: 0, sm: 4 },
+            }}
+          >
+            <ArrowForwardIosIcon fontSize="small" />
+          </SliderNavButton>
+        </Box>
 
-        <Box sx={{ 
-          display: "flex", 
-          justifyContent: "center", 
-          mt: { xs: 4, sm: 5, md: 8 },
-          maxWidth: "1200px",
-          mx: "auto",
-        }}>
-          <ExploreButton 
+        {/* Original auto-scrolling rows - only visible on md and up */}
+        <Box sx={{ display: { xs: "none", md: "block" } }}>
+          {/* First row - scrolling left to right */}
+          <TestimonialRow
+            direction="left"
+            speed={animationSpeed}
+            isPaused={isPaused}
+          >
+            <Box className="scroll-content" ref={row1Ref}>
+              {testimonialsRow1.map(renderTestimonialCard)}
+              {testimonialsRow1.map((testimonial) =>
+                renderTestimonialCard({
+                  ...testimonial,
+                  id: `${testimonial.id}-dup`,
+                })
+              )}
+            </Box>
+          </TestimonialRow>
+
+          {/* Second row - scrolling right to left */}
+          <TestimonialRow
+            direction="right"
+            speed={animationSpeed}
+            isPaused={isPaused}
+          >
+            <Box className="scroll-content" ref={row2Ref}>
+              {testimonialsRow2.map(renderTestimonialCard)}
+              {testimonialsRow2.map((testimonial) =>
+                renderTestimonialCard({
+                  ...testimonial,
+                  id: `${testimonial.id}-dup`,
+                })
+              )}
+            </Box>
+          </TestimonialRow>
+        </Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            mt: { xs: 4, sm: 5, md: 8 },
+            maxWidth: "1200px",
+            mx: "auto",
+          }}
+        >
+          <ExploreButton
             endIcon={<ArrowForwardIcon />}
             variant="outlined"
             sx={{

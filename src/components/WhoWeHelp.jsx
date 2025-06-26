@@ -37,58 +37,70 @@ const WhoWeHelp = () => {
       sx={{
         py: { xs: 6, sm: 8, md: 12 },
         bgcolor: "#fff",
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: "100%"
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
       }}
     >
       <Container
         maxWidth="1200px"
         sx={{
           px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
-          width: '100%',
+          width: "100%",
           maxWidth: "1200px",
           display: "flex",
-          justifyContent: 'center',
-          alignItems: "center"
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <Grid container sx={{ width: '100%'}} spacing={3}>
+        <Grid container sx={{ width: "100%" }} spacing={3}>
           {/* Left Column - Text and Button */}
-          <Grid size={{ xs: 12, md: 6 }} alignItems={"center"} display={"flex"} >
-            <Box>
-              <Typography
-                variant="h2"
-                sx={{
-                  fontSize: { xs: "28px", sm: "32px", md: "42px", lg: "48px" },
-                  fontWeight: 700,
-                  mb: 1,
-                  color: "#000",
-                }}
-              >
-                {title}
-              </Typography>
+          <Grid size={{ xs: 12, md: 6 }} alignItems={"center"} display={"flex"}>
+            <Box
+              sx={{
+                width: "95%",
+                display: "flex",
+                flexDirection: "column",
+                gap: { xs: 2, sm: 3, md: 4 },
+              }}
+            >
+              <Box sx={{ display: "flex", flexDirection: "column", gap: { xs: 1.5, sm: 2, md: 3 } }}>
+                <Typography
+                  variant="h2"
+                  sx={{
+                    fontSize: { xs: "32px", sm: "45px", md: "56px" },
+                    fontWeight: 500,
+                    lineHeight: "100%",
+                    letterSpacing: 0,
+                    color: "#140E13",
+                  }}
+                >
+                  {title}
+                </Typography>
 
-              <Typography
-                variant="subtitle1"
-                sx={{
-                  fontSize: { xs: "16px", sm: "18px", md: "20px" },
-                  fontWeight: 500,
-                  color: "text.secondary",
-                  mb: 3,
-                }}
-              >
-                {subtitle}
-              </Typography>
-
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    fontSize: "18px",
+                    fontWeight: 400,
+                    lineHeight: "150%",
+                    letterSpacing: 0,
+                    color: "#000000",
+                  }}
+                >
+                  {subtitle}
+                </Typography>
+              </Box>
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
-                  mb: 4,
-                  color: "text.secondary",
-                  lineHeight: 1.6,
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "150%",
+                  letterSpacing: 0,
+                  color: "#000000",
+                  mb: { xs: 0.5, sm: 1, md: 2 },
                 }}
               >
                 {description}
@@ -103,7 +115,11 @@ const WhoWeHelp = () => {
                   px: 5,
                   py: 2,
                   textTransform: "none",
-                  fontSize: "16px",
+                  fontSize: "18px",
+                  fontWeight: 400,
+                  lineHeight: "150%",
+                  letterSpacing: 0,
+                  color: "#FAFAFA",
                   boxShadow: "none",
                   alignSelf: "flex-start",
                 }}
@@ -114,33 +130,42 @@ const WhoWeHelp = () => {
           </Grid>
 
           {/* Right Column - Staggered Image Layout */}
-          <Grid size={{ xs: 12, md: 6 }} display={'flex'} gap={3} justifyContent={{xs:"flex-start",md:'flex-end'}}>
-
+          <Grid
+            size={{ xs: 12, md: 6 }}
+            display={"flex"}
+            gap={3}
+            justifyContent={{ xs: "flex-start", md: "flex-end" }}
+          >
             {/* Left Column Images */}
-            <Box marginTop={'80px'} gap={3} display={'flex'} flexDirection={'column'}>
-              <Box sx={{  display: 'flex' }}>
+            <Box
+              marginTop={"80px"}
+              gap={3}
+              display={"flex"}
+              flexDirection={"column"}
+            >
+              <Box sx={{ display: "flex" }}>
                 <Box
                   component="img"
                   src={image1}
                   alt="Team member"
                   loading="lazy"
                   sx={{
-                    width: '100%',
-                    maxWidth: '272px',
+                    width: "100%",
+                    maxWidth: "272px",
                     objectFit: "cover",
                     display: "block",
                   }}
                 />
               </Box>
-              <Box sx={{   display: 'flex' }}>
+              <Box sx={{ display: "flex" }}>
                 <Box
                   component="img"
                   src={image3}
                   alt="Team member"
                   loading="lazy"
                   sx={{
-                    width: '100%',
-                    maxWidth: '272px',
+                    width: "100%",
+                    maxWidth: "272px",
                     objectFit: "cover",
                     display: "block",
                   }}
@@ -149,37 +174,36 @@ const WhoWeHelp = () => {
             </Box>
 
             {/* Right Column Images */}
-            <Box gap={3} display={'flex'} flexDirection={'column'}>
-              <Box sx={{  display: 'flex' }}>
+            <Box gap={3} display={"flex"} flexDirection={"column"}>
+              <Box sx={{ display: "flex" }}>
                 <Box
                   component="img"
                   src={image2}
                   alt="Team member"
                   loading="lazy"
                   sx={{
-                    width: '100%',
-                    maxWidth: '272px',
+                    width: "100%",
+                    maxWidth: "272px",
                     objectFit: "cover",
                     display: "block",
                   }}
                 />
               </Box>
-              <Box sx={{  display: 'flex' }}>
+              <Box sx={{ display: "flex" }}>
                 <Box
                   component="img"
                   src={image4}
                   alt="Team member"
                   loading="lazy"
                   sx={{
-                    width: '100%',
-                    maxWidth: '272px',
+                    width: "100%",
+                    maxWidth: "272px",
                     objectFit: "cover",
                     display: "block",
                   }}
                 />
               </Box>
             </Box>
-
           </Grid>
         </Grid>
       </Container>
