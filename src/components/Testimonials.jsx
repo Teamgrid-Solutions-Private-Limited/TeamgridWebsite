@@ -90,8 +90,8 @@ const TestimonialCard = styled(Paper)(({ theme }) => ({
   flex: "0 0 auto",
   transition: "transform 0.3s ease, box-shadow 0.3s ease",
   "&:hover": {
-    transform: "translateY(-5px)",
-    boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.1)",
+    transform: "scale(1.02)",
+    boxShadow: "none",
   },
   [theme.breakpoints.down("md")]: {
     width: "300px",
@@ -404,6 +404,9 @@ const Testimonials = () => {
             sx={{
               px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
               width: "1400px",
+              gap:'24px',
+              display:'flex',
+              flexDirection:"column"
             }}
           >
             <Typography
