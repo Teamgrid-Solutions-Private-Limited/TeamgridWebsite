@@ -9,44 +9,64 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { WebDevelopmentContactUsImage as backgroundImage } from "../../images";
-import data from "../../data.json";
-
-// Get letsTalk data from data.json
-const { title, subtitle, description, buttons } = data.letsTalk;
 
 function ContactUs() {
   const theme = useTheme();
-  const isExtraSmall = useMediaQuery(theme.breakpoints.down("xs"));
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isTablet = useMediaQuery(theme.breakpoints.down("md"));
-  const isLarge = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <Box
       component="section"
       sx={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        py: { xs: 6, sm: 8, md: 12 },
         overflow: "hidden",
         position: "relative",
         width: "100%",
-        backgroundColor: "#085BC8", // Fallback color while image loads
+        height: { xs: "auto", md: "70vh" },
+        backgroundColor: "#001E43", // Dark blue background
       }}
-      loading="lazy"
     >
+      {/* Left blue gradient */}
+      <Box
+        sx={{
+          position: "absolute",
+          left: 0,
+          top: 0,
+          bottom: 0,
+          width: { xs: "100%", md: "30%" },
+          background: "#085BC8",
+          zIndex: 1,
+        }}
+      />
+
+      {/* Right side image */}
+      <Box
+        sx={{
+          position: "absolute",
+          right: 0,
+          top: 0,
+          bottom: 0,
+          width: { xs: "0%", md: "70%" },
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          zIndex: 0,
+        }}
+      />
+
+      {/* Content container */}
       <Container
         maxWidth="1200px"
         sx={{
+          position: "relative",
+          zIndex: 2,
+          px: { xs: 2.5, md: 4, lg: 4, xl: 0 },
+          py: { xs: 6, md: 0 },
+          height: "100%",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
-          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
           width: "100%",
           maxWidth: "1200px",
         }}
@@ -84,7 +104,7 @@ function ContactUs() {
                   letterSpacing: 0,
                 }}
               >
-                {title}
+                Need a reliable web development partner?
               </Typography>
 
               <Typography
@@ -97,22 +117,9 @@ function ContactUs() {
                   color: "#FAFAFA",
                 }}
               >
-                {subtitle}
+                — Let’s talk about your next project or developer requirement.
               </Typography>
             </Box>
-
-            <Typography
-              variant="body1"
-              sx={{
-                fontWeight: 400,
-                fontSize: "20px",
-                lineHeight: "150%",
-                letterSpacing: 0,
-                color: "#FFFFFF",
-              }}
-            >
-              {description}
-            </Typography>
 
             <Stack
               direction={{ xs: "column", sm: "row" }}
@@ -126,7 +133,7 @@ function ContactUs() {
               <Button
                 variant="contained"
                 sx={{
-                  bgcolor: buttons[0].color,
+                  bgcolor: "#FFFFFF",
                   color: "#140E13",
                   "&:hover": {
                     bgcolor: "rgba(255, 255, 255, 0.9)",
@@ -143,13 +150,13 @@ function ContactUs() {
                   width: { xs: "100%", sm: "auto" },
                 }}
               >
-                {buttons[0].text}
+                Contact Us
               </Button>
 
               <Button
                 variant="contained"
                 sx={{
-                  bgcolor: buttons[1].color,
+                  bgcolor: "#FF4D00",
                   "&:hover": {
                     bgcolor: "#e54b24",
                   },
@@ -168,25 +175,12 @@ function ContactUs() {
                   color: "#FFFFFF",
                 }}
               >
-                {buttons[1].text}
+                Schedule a Call
               </Button>
             </Stack>
           </Box>
         </Box>
       </Container>
-
-      {/* Background overlay for better text contrast */}
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: "rgba(8, 91, 200, 0.2)",
-          zIndex: 1,
-        }}
-      />
     </Box>
   );
 }
