@@ -13,6 +13,9 @@ import CodeIcon from "@mui/icons-material/Code";
 import StorageIcon from "@mui/icons-material/Storage";
 import LayersIcon from "@mui/icons-material/Layers";
 import WebIcon from "@mui/icons-material/Web";
+import data from "../../data.json";
+import { fullstackImage, fileCodeIcon, storageIcon, wordpressIcon } from "../../images";
+const services  = data.developmentType;
 
 function DevelopmentTypes() {
   const theme = useTheme();
@@ -21,137 +24,30 @@ function DevelopmentTypes() {
   // State to track which service is active
   const [activeService, setActiveService] = useState(0);
   const [hoveredService, setHoveredService] = useState(null);
-
-  const getServiceIcon = (index) => {
-    switch (index) {
-      case 0:
-        return <CodeIcon sx={{ fontSize: 24 }} />;
-      case 1:
-        return <StorageIcon sx={{ fontSize: 24 }} />;
-      case 2:
-        return <LayersIcon sx={{ fontSize: 24 }} />;
-      case 3:
-        return <WebIcon sx={{ fontSize: 24 }} />;
-      default:
-        return <CodeIcon sx={{ fontSize: 24 }} />;
-    }
-  };
-
-  // Service items
-  const services = [
-    {
-      title: "Front-End Development",
-      description: "Fast, responsive, and pixel-perfect user interfaces.",
-      heading: "Build modern, responsive interfaces that users love.",
-      content:
-        "Our front-end developers bring designs to life using clean, optimized code. We specialize in React.js, HTML/CSS, and ensure all designs are fluid and responsive for your business.",
-      offerings: [
-        "Responsive UI development",
-        "Component-based architecture using React.JS",
-        "RESTful APIs and accessible markup",
-        "Integrated UI/UX APIs",
-      ],
-      techStack: [
-        { name: "React JS", icon: "reactjs.svg" },
-        { name: "JavaScript", icon: "javascript.svg" },
-        { name: "Next.js", icon: "nextjs.svg" },
-        { name: "HTML5", icon: "html5.svg" },
-        { name: "CSS3", icon: "css3.svg" },
-        { name: "Material UI", icon: "materialui.svg" },
-        { name: "Bootstrap", icon: "bootstrap.svg" },
-      ],
-    },
-    {
-      title: "Back-End Development",
-      description: "Scalable, secure, and efficient architecture.",
-      heading: "Scalable, secure, and efficient backend solutions.",
-      content:
-        "Our back-end experts create robust, secure, and high-performance server-side applications that power your digital products. We build scalable architecture that grows with your business.",
-      offerings: [
-        "RESTful & GraphQL API development",
-        "Database architecture and optimization",
-        "Server-side business logic implementation",
-        "Authentication and authorization systems",
-      ],
-      techStack: [
-        { name: "Node.js", icon: "nodejs.svg" },
-        { name: "Express", icon: "express.svg" },
-        { name: "PostgreSQL", icon: "postgresql.svg" },
-        { name: "MongoDB", icon: "mongodb.svg" },
-        { name: "GraphQL", icon: "graphql.svg" },
-        { name: "Redis", icon: "redis.svg" },
-        { name: "Docker", icon: "docker.svg" },
-      ],
-    },
-    {
-      title: "Full-Stack Development",
-      description: "End-to-end development for fully integrated web apps.",
-      heading: "End-to-end solutions for complex web applications.",
-      content:
-        "Our full-stack developers handle every aspect of your project—from user interfaces to server logic to database management. Get a cohesive solution with seamless integration across all layers.",
-      offerings: [
-        "Unified development approach",
-        "Seamless data flow between front and back-end",
-        "Comprehensive testing and optimization",
-        "Streamlined communication and faster development",
-      ],
-      techStack: [
-        { name: "MERN Stack", icon: "mern.svg" },
-        { name: "TypeScript", icon: "typescript.svg" },
-        { name: "Next.js", icon: "nextjs.svg" },
-        { name: "GraphQL", icon: "graphql.svg" },
-        { name: "AWS", icon: "aws.svg" },
-        { name: "Git", icon: "git.svg" },
-        { name: "Jest", icon: "jest.svg" },
-      ],
-    },
-    {
-      title: "WordPress & CMS",
-      description: "Custom WordPress sites with Elementor, and more.",
-      heading: "Custom WordPress solutions for content-driven websites.",
-      content:
-        "We build customized WordPress websites that go beyond templates. From custom plugins to e-commerce solutions, our WordPress experts create optimized, secure, and user-friendly CMS experiences.",
-      offerings: [
-        "Custom theme and plugin development",
-        "WooCommerce integration for e-commerce",
-        "Performance optimization and caching",
-        "Security hardening and maintenance",
-      ],
-      techStack: [
-        { name: "WordPress", icon: "wordpress.svg" },
-        { name: "PHP", icon: "php.svg" },
-        { name: "WooCommerce", icon: "woocommerce.svg" },
-        { name: "Elementor", icon: "elementor.svg" },
-        { name: "ACF", icon: "acf.svg" },
-        { name: "jQuery", icon: "jquery.svg" },
-        { name: "MySQL", icon: "mysql.svg" },
-      ],
-    },
-  ];
-
+  
   const isActiveOrHovered = (index) =>
     index === activeService || index === hoveredService;
 
   return (
     <Box
       sx={{
-        py: { xs: 6, md: 10 },
-        bgcolor: "#F8FAFC",
+        py: { xs: 2, md: 2 },
+        bgcolor: "#FFFFFF",
         width: "100%",
       }}
     >
       <Container
         maxWidth="1200px"
         sx={{
-          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
+          px: { xs: 2.5, md: 4, lg: 4, xl: 0 },
           maxWidth: "1200px",
           width: "100%",
         }}
       >
-        <Grid container spacing={{ xs: 4, md: 6 }}>
+        <Grid container spacing={{ xs: 1, md: 1 }}>
           {/* Left column - Services */}
           <Grid item size={{ xs: 12, md: 5 }}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
               {services.map((service, index) => (
                 <Box
                   key={index}
@@ -169,7 +65,9 @@ function DevelopmentTypes() {
                     borderTopRightRadius: "3px",
                     borderBottomRightRadius: "24px",
                     borderBottomLeftRadius: "24px",
-                    bgcolor: isActiveOrHovered(index) ? "#05408E" : "#F0F7FF",
+                    bgcolor: isActiveOrHovered(index)
+                      ? "#05408E"
+                      : "transparent",
                     color: isActiveOrHovered(index) ? "white" : "inherit",
                     boxShadow: isActiveOrHovered(index)
                       ? "0 4px 20px rgba(5, 64, 142, 0.3)"
@@ -182,6 +80,7 @@ function DevelopmentTypes() {
                   }}
                 >
                   <Box
+                    variant={"img"}
                     sx={{
                       width: 64,
                       height: 64,
@@ -195,7 +94,7 @@ function DevelopmentTypes() {
                       color: isActiveOrHovered(index) ? "white" : "#05408E",
                     }}
                   >
-                    {getServiceIcon(index)}
+                    {service.icon }
                   </Box>
                   <Box>
                     <Typography
@@ -228,7 +127,7 @@ function DevelopmentTypes() {
 
           {/* Middle and right - Description and offerings */}
           <Grid item size={{ xs: 12, md: 7 }}>
-            <Box>
+            <Box sx={{ bgcolor: "#F4F9FF", p: 4, borderRadius: "16px" }}>
               <Typography
                 variant="h2"
                 sx={{
@@ -312,7 +211,7 @@ function DevelopmentTypes() {
 
               <Grid container spacing={2}>
                 {services[activeService].techStack.map((tech, index) => (
-                  <Grid item xs={4} sm={3} md={2} key={index}>
+                  <Grid item size={{ xs: 4, sm: 3, md: 2 }} key={index}>
                     <Box
                       sx={{
                         border: "1px solid #E5E9F0",

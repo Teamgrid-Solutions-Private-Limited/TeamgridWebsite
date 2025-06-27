@@ -25,7 +25,7 @@ function WebDevelopmentMadeEasy() {
         sx={{
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
-          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
+          px: { xs: 2.5, md: 4, lg: 4, xl: 0 },
           maxWidth: "1200px",
           width: "100%",
           alignItems: "center",

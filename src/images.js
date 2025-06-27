@@ -74,6 +74,8 @@ import systemsIconModal from "./assets/lucide_paintbrush-vertical.svg";
 import shopifyIconModalModal from "./assets/hugeicons_shopify.svg";
 import wooCommerceIconModalModal from "./assets/Group11.svg";
 import mobileBackgroundPath from "./assets/backgroundImage.svg";
+import fullstackImagepath from "./assets/fluent_layer-20-regular.svg";
+
 
 // Cache map for SVG elements to prevent multiple loads
 const svgCache = new Map();
@@ -154,3 +156,4 @@ export const funiroLanding4 = getSvgPath(funiroLanding4Path);
 export const liveDiscussion = liveDiscussionPath; // JPG
 export const layer1 = getSvgPath(layer1Path);
 export const layer2 = getSvgPath(layer2Path); 
+export const fullstackImage = getSvgPath(fullstackImagepath); // Example for full stack image

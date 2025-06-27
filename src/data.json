@@ -414,5 +414,96 @@
       ]
     },
     "copyright": "© 2023 Teamgrid. All rights reserved."
-  }
+  },
+
+  "developmentType": [
+    {
+      "title": "Front-End Development",
+      "description": "Fast, responsive, and pixel-perfect user interfaces.",
+      "heading": "Build modern, responsive interfaces that users love.",
+      "icon": "fileCodeIcon",
+      "content": "Our front-end developers bring designs to life using clean, optimized code. We specialize in React.js, HTML/CSS, and ensure all designs are fluid and responsive for your business.",
+      "offerings": [
+        "Responsive UI development",
+        "Component-based architecture using React.JS",
+        "RESTful APIs and accessible markup",
+        "Integrated UI/UX APIs"
+      ],
+      "techStack": [
+        { "name": "React JS", "icon": "reactjs.svg" },
+        { "name": "JavaScript", "icon": "javascript.svg" },
+        { "name": "Next.js", "icon": "nextjs.svg" },
+        { "name": "HTML5", "icon": "html5.svg" },
+        { "name": "CSS3", "icon": "css3.svg" },
+        { "name": "Material UI", "icon": "materialui.svg" },
+        { "name": "Bootstrap", "icon": "bootstrap.svg" }
+      ]
+    },
+    {
+      "title": "Back-End Development",
+      "description": "Scalable, secure, and efficient architecture.",
+      "heading": "Scalable, secure, and efficient backend solutions.",
+      "icon": "storageIcon",
+      "content": "Our back-end experts create robust, secure, and high-performance server-side applications that power your digital products. We build scalable architecture that grows with your business.",
+      "offerings": [
+        "RESTful & GraphQL API development",
+        "Database architecture and optimization",
+        "Server-side business logic implementation",
+        "Authentication and authorization systems"
+      ],
+      "techStack": [
+        { "name": "Node.js", "icon": "nodejs.svg" },
+        { "name": "Express", "icon": "express.svg" },
+        { "name": "PostgreSQL", "icon": "postgresql.svg" },
+        { "name": "MongoDB", "icon": "mongodb.svg" },
+        { "name": "GraphQL", "icon": "graphql.svg" },
+        { "name": "Redis", "icon": "redis.svg" },
+        { "name": "Docker", "icon": "docker.svg" }
+      ]
+    },
+    {
+      "title": "Full-Stack Development",
+      "description": "End-to-end development for fully integrated web apps.",
+      "heading": "End-to-end solutions for complex web applications.",
+      "icon": "fullstackImage",
+      "content": "Our full-stack developers handle every aspect of your project—from user interfaces to server logic to database management. Get a cohesive solution with seamless integration across all layers.",
+      "offerings": [
+        "Unified development approach",
+        "Seamless data flow between front and back-end",
+        "Comprehensive testing and optimization",
+        "Streamlined communication and faster development"
+      ],
+      "techStack": [
+        { "name": "MERN Stack", "icon": "mern.svg" },
+        { "name": "TypeScript", "icon": "typescript.svg" },
+        { "name": "Next.js", "icon": "nextjs.svg" },
+        { "name": "GraphQL", "icon": "graphql.svg" },
+        { "name": "AWS", "icon": "aws.svg" },
+        { "name": "Git", "icon": "git.svg" },
+        { "name": "Jest", "icon": "jest.svg" }
+      ]
+    },
+    {
+      "title": "WordPress & CMS",
+      "description": "Custom WordPress sites with Elementor, and more.",
+      "heading": "Custom WordPress solutions for content-driven websites.",
+      "icon":"wordpressIcon",
+      "content": "We build customized WordPress websites that go beyond templates. From custom plugins to e-commerce solutions, our WordPress experts create optimized, secure, and user-friendly CMS experiences.",
+      "offerings": [
+        "Custom theme and plugin development",
+        "WooCommerce integration for e-commerce",
+        "Performance optimization and caching",
+        "Security hardening and maintenance"
+      ],
+      "techStack": [
+        { "name": "WordPress", "icon": "wordpress.svg" },
+        { "name": "PHP", "icon": "php.svg" },
+        { "name": "WooCommerce", "icon": "woocommerce.svg" },
+        { "name": "Elementor", "icon": "elementor.svg" },
+        { "name": "ACF", "icon": "acf.svg" },
+        { "name": "jQuery", "icon": "jquery.svg" },
+        { "name": "MySQL", "icon": "mysql.svg" }
+      ]
+    }
+  ]
 }
