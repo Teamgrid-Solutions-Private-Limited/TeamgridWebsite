@@ -29,19 +29,21 @@ function WebDevelopmentMadeEasy() {
           maxWidth: "1200px",
           width: "100%",
           alignItems: "center",
-          gap: { xs: 6, md: 4 },
+          gap: { xs: 4, sm: 4, md: 6, lg: 6, xl: 10 },
         }}
       >
         {/* Left side - Text content */}
-        <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+        <Box sx={{ width: { xs: "100%", md: "40%" } }}>
           <Typography
             variant="h2"
             sx={{
-              color: "#0D1317",
-              fontSize: { xs: "32px", sm: "36px", md: "42px", lg: "48px" },
-              fontWeight: 700,
+              fontFamily: "PayPal Open",
+              fontWeight: 500,
+              fontSize: "56px",
+              leadingTrim: "Cap height",
+              lineHeight: "100%",
+              letterSpacing: "0%",
               mb: 4,
-              lineHeight: 1.1,
             }}
           >
             Web
@@ -54,29 +56,57 @@ function WebDevelopmentMadeEasy() {
           <Typography
             variant="body1"
             sx={{
-              color: "#262F36",
-              fontSize: { xs: "16px", md: "18px" },
+              fontFamily: "PayPal Open",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "150%",
+              letterSpacing: "0%",
+              color: "#000000",
               mb: 3,
-              lineHeight: 1.6,
             }}
           >
-            At Teamgrid, we help digital and web agencies deliver
-            high-performing websites and web applications—without the cost and
-            hassle of expanding in-house teams. Whether you need a single
-            developer or a complete team, we provide vetted talent skilled in
-            modern frameworks and tools.
+            At{" "}
+            <Typography
+              variant="span"
+              sx={{
+                fontFamily: "PayPal Open",
+                fontWeight: 700,
+                fontSize: "16px",
+                lineHeight: "150%",
+                letterSpacing: "0%",
+              }}
+            >
+              Teamgrid
+            </Typography>
+            , we help digital and web agencies deliver high-performing websites
+            and web applications—without the cost and hassle of expanding
+            in-house teams. Whether you need a single developer or a complete
+            team, we provide vetted talent skilled in modern frameworks and
+            tools.
           </Typography>
 
           <Typography
             variant="body1"
             sx={{
-              color: "#262F36",
-              fontSize: { xs: "16px", md: "18px" },
-              lineHeight: 1.6,
+              fontFamily: "PayPal Open",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "150%",
+              letterSpacing: "0%",
+              color: "#000000",
             }}
           >
             We specialize in the{" "}
-            <Box component="span" sx={{ fontWeight: 600 }}>
+            <Box
+              component="span"
+              sx={{
+                fontFamily: "PayPal Open",
+                fontWeight: 700,
+                fontSize: "16px",
+                lineHeight: "150%",
+                letterSpacing: "0%",
+              }}
+            >
               MERN stack, custom WordPress development, and agile development
               practices
             </Box>
@@ -87,7 +117,7 @@ function WebDevelopmentMadeEasy() {
         {/* Right side - Image */}
         <Box
           sx={{
-            width: { xs: "100%", md: "50%" },
+            width: { xs: "100%", md: "60%" },
             display: "flex",
             justifyContent: "center",
           }}
