@@ -414,5 +414,132 @@
       ]
     },
     "copyright": "© 2023 Teamgrid. All rights reserved."
-  }
+  },
+
+  "developmentType": [
+    {
+      "title": "Front-End Development",
+      "description": "Fast, responsive, and pixel-perfect user interfaces.",
+      "heading": "Build modern, responsive interfaces that users love.",
+      "icon": "fileCodeIcon",
+      "content": "Our front-end developers bring designs to life using clean, performant code. We specialize in ReactJS, HTML/CSS, and popular UI libraries like Material UI and Bootstrap.",
+      "offerings": [
+        "Responsive UI development",
+        "Component-based architecture using React.JS",
+        "PSD/Figma to code conversion",
+        "SEO-ready and accessible markup",
+        "Integrated UI/UX APIs"
+      ],
+      "techStack": [
+        { "name": "ReactJS", "icon": "reactIcon" },
+        { "name": "JavaScript", "icon": "javascriptIcon" },
+        { "name": "TypeScript", "icon": "typescriptIcon" },
+        { "name": "HTML5", "icon": "htmlIcon" },
+        { "name": "CSS3", "icon": "cssIcon" },
+        { "name": "Material UI", "icon": "materialUiIcon" },
+        { "name": "Bootstrap", "icon": "bootstrapIcon" }
+      ]
+    },
+    {
+      "title": "Back-End Development",
+      "description": "Scalable, secure, and efficient architecture.",
+      "heading": "Scalable, secure, and efficient backend solutions.",
+      "icon": "storageIcon",
+      "content": "Our back-end experts create robust, secure, and high-performance server-side applications that power your digital products. We build scalable architecture that grows with your business.",
+      "offerings": [
+        "RESTful & GraphQL API development",
+        "Database architecture and optimization",
+        "Server-side business logic implementation",
+        "Authentication and authorization systems"
+      ],
+      "techStack": [
+        { "name": "Node.js", "icon": "nodejsIcon" },
+        { "name": "Express", "icon": "expressIcon" },
+        { "name": "PostgreSQL", "icon": "postgresqlIcon" },
+        { "name": "MongoDB", "icon": "mongodbIcon" },
+        { "name": "GraphQL", "icon": "graphqlIcon" },
+        { "name": "Redis", "icon": "redisIcon" },
+        { "name": "Docker", "icon": "dockerIcon" }
+      ]
+    },
+    {
+      "title": "Full-Stack Development",
+      "description": "End-to-end development for fully integrated web apps.",
+      "heading": "End-to-end solutions for complex web applications.",
+      "icon": "fullstackImage",
+      "content": "Our full-stack developers handle every aspect of your project—from user interfaces to server logic to database management. Get a cohesive solution with seamless integration across all layers.",
+      "offerings": [
+        "Unified development approach",
+        "Seamless data flow between front and back-end",
+        "Comprehensive testing and optimization",
+        "Streamlined communication and faster development"
+      ],
+      "techStack": [
+        { "name": "MERN Stack", "icon": "mernIcon" },
+        { "name": "TypeScript", "icon": "typescriptIcon" },
+        { "name": "Next.js", "icon": "nextjsIcon" },
+        { "name": "GraphQL", "icon": "graphqlIcon" },
+        { "name": "AWS", "icon": "awsIcon" },
+        { "name": "Git", "icon": "gitIcon" },
+        { "name": "Jest", "icon": "jestIcon" }
+      ]
+    },
+    {
+      "title": "WordPress & CMS",
+      "description": "Custom WordPress sites with Elementor, and more.",
+      "heading": "Custom WordPress solutions for content-driven websites.",
+      "icon":"wordpressIcon",
+      "content": "We build customized WordPress websites that go beyond templates. From custom plugins to e-commerce solutions, our WordPress experts create optimized, secure, and user-friendly CMS experiences.",
+      "offerings": [
+        "Custom theme and plugin development",
+        "WooCommerce integration for e-commerce",
+        "Performance optimization and caching",
+        "Security hardening and maintenance"
+      ],
+      "techStack": [
+        { "name": "WordPress", "icon": "wordpressIcon" },
+        { "name": "PHP", "icon": "phpIcon" },
+        { "name": "WooCommerce", "icon": "woocommerceIcon" },
+        { "name": "Elementor", "icon": "elementorIcon" },
+        { "name": "ACF", "icon": "acfIcon" },
+        { "name": "jQuery", "icon": "jqueryIcon" },
+        { "name": "MySQL", "icon": "mysqlIcon" }
+      ]
+    }
+  ],
+
+   "whyChooseTeamgrid" : [
+    {
+      "icon": "teamIcon",
+      "title": "Dedicated developers or full teams",
+      "description":
+        "Get skilled individuals or complete teams tailored to your project needs."
+    },
+    {
+      "icon": "NdaIcon",
+      "title": "NDA-compliant & agency-friendly",
+      "description":
+        "We protect your privacy and work seamlessly under your brand."
+    },
+    {
+      "icon": "modelIcon",
+      "title": "Flexible engagement models",
+      "description":
+        "Choose hourly, retainer, or project-based models that fit your workflow."
+    },
+    {
+      "icon": "documentationIcon",
+      "title": "Modular code with documentation",
+      "description":
+        "We write scalable code that's easy to maintain and well-documented."
+    },
+    {
+      "icon": "qualityIcon",
+      "title": "Quality Assured. High Performance.",
+      "description":
+        "Every solution is thoroughly tested for speed, stability, and reliability."
+    }
+  ]
+
+  
 }

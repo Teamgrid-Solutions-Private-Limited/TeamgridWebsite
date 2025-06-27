@@ -16,7 +16,7 @@ function WebDevelopment() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Box   
+    <Box
       sx={{
         bgcolor: "#001C42",
         width: "100%",
@@ -31,7 +31,7 @@ function WebDevelopment() {
         sx={{
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
-          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
+          px: { xs: 2.5, md: 4, lg: 4, xl: 0 },
           maxWidth: "1200px",
           width: "100%",
           alignItems: "center",
@@ -44,41 +44,45 @@ function WebDevelopment() {
           <Typography
             variant="h1"
             sx={{
-              color: "#ffffff",
-              fontSize: { xs: "32px", sm: "36px", md: "40px", lg: "48px" },
               fontWeight: 700,
+              fontSize: "56px",
+              leadingTrim: "Cap height",
+              lineHeight: "100%",
+              letterSpacing: "0%",
               mb: 3,
             }}
           >
-            <Box component="span" sx={{ color: "#ffffff" }}>
+            <Box component="span" sx={{ color: "#FFFFFF" }}>
               Custom{" "}
             </Box>
-            <Box component="span" sx={{ color: "#00E5A1" }}>
+            <Box component="span" sx={{ color: "#30ECAD" }}>
               Web Development{" "}
             </Box>
-            <Box component="span" sx={{ color: "#ffffff" }}>
+            <Box component="span" sx={{ color: "#FFFFFF" }}>
               Services
             </Box>
             <br />
-            <Box component="span" sx={{ color: "#ffffff" }}>
+            <Box component="span" sx={{ color: "#FFFFFF" }}>
               for Agencies
             </Box>
           </Typography>
-
-          <Typography
-            variant="body1"
-            sx={{
-              color: "#E1E0E0",
-              fontSize: { xs: "16px", md: "18px" },
-              mb: 5,
-              maxWidth: "480px",
-              lineHeight: 1.6,
-            }}
-          >
-            Hire expert developers for your front-end, back-end, full-stack, or
-            WordPress projects.
-          </Typography>
-
+          <Box sx={{ width: { xs: "100%", sm: "90%", md: "95%", lg: "85%" } }}>
+            <Typography
+              variant="body1"
+              sx={{
+                color: "#E1E0E0",
+                fontFamily: "PayPal Open",
+                fontWeight: 300,
+                fontSize: "20px",
+                lineHeight: "150%",
+                letterSpacing: "0%",
+                mb: 5,
+              }}
+            >
+              Hire expert developers for your front-end, back-end, full-stack,
+              or WordPress projects.
+            </Typography>
+          </Box>
           <Box
             sx={{
               display: "flex",
@@ -94,8 +98,12 @@ function WebDevelopment() {
                 px: 4,
                 py: 1.5,
                 textTransform: "none",
-                fontSize: "16px",
-                fontWeight: 500,
+                fontFamily: "PayPal Open",
+                fontWeight: 400,
+                fontSize: "18px",
+                lineHeight: "150%",
+                letterSpacing: "0%",
+                color: "#FFFFFF",
                 boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
                 "&:hover": { bgcolor: "#0069d9" },
                 minWidth: { xs: "100%", sm: "auto" },
@@ -114,8 +122,12 @@ function WebDevelopment() {
                 px: 4,
                 py: 1.5,
                 textTransform: "none",
-                fontSize: "16px",
-                fontWeight: 500,
+                fontFamily: "PayPal Open",
+                fontWeight: 400,
+                fontSize: "18px",
+                lineHeight: "150%",
+                letterSpacing: "0%",
+                color: "#FFFFFF",
                 "&:hover": { borderColor: "rgba(255,255,255,0.5)" },
                 minWidth: { xs: "100%", sm: "auto" },
               }}

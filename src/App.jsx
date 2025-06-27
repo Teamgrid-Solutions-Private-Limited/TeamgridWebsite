@@ -10,7 +10,7 @@ import Technologies from "./components/Technologies";
 import Testimonials from "./components/Testimonials";
 import Letstalk from "./components/Letstalk";
 import Footer from "./components/Footer";
-import WebDevelopment from "./components/web-development/WebDevelopment";
+import Index from "./components/web-development/Index";
 
 function App() {
   const theme = useTheme();
@@ -54,7 +54,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
-          <Route path="/web-development" element={<WebDevelopment/>} />
+          <Route path="/web-development" element={<Index />} />
         </Routes>
         <Footer />
       </Box>
