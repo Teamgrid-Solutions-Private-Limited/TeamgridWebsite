@@ -14,8 +14,13 @@ import StorageIcon from "@mui/icons-material/Storage";
 import LayersIcon from "@mui/icons-material/Layers";
 import WebIcon from "@mui/icons-material/Web";
 import data from "../../data.json";
-import { fullstackImage, fileCodeIcon, storageIcon, wordpressIcon } from "../../images";
-const services  = data.developmentType;
+import {
+  fullstackImage,
+  fileCodeIcon,
+  storageIcon,
+  wordpressIcon,
+} from "../../images";
+const services = data.developmentType;
 
 function DevelopmentTypes() {
   const theme = useTheme();
@@ -24,7 +29,23 @@ function DevelopmentTypes() {
   // State to track which service is active
   const [activeService, setActiveService] = useState(0);
   const [hoveredService, setHoveredService] = useState(null);
-  
+
+  // Function to get the correct icon component based on the icon name from data.json
+  const getIconComponent = (iconName) => {
+    switch (iconName) {
+      case "fileCodeIcon":
+        return fileCodeIcon;
+      case "storageIcon":
+        return storageIcon;
+      case "fullstackImage":
+        return fullstackImage;
+      case "wordpressIcon":
+        return wordpressIcon;
+      default:
+        return fileCodeIcon;
+    }
+  };
+
   const isActiveOrHovered = (index) =>
     index === activeService || index === hoveredService;
 
@@ -80,7 +101,9 @@ function DevelopmentTypes() {
                   }}
                 >
                   <Box
-                    variant={"img"}
+                    component="img"
+                    src={getIconComponent(service.icon)}
+                    alt={service.title}
                     sx={{
                       width: 64,
                       height: 64,
@@ -91,11 +114,10 @@ function DevelopmentTypes() {
                         ? "rgba(255, 255, 255, 0.2)"
                         : "#FFFFFF",
                       borderRadius: "16px",
-                      color: isActiveOrHovered(index) ? "white" : "#05408E",
+                      padding: "12px",
+                      objectFit: "contain",
                     }}
-                  >
-                    {service.icon }
-                  </Box>
+                  />
                   <Box>
                     <Typography
                       variant="h6"
