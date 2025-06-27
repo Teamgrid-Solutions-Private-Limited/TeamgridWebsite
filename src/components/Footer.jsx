@@ -4,10 +4,10 @@ import {
   Typography,
   Container,
   Grid,
+  Link,
   TextField,
   InputAdornment,
   IconButton,
-  Link,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
@@ -15,6 +15,7 @@ import SendIcon from "@mui/icons-material/Send";
 import EmailIcon from "@mui/icons-material/Email";
 import data from "../data.json";
 import { FiSend } from "react-icons/fi";
+import { Link as RouterLink } from "react-router-dom";
 
 function Footer() {
   const theme = useTheme();
@@ -66,76 +67,84 @@ function Footer() {
             </Typography>
 
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-              <Link
-                href="#"
-                underline="hover"
-                color="inherit"
+              <Box
+                component={RouterLink}
+                to={"/"}
                 sx={{
+                  textDecoration: "none",
                   fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
+                  color: "#A8B6C5",
+                  cursor: "pointer",
                   "&:hover": {
                     transform: "translateX(5px)",
                     color: "#ffffff",
+                    textDecoration: "underline",
                   },
-                  color: "#A8B6C5",
                 }}
               >
                 How AI Is Transforming Web & Mobile App Development in 2025
-              </Link>
-              <Link
-                href="#"
-                underline="hover"
-                color="inherit"
+              </Box>
+              <Box
+                component={RouterLink}
+                to={"/"}
                 sx={{
+                  textDecoration: "none",
                   fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
+                  color: "#A8B6C5",
+                  cursor: "pointer",
                   "&:hover": {
                     transform: "translateX(5px)",
                     color: "#ffffff",
+                    textDecoration: "underline",
                   },
-                  color: "#A8B6C5",
                 }}
               >
                 Choosing the Right Tech Stack for Scalable Product Development
-              </Link>
-              <Link
-                href="#"
-                underline="hover"
-                color="inherit"
+              </Box>
+              <Box
+                component={RouterLink}
+                to={"/"}
                 sx={{
+                  textDecoration: "none",
                   fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
+                  color: "#A8B6C5",
+                  cursor: "pointer",
                   "&:hover": {
                     transform: "translateX(5px)",
                     color: "#ffffff",
+                    textDecoration: "underline",
                   },
-                  color: "#A8B6C5",
                 }}
               >
                 Design Smarter: Why UI/UX Matters More Than Ever in AI-Powered
                 Apps
-              </Link>
-              <Link
-                href="#"
-                underline="hover"
-                color="inherit"
+              </Box>
+              <Box
+                component={RouterLink}
+                to={"/"}
                 sx={{
+                  textDecoration: "none",
                   fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
+                  color: "#A8B6C5",
+                  cursor: "pointer",
                   "&:hover": {
                     transform: "translateX(5px)",
                     color: "#ffffff",
+                    textDecoration: "underline",
                   },
-                  color: "#A8B6C5",
                 }}
               >
                 Fixed-Cost vs. Dedicated Teams: What Works Best for Your Next
                 Project?
-              </Link>
+              </Box>
             </Box>
           </Grid>
 
@@ -154,24 +163,26 @@ function Footer() {
 
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {quickLinks.map((link, index) => (
-                <Link
+                <Box
+                  component={RouterLink}
+                  to={"/"}
                   key={index}
-                  href="#"
-                  underline="hover"
-                  color="inherit"
                   sx={{
+                    textDecoration: "none",
                     fontSize: "16px",
                     fontWeight: 400,
                     transition: "all 0.2s ease",
+                    color: "#A8B6C5",
+                    cursor: "pointer",
                     "&:hover": {
                       transform: "translateX(5px)",
                       color: "#ffffff",
+                      textDecoration: "underline",
                     },
-                    color: "#A8B6C5",
                   }}
                 >
                   {link}
-                </Link>
+                </Box>
               ))}
             </Box>
           </Grid>
@@ -191,25 +202,26 @@ function Footer() {
 
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {services.map((service, index) => (
-                <Link
+                <Box
+                  component={RouterLink}
                   to={service.link}
                   key={index}
-                  underline="hover"
-                  color="inherit"
                   sx={{
+                    textDecoration: "none",
                     fontSize: "16px",
                     fontWeight: 400,
                     transition: "all 0.2s ease",
+                    color: "#A8B6C5",
+                    cursor: "pointer",
                     "&:hover": {
                       transform: "translateX(5px)",
                       color: "#ffffff",
+                      textDecoration: "underline",
                     },
-                    color: "#A8B6C5",
-                    cursor:"pointer"
                   }}
                 >
                   {service.name}
-                </Link>
+                </Box>
               ))}
             </Box>
           </Grid>
@@ -228,57 +240,63 @@ function Footer() {
             </Typography>
 
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-              <Link
-                href="#"
-                underline="hover"
-                color="inherit"
+              <Box
+                component={RouterLink}
+                to={"/"}
                 sx={{
+                  textDecoration: "none",
                   fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
+                  cursor: "pointer",
                   "&:hover": {
                     transform: "translateX(5px)",
                     color: "#ffffff",
+                    textDecoration: "underline",
                   },
                 }}
               >
                 Terms & Conditions
-              </Link>
-              <Link
-                href="#"
-                underline="hover"
-                color="inherit"
+              </Box>
+              <Box
+                component={RouterLink}
+                to={"/"}
                 sx={{
+                  textDecoration: "none",
                   fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
+                  cursor: "pointer",
                   "&:hover": {
                     transform: "translateX(5px)",
                     color: "#ffffff",
+                    textDecoration: "underline",
                   },
                 }}
               >
                 Privacy Policy
-              </Link>
-              <Link
-                href="#"
-                underline="hover"
-                color="inherit"
+              </Box>
+              <Box
+                component={RouterLink}
+                to={"/"}
                 sx={{
+                  textDecoration: "none",
                   fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
+                  cursor: "pointer",
                   "&:hover": {
                     transform: "translateX(5px)",
                     color: "#ffffff",
+                    textDecoration: "underline",
                   },
                 }}
               >
                 NDA Available on Request
-              </Link>
+              </Box>
             </Box>
           </Grid>
         </Grid>

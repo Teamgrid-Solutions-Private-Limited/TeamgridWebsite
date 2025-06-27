@@ -16,13 +16,13 @@ function WebDevelopment() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Box
+    <Box   
       sx={{
         bgcolor: "#001C42",
         width: "100%",
-        minHeight: "90vh",
+        minHeight: "70vh",
         pt: { xs: 12, md: 16 },
-        pb: { xs: 8, md: 10 },
+        // pb: { xs: 8, md: 10 },
         overflow: "hidden",
       }}
     >
@@ -35,8 +35,8 @@ function WebDevelopment() {
           maxWidth: "1200px",
           width: "100%",
           alignItems: "center",
-          justifyContent: "space-between",
-          gap: { xs: 4, md: 2 },
+          justifyContent: { xs: "center", sm: "center", md: "space-between" },
+          // gap: { xs: 4, md: 2 },
         }}
       >
         {/* Text Content */}
@@ -128,10 +128,11 @@ function WebDevelopment() {
         {/* Image */}
         <Box
           sx={{
+            display: { xs: "none", sm: "none", md: "flex" },
             maxWidth: { xs: "100%", md: "50%" },
-            display: "flex",
-            justifyContent: "center",
-            mt: { xs: 4, md: 0 },
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
+            // mt: { xs: 4, md: 0 },
           }}
         >
           <Box
@@ -141,7 +142,7 @@ function WebDevelopment() {
             sx={{
               maxWidth: "100%",
               height: "auto",
-              maxHeight: { xs: "400px", md: "500px" },
+              maxHeight: "100%",
             }}
           />
         </Box>
