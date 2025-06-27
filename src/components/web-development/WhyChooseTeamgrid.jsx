@@ -9,65 +9,51 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
-import GppGoodOutlinedIcon from "@mui/icons-material/GppGoodOutlined";
-import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
-import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
-import SpeedOutlinedIcon from "@mui/icons-material/SpeedOutlined";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import {
+  teamIcon,
+  NdaIcon,
+  modelIcon,
+  documentationIcon,
+  qualityIcon,
+} from "../../images"; // Adjust the import path as necessary
+import data from "../../data.json"; // Assuming you have a data.json file with the features
+const features = data.whyChooseTeamgrid;
 
 const WhyChooseTeamgrid = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  // Feature data
-  const features = [
-    {
-      icon: <PeopleAltOutlinedIcon sx={{ fontSize: 28, color: "#0070F3" }} />,
-      title: "Dedicated developers or full teams",
-      description:
-        "Get skilled individuals or complete teams tailored to your project needs.",
-    },
-    {
-      icon: <GppGoodOutlinedIcon sx={{ fontSize: 28, color: "#0070F3" }} />,
-      title: "NDA-compliant & agency-friendly",
-      description:
-        "We protect your privacy and work seamlessly under your brand.",
-    },
-    {
-      icon: (
-        <CalendarMonthOutlinedIcon sx={{ fontSize: 28, color: "#0070F3" }} />
-      ),
-      title: "Flexible engagement models",
-      description:
-        "Choose hourly, retainer, or project-based models that fit your workflow.",
-    },
-    {
-      icon: <CodeOutlinedIcon sx={{ fontSize: 28, color: "#0070F3" }} />,
-      title: "Modular code with documentation",
-      description:
-        "We write scalable code that's easy to maintain and well-documented.",
-    },
-    {
-      icon: <SpeedOutlinedIcon sx={{ fontSize: 28, color: "#0070F3" }} />,
-      title: "Quality Assured. High Performance.",
-      description:
-        "Every solution is thoroughly tested for speed, stability, and reliability.",
-    },
-  ];
+  const getIconComponent = (iconName) => {
+    switch (iconName) {
+      case "teamIcon":
+        return teamIcon;
+      case "NdaIcon":
+        return NdaIcon;
+      case "modelIcon":
+        return modelIcon;
+      case "documentationIcon":
+        return documentationIcon;
+      case "qualityIcon":
+        return qualityIcon;
+      default:
+        return teamIcon;
+    }
+  };
 
   return (
     <Box
       sx={{
         py: { xs: 6, md: 8 },
-        bgcolor: "#F2F2F2",
+        bgcolor: "#FFFFFF",
         width: "100%",
+        mb: { md: 8 },
       }}
     >
       <Container
         maxWidth="1200px"
         sx={{
-          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
+          px: { xs: 2.5, md: 4, lg: 4, xl: 0 },
           maxWidth: "1200px",
           width: "100%",
         }}
@@ -84,11 +70,15 @@ const WhyChooseTeamgrid = () => {
           <Typography
             variant="h2"
             sx={{
-              color: "#0F172A",
-              fontSize: { xs: "28px", sm: "32px", md: "36px" },
-              fontWeight: 700,
+              fontFamily: "PayPal Open",
+              fontWeight: 500,
+              fontSize: "48px",
+              leadingTrim: "Cap height",
+              lineHeight: "120%",
+              letterSpacing: "0%",
+              color: "#140E13",
               mb: { xs: 2, md: 0 },
-              maxWidth: "500px",
+              maxWidth: "600px",
             }}
           >
             Why Choose Teamgrid for Web Development?
@@ -96,19 +86,24 @@ const WhyChooseTeamgrid = () => {
 
           <Button
             variant="outlined"
-            endIcon={<ArrowForwardIcon />}
+            color="primary"
+            endIcon={<ArrowRightAltIcon />}
             sx={{
-              borderRadius: "50px",
-              px: 3,
-              py: 1,
-              borderColor: "#E5E5E5",
-              color: "#0F172A",
-              textTransform: "none",
-              fontSize: "16px",
+              borderRadius: "39px",
+              px: 5,
+              py: 2,
+              borderColor: "rgba(202, 202, 202, 1)",
               "&:hover": {
-                borderColor: "#0070F3",
-                bgcolor: "rgba(0, 112, 243, 0.04)",
+                backgroundColor: "primary.main",
+                color: "white",
+                borderColor: "primary.main",
               },
+              fontWeight: 400,
+              fontSize: "18px",
+              lineHeight: "150%",
+              letterSpacing: "0%",
+              color: "#140E13",
+              textTransform: "none",
             }}
           >
             Explore Services
@@ -122,12 +117,13 @@ const WhyChooseTeamgrid = () => {
                 elevation={0}
                 sx={{
                   p: 3,
-                  height: "100%",
+                  width: "384px",
+                  height: "172px",
                   display: "flex",
                   flexDirection: "column",
-                  borderRadius: "12px",
+                  borderRadius: "24px",
                   border: "1px solid #E5E9F0",
-                  bgcolor: "#FFFFFF",
+                  bgcolor: "#F3F3F6",
                   transition: "all 0.3s ease",
                   "&:hover": {
                     boxShadow: "0 8px 24px rgba(0,0,0,0.05)",
@@ -136,9 +132,12 @@ const WhyChooseTeamgrid = () => {
                 }}
               >
                 <Box
+                  variant="img"
+                  src={getIconComponent(feature.icon)}
+                  alt={feature.title}
                   sx={{
-                    width: 48,
-                    height: 48,
+                    width: 32,
+                    height: 32,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -146,16 +145,18 @@ const WhyChooseTeamgrid = () => {
                     bgcolor: "#F0F7FF",
                     mb: 2,
                   }}
-                >
-                  {feature.icon}
-                </Box>
+                ></Box>
 
                 <Typography
                   variant="h6"
                   sx={{
-                    fontSize: "18px",
-                    fontWeight: 600,
-                    color: "#0F172A",
+                    fontFamily: "PayPal Open",
+                    fontWeight: 500,
+                    fontSize: "20px",
+                    leadingTrim: "Cap height",
+                    lineHeight: "120%",
+                    letterSpacing: "0%",
+                    color: "#05408E",
                     mb: 1,
                   }}
                 >
@@ -165,9 +166,12 @@ const WhyChooseTeamgrid = () => {
                 <Typography
                   variant="body2"
                   sx={{
-                    fontSize: "15px",
-                    color: "#505C73",
-                    lineHeight: 1.5,
+                    fontFamily: "PayPal Open",
+                    fontWeight: 400,
+                    fontSize: "16px",
+                    lineHeight: "150%",
+                    letterSpacing: "0%",
+                    color: "#140E13",
                   }}
                 >
                   {feature.description}

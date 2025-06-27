@@ -506,5 +506,38 @@
         { "name": "MySQL", "icon": "mysqlIcon" }
       ]
     }
+  ],
+
+   "whyChooseTeamgrid" : [
+    {
+      "icon": "teamIcon",
+      "title": "Dedicated developers or full teams",
+      "description":
+        "Get skilled individuals or complete teams tailored to your project needs."
+    },
+    {
+      "icon": "NdaIcon",
+      "title": "NDA-compliant & agency-friendly",
+      "description":
+        "We protect your privacy and work seamlessly under your brand."
+    },
+    {
+      "icon": "modelIcon",
+      "title": "Flexible engagement models",
+      "description":
+        "Choose hourly, retainer, or project-based models that fit your workflow."
+    },
+    {
+      "icon": "documentationIcon",
+      "title": "Modular code with documentation",
+      "description":
+        "We write scalable code that's easy to maintain and well-documented."
+    },
+    {
+      "icon": "qualityIcon",
+      "title": "Quality Assured. High Performance.",
+      "description":
+        "Every solution is thoroughly tested for speed, stability, and reliability."
+    }
   ]
 }
