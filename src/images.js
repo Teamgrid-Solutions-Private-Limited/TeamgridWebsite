@@ -85,6 +85,7 @@ import NdaIconPath from "./assets/material-symbols-light_handshake-outline-round
 import modelIconPath from "./assets/system-uicons_cubes.svg";
 import documentationIconPath from "./assets/hugeicons_document-code.svg";
 import qualityIconPath from "./assets/streamline-ultimate_performance-increase.svg";
+import WebDevelopmentContactUsImagePath from "./assets/Rectangle 83.svg"; // Assuming you have a utility for image optimization
 
 
 // Cache map for SVG elements to prevent multiple loads
@@ -177,3 +178,4 @@ export const NdaIcon = getSvgPath(NdaIconPath);
 export const modelIcon = getSvgPath(modelIconPath);
 export const documentationIcon = getSvgPath(documentationIconPath);
 export const qualityIcon = getSvgPath(qualityIconPath);
+export const WebDevelopmentContactUsImage = getSvgPath(WebDevelopmentContactUsImagePath);
