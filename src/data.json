@@ -6,7 +6,11 @@
       {
         "title": "What We Do",
         "hasSubmenu": true,
-        "submenuItems": ["Web Development", "Mobile Development", "UI/UX Design"]
+        "submenuItems": [
+          "Web Development",
+          "Mobile Development",
+          "UI/UX Design"
+        ]
       },
       { "title": "Technologies We Use", "hasSubmenu": false },
       { "title": "How we work", "hasSubmenu": false }
@@ -18,17 +22,20 @@
           {
             "title": "Front-End Development",
             "description": "Fast, responsive, and pixel-perfect user interfaces.",
-            "icon": "fileCodeIcon"
+            "icon": "fileCodeIcon",
+            "link": "/web-development"
           },
           {
             "title": "Back-End Development",
             "description": "Scalable, secure, and efficient architecture.",
-            "icon": "storageIcon"
+            "icon": "storageIcon",
+            "link": "/web-development"
           },
           {
             "title": "WordPress & CMS",
             "description": "Custom WordPress sites with Elementor, and more.",
-            "icon": "wordpressIcon"
+            "icon": "wordpressIcon",
+            "link": "/web-development"
           }
         ]
       },
@@ -96,7 +103,11 @@
       "description": "We helps agencies and startups scale smarter — with dedicated professionals, high-quality solutions, and flexible engagement models that fit your workflow and goals.",
       "buttons": [
         { "text": "Let's Talk", "variant": "contained", "link": "#lets-talk" },
-        { "text": "Explore Services", "variant": "outlined", "link": "#services" }
+        {
+          "text": "Explore Services",
+          "variant": "outlined",
+          "link": "#services"
+        }
       ]
     },
     "techDescriptions": {
@@ -149,12 +160,28 @@
     "title": "What We Do",
     "description": "We build AI-powered web and mobile apps with innovative design and scalable development. Our team delivers seamless UI/UX and solutions to help your business grow smarter and faster.",
     "serviceCategories": [
-      { "id": 1, "name": "E-commerce", "description": "Convert visitors to sales" },
-      { "id": 2, "name": "Web Development", "description": "Clean, modern websites" },
+      {
+        "id": 1,
+        "name": "E-commerce",
+        "description": "Convert visitors to sales"
+      },
+      {
+        "id": 2,
+        "name": "Web Development",
+        "description": "Clean, modern websites"
+      },
       { "id": 3, "name": "UI / UX", "description": "Design with purpose" },
-      { "id": 4, "name": "Mobile App Development", "description": "Apps that perform" },
+      {
+        "id": 4,
+        "name": "Mobile App Development",
+        "description": "Apps that perform"
+      },
       { "id": 5, "name": "Dedicated Teams", "description": "Staff your team" },
-      { "id": 6, "name": "AI / ML / Digital", "description": "Enhance & drive results" }
+      {
+        "id": 6,
+        "name": "AI / ML / Digital",
+        "description": "Enhance & drive results"
+      }
     ],
     "serviceContent": [
       {
@@ -165,7 +192,8 @@
       {
         "title": "Web Development",
         "description": "We create clean, modern websites that enhance user experience.",
-        "buttonText": "Explore Our Portfolio"
+        "buttonText": "Explore Our Portfolio",
+        "link": "/web-development"
       },
       {
         "title": "UI / UX",
@@ -355,10 +383,20 @@
       "description": "Teamgrid is a leading web and mobile app development company specializing in custom solutions, AI integration, and cutting-edge design. We help businesses transform their digital presence with expertise and innovation."
     },
     "quickLinks": [
-      "Home", "About Us", "What We Do", "Technologies We Use", "How We Work", "Let's Talk"
+      "Home",
+      "About Us",
+      "What We Do",
+      "Technologies We Use",
+      "How We Work",
+      "Let's Talk"
     ],
     "services": [
-      "Web Development", "Mobile App Development", "E-commerce Solutions", "UI/UX Design", "WordPress Development", "Staff Augmentation"
+      { "name": "Web Development", "link": "/web-development" },
+      { "name": "Mobile App Development" },
+      { "name": "E-commerce Solutions" },
+      { "name": "UI/UX Design" },
+      { "name": "WordPress Development" },
+      { "name": "Staff Augmentation" }
     ],
     "contact": {
       "address": "123 Innovation Street, Tech Park, San Francisco, CA 94103, United States",
@@ -377,4 +415,4 @@
     },
     "copyright": "© 2023 Teamgrid. All rights reserved."
   }
-} 
+}

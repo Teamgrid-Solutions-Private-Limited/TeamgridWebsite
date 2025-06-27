@@ -42,7 +42,10 @@ function Footer() {
           display: "flex",
           flexDirection: "column",
           px: {
-            xs: 2.5, md: 4, lg: 8, xl: 0
+            xs: 2.5,
+            md: 4,
+            lg: 8,
+            xl: 0,
           },
           maxWidth: "1200px",
           width: "100%",
@@ -54,7 +57,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: '20px',
+                fontSize: "20px",
                 fontWeight: 500,
                 mb: 3,
               }}
@@ -68,7 +71,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: '16px',
+                  fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   "&:hover": {
@@ -85,7 +88,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: '16px',
+                  fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   "&:hover": {
@@ -102,7 +105,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: '16px',
+                  fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   "&:hover": {
@@ -120,7 +123,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: '16px',
+                  fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   "&:hover": {
@@ -141,7 +144,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: '20px',
+                fontSize: "20px",
                 fontWeight: 500,
                 mb: 3,
               }}
@@ -157,7 +160,7 @@ function Footer() {
                   underline="hover"
                   color="inherit"
                   sx={{
-                    fontSize: '16px', 
+                    fontSize: "16px",
                     fontWeight: 400,
                     transition: "all 0.2s ease",
                     "&:hover": {
@@ -178,7 +181,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: '20px',
+                fontSize: "20px",
                 fontWeight: 500,
                 mb: 3,
               }}
@@ -189,12 +192,12 @@ function Footer() {
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {services.map((service, index) => (
                 <Link
+                  to={service.link}
                   key={index}
-                  href="#"
                   underline="hover"
                   color="inherit"
                   sx={{
-                    fontSize: '16px',
+                    fontSize: "16px",
                     fontWeight: 400,
                     transition: "all 0.2s ease",
                     "&:hover": {
@@ -202,9 +205,10 @@ function Footer() {
                       color: "#ffffff",
                     },
                     color: "#A8B6C5",
+                    cursor:"pointer"
                   }}
                 >
-                  {service}
+                  {service.name}
                 </Link>
               ))}
             </Box>
@@ -215,7 +219,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: '20px',
+                fontSize: "20px",
                 fontWeight: 500,
                 mb: 3,
               }}
@@ -229,7 +233,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: '16px',
+                  fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
@@ -246,7 +250,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: '16px',
+                  fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
@@ -263,7 +267,7 @@ function Footer() {
                 underline="hover"
                 color="inherit"
                 sx={{
-                  fontSize: '16px',
+                  fontSize: "16px",
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
@@ -295,7 +299,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: '20px',
+                fontSize: "20px",
                 fontWeight: 500,
                 mb: 2,
               }}
@@ -306,7 +310,7 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize: '16px',
+                fontSize: "16px",
                 fontWeight: 400,
                 lineHeight: 1.6,
                 mb: 2,
@@ -320,7 +324,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: '20px',
+                fontSize: "20px",
                 fontWeight: 500,
                 mb: 1,
               }}
@@ -331,7 +335,7 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize: '16px',
+                fontSize: "16px",
                 fontWeight: 400,
                 color: "#A8B6C5",
               }}
@@ -345,7 +349,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: '20px',
+                fontSize: "20px",
                 fontWeight: 500,
                 mb: 2,
               }}
@@ -356,7 +360,7 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize: '16px',
+                fontSize: "16px",
                 fontWeight: 400,
                 lineHeight: 1.6,
                 mb: 3,
@@ -366,7 +370,14 @@ function Footer() {
               Stay updated with expert insights, smart development tips, and
               exclusive Teamgrid news—delivered straight to your inbox.
             </Typography>
-            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 1,
+              }}
+            >
               <TextField
                 fullWidth
                 placeholder="Your email ID"
@@ -424,7 +435,7 @@ function Footer() {
           <Typography
             variant="body2"
             sx={{
-              fontSize: '16px',
+              fontSize: "16px",
               fontWeight: 400,
               lineHeight: 1.6,
               color: "#A8B6C5",
@@ -439,7 +450,7 @@ function Footer() {
           <Typography
             variant="body2"
             sx={{
-              fontSize: '16px',
+              fontSize: "16px",
               fontWeight: 400,
               color: "#A8B6C5",
             }}
