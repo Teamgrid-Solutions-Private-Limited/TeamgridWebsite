@@ -9,16 +9,23 @@ import {
   Paper,
 } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CodeIcon from "@mui/icons-material/Code";
-import StorageIcon from "@mui/icons-material/Storage";
-import LayersIcon from "@mui/icons-material/Layers";
-import WebIcon from "@mui/icons-material/Web";
 import data from "../../data.json";
 import {
   fullstackImage,
   fileCodeIcon,
   storageIcon,
   wordpressIcon,
+  vectorIcon,
+  reactIcon,
+  bootstrapIcon,
+  javascriptIcon,
+  typescriptIcon,
+  cssIcon,
+  materialUiIcon,
+  htmlIcon,
+  nodejsIcon,
+  postgresqlIcon,
+  mongodbIcon,
 } from "../../images";
 const services = data.developmentType;
 
@@ -41,6 +48,32 @@ function DevelopmentTypes() {
         return fullstackImage;
       case "wordpressIcon":
         return wordpressIcon;
+      case "reactIcon":
+        return reactIcon;
+      case "bootstrapIcon":
+        return bootstrapIcon;
+      case "javascriptIcon":
+        return javascriptIcon;
+      case "typescriptIcon":
+        return typescriptIcon;
+      case "cssIcon":
+        return cssIcon;
+      case "materialUiIcon":
+        return materialUiIcon;
+      case "htmlIcon":
+        return htmlIcon;
+      case "nodejsIcon":
+        return nodejsIcon;
+      case "postgresqlIcon":
+        return postgresqlIcon;
+      case "expressIcon":
+        return "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png"; // Example URL for Express.js icon
+      case "mongodbIcon":
+        return mongodbIcon;
+      case "graphqlIcon":
+        return "https://upload.wikimedia.org/wikipedia/commons/9/98/GraphQL_Logo.svg"; // Example URL for GraphQL icon
+      case "nextjsIcon":
+        return "https://upload.wikimedia.org/wikipedia/commons/4/47/Nextjs-logo.svg"; // Example URL for Next.js icon 
       default:
         return fileCodeIcon;
     }
@@ -65,10 +98,10 @@ function DevelopmentTypes() {
           width: "100%",
         }}
       >
-        <Grid container spacing={{ xs: 1, md: 1 }}>
+        <Grid container spacing={{ xs: 2, md: 2 }}>
           {/* Left column - Services */}
-          <Grid item size={{ xs: 12, md: 5 }}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+          <Grid item size={{ xs: 12, md: 5, lg: 4.5, xl: 4 }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1, pt: {md : 6} }}>
               {services.map((service, index) => (
                 <Box
                   key={index}
@@ -105,16 +138,14 @@ function DevelopmentTypes() {
                     src={getIconComponent(service.icon)}
                     alt={service.title}
                     sx={{
-                      width: 64,
-                      height: 64,
+                      width: 40,
+                      height: 40,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      bgcolor: isActiveOrHovered(index)
-                        ? "rgba(255, 255, 255, 0.2)"
-                        : "#FFFFFF",
-                      borderRadius: "16px",
-                      padding: "12px",
+                      bgcolor: isActiveOrHovered(index) ? "#FFFFFF" : "#E5F1FF",
+                      borderRadius: "8px",
+                      padding: "8px",
                       objectFit: "contain",
                     }}
                   />
@@ -122,9 +153,13 @@ function DevelopmentTypes() {
                     <Typography
                       variant="h6"
                       sx={{
-                        fontWeight: 600,
-                        fontSize: "18px",
-                        color: isActiveOrHovered(index) ? "white" : "#05408E",
+                        fontFamily: "PayPal Open",
+                        fontWeight: 500,
+                        fontSize: "20px",
+                        leadingTrim: "Cap height",
+                        lineHeight: "150%",
+                        letterSpacing: "0%",
+                        color: isActiveOrHovered(index) ? "#FAFAFA" : "#072449",
                         mb: 0.5,
                       }}
                     >
@@ -133,10 +168,13 @@ function DevelopmentTypes() {
                     <Typography
                       variant="body2"
                       sx={{
-                        fontSize: "14px",
-                        color: isActiveOrHovered(index)
-                          ? "rgba(255, 255, 255, 0.8)"
-                          : "#505C73",
+                        fontFamily: "PayPal Open",
+                        fontWeight: 400,
+                        fontSize: "16px",
+                        leadingTrim: "Cap height",
+                        lineHeight: "150%",
+                        letterSpacing: "0%",
+                        color: isActiveOrHovered(index) ? "#B2D2FC" : "#140E13",
                       }}
                     >
                       {service.description}
@@ -148,16 +186,19 @@ function DevelopmentTypes() {
           </Grid>
 
           {/* Middle and right - Description and offerings */}
-          <Grid item size={{ xs: 12, md: 7 }}>
-            <Box sx={{ bgcolor: "#F4F9FF", p: 4, borderRadius: "16px" }}>
+          <Grid item size={{ xs: 12, md: 7, lg: 7.5, xl: 8 }}>
+            <Box sx={{ bgcolor: "#F4F9FF", p: 6, borderRadius: "16px" }}>
               <Typography
                 variant="h2"
                 sx={{
-                  fontWeight: 600,
-                  fontSize: { xs: "24px", md: "28px", lg: "32px" },
-                  lineHeight: 1.3,
-                  color: "#0F172A",
-                  mb: 2,
+                  fontFamily: "PayPal Open",
+                  fontWeight: 500,
+                  fontSize: "40px",
+                  leadingTrim: "Cap height",
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#140E13",
+                  mb: 3,
                 }}
               >
                 {services[activeService].heading}
@@ -166,9 +207,12 @@ function DevelopmentTypes() {
               <Typography
                 variant="body1"
                 sx={{
+                  fontFamily: "PayPal Open",
+                  fontWeight: 400,
                   fontSize: "16px",
-                  lineHeight: 1.6,
-                  color: "#505C73",
+                  lineHeight: "150%",
+                  letterSpacing: "0%",
+                  color: "#000000",
                   mb: 4,
                 }}
               >
@@ -179,16 +223,20 @@ function DevelopmentTypes() {
               <Typography
                 variant="h6"
                 sx={{
-                  fontWeight: 600,
-                  fontSize: "18px",
-                  color: "#0F172A",
+                  fontFamily: "PayPal Open",
+                  fontWeight: 500,
+                  fontSize: "32px",
+                  leadingTrim: "Cap height",
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#140E13",
                   mb: 2,
                 }}
               >
                 What we offer
               </Typography>
 
-              <Box sx={{ mb: 5 }}>
+              <Box sx={{ mb: 4, pl: 4, mt: 3 }}>
                 {services[activeService].offerings.map((offering, index) => (
                   <Box
                     key={index}
@@ -199,17 +247,26 @@ function DevelopmentTypes() {
                       gap: 1.5,
                     }}
                   >
-                    <CheckCircleIcon
+                    <Box
+                      component="img"
+                      src={vectorIcon}
+                      alt="Check icon"
+                      loading="lazy"
                       sx={{
-                        color: "#38BDF8",
-                        fontSize: 20,
+                        width: "20px",
+                        height: "20px",
+                        objectFit: "contain",
                       }}
                     />
                     <Typography
                       variant="body1"
                       sx={{
-                        fontSize: "15px",
-                        color: "#505C73",
+                        fontFamily: "PayPal Open",
+                        fontWeight: 400,
+                        fontSize: "16px",
+                        lineHeight: "150%",
+                        letterSpacing: "0%",
+                        color: "#140E13",
                       }}
                     >
                       {offering}
@@ -222,35 +279,48 @@ function DevelopmentTypes() {
               <Typography
                 variant="h6"
                 sx={{
-                  fontWeight: 600,
-                  fontSize: "18px",
-                  color: "#0F172A",
+                  fontFamily: "PayPal Open",
+                  fontWeight: 500,
+                  fontSize: "32px",
+                  leadingTrim: "Cap height",
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#140E13",
                   mb: 3,
                 }}
               >
                 Tech Stack
               </Typography>
 
-              <Grid container spacing={2}>
+              <Grid
+                sx={{
+                  width: { xs: "100%", sm: "100%", md: "100%", lg: "80%" },
+                }}
+                container
+                spacing={2}
+              >
                 {services[activeService].techStack.map((tech, index) => (
-                  <Grid item size={{ xs: 4, sm: 3, md: 2 }} key={index}>
+                  <Grid item size={{ xs: 6, sm: 3, md: 3 }} key={index}>
                     <Box
                       sx={{
                         border: "1px solid #E5E9F0",
                         borderRadius: "8px",
                         p: 1.5,
-                        height: "100%",
+                        width: "123px",
+                        height: "115px",
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "center",
                         bgcolor: "#FFFFFF",
+                        borderRadius: "15%",
+                        border: "1px solid #97B4D7",
                       }}
                     >
                       <Box
                         sx={{
-                          width: 36,
-                          height: 36,
+                          width: 63,
+                          height: 56,
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -258,34 +328,30 @@ function DevelopmentTypes() {
                         }}
                       >
                         {/* We would normally import these icons, using colored boxes as placeholders */}
+                      
                         <Box
+                          component="img"
+                          src={getIconComponent(tech.icon)}
+                          alt={tech.name}
+                          loading="lazy"
                           sx={{
-                            width: 28,
-                            height: 28,
-                            bgcolor:
-                              index === 0
-                                ? "#61DAFB"
-                                : index === 1
-                                ? "#F7DF1E"
-                                : index === 2
-                                ? "#0070F3"
-                                : index === 3
-                                ? "#E34F26"
-                                : index === 4
-                                ? "#1572B6"
-                                : index === 5
-                                ? "#0081CB"
-                                : "#7952B3",
-                            borderRadius: "4px",
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "contain",
                           }}
                         />
                       </Box>
                       <Typography
                         variant="caption"
                         sx={{
-                          fontSize: "12px",
-                          color: "#505C73",
+                          fontFamily: "PayPal Open",
+                          fontWeight: 500,
+                          fontSize: "16px",
+                          leadingTrim: "Cap height",
+                          lineHeight: "100%",
+                          letterSpacing: "0%",
                           textAlign: "center",
+                          color: "#05408E",
                         }}
                       >
                         {tech.name}

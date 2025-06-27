@@ -75,6 +75,11 @@ import shopifyIconModalModal from "./assets/hugeicons_shopify.svg";
 import wooCommerceIconModalModal from "./assets/Group11.svg";
 import mobileBackgroundPath from "./assets/backgroundImage.svg";
 import fullstackImagepath from "./assets/fluent_layer-20-regular.svg";
+import javascriptIconPath from "./assets/icons8-javascript 1.svg";
+import typescriptIconPath from "./assets/icons8-typescript 1.svg";
+import cssIconPath from "./assets/icons8-css3 1.svg";
+import materialUiIconPath from "./assets/icons8-material-ui 1.svg";
+import htmlIconPath from "./assets/icons8-html5.svg";
 
 
 // Cache map for SVG elements to prevent multiple loads
@@ -157,3 +162,8 @@ export const liveDiscussion = liveDiscussionPath; // JPG
 export const layer1 = getSvgPath(layer1Path);
 export const layer2 = getSvgPath(layer2Path); 
 export const fullstackImage = getSvgPath(fullstackImagepath); // Example for full stack image
+export const javascriptIcon = getSvgPath(javascriptIconPath);
+export const typescriptIcon = getSvgPath(typescriptIconPath); 
+export const cssIcon = getSvgPath(cssIconPath);
+export const materialUiIcon = getSvgPath(materialUiIconPath);
+export const htmlIcon = getSvgPath(htmlIconPath);

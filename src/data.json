@@ -422,21 +422,22 @@
       "description": "Fast, responsive, and pixel-perfect user interfaces.",
       "heading": "Build modern, responsive interfaces that users love.",
       "icon": "fileCodeIcon",
-      "content": "Our front-end developers bring designs to life using clean, optimized code. We specialize in React.js, HTML/CSS, and ensure all designs are fluid and responsive for your business.",
+      "content": "Our front-end developers bring designs to life using clean, performant code. We specialize in ReactJS, HTML/CSS, and popular UI libraries like Material UI and Bootstrap.",
       "offerings": [
         "Responsive UI development",
         "Component-based architecture using React.JS",
-        "RESTful APIs and accessible markup",
+        "PSD/Figma to code conversion",
+        "SEO-ready and accessible markup",
         "Integrated UI/UX APIs"
       ],
       "techStack": [
-        { "name": "React JS", "icon": "reactjs.svg" },
-        { "name": "JavaScript", "icon": "javascript.svg" },
-        { "name": "Next.js", "icon": "nextjs.svg" },
-        { "name": "HTML5", "icon": "html5.svg" },
-        { "name": "CSS3", "icon": "css3.svg" },
-        { "name": "Material UI", "icon": "materialui.svg" },
-        { "name": "Bootstrap", "icon": "bootstrap.svg" }
+        { "name": "ReactJS", "icon": "reactIcon" },
+        { "name": "JavaScript", "icon": "javascriptIcon" },
+        { "name": "TypeScript", "icon": "typescriptIcon" },
+        { "name": "HTML5", "icon": "htmlIcon" },
+        { "name": "CSS3", "icon": "cssIcon" },
+        { "name": "Material UI", "icon": "materialUiIcon" },
+        { "name": "Bootstrap", "icon": "bootstrapIcon" }
       ]
     },
     {
@@ -452,13 +453,13 @@
         "Authentication and authorization systems"
       ],
       "techStack": [
-        { "name": "Node.js", "icon": "nodejs.svg" },
-        { "name": "Express", "icon": "express.svg" },
-        { "name": "PostgreSQL", "icon": "postgresql.svg" },
-        { "name": "MongoDB", "icon": "mongodb.svg" },
-        { "name": "GraphQL", "icon": "graphql.svg" },
-        { "name": "Redis", "icon": "redis.svg" },
-        { "name": "Docker", "icon": "docker.svg" }
+        { "name": "Node.js", "icon": "nodejsIcon" },
+        { "name": "Express", "icon": "expressIcon" },
+        { "name": "PostgreSQL", "icon": "postgresqlIcon" },
+        { "name": "MongoDB", "icon": "mongodbIcon" },
+        { "name": "GraphQL", "icon": "graphqlIcon" },
+        { "name": "Redis", "icon": "redisIcon" },
+        { "name": "Docker", "icon": "dockerIcon" }
       ]
     },
     {
@@ -474,13 +475,13 @@
         "Streamlined communication and faster development"
       ],
       "techStack": [
-        { "name": "MERN Stack", "icon": "mern.svg" },
-        { "name": "TypeScript", "icon": "typescript.svg" },
-        { "name": "Next.js", "icon": "nextjs.svg" },
-        { "name": "GraphQL", "icon": "graphql.svg" },
-        { "name": "AWS", "icon": "aws.svg" },
-        { "name": "Git", "icon": "git.svg" },
-        { "name": "Jest", "icon": "jest.svg" }
+        { "name": "MERN Stack", "icon": "mernIcon" },
+        { "name": "TypeScript", "icon": "typescriptIcon" },
+        { "name": "Next.js", "icon": "nextjsIcon" },
+        { "name": "GraphQL", "icon": "graphqlIcon" },
+        { "name": "AWS", "icon": "awsIcon" },
+        { "name": "Git", "icon": "gitIcon" },
+        { "name": "Jest", "icon": "jestIcon" }
       ]
     },
     {
@@ -496,13 +497,13 @@
         "Security hardening and maintenance"
       ],
       "techStack": [
-        { "name": "WordPress", "icon": "wordpress.svg" },
-        { "name": "PHP", "icon": "php.svg" },
-        { "name": "WooCommerce", "icon": "woocommerce.svg" },
-        { "name": "Elementor", "icon": "elementor.svg" },
-        { "name": "ACF", "icon": "acf.svg" },
-        { "name": "jQuery", "icon": "jquery.svg" },
-        { "name": "MySQL", "icon": "mysql.svg" }
+        { "name": "WordPress", "icon": "wordpressIcon" },
+        { "name": "PHP", "icon": "phpIcon" },
+        { "name": "WooCommerce", "icon": "woocommerceIcon" },
+        { "name": "Elementor", "icon": "elementorIcon" },
+        { "name": "ACF", "icon": "acfIcon" },
+        { "name": "jQuery", "icon": "jqueryIcon" },
+        { "name": "MySQL", "icon": "mysqlIcon" }
       ]
     }
   ]
