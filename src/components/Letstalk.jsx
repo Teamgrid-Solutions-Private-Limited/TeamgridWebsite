@@ -46,7 +46,7 @@ function Letstalk() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
+          px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
           width: "100%",
           maxWidth: "1200px",
         }}

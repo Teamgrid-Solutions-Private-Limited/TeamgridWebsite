@@ -9,10 +9,35 @@
 }
 /* Import fonts */
 @font-face {
-  font-family: "PayPal Open";
-  src: url("/fonts/PayPalOpen-Regular.woff2") format("woff2");
-  font-weight: normal;
+  font-family: 'PayPal Open';
+  src: url('/fonts/PayPalOpen-Bold.woff') format('woff');
+  font-weight: 700;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PayPal Open';
+  src:url('/fonts/PayPalOpen-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PayPal Open';
+  src: url('/fonts/PayPalOpen-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PayPal Open';
+  src: url('/fonts/PayPalOpen-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Global styles */

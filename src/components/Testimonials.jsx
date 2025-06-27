@@ -402,7 +402,7 @@ const Testimonials = () => {
         >
           <Box
             sx={{
-              px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
+              px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
               width: "1400px",
               gap:'24px',
               display:'flex',

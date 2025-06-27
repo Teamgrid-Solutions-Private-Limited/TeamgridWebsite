@@ -151,7 +151,7 @@ function Home() {
           // minHeight: { xs: "calc(100vh - 60px)", md: "auto" },
           display: "flex",
           alignItems:  "center" ,
-          px: { xs: 2.5, md: 4, lg: 8, xl: 0 },
+          px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
           maxWidth: "1200px",
           width: "100%",
           zIndex: 2, // Ensure content is above the background
@@ -180,11 +180,12 @@ function Home() {
               fontSize: { xs: "16px", md: "18px" },
               lineHeight:1.5,
               textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
+              pointerEvents:'none'
             }}
           >
             {subtitle}
           </Typography>
-         <Box gap={{xs:3,md:4,lg:6}} display={'flex'} flexDirection={'column'}>
+         <Box gap={{xs:3,md:4,lg:6}} display={'flex'} flexDirection={'column'} >
          <Typography
             variant="h1"
             sx={{
@@ -198,6 +199,7 @@ function Home() {
               fontWeight: 700,
               lineHeight: 1.1,
               textShadow: { xs: "0px 1px 3px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
+              pointerEvents:'none'
             }}
           >
             {title.split(",").map((part, idx, arr) => (
@@ -214,7 +216,9 @@ function Home() {
               color: "#E1E0E0",
               fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
               lineHeight: 1.6,
+              fontWeight:300,
               textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
+              pointerEvents:'none'
             }}
           >
             {description}
