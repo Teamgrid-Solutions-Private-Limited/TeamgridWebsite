@@ -131,21 +131,16 @@ const WhyChooseTeamgrid = () => {
                   },
                 }}
               >
-                <Box
-                  variant="img"
+                <img
                   src={getIconComponent(feature.icon)}
                   alt={feature.title}
-                  sx={{
+                  style={{
                     width: 32,
                     height: 32,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "8px",
-                    bgcolor: "#F0F7FF",
-                    mb: 2,
+                    marginBottom: 16,
+                    objectFit: "contain",
                   }}
-                ></Box>
+                />
 
                 <Typography
                   variant="h6"
