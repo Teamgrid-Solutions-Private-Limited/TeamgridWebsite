@@ -3,6 +3,7 @@ import WebDevelopment from "./WebDevelopment";
 import WebDevelopmentMadeEasy from "./WebDevelopmentMadeEasy";
 import { Box } from "@mui/material";
 import DevelopmentTypes from "./DevelopmentTypes";
+import WhyChooseTeamgrid from "./WhyChooseTeamgrid";
 
 function Index() {
   return (
@@ -10,6 +11,7 @@ function Index() {
       <WebDevelopment />
       <WebDevelopmentMadeEasy />
       <DevelopmentTypes />
+      <WhyChooseTeamgrid />
     </Box>
   );
 }
