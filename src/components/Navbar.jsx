@@ -739,7 +739,6 @@ function Navbar() {
           alignItems: "center",
           transition: "background 0.25s, color 0.25s, box-shadow 0.25s",
           maxHeight: { xs: 56, sm: 64, md: 70, lg: 80 },
-          overflow: "hidden",
         }}
       >
         <Container
@@ -750,7 +749,6 @@ function Navbar() {
             justifyContent: "space-between",
             px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
             width: "100%",
-            overflow: "hidden",
             maxWidth: "1200px" ,
           }}
         >

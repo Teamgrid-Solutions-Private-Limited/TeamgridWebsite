@@ -9,6 +9,8 @@ import {
   useTheme,
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ReplyOutlinedIcon from '@mui/icons-material/ReplyOutlined';
 // Import from centralized images file
 import {
   shortLogo as teamgridLogo,
@@ -25,6 +27,7 @@ import {
   woo,
   mobileBackground,
 } from "../images";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import CloseIcon from "@mui/icons-material/Close";
 import data from "../data.json";
 
@@ -57,6 +60,7 @@ function Home() {
 
   const [isPaused, setIsPaused] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
+  const [showDescriptionText, setShowDescriptionText] = useState(false);
   const [activeTech, setActiveTech] = useState(null);
   const [orbitScale, setOrbitScale] = useState(1);
   const [orbitAngle, setOrbitAngle] = useState(0);
@@ -99,11 +103,16 @@ function Home() {
     setActiveTech(tech);
     setShowDescription(true);
     setIsPaused(true);
+    setTimeout(() => setShowDescriptionText(true), 400); // fade in text after scale up
   };
 
   const closeDescription = () => {
-    setShowDescription(false);
-    setIsPaused(false);
+    setShowDescriptionText(false);
+    setTimeout(() => {
+      setShowDescription(false);
+      setIsPaused(false);
+      setActiveTech(null);
+    }, 200); // scale down after fade out
   };
 
   // Set logo size and height to fixed values
@@ -217,11 +226,9 @@ function Home() {
                 direction={{ xs: "column", sm: "column", md: "row" }}
                 spacing={'10px'}
                 sx={{
-                  width: { xs: "100%", md: "auto" },
-                  maxWidth: { xs: "280px", md: "none" },
                   display:"flex",
-                  justifyContent:"flex-start",
-                  zIndex:3
+                  zIndex:3,
+                  pointerEvents:'none'
                 }}
               >
                 <Button
@@ -237,6 +244,7 @@ function Home() {
                     boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
                     "&:hover": { bgcolor: "#0069d9" },
                     width: { xs: "100%", sm: "auto" },
+                    pointerEvents:'auto'
                   }}
                 >
                   {buttons[0].text}
@@ -255,6 +263,7 @@ function Home() {
                     fontWeight: 500,
                     "&:hover": { borderColor: "rgba(255,255,255,0.5)" },
                     width: { xs: "100%", sm: "auto" },
+                    pointerEvents:'auto'
                   }}
                 >
                   {buttons[1].text}
@@ -447,6 +456,8 @@ function Home() {
                justifyContent: "center",
                zIndex: 10,
                pointerEvents: "auto",
+               transition: "transform 0.5s cubic-bezier(.7,.2,.2,1)",
+               // overflow: "hidden",
              }}
            >
              {/* Custom Ripple Animation (subtle, behind pulse) */}
@@ -474,84 +485,114 @@ function Home() {
              />
             
              {/* Show description or logo */}
-             {showDescription ? (
-               <Box
-                 sx={{
-                   display: "flex",
-                   flexDirection: "column",
-                   alignItems: "center",
-                   justifyContent: "center",
-                   p: 3,
-                   position: "relative",
-                   height: "100%",
-                   width: "100%",
-                   zIndex: 2,
-                 }}
-               >
-                 <Typography
-                   variant="h6"
-                   sx={{
-                     color: "#ffffff",
-                     textAlign: "center",
-                     fontWeight: 600,
-                     mb: 1,
-                     fontSize: { xs: "18px", sm: "20px", md: "22px" },
-                   }}
-                 >
-                   {activeTech}
-                 </Typography>
-                 <Typography
-                   variant="body2"
-                   sx={{
-                     color: "#B2D2FC",
-                     textAlign: "center",
-                     fontSize: { xs: "16px", sm: "16px", md: "16px" },
-                     lineHeight: 1.4,
-                     maxHeight: "130px",
-                     overflow: "auto",
-                     scrollbarWidth: "none", // For Firefox
-                     '-ms-overflow-style': 'none', // For IE and Edge
-                     '&::-webkit-scrollbar': {
-                       width: '0px',
-                       background: 'transparent',
-                     },
-                     '&::-webkit-scrollbar-thumb': {
-                       background: 'transparent',
-                     },
-                   }}
-                 >
-                   {techDescriptions[activeTech]}
-                 </Typography>
-                 <Box
-                   onClick={closeDescription}
-                   sx={{
-                     position: "absolute",
-                     bottom: "20px",
-                     cursor: "pointer",
-                     display: "flex",
-                     alignItems: "center",
-                     color: "#4b91f1",
-                     fontSize: "12px",
-                     gap: 0.5,
-                   }}
-                 >
-                   <CloseIcon sx={{ fontSize: 16 }} /> Close
-                 </Box>
-               </Box>
-             ) : (
+             <Box
+               sx={{
+                position: "relative",
+                 transition: 'width 0.5s, height 0.5s',
+               }}
+             >
                <Box
                  component="img"
                  src={teamgridLogo}
                  alt="Teamgrid logo"
                  sx={{
-                   width: `${logoWidth}px`,
-                   height: `${logoHeight}px`,
-                   position: 'relative',
+                   borderRadius: '12px',
+                   transition: 'transform 1s ',
+                   transform: showDescription ? 'translate(-160%,-260%) scale(18)' : 'translateX(0%) scale(1)',
+                   transformOrigin:'left top',
                    zIndex: 2,
-                   objectFit: 'contain',
                  }}
                />
-             )}
+               {showDescription && (
+                 <Box
+                   sx={{
+                     position: 'absolute',
+                     left: '0%',
+                     top: '50%',
+                     transform: 'translate(-37%,-30%)',
+                  
+                     height:'500px',
+                     width:'400px',
+                     zIndex: 3,
+                     color: '#fff',
+                     
+                     p: { xs: 2, sm: 4 },
+                    //  boxShadow: '0 8px 40px 0 rgba(0,0,0,0.18)',
+                     display: 'flex',
+                     flexDirection: 'column',
+                     gap:2,
+                     alignItems: 'flex-start',
+                     opacity: showDescriptionText ? 1 : 0,
+                     transition: 'opacity 0.4s cubic-bezier(.7,.2,.2,1)',
+                   }}
+                 >
+                   {/* Tech icon at the top */}
+                   
+                     <ReplyOutlinedIcon sx={{ fontSize: 40, }} onClick={closeDescription}/>
+                   <Box sx={{bgcolor:'#fff',p:1,borderRadius: '16px',display:'flex',justifyContent:'center',alignItems:"center"}}>
+                    <Box
+                     component="img"
+                     src={techIcons.find(t => t.name === activeTech)?.icon}
+                     alt={activeTech}
+                     sx={{
+                       width: { xs: '38px', sm: '45px' },
+                       height: { xs: '38px', sm: '45px' },
+                       objectFit: 'contain',
+                       display: 'block',
+                     }}
+                   /></Box>
+                  
+                   <Typography
+                     variant="h6"
+                     sx={{
+                       color: '#fff',
+                       fontWeight: 700,
+                       mb: 1,
+                       fontSize: { xs: '18px', sm: '22px', md: '24px' },
+                       textShadow: '0 2px 8px rgba(0,0,0,0.18)',
+                       textAlign: 'left',
+                     }}
+                   >
+                     {activeTech}
+                   </Typography>
+                   <Typography
+                     variant="body2"
+                     sx={{
+                       color: '#E1E0E0',
+                       fontSize: { xs: '13px', sm: '16px', md: '18px' },
+                       fontWeight:300,
+                       lineHeight: 1.6,
+                       mb: 3,
+                       textShadow: '0 1px 4px rgba(0,0,0,0.10)',
+                       textAlign: 'left',
+                     }}
+                   >
+                     {techDescriptions[activeTech]}
+                   </Typography>
+                   <Button
+                variant="contained"
+                color="primary"
+                endIcon={<ArrowRightAltIcon />}
+                sx={{
+                  borderRadius: "39px",
+                  px: 5,
+                  py: 2,
+                  textTransform: "none",
+                  fontSize: "18px",
+                  fontWeight: 400,
+                  lineHeight: "150%",
+                  letterSpacing: 0,
+                  color: "#FAFAFA",
+                  boxShadow: "none",
+                  alignSelf: "flex-start",
+                }}
+              >
+                Explore Services
+              </Button>
+                  
+                 </Box>
+               )}
+             </Box>
            </Box>
          </Box>
          ) : null}
