@@ -367,9 +367,9 @@ function Home() {
                          key={`icon-${orbitIdx}-${posIdx}`}
                          sx={{
                            position: "absolute",
-                           right: `calc(50% - ${x}px)` ,
-                           top: `calc(50% + ${y}px)` ,
-                           transform: "translate(50%, -50%)",
+                           left: `calc(50% + ${x}px)`,
+                           top: `calc(50% + ${y}px)`,
+                           transform: `translate(-50%, -50%) rotate(${angle + 180}deg)`,
                            zIndex: 20,
                            cursor: "pointer",
                            pointerEvents: "auto",
@@ -421,9 +421,9 @@ function Home() {
                          key={`dot-${orbitIdx}-${posIdx}`}
                          sx={{
                            position: "absolute",
-                           right: `calc(50% - ${x}px)` ,
-                           top: `calc(50% + ${y}px)` ,
-                           transform: "translate(50%, -50%)",
+                           left: `calc(50% + ${x}px)`,
+                           top: `calc(50% + ${y}px)`,
+                           transform: "translate(-50%, -50%)",
                            width: { xs: "4px", sm: "6px", md: "7px" },
                            height: { xs: "4px", sm: "6px", md: "7px" },
                            borderRadius: "50%",
