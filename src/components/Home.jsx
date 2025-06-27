@@ -147,136 +147,122 @@ function Home() {
         maxWidth={"1200px"}
         sx={{
           position: "relative",
-          // height: { xs: "calc(100vh - 60px)", md: "100vh" },
-          // minHeight: { xs: "calc(100vh - 60px)", md: "auto" },
           display: "flex",
-          alignItems:  "center" ,
+          flexDirection:'column',
+          justifyContent:'flex-start',
           px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
           maxWidth: "1200px",
           width: "100%",
           zIndex: 2, // Ensure content is above the background
         }}
-      >
-        <Box
-          sx={{
-            // reduced width on large screens
-             // limit max width
-             width: "70%" ,
-            gap: 1.8,
-            display: "flex",
-            flexDirection: "column",
-            zIndex: 5,
-            mb: { xs: 0, md: 0 },
-            borderRadius: { xs: 2, sm: 2, md: 0 },
-            background: "none",
-            pointerEvents: "auto",
-            overflow: "hidden", // allow pointer events only for text
-          }}
-        >
-          <Typography
-            variant="subtitle1"
-            sx={{
-              color: "#E1E0E0",
-              fontSize: { xs: "16px", md: "18px" },
-              lineHeight:1.5,
-              textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
-              pointerEvents:'none'
-            }}
-          >
-            {subtitle}
-          </Typography>
-         <Box gap={{xs:3,md:4,lg:6}} display={'flex'} flexDirection={'column'} >
-         <Typography
-            variant="h1"
-            sx={{
-              color: "#ffffff",
-              fontSize: {
-                xs: "36px",
-                sm: "40px",
-                md: "48px",
-                lg: "64px",
-              },
-              fontWeight: 700,
-              lineHeight: 1.1,
-              textShadow: { xs: "0px 1px 3px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
-              pointerEvents:'none'
-            }}
-          >
-            {title.split(",").map((part, idx, arr) => (
-              <React.Fragment key={idx}>
-                {part}
-                {idx < arr.length - 1 && ","}
-                {idx < arr.length - 1 && <br />}
-              </React.Fragment>
-            ))}
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: "#E1E0E0",
-              fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
-              lineHeight: 1.6,
-              fontWeight:300,
-              textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" }, // Add text shadow on mobile
-              pointerEvents:'none'
-            }}
-          >
-            {description}
-          </Typography>
-          <Stack
-            direction={{ xs: "column", sm: "column", md: "row" }}
-            spacing={{ xs: 2.5, sm: 3 }}
-            sx={{
-              mt: { xs: 4, sm: 3 },
-              width: { xs: "100%", md: "auto" },
-              maxWidth: { xs: "280px", md: "none" },
-            }}
-            // alignItems="center"
-          >
-            <Button
-              variant={buttons[0].variant}
-              sx={{
-                bgcolor: "#007BFF",
-                borderRadius: "39px",
-                px: 5,
-                py: 2,
-                textTransform: "none",
-                fontSize: "16px",
-                fontWeight: 500,
-                boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
-                "&:hover": { bgcolor: "#0069d9" },
-                width: { xs: "100%", sm: "auto" },
-              }}
-            >
-              {buttons[0].text}
-            </Button>
-
-            <Button
-              variant={buttons[1].variant}
-              endIcon={<ArrowForwardIcon />}
-              sx={{
-                color: "white",
-                borderColor: "rgba(255,255,255,0.3)",
-                borderRadius: "39px",
-                px: 5,
-                py: 2,
-                textTransform: "none",
-                fontSize: "16px",
-                fontWeight: 500,
-                "&:hover": { borderColor: "rgba(255,255,255,0.5)" },
-                width: { xs: "100%", sm: "auto" },
-              }}
-            >
-              {buttons[1].text}
-            </Button>
-          </Stack>
-         </Box>
-         
-
-          
-
-         
-        </Box>
+      > 
+            {/* Text Section - pointer events none */}
+            <Box sx={{ pointerEvents: "none", display: "flex", flexDirection: "column", gap: 1.8 ,zIndex:3}}>
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  color: "#E1E0E0",
+                  fontSize: { xs: "16px", md: "18px" },
+                  lineHeight: 1.5,
+                  textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" },
+                  pointerEvents: "none",
+                }}
+              >
+                {subtitle}
+              </Typography>
+              <Typography
+                variant="h1"
+                sx={{
+                  color: "#ffffff",
+                  fontSize: {
+                    xs: "36px",
+                    sm: "40px",
+                    md: "48px",
+                    lg: "64px",
+                  },
+                  fontWeight: 700,
+                  lineHeight: "100%",
+                  textShadow: { xs: "0px 1px 3px rgba(0,0,0,0.5)", sm: "none" },
+                  pointerEvents: "none",
+                }}
+              >
+                {title.split(",").map((part, idx, arr) => (
+                  <React.Fragment key={idx}>
+                    {part}
+                    {idx < arr.length - 1 && ","}
+                    {idx < arr.length - 1 && <br />}
+                  </React.Fragment>
+                ))}
+              </Typography>
+              
+            </Box>
+            <Typography
+                variant="body1"
+                sx={{
+                  color: "#E1E0E0",
+                  fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
+                  lineHeight: 1.6,
+                  fontWeight: 300,
+                  textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" },
+                  pointerEvents: "none",
+                  zIndex:3,
+                  my:{xs:"15px",sm:'20px',md:'30px',lg:'40px'},
+                  maxWidth:{xs:'80%',md:'75%'}
+                }}
+              >
+                {description}
+              </Typography>
+            {/* Button Section - pointer events auto */}
+              <Stack
+                direction={{ xs: "column", sm: "column", md: "row" }}
+                spacing={'10px'}
+                sx={{
+                  width: { xs: "100%", md: "auto" },
+                  maxWidth: { xs: "280px", md: "none" },
+                  display:"flex",
+                  justifyContent:"flex-start",
+                  zIndex:3
+                }}
+              >
+                <Button
+                  variant={buttons[0].variant}
+                  sx={{
+                    bgcolor: "#007BFF",
+                    borderRadius: "39px",
+                    px: 5,
+                    py: 2,
+                    textTransform: "none",
+                    fontSize: "16px",
+                    fontWeight: 500,
+                    boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
+                    "&:hover": { bgcolor: "#0069d9" },
+                    width: { xs: "100%", sm: "auto" },
+                  }}
+                >
+                  {buttons[0].text}
+                </Button>
+                <Button
+                  variant={buttons[1].variant}
+                  endIcon={<ArrowForwardIcon />}
+                  sx={{
+                    color: "white",
+                    borderColor: "rgba(255,255,255,0.3)",
+                    borderRadius: "39px",
+                    px: 5,
+                    py: 2,
+                    textTransform: "none",
+                    fontSize: "16px",
+                    fontWeight: 500,
+                    "&:hover": { borderColor: "rgba(255,255,255,0.5)" },
+                    width: { xs: "100%", sm: "auto" },
+                  }}
+                >
+                  {buttons[1].text}
+                </Button>
+              </Stack>
+           
+          {/* </Box> */}
+       
          {/* Orbital system with tech icons */}
          {/* Only show orbits on md and up */}
          {isMd || isLg || isXl ? (
@@ -285,7 +271,7 @@ function Home() {
              position: "absolute",
              right: 0,
              top: "50%",
-             transform: "translateY(-50%)",
+             transform: "translate(4%,-50%)",
              width: "100%",
              height: "100%",
              pointerEvents: "none",
@@ -463,7 +449,7 @@ function Home() {
                pointerEvents: "auto",
              }}
            >
-             {/* Animated pulse effect */}
+             {/* Custom Ripple Animation (subtle, behind pulse) */}
              <Box
                sx={{
                  position: "absolute",
@@ -473,29 +459,20 @@ function Home() {
                  height: "200px",
                  borderRadius: "50%",
                  transform: "translate(-50%, -50%)",
-                 zIndex: 1,
+                 zIndex: 0,
                  pointerEvents: "none",
-                 background: "#0B3161",
-                 animation: "pulse 8s infinite",
-                 "@keyframes pulse": {
-                   "0%": {
-                     boxShadow: "0 0 0 50px #0B3161",
-                     opacity: 0.7,
-                     transform: "translate(-50%, -50%) scale(1)",
+                animation: 'ripple 1.5s linear infinite',
+                 '@keyframes ripple': {
+                   '0%': {
+                     boxShadow: '0 0 0 0 rgba(11,49,97,0.3), 0 0 0 1em rgba(11,49,97,0.3), 0 0 0 3em rgba(11,49,97,0.3), 0 0 0 5em rgba(11,49,97,0.3)',
                    },
-                   "70%": {
-                     boxShadow: "0 0 0 100px #0A2B55",
-                     opacity: 0.3,
-                     transform: "translate(-50%, -50%) scale(1.15)",
-                   },
-                   "100%": {
-                     boxShadow: "0 0 0 130px #0A2B55",
-                     opacity: 0,
-                     transform: "translate(-50%, -50%) scale(1.25)",
+                   '100%': {
+                     boxShadow: '0 0 0 1em rgba(11,49,97,0.3), 0 0 0 3em rgba(11,49,97,0.3), 0 0 0 5em rgba(11,49,97,0.3), 0 0 0 8em rgba(11,49,97,0)',
                    },
                  },
                }}
              />
+            
              {/* Show description or logo */}
              {showDescription ? (
                <Box
