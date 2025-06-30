@@ -283,13 +283,15 @@ function Navbar() {
                   width: "100%",
                   maxWidth: "1248px",
                   mt: 1.5,
-                  height: "auto",
+                  px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
+                }}
+              >
+                <Box sx={{backgroundColor:"#fff", height: "auto",
                   minHeight: { md: "250px", lg: "300px" },
                   maxHeight: { xs: "75vh", md: "75vh", lg: "80vh" },
                   borderRadius: "12px",
                   boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.15)",
                   p: { xs: 1.5, md: 2, lg: 3 },
-                  backgroundColor: "#fff",
                   zIndex: 1300,
                   overflowY: "auto",
                   overflowX: "hidden",
@@ -297,9 +299,7 @@ function Navbar() {
                   flexDirection: { xs: "column", md: "column", lg: "row" },
                   flexWrap: { xs: "nowrap", md: "nowrap", lg: "nowrap" },
                   justifyContent: { xs: "flex-start", lg: "space-between" },
-                  gap: { xs: 1, md: 2, lg: 3 },
-                }}
-              >
+                  gap: { xs: 1, md: 2, lg: 3 },}}>
                 {serviceCategories.map((category, catIndex) => (
                   <Box
                     key={catIndex}
@@ -429,6 +429,7 @@ function Navbar() {
                     </Box>
                   </Box>
                 ))}
+                </Box>
               </Box>
             )}
           </Box>
