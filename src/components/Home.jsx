@@ -153,14 +153,14 @@ function Home() {
       }}
     >
       <Box
-        maxWidth={"1200px"}
+        maxWidth={"1248px"}
         sx={{
           position: "relative",
           display: "flex",
           flexDirection:'column',
           justifyContent:'flex-start',
           px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
-          maxWidth: "1200px",
+          maxWidth: "1248px",
           width: "100%",
           zIndex: 2, // Ensure content is above the background
         }}

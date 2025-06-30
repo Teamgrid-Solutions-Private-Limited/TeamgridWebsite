@@ -27,12 +27,12 @@ function WebDevelopment() {
       }}
     >
       <Container
-        maxWidth="1200px"
+        maxWidth="1248px"
         sx={{
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           px: { xs: 2.5, md: 4, lg: 4, xl: 0 },
-          maxWidth: "1200px",
+          maxWidth: "1248px",
           width: "100%",
           alignItems: "center",
           justifyContent: { xs: "center", sm: "center", md: "space-between" },

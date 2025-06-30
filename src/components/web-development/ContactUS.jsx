@@ -58,7 +58,7 @@ function ContactUs() {
 
       {/* Content container */}
       <Container
-        maxWidth="1200px"
+        maxWidth="1248px"
         sx={{
           position: "relative",
           zIndex: 2,
@@ -68,7 +68,7 @@ function ContactUs() {
           display: "flex",
           alignItems: "center",
           width: "100%",
-          maxWidth: "1200px",
+          maxWidth: "1248px",
         }}
       >
         <Box

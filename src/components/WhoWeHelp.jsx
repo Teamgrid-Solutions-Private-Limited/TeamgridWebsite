@@ -44,11 +44,11 @@ const WhoWeHelp = () => {
       }}
     >
       <Container
-        maxWidth="1200px"
+        maxWidth="1248pxx"
         sx={{
           px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
           width: "100%",
-          maxWidth: "1200px",
+          maxWidth: "1248px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

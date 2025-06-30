@@ -70,14 +70,14 @@ function Technologies() {
       }}
     >
       <Container
-        maxWidth="1200px"
+        maxWidth="1248px"
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
           width: "100%",
-          maxWidth: "1200px",
+          maxWidth: "1248px",
         }}
       >
         <Box

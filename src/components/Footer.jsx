@@ -38,12 +38,12 @@ function Footer() {
       }}
     >
       <Container
-        maxWidth="1200px"
+        maxWidth="1248px"
         sx={{
           display: "flex",
           flexDirection: "column",
           px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
-          maxWidth: "1200px",
+          maxWidth: "1248px",
           width: "100%",
         }}
       >

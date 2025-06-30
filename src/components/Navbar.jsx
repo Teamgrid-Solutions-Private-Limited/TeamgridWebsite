@@ -280,7 +280,7 @@ function Navbar() {
                   top: { md: "76px", lg: "84px" },
                   left: "50%",
                   transform: "translateX(-50%)",
-                  width: { md: "95vw", lg: "95vw", xl: "1248px" },
+                  width: "100%",
                   maxWidth: "1248px",
                   mt: 1.5,
                   height: "auto",
@@ -742,14 +742,14 @@ function Navbar() {
         }}
       >
         <Container
-          maxWidth="1200px"
+          maxWidth="1248px"
           sx={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
             width: "100%",
-            maxWidth: "1200px" ,
+            maxWidth: "1248px" ,
           }}
         >
           <Toolbar
