@@ -21,7 +21,7 @@ function WebDevelopment() {
         bgcolor: "#001C42",
         width: "100%",
         minHeight: "70vh",
-        pt: { xs: 12, md: 16 },
+        pt: { xs: 12, md: 18 },
         // pb: { xs: 8, md: 10 },
         overflow: "hidden",
       }}
@@ -40,7 +40,7 @@ function WebDevelopment() {
         }}
       >
         {/* Text Content */}
-        <Box sx={{ maxWidth: { xs: "100%", md: "50%" } }}>
+        <Box sx={{ maxWidth: { xs: "100%", md: "55%" } }}>
           <Typography
             variant="h1"
             sx={{
@@ -59,9 +59,9 @@ function WebDevelopment() {
               Web Development{" "}
             </Box>
             <Box component="span" sx={{ color: "#FFFFFF" }}>
-              Services
+              Services{" "}
             </Box>
-            <br />
+            {/* <br /> */}
             <Box component="span" sx={{ color: "#FFFFFF" }}>
               for Agencies
             </Box>
@@ -116,7 +116,6 @@ function WebDevelopment() {
               variant="outlined"
               endIcon={<ArrowForwardIcon />}
               sx={{
-                color: "white",
                 borderColor: "rgba(255,255,255,0.3)",
                 borderRadius: "39px",
                 px: 4,
@@ -147,7 +146,7 @@ function WebDevelopment() {
             // mt: { xs: 4, md: 0 },
           }}
         >
-          <Box
+          {/* <Box
             component="img"
             src={webDevelopmentImage}
             alt="Web Development Services"
@@ -156,7 +155,7 @@ function WebDevelopment() {
               height: "auto",
               maxHeight: "100%",
             }}
-          />
+          /> */}
         </Box>
       </Container>
     </Box>

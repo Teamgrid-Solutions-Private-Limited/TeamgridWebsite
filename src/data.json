@@ -539,7 +539,24 @@
       "description":
         "Every solution is thoroughly tested for speed, stability, and reliability."
     }
-  ]
+  ],
 
-  
+    "webDevelopmentContactUS": {
+    "title": "Need a reliable web development partner?",
+    "subtitle": "— Let’s talk about your next project or developer requirement.",
+    "buttons": [
+      {
+        "text": "Contact Us",
+        "variant": "contained",
+        "color": "white"
+      },
+      {
+        "text": "Schedule a Call",
+        "variant": "contained",
+        "color": "#FF4D00"
+      }
+    ],
+    "backgroundImage": "WebDevelopmentContactUsImage"
+  }
+
 }
