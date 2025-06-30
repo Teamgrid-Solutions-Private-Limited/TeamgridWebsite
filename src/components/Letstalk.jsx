@@ -163,7 +163,6 @@ function Letstalk() {
                   textTransform: "none",
                   transition: "all 0.3s ease",
                   width: { xs: "100%", sm: "auto" },
-                  lineHeight: 1.1,
                   whiteSpace: { xs: "normal", sm: "nowrap" },
                   color: "#FFFFFF",
                 }}

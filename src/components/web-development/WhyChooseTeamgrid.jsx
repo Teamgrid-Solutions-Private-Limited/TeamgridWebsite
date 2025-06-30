@@ -110,15 +110,15 @@ const WhyChooseTeamgrid = () => {
           </Button>
         </Box>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           {features.map((feature, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Paper
                 elevation={0}
                 sx={{
-                  p: 3,
-                  width: "384px",
-                  height: "172px",
+                  p: { xs: 2, sm: 2.5, md: 2.5 },
+                  width: { xs: "280px", sm: "384px" },
+                  height: { xs: "200px", sm: "172px" },
                   display: "flex",
                   flexDirection: "column",
                   borderRadius: "24px",
@@ -147,7 +147,7 @@ const WhyChooseTeamgrid = () => {
                   sx={{
                     fontFamily: "PayPal Open",
                     fontWeight: 500,
-                    fontSize: "20px",
+                    fontSize: { xs: "18px", sm: "20px", md: "20px" },
                     leadingTrim: "Cap height",
                     lineHeight: "120%",
                     letterSpacing: "0%",

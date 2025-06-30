@@ -73,7 +73,7 @@ function DevelopmentTypes() {
       case "graphqlIcon":
         return "https://upload.wikimedia.org/wikipedia/commons/9/98/GraphQL_Logo.svg"; // Example URL for GraphQL icon
       case "nextjsIcon":
-        return "https://upload.wikimedia.org/wikipedia/commons/4/47/Nextjs-logo.svg"; // Example URL for Next.js icon 
+        return "https://upload.wikimedia.org/wikipedia/commons/4/47/Nextjs-logo.svg"; // Example URL for Next.js icon
       default:
         return fileCodeIcon;
     }
@@ -100,8 +100,15 @@ function DevelopmentTypes() {
       >
         <Grid container spacing={{ xs: 2, md: 2 }}>
           {/* Left column - Services */}
-          <Grid item size={{ xs: 12, md: 5, lg: 4.5, xl: 4 }}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 1, pt: {md : 6} }}>
+          <Grid item size={{ xs: 12, md: 5.5, lg: 4.5, xl: 4 }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 1,
+                pt: { md: 6 },
+              }}
+            >
               {services.map((service, index) => (
                 <Box
                   key={index}
@@ -110,7 +117,7 @@ function DevelopmentTypes() {
                   onMouseLeave={() => setHoveredService(null)}
                   sx={{
                     width: { xs: "100%", sm: "382px" },
-                    height: "113px",
+                    height: { xs: "auto", sm: "113px" },
                     display: "flex",
                     alignItems: "center",
                     gap: "16px",
@@ -155,7 +162,7 @@ function DevelopmentTypes() {
                       sx={{
                         fontFamily: "PayPal Open",
                         fontWeight: 500,
-                        fontSize: "20px",
+                        fontSize: { xs: "18px", sm: "20px", md: "20px" },
                         leadingTrim: "Cap height",
                         lineHeight: "150%",
                         letterSpacing: "0%",
@@ -186,8 +193,14 @@ function DevelopmentTypes() {
           </Grid>
 
           {/* Middle and right - Description and offerings */}
-          <Grid item size={{ xs: 12, md: 7, lg: 7.5, xl: 8 }}>
-            <Box sx={{ bgcolor: "#F4F9FF", p: 6, borderRadius: "16px" }}>
+          <Grid item size={{ xs: 12, md: 6.5, lg: 7.5, xl: 8 }}>
+            <Box
+              sx={{
+                bgcolor: "#F4F9FF",
+                p: { xs: 2, sm: 4, md: 6 },
+                borderRadius: "16px",
+              }}
+            >
               <Typography
                 variant="h2"
                 sx={{
@@ -300,11 +313,9 @@ function DevelopmentTypes() {
                 spacing={2}
               >
                 {services[activeService].techStack.map((tech, index) => (
-                  <Grid item size={{ xs: 6, sm: 3, md: 3 }} key={index}>
+                  <Grid item size={{ xs: 6, sm: 3, md: 4, lg: 3 }} key={index}>
                     <Box
                       sx={{
-                        border: "1px solid #E5E9F0",
-                        borderRadius: "8px",
                         p: 1.5,
                         width: "123px",
                         height: "115px",
@@ -328,7 +339,7 @@ function DevelopmentTypes() {
                         }}
                       >
                         {/* We would normally import these icons, using colored boxes as placeholders */}
-                      
+
                         <Box
                           component="img"
                           src={getIconComponent(tech.icon)}

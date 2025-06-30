@@ -69,11 +69,7 @@ function WebDevelopmentMadeEasy() {
             <Typography
               variant="span"
               sx={{
-                fontFamily: "PayPal Open",
-                fontWeight: 700,
-                fontSize: "16px",
-                lineHeight: "150%",
-                letterSpacing: "0%",
+                fontWeight: 700,       
               }}
             >
               Teamgrid

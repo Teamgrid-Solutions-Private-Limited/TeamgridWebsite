@@ -9,6 +9,9 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { WebDevelopmentContactUsImage as backgroundImage } from "../../images";
+import data from "../../data.json";
+
+const { title, subtitle, buttons } = data.webDevelopmentContactUS;
 
 function ContactUs() {
   const theme = useTheme();
@@ -35,7 +38,7 @@ function ContactUs() {
           left: 0,
           top: 0,
           bottom: 0,
-          width: { xs: "100%", md: "30%" },
+          width: { xs: "0%", md: "20%" },
           background: "#085BC8",
           zIndex: 1,
         }}
@@ -48,7 +51,7 @@ function ContactUs() {
           right: 0,
           top: 0,
           bottom: 0,
-          width: { xs: "0%", md: "70%" },
+          width: { xs: "100%", sm: "100%", md: "80%" },
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -80,7 +83,7 @@ function ContactUs() {
         >
           <Box
             sx={{
-              width: "68%",
+              width: { xs: "100%", sm: "65%" },
               bgcolor: "#072449",
               borderRadius: { xs: 2, sm: 3 },
               p: { xs: 3, sm: 4, md: 5, lg: 7 },
@@ -104,7 +107,7 @@ function ContactUs() {
                   letterSpacing: 0,
                 }}
               >
-                Need a reliable web development partner?
+                {title}
               </Typography>
 
               <Typography
@@ -117,12 +120,12 @@ function ContactUs() {
                   color: "#FAFAFA",
                 }}
               >
-                — Let’s talk about your next project or developer requirement.
+                {subtitle}
               </Typography>
             </Box>
 
             <Stack
-              direction={{ xs: "column", sm: "row" }}
+              direction={{ xs: "column", sm: "column", md: "row" }}
               spacing={{ xs: 1, sm: 1.25 }}
               sx={{
                 mt: { xs: 1, md: "auto" },
@@ -131,9 +134,9 @@ function ContactUs() {
               }}
             >
               <Button
-                variant="contained"
+                variant={buttons[0].variant}
                 sx={{
-                  bgcolor: "#FFFFFF",
+                  bgcolor: buttons[0].color,
                   color: "#140E13",
                   "&:hover": {
                     bgcolor: "rgba(255, 255, 255, 0.9)",
@@ -150,13 +153,13 @@ function ContactUs() {
                   width: { xs: "100%", sm: "auto" },
                 }}
               >
-                Contact Us
+                {buttons[0].text}
               </Button>
 
               <Button
-                variant="contained"
+                variant={buttons[1].variant}
                 sx={{
-                  bgcolor: "#FF4D00",
+                  bgcolor: buttons[1].color,
                   "&:hover": {
                     bgcolor: "#e54b24",
                   },
@@ -170,12 +173,11 @@ function ContactUs() {
                   textTransform: "none",
                   transition: "all 0.3s ease",
                   width: { xs: "100%", sm: "auto" },
-                  lineHeight: 1.1,
                   whiteSpace: { xs: "normal", sm: "nowrap" },
                   color: "#FFFFFF",
                 }}
               >
-                Schedule a Call
+                {buttons[1].text}
               </Button>
             </Stack>
           </Box>
