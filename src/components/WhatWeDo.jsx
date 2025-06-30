@@ -108,7 +108,7 @@ function WhatWeDo() {
         <Paper
           elevation={0}
           sx={{
-            borderRadius: 3,
+            borderRadius: 6,
             overflow: "hidden",
             background: "linear-gradient(180deg, #E1ECF7 0%, #E2E9F0 103.33%)",
             mb: 3,
@@ -290,7 +290,7 @@ function WhatWeDo() {
               sx={{
                 backgroundColor: "rgba(255, 255, 255,1)",
                 backdropFilter: "blur(156.89999389648438px)",
-                borderRadius: 2,
+                borderRadius: 4,
                 width: "95%",
                 padding: { xs: "8px", sm: "8px" },
                 boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.15)",
@@ -374,7 +374,7 @@ function WhatWeDo() {
                       textAlign: "center",
                       position: "relative",
                       cursor: "pointer",
-                      borderRadius: 2,
+                      borderRadius: "8px",
                       transition: "all 0.3s ease",
                       backgroundColor:
                         index === idx ? "#0b3c7b" : "transparent",

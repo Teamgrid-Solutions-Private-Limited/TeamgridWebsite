@@ -60,9 +60,9 @@ function Letstalk() {
         >
           <Box
             sx={{
-              width: "68%",
+              width: { xs: "100%", md: "68%" },
               bgcolor: "#072449",
-              borderRadius: { xs: 2, sm: 3 },
+              borderRadius: 6,
               p: { xs: 3, sm: 4, md: 5, lg: 7 },
               display: "flex",
               flexDirection: "column",

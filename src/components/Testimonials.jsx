@@ -84,7 +84,7 @@ const TestimonialCard = styled(Paper)(({ theme }) => ({
   maxHeight: "289px",
   display: "flex",
   flexDirection: "column",
-  borderRadius: theme.spacing(2.5),
+  borderRadius: theme.spacing(3),
   backgroundColor: "rgba(243, 243, 246, 1)", // Light gray background
   margin: theme.spacing(0, 1.5),
   flex: "0 0 auto",

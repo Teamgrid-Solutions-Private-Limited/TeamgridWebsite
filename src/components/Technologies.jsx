@@ -178,7 +178,7 @@ function Technologies() {
                 key={tech.title}
                 sx={{
                   bgcolor: "#0B3C7B",
-                  borderRadius: { xs: 4, sm: 5, md: 7 },
+                  borderRadius: "24px",
                   border: "1px solid rgba(255,255,255,0.10)",
                   boxShadow: "none",
                   transition: "all 0.3s ease",

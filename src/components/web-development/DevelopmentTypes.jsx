@@ -120,7 +120,10 @@ function DevelopmentTypes() {
   return (
     <Box
       sx={{
-        py: { xs: 2, md: 2 },
+        py: { xs: 6, md: 8 },
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         bgcolor: "#FFFFFF",
         width: "100%",
       }}
@@ -233,7 +236,8 @@ function DevelopmentTypes() {
               sx={{
                 bgcolor: "#F4F9FF",
                 p: { xs: 2, sm: 4, md: 6 },
-                borderRadius: "16px",
+                borderTopLeftRadius: "24px",
+                borderBottomLeftRadius: "24px",
               }}
             >
               <Typography
