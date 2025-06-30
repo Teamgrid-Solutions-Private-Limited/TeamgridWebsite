@@ -126,7 +126,7 @@ function Home() {
   return (
     <Box
       sx={{
-        bgcolor: "#001C42",
+        bgcolor: "#072449",
         minHeight: "100vh",
         overflow: "hidden",
         width: "100%",

@@ -93,7 +93,7 @@ function Technologies() {
               flexDirection: { xs: "column", md: "row" },
               justifyContent: "space-between",
               alignItems: { xs: "flex-start", md: "center" },
-              mb: { xs: 3, sm: 4, md: 5 },
+              mb:  2,
               width: "100%",
             }}
           >
@@ -185,7 +185,6 @@ function Technologies() {
                   "&:hover": {
                     bgcolor: "#003272",
                     transform: "translateY(-5px)",
-                    boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
                   },
                 }}
               >
