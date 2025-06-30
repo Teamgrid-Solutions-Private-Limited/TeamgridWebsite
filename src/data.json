@@ -457,7 +457,7 @@
         { "name": "Express", "icon": "expressIcon" },
         { "name": "PostgreSQL", "icon": "postgresqlIcon" },
         { "name": "MongoDB", "icon": "mongodbIcon" },
-        { "name": "GraphQL", "icon": "graphqlIcon" },
+        { "name": "GraphQL", "icon": "graphQLIcon" },
         { "name": "Redis", "icon": "redisIcon" },
         { "name": "Docker", "icon": "dockerIcon" }
       ]
@@ -475,13 +475,12 @@
         "Streamlined communication and faster development"
       ],
       "techStack": [
-        { "name": "MERN Stack", "icon": "mernIcon" },
+        { "name": "MERN Stack", "icon": "mernStackIcon" },
         { "name": "TypeScript", "icon": "typescriptIcon" },
-        { "name": "Next.js", "icon": "nextjsIcon" },
-        { "name": "GraphQL", "icon": "graphqlIcon" },
+        { "name": "Next.js", "icon": "nextJSIcon" },
+        { "name": "GraphQL", "icon": "graphQLIcon" },
         { "name": "AWS", "icon": "awsIcon" },
-        { "name": "Git", "icon": "gitIcon" },
-        { "name": "Jest", "icon": "jestIcon" }
+        { "name": "Git", "icon": "gitIcon" }
       ]
     },
     {
@@ -502,8 +501,8 @@
         { "name": "WooCommerce", "icon": "woocommerceIcon" },
         { "name": "Elementor", "icon": "elementorIcon" },
         { "name": "ACF", "icon": "acfIcon" },
-        { "name": "jQuery", "icon": "jqueryIcon" },
-        { "name": "MySQL", "icon": "mysqlIcon" }
+        { "name": "jQuery", "icon": "jQueryIcon" },
+        { "name": "MySQL", "icon": "mySQLIcon" }
       ]
     }
   ],
