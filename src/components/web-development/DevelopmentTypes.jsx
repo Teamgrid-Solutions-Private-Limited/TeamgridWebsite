@@ -26,6 +26,19 @@ import {
   nodejsIcon,
   postgresqlIcon,
   mongodbIcon,
+  graphQLIcon,
+  redisIcon, 
+  dockerIcon,
+  mernStackIcon,
+  nextJSIcon,
+  awsIcon,
+  gitIcon,
+  woocommerceIcon,
+  phpIcon,
+  elementorIcon,
+  jQueryIcon,
+  acfIcon,
+  mySQLIcon,
 } from "../../images";
 const services = data.developmentType;
 
@@ -70,10 +83,32 @@ function DevelopmentTypes() {
         return "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png"; // Example URL for Express.js icon
       case "mongodbIcon":
         return mongodbIcon;
-      case "graphqlIcon":
-        return "https://upload.wikimedia.org/wikipedia/commons/9/98/GraphQL_Logo.svg"; // Example URL for GraphQL icon
-      case "nextjsIcon":
-        return "https://upload.wikimedia.org/wikipedia/commons/4/47/Nextjs-logo.svg"; // Example URL for Next.js icon
+      case "graphQLIcon":
+        return graphQLIcon; // Example URL for GraphQL icon
+      case "nextJSIcon":
+        return nextJSIcon; // Example URL for Next.js icon
+      case "redisIcon":
+        return redisIcon;
+      case "dockerIcon":
+        return dockerIcon;
+      case "mernStackIcon":
+        return mernStackIcon;
+      case "awsIcon":
+        return awsIcon; // Example URL for AWS icon
+      case "gitIcon":
+        return gitIcon; // Example URL for Git icon
+      case "woocommerceIcon":
+        return woocommerceIcon; // Example URL for WooCommerce icon
+      case "phpIcon":
+        return phpIcon; // Example URL for PHP icon
+      case "elementorIcon":
+        return elementorIcon; // Example URL for Elementor icon
+      case "jQueryIcon":
+        return jQueryIcon; // Example URL for jQuery icon
+      case "acfIcon":
+        return acfIcon; // Example URL for ACF icon
+      case "mySQLIcon":
+        return mySQLIcon; // Example URL for MySQL icon
       default:
         return fileCodeIcon;
     }
