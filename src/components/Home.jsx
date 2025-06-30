@@ -458,13 +458,12 @@ function Home() {
                height: `${logoOffset*2}px`,
                borderRadius: "50%",
                background: "#0F4285",
-               boxShadow: "0 0 30px #0B3161",
                display: "flex",
                alignItems: "center",
                justifyContent: "center",
                zIndex: 10,
                pointerEvents: "auto",
-               transition: "transform 0.5s cubic-bezier(.7,.2,.2,1)",
+              //  transition: "transform 0.5s cubic-bezier(.7,.2,.2,1)",
                // overflow: "hidden",
              }}
            >
@@ -483,10 +482,10 @@ function Home() {
                  animation: 'ripple 1.5s linear infinite',
                  '@keyframes ripple': {
                    '0%': {
-                     boxShadow: `0 0 0 0 rgba(11,49,97,0.3), 0 0 0 ${0.0286 * rippleDiameter}px rgba(11,49,97,0.3), 0 0 0 ${0.0286*4 * rippleDiameter}px rgba(11,49,97,0.3), 0 0 0 ${0.0286*7 * rippleDiameter}px rgba(11,49,97,0.3)`
+                     boxShadow: `0 0 0 0 rgba(11,49,97,0.5), 0 0 0 ${0.0286 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*4 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*7 * rippleDiameter}px rgba(11,49,97,0.5)`
                    },
                    '100%': {
-                     boxShadow: `0 0 0 ${0.0286 * rippleDiameter}px rgba(11,49,97,0.3), 0 0 0 ${0.0286*4 * rippleDiameter}px rgba(11,49,97,0.3), 0 0 0 ${0.0286*7 * rippleDiameter}px rgba(11,49,97,0.3), 0 0 0 ${0.0286*10 * rippleDiameter}px rgba(11,49,97,0)`
+                     boxShadow: `0 0 0 ${0.0286 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*4 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*7 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*10 * rippleDiameter}px rgba(11,49,97,0)`
                    },
                  },
                }}
@@ -543,20 +542,20 @@ function Home() {
                      src={techIcons.find(t => t.name === activeTech)?.icon}
                      alt={activeTech}
                      sx={{
-                       width: { xs: '38px', sm: '45px' },
-                       height: { xs: '38px', sm: '45px' },
+                       width: { xs: '38px', md: '42px' },
+                       height: { xs: '38px', md: '42px' },
                        objectFit: 'contain',
                        display: 'block',
                      }}
                    /></Box>
                   
                    <Typography
-                     variant="h6"
+                     
                      sx={{
                        color: '#fff',
-                       fontWeight: 700,
+                       fontWeight: 500,
                        mb: 1,
-                       fontSize: { xs: '18px', sm: '22px', md: '24px' },
+                       fontSize: { xs: '26px', sm: '30px', md: '36px' },
                        textShadow: '0 2px 8px rgba(0,0,0,0.18)',
                        textAlign: 'left',
                      }}
@@ -564,14 +563,13 @@ function Home() {
                      {activeTech}
                    </Typography>
                    <Typography
-                     variant="body2"
+                    
                      sx={{
-                       color: '#E1E0E0',
+                       color: '#fff',
                        fontSize: { xs: '13px', sm: '16px', md: '18px' },
-                       fontWeight:300,
-                       lineHeight: 1.6,
+                       fontWeight:400,
+                       lineHeight: 1.5,
                        mb: 3,
-                       textShadow: '0 1px 4px rgba(0,0,0,0.10)',
                        textAlign: 'left',
                      }}
                    >
