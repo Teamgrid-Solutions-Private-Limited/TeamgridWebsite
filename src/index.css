@@ -10,7 +10,7 @@
 /* Import fonts */
 @font-face {
   font-family: 'PayPal Open';
-  src: url('/fonts/PayPalOpen-Bold.woff') format('woff');
+  src: url('/fonts/PayPalOpen-Bold.woff2') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;

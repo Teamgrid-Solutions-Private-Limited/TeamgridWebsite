@@ -115,10 +115,13 @@ function Home() {
     }, 200); // scale down after fade out
   };
 
-  // Set logo size and height to fixed values
-  const logoWidth = 105;
-  const logoHeight = 160;
-  const logoOffset = 200 /2;
+  // Responsive logo and ripple sizes
+  const logoWidth = isXs ? 60 : isSm ? 80 : isMd ? 100 : isLg ? 120 : isXl ? 140 : 105;
+  const logoHeight = isXs ? 90 : isSm ? 120 : isMd ? 140 : isLg ? 160 : isXl ? 180 : 160;
+  const logoOffset = isXs ? 60 : isSm ? 80 : isMd ? 100 : isLg ? 120 : isXl ? 140 : 122.5;
+  const baseRadius = 280; // must match the orbit's baseRadius
+  const rippleDiameter = baseRadius * 2 * orbitScale;
+ 
 
   return (
     <Box
@@ -387,13 +390,18 @@ function Home() {
                              display: "flex",
                              justifyContent: "center",
                              alignItems: "center",
-                             boxShadow: "0 0 20px rgba(0, 123, 255, 0.2)",
+                             boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)",
+                             animation: "glowPulse 3s ease-in-out infinite",
+                             '@keyframes glowPulse': {
+                               '0%':   { boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)" },
+                               '50%':  { boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)" },
+                               '100%': { boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)" },
+                             },
                              border: "1px solid #3B526F",
+                             transition: "transform 0.3s ease-in-out",
                              '&:hover': {
-                               boxShadow: "0 0 30px rgba(0, 123, 255, 0.4)",
                                transform: "scale(1.05)",
                              },
-                             transition: "all 0.3s ease-in-out",
                            }}
                          >
                            <Box
@@ -446,8 +454,8 @@ function Home() {
                right: `${rightPadding}px`,
                top: "50%",
                transform: "translateY(-50%)",
-               width: `${200}px`,
-               height: `${200}px`,
+               width: `${logoOffset*2}px`,
+               height: `${logoOffset*2}px`,
                borderRadius: "50%",
                background: "#0F4285",
                boxShadow: "0 0 30px #0B3161",
@@ -466,19 +474,19 @@ function Home() {
                  position: "absolute",
                  top: "50%",
                  left: "50%",
-                 width: "200px",
-                 height: "200px",
+                 width: `${logoOffset*2}px`,
+                 height: `${logoOffset*2}px`,
                  borderRadius: "50%",
                  transform: "translate(-50%, -50%)",
-                 zIndex: 0,
+                 zIndex: -14,
                  pointerEvents: "none",
-                animation: 'ripple 1.5s linear infinite',
+                 animation: 'ripple 1.5s linear infinite',
                  '@keyframes ripple': {
                    '0%': {
-                     boxShadow: '0 0 0 0 rgba(11,49,97,0.3), 0 0 0 1em rgba(11,49,97,0.3), 0 0 0 3em rgba(11,49,97,0.3), 0 0 0 5em rgba(11,49,97,0.3)',
+                     boxShadow: `0 0 0 0 rgba(11,49,97,0.3), 0 0 0 ${0.0286 * rippleDiameter}px rgba(11,49,97,0.3), 0 0 0 ${0.0286*4 * rippleDiameter}px rgba(11,49,97,0.3), 0 0 0 ${0.0286*7 * rippleDiameter}px rgba(11,49,97,0.3)`
                    },
                    '100%': {
-                     boxShadow: '0 0 0 1em rgba(11,49,97,0.3), 0 0 0 3em rgba(11,49,97,0.3), 0 0 0 5em rgba(11,49,97,0.3), 0 0 0 8em rgba(11,49,97,0)',
+                     boxShadow: `0 0 0 ${0.0286 * rippleDiameter}px rgba(11,49,97,0.3), 0 0 0 ${0.0286*4 * rippleDiameter}px rgba(11,49,97,0.3), 0 0 0 ${0.0286*7 * rippleDiameter}px rgba(11,49,97,0.3), 0 0 0 ${0.0286*10 * rippleDiameter}px rgba(11,49,97,0)`
                    },
                  },
                }}
@@ -488,7 +496,7 @@ function Home() {
              <Box
                sx={{
                 position: "relative",
-                 transition: 'width 0.5s, height 0.5s',
+                //  transition: 'width 0.5s, height 0.5s',
                }}
              >
                <Box
