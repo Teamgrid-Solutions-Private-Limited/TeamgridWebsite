@@ -15,6 +15,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import data from "../data.json";
+import { fontClamp } from "../fontUtils";
 
 // Get testimonials data from data.json
 const {
@@ -291,7 +292,7 @@ const Testimonials = () => {
           mb: 1,
           flex: 1,
           fontWeight: 400,
-          fontSize: "16px",
+          fontSize: fontClamp(16),
           lineHeight: "150%",
           letterSpacing: "0%",
           color: "#000000",
@@ -301,7 +302,7 @@ const Testimonials = () => {
           WebkitBoxOrient: "vertical",
           ".single-card-view &": {
             fontWeight: 400,
-            fontSize: "16px",
+            fontSize: fontClamp(16),
             lineHeight: "150%",
             letterSpacing: "0%",
             color: "#000000",
@@ -334,14 +335,14 @@ const Testimonials = () => {
             fontWeight={600}
             sx={{
               fontWeight: 700,
-              fontSize: "16px",
+              fontSize: fontClamp(16),
               lineHeight: "150%",
               letterSpacing: 0,
               color: "#000000",
 
               ".single-card-view &": {
                 fontWeight: 700,
-                fontSize: "16px",
+                fontSize: fontClamp(16),
                 lineHeight: "150%",
                 letterSpacing: 0,
                 color: "#000000",
@@ -354,14 +355,14 @@ const Testimonials = () => {
             variant="body2"
             color="text.secondary"
             sx={{
-              fontSize: "14px",
+              fontSize: fontClamp(14),
               fontWeight: 400,
               lineHeight: "150%",
               letterSpacing: 0,
               color: "#858585",
 
               ".single-card-view &": {
-                fontSize: "14px",
+                fontSize: fontClamp(14),
                 fontWeight: 400,
                 lineHeight: "150%",
                 letterSpacing: 0,
@@ -415,7 +416,7 @@ const Testimonials = () => {
               textAlign={"center"}
               sx={{
                 fontWeight: 500,
-                fontSize: { xs: "32px", sm: "42px", md: "56px" },
+                fontSize: fontClamp(56),
                 leadingTrim: "Cap height",
                 lineHeight: "100%",
                 letterSpacing: 0,
@@ -430,7 +431,7 @@ const Testimonials = () => {
               color="text.secondary"
               sx={{
                 fontWeight: 400,
-                fontSize: "18px",
+                fontSize: fontClamp(18),
                 lineHeight: "150%",
                 letterSpacing: 0,
                 textAlign: "center",
@@ -562,7 +563,7 @@ const Testimonials = () => {
               borderRadius: "39px",
               px: 5,
               py: 2,
-              fontSize: "16px",
+              fontSize: fontClamp(16),
               textTransform: "none",
             }}
           >

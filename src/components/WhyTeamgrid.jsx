@@ -13,6 +13,7 @@ import {
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { rectangleImage51, vectorIcon } from "../images";
 import data from "../data.json";
+import { fontClamp } from "../fontUtils";
 
 function WhyTeamgrid() {
   const theme = useTheme();
@@ -55,7 +56,7 @@ function WhyTeamgrid() {
               gutterBottom
               sx={{
                 fontWeight: 500,
-                fontSize: "56px",
+                fontSize: fontClamp(56),
                 lineHeight: "100%",
                 letterSpacing: 0,
                 color: "#140E13",
@@ -68,7 +69,7 @@ function WhyTeamgrid() {
               color="text.secondary"
               sx={{
                 fontWeight: "400",
-                fontSize: "18px",
+                fontSize: fontClamp(18),
                 lineHeight: "150%",
                 letterSpacing: "0%",
               }}
@@ -100,7 +101,7 @@ function WhyTeamgrid() {
                   borderColor: "primary.main",
                 },
                 fontWeight: 400,
-                fontSize: "18px",
+                fontSize: fontClamp(18),
                 lineHeight: "150%",
                 letterSpacing: "0%",
                 color: "#140E13",
@@ -163,7 +164,7 @@ function WhyTeamgrid() {
                       gutterBottom
                       sx={{
                         fontWeight: 500,
-                        fontSize: "20px",
+                        fontSize: fontClamp(20),
                         leadingTrim: "Cap height",
                         lineHeight: "120%",
                         letterSpacing: "0%",
@@ -177,7 +178,7 @@ function WhyTeamgrid() {
                       color="text.secondary"
                       sx={{
                      fontWeight: 400,
-                     fontSize: "16px",
+                     fontSize: fontClamp(16),
                      lineHeight: "150%",
                      letterSpacing: "0%",
                      color: "#140E13"

@@ -30,6 +30,7 @@ import {
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import CloseIcon from "@mui/icons-material/Close";
 import data from "../data.json";
+import { fontClamp } from "../fontUtils";
 
 // Get hero data from data.json
 const { subtitle, title, description, buttons } = data.home.hero;
@@ -75,18 +76,14 @@ function Home() {
 
   // Dynamically adjust orbit scale based on screen size
   useEffect(() => {
-    if (isXs) {
-      setOrbitScale(0.65);
-    } else if (isSm) {
-      setOrbitScale(0.7);
-    } else if (isMd) {
-      setOrbitScale(0.8);
-    } else if (isIPadPro) {
-      setOrbitScale(0.85);
-    } else {
-      setOrbitScale(1);
-    }
-  }, [isXs, isSm, isMd, isIPadPro, isLg]);
+    const updateOrbitScale = () => {
+      const scale = Math.max(0.5, Math.min(window.innerWidth / 1440*0.9, 1.2)); // Clamp between 0.5 and 2 for sanity
+      setOrbitScale(scale);
+    };
+    updateOrbitScale();
+    window.addEventListener("resize", updateOrbitScale);
+    return () => window.removeEventListener("resize", updateOrbitScale);
+  }, []);
 
   useEffect(() => {
     if (isPaused) return;
@@ -127,7 +124,8 @@ function Home() {
     <Box
       sx={{
         bgcolor: "#072449",
-        minHeight: "100vh",
+        height: "90vh",
+       maxHeight:'80%',
         overflow: "hidden",
         width: "100%",
         display: "flex",
@@ -147,7 +145,7 @@ function Home() {
           top: 0,
           left: 0,
           width: "100%",
-          height: "100%",
+          height: "90vh",
           backgroundColor: "rgba(0, 28, 66, 0.4)", // Overlay to ensure text is readable
           display: { xs: "block", sm: "block", md: "none" }, // Hide overlay on desktop
           zIndex: 1,
@@ -171,10 +169,9 @@ function Home() {
             {/* Text Section - pointer events none */}
             <Box sx={{ pointerEvents: "none", display: "flex", flexDirection: "column", gap: 1.8 ,zIndex:3}}>
               <Typography
-                variant="subtitle1"
                 sx={{
                   color: "#E1E0E0",
-                  fontSize: { xs: "16px", md: "18px" },
+                  fontSize: fontClamp(18),
                   lineHeight: 1.5,
                   textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" },
                   pointerEvents: "none",
@@ -183,15 +180,9 @@ function Home() {
                 {subtitle}
               </Typography>
               <Typography
-                variant="h1"
                 sx={{
                   color: "#ffffff",
-                  fontSize: {
-                    xs: "36px",
-                    sm: "40px",
-                    md: "48px",
-                    lg: "64px",
-                  },
+                  fontSize: fontClamp(64),
                   fontWeight: 700,
                   lineHeight: "100%",
                   textShadow: { xs: "0px 1px 3px rgba(0,0,0,0.5)", sm: "none" },
@@ -209,10 +200,9 @@ function Home() {
               
             </Box>
             <Typography
-                variant="body1"
                 sx={{
                   color: "#E1E0E0",
-                  fontSize: { xs: "16px", sm: "16px", md: "18px", lg: "20px" },
+                  fontSize: fontClamp(20),
                   lineHeight: 1.6,
                   fontWeight: 300,
                   textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" },
@@ -242,7 +232,7 @@ function Home() {
                     px: 5,
                     py: 2,
                     textTransform: "none",
-                    fontSize: "16px",
+                    fontSize: fontClamp(16),
                     fontWeight: 500,
                     boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
                     "&:hover": { bgcolor: "#0069d9" },
@@ -262,7 +252,7 @@ function Home() {
                     px: 5,
                     py: 2,
                     textTransform: "none",
-                    fontSize: "16px",
+                    fontSize: fontClamp(16),
                     fontWeight: 500,
                     "&:hover": { borderColor: "rgba(255,255,255,0.5)" },
                     width: { xs: "100%", sm: "auto" },
@@ -555,7 +545,7 @@ function Home() {
                        color: '#fff',
                        fontWeight: 500,
                        mb: 1,
-                       fontSize: { xs: '26px', sm: '30px', md: '36px' },
+                       fontSize: fontClamp(36),
                        textShadow: '0 2px 8px rgba(0,0,0,0.18)',
                        textAlign: 'left',
                      }}
@@ -566,7 +556,7 @@ function Home() {
                     
                      sx={{
                        color: '#fff',
-                       fontSize: { xs: '13px', sm: '16px', md: '18px' },
+                       fontSize: fontClamp(18),
                        fontWeight:400,
                        lineHeight: 1.5,
                        mb: 3,
@@ -584,7 +574,7 @@ function Home() {
                   px: 5,
                   py: 2,
                   textTransform: "none",
-                  fontSize: "18px",
+                  fontSize:fontClamp(18),
                   fontWeight: 400,
                   lineHeight: "150%",
                   letterSpacing: 0,

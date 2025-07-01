@@ -16,6 +16,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import data from "../data.json";
 import { FiSend } from "react-icons/fi";
 import { Link as RouterLink } from "react-router-dom";
+import { fontClamp } from "../fontUtils";
 
 function Footer() {
   const theme = useTheme();
@@ -53,7 +54,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: fontClamp(20),
                 fontWeight: 500,
                 mb: 3,
               }}
@@ -67,7 +68,7 @@ function Footer() {
                 to={"/"}
                 sx={{
                   textDecoration: "none",
-                  fontSize: "16px",
+                  fontSize: fontClamp(16),
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
@@ -86,7 +87,7 @@ function Footer() {
                 to={"/"}
                 sx={{
                   textDecoration: "none",
-                  fontSize: "16px",
+                  fontSize: fontClamp(16),
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
@@ -105,7 +106,7 @@ function Footer() {
                 to={"/"}
                 sx={{
                   textDecoration: "none",
-                  fontSize: "16px",
+                  fontSize: fontClamp(16),
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
@@ -125,7 +126,7 @@ function Footer() {
                 to={"/"}
                 sx={{
                   textDecoration: "none",
-                  fontSize: "16px",
+                  fontSize:fontClamp(16),
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
@@ -148,7 +149,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: fontClamp(20),
                 fontWeight: 500,
                 mb: 3,
               }}
@@ -164,7 +165,7 @@ function Footer() {
                   key={index}
                   sx={{
                     textDecoration: "none",
-                    fontSize: "16px",
+                    fontSize: fontClamp(16),
                     fontWeight: 400,
                     transition: "all 0.2s ease",
                     color: "#A8B6C5",
@@ -187,7 +188,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: fontClamp(20),
                 fontWeight: 500,
                 mb: 3,
               }}
@@ -203,7 +204,7 @@ function Footer() {
                   key={index}
                   sx={{
                     textDecoration: "none",
-                    fontSize: "16px",
+                    fontSize: fontClamp(16),
                     fontWeight: 400,
                     transition: "all 0.2s ease",
                     color: "#A8B6C5",
@@ -226,7 +227,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: fontClamp(20),
                 fontWeight: 500,
                 mb: 3,
               }}
@@ -240,7 +241,7 @@ function Footer() {
                 to={"/"}
                 sx={{
                   textDecoration: "none",
-                  fontSize: "16px",
+                  fontSize: fontClamp(16),
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
@@ -259,7 +260,7 @@ function Footer() {
                 to={"/"}
                 sx={{
                   textDecoration: "none",
-                  fontSize: "16px",
+                  fontSize: fontClamp(16),
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
@@ -278,7 +279,7 @@ function Footer() {
                 to={"/"}
                 sx={{
                   textDecoration: "none",
-                  fontSize: "16px",
+                  fontSize: fontClamp(16),
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
@@ -312,7 +313,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: fontClamp(20),
                 fontWeight: 500,
                 mb: 2,
               }}
@@ -323,7 +324,7 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize: "16px",
+                fontSize: fontClamp(16),
                 fontWeight: 400,
                 lineHeight: 1.6,
                 mb: 2,
@@ -337,7 +338,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: fontClamp(20),
                 fontWeight: 500,
                 mb: 1,
               }}
@@ -348,7 +349,7 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize: "16px",
+                fontSize:fontClamp(16),
                 fontWeight: 400,
                 color: "#A8B6C5",
               }}
@@ -362,7 +363,7 @@ function Footer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: "20px",
+                fontSize: fontClamp(20),
                 fontWeight: 500,
                 mb: 2,
               }}
@@ -373,7 +374,7 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize: "16px",
+                fontSize: fontClamp(16),
                 fontWeight: 400,
                 lineHeight: 1.6,
                 mb: 3,
@@ -448,7 +449,7 @@ function Footer() {
           <Typography
             variant="body2"
             sx={{
-              fontSize: "16px",
+              fontSize: fontClamp(16),
               fontWeight: 400,
               lineHeight: 1.6,
               color: "#A8B6C5",
@@ -463,7 +464,7 @@ function Footer() {
           <Typography
             variant="body2"
             sx={{
-              fontSize: "16px",
+              fontSize: fontClamp(16),
               fontWeight: 400,
               color: "#A8B6C5",
             }}

@@ -37,6 +37,7 @@ import {
   wooCommerceIconModal as wooCommerceIcon,
 } from "../images";
 import data from "../data.json";
+import { fontClamp } from "../fontUtils";
 
 // Get menu items from data.json
 const { menuItems: menuItemsData, serviceCategories: serviceCategoriesData } =
@@ -251,7 +252,7 @@ function Navbar() {
                 variant="body1"
                 sx={{
                   fontWeight: 500,
-                  fontSize: { md: "14px", lg: "16px" },
+                  fontSize: fontClamp(16),
                   color: !scrolled ? "white" : "#05408E",
                   transition: "color 0.25s",
                 }}
@@ -319,7 +320,7 @@ function Navbar() {
                         fontWeight: 400,
                         color: "text.secondary",
                         fontFamily: "PayPal Open, sans-serif",
-                        fontSize: "12px",
+                        fontSize: fontClamp(12),
                         mb: 0,
                         display: "block",
                         textTransform: "uppercase",
@@ -399,7 +400,7 @@ function Navbar() {
                                 fontWeight: 500,
                                 color: "#05408E",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: "14px",
+                                fontSize: fontClamp(14),
                                 mb: 0.25,
                                 transition: "color 0.25s",
                                 whiteSpace: "normal",
@@ -414,7 +415,7 @@ function Navbar() {
                               sx={{
                                 color: "text.secondary",
                                 fontFamily: "PayPal Open, sans-serif",
-                                fontSize: "14px",
+                                fontSize: fontClamp(14),
                                 lineHeight: '150%',
                                 opacity: 0.8,
                                 whiteSpace: "normal",
@@ -445,7 +446,7 @@ function Navbar() {
           boxShadow: "none",
           fontWeight: 500,
           textTransform: "none",
-          fontSize: { md: "14px", lg: "16px" },
+          fontSize: fontClamp(16),
           whiteSpace: "nowrap",
           display: { xs: "none", md: "flex" },
           color: "white",

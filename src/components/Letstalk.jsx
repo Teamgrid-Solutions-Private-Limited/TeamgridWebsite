@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { rectangleImage25 as backgroundImage } from "../images";
 import data from "../data.json";
+import { fontClamp } from "../fontUtils";
 
 // Get letsTalk data from data.json
 const { title, subtitle, description, buttons } = data.letsTalk;
@@ -78,7 +79,7 @@ function Letstalk() {
                 variant="h2"
                 sx={{
                   fontWeight: 500,
-                  fontSize: { xs: "32px", sm: "42px", md: "56px" },
+                  fontSize: fontClamp(56),
                   leadingTrim: "Cap height",
                   lineHeight: "100%",
                   letterSpacing: 0,
@@ -91,7 +92,7 @@ function Letstalk() {
                 variant="h5"
                 sx={{
                   fontWeight: 400,
-                  fontSize: "18px",
+                  fontSize: fontClamp(18),
                   lineHeight: "150%",
                   letterSpacing: 0,
                   color: "#FAFAFA",
@@ -105,7 +106,7 @@ function Letstalk() {
               variant="body1"
               sx={{
                 fontWeight: 400,
-                fontSize: "20px",
+                fontSize: fontClamp(20),
                 lineHeight: "150%",
                 letterSpacing: 0,
                 color: "#FFFFFF",
@@ -134,7 +135,7 @@ function Letstalk() {
                   borderRadius: "39px",
                   px: 5,
                   py: 2,
-                  fontSize: "18px",
+                  fontSize: fontClamp(18),
                   fontWeight: 400,
                   lineHeight: "150%",
                   letterSpacing: "0%",
@@ -156,7 +157,7 @@ function Letstalk() {
                   borderRadius: "39px",
                   px: 5,
                   py: 2,
-                  fontSize: "18px",
+                  fontSize: fontClamp(18),
                   fontWeight: 400,
                   lineHeight: "150%",
                   letterSpacing: "0%",

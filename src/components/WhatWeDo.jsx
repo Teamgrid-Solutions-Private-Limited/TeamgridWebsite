@@ -15,6 +15,7 @@ import {
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import WestIcon from "@mui/icons-material/West";
 import data from "../data.json";
+import { fontClamp } from "../fontUtils";
 
 // Import Funiro images from centralized file
 import {
@@ -78,9 +79,8 @@ function WhatWeDo() {
           }}
         >
           <Typography
-            variant="h2"
             sx={{
-              fontSize: { xs: "32px", sm: "45px", md: "56px" },
+              fontSize: fontClamp(56),
               fontWeight: 500,
               lineHeight: "100%",
               letterSpacing: 0,
@@ -91,9 +91,8 @@ function WhatWeDo() {
           </Typography>
 
           <Typography
-            variant="body1"
             sx={{
-              fontSize: "18px",
+              fontSize: fontClamp(18),
               fontWeight: 400,
               lineHeight: "150%",
               letterSpacing: 0,
@@ -144,9 +143,8 @@ function WhatWeDo() {
                   gap={{ xs: 1, sm: 2, md: 3 }}
                 >
                   <Typography
-                    variant="h4"
                     sx={{
-                      fontSize: { xs: "24px", sm: "32px", md: "40px" },
+                      fontSize: fontClamp(40),
                       fontWeight: 500,
                       lineHeight: "100%",
                       letterSpacing: 0,
@@ -156,9 +154,8 @@ function WhatWeDo() {
                     {item.title}
                   </Typography>
                   <Typography
-                    variant="body2"
                     sx={{
-                      fontSize: "16px",
+                      fontSize: fontClamp(16),
                       fontWeight: 400,
                       lineHeight: "150%",
                       letterSpacing: 0,
@@ -174,7 +171,7 @@ function WhatWeDo() {
                       sx={{
                         color: "#000000",
                         textTransform: "none",
-                        fontSize: "16px",
+                        fontSize: fontClamp(16),
                         fontWeight: 500,
                         lineHeight: "100%",
                         letterSpacing: 0,
@@ -398,7 +395,7 @@ function WhatWeDo() {
                       className="service-text"
                       variant="subtitle1"
                       sx={{
-                        fontSize: "16px",
+                        fontSize: fontClamp(16),
                         fontWeight: 500,
                         lineHeight: "100%",
                         letterSpacing: 0,
@@ -412,7 +409,7 @@ function WhatWeDo() {
                       className="service-description"
                       variant="body2"
                       sx={{
-                        fontSize: "14px",
+                        fontSize: fontClamp(14),
                         fontWeight: 400,
                         lineHeight: "100%",
                         letterSpacing: 0,

@@ -16,6 +16,7 @@ import {
   rectangleImage4 as Rectangle46,
 } from "../images";
 import data from "../data.json";
+import { fontClamp } from "../fontUtils";
 
 // Get WhoWeHelp data from data.json
 const { title, subtitle, description, buttonText } = data.whoWeHelp;
@@ -69,7 +70,7 @@ const WhoWeHelp = () => {
                 <Typography
                   variant="h2"
                   sx={{
-                    fontSize: { xs: "32px", sm: "45px", md: "56px" },
+                    fontSize: fontClamp(56),
                     fontWeight: 500,
                     lineHeight: "100%",
                     letterSpacing: 0,
@@ -82,7 +83,7 @@ const WhoWeHelp = () => {
                 <Typography
                   variant="subtitle1"
                   sx={{
-                    fontSize: "18px",
+                    fontSize: fontClamp(18),
                     fontWeight: 400,
                     lineHeight: "150%",
                     letterSpacing: 0,
@@ -95,7 +96,7 @@ const WhoWeHelp = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: "16px",
+                  fontSize: fontClamp(16),
                   fontWeight: 400,
                   lineHeight: "150%",
                   letterSpacing: 0,
@@ -115,7 +116,7 @@ const WhoWeHelp = () => {
                   px: 5,
                   py: 2,
                   textTransform: "none",
-                  fontSize: "18px",
+                  fontSize: fontClamp(18),
                   fontWeight: 400,
                   lineHeight: "150%",
                   letterSpacing: 0,

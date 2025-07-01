@@ -23,6 +23,7 @@ import {
   group3 as postmanIcon,
 } from "../images";
 import data from "../data.json";
+import { fontClamp } from '../fontUtils';
 
 // Map icon strings to the imported icon variables
 const iconMap = {
@@ -107,11 +108,11 @@ function Technologies() {
               }}
             >
               <Typography
-                variant="h2"
+                // variant="h2"
                 color="common.white"
                 sx={{
                   fontWeight: 500,
-                  fontSize: { xs: "32px", sm: "45px", md: "56px" },
+                  fontSize: fontClamp(56),
                   leadingTrim: "Cap height",
                   lineHeight: "100%",
                   letterSpacing: "0%",
@@ -121,12 +122,12 @@ function Technologies() {
                 {title}
               </Typography>
               <Typography
-                variant="body2"
+                // variant="body2"
                 color="#e1e0e0"
                 sx={{
                   mt: { xs: 0.5, sm: 1 },
                   fontWeight: 400,
-                  fontSize: "18px",
+                  fontSize: fontClamp(18),
                   lineHeight: "150%",
                   letterSpacing: "0%",
                 }}
@@ -146,7 +147,7 @@ function Technologies() {
                 px: 5,
                 py: 2,
                 fontWeight: 400,
-                fontSize: "16px",
+                fontSize: fontClamp(16),
                 lineHeight: "150%",
                 letterSpacing: "0%",
                 color: "#FFFFFF",
@@ -261,7 +262,7 @@ function Technologies() {
                       color="common.white"
                       sx={{
                         fontWeight: 500,
-                        fontSize: "20px",
+                        fontSize: fontClamp(20),
                         lineHeight: "100%",
                         letterSpacing: "0%",
                         color: "#FFFFFF",
@@ -274,7 +275,7 @@ function Technologies() {
                       color="common.white"
                       sx={{
                         fontWeight: 400,
-                        fontSize: "14px",
+                        fontSize: fontClamp(14),
                         lineHeight: "150%",
                         letterSpacing: "0%",
                         color: "#E3EFFF",
