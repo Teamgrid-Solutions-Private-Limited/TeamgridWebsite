@@ -111,7 +111,7 @@ function WhatWeDo() {
             overflow: "hidden",
             background: "linear-gradient(180deg, #E1ECF7 0%, #E2E9F0 103.33%)",
             mb: 3,
-            height: { xs: "auto", md: 585 },
+            height: "auto",
             minHeight: { xs: 700, sm: 585 },
             position: "relative",
           }}

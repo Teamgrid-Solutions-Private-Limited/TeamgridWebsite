@@ -81,8 +81,8 @@ const QuoteIcon = styled(Box)(({ theme }) => ({
 const TestimonialCard = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2.5),
   width: "384px",
-  height: "289px",
-  maxHeight: "289px",
+  height: "auto",
+  // maxHeight: "500px",
   display: "flex",
   flexDirection: "column",
   borderRadius: theme.spacing(3),
@@ -97,8 +97,8 @@ const TestimonialCard = styled(Paper)(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     width: "300px",
     padding: theme.spacing(3),
-    height: "260px",
-    maxHeight: "260px",
+    height: "auto",
+    // maxHeight: "500px",
     margin: theme.spacing(0, 1),
   },
   [theme.breakpoints.down("sm")]: {
