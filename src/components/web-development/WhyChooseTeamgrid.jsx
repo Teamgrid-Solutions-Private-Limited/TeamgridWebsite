@@ -18,6 +18,7 @@ import {
   qualityIcon,
 } from "../../images"; // Adjust the import path as necessary
 import data from "../../data.json"; // Assuming you have a data.json file with the features
+import { fontClamp } from "../../fontUtils";
 const features = data.whyChooseTeamgrid;
 
 const WhyChooseTeamgrid = () => {
@@ -74,7 +75,7 @@ const WhyChooseTeamgrid = () => {
             sx={{
               fontFamily: "PayPal Open",
               fontWeight: 500,
-              fontSize: "48px",
+              fontSize: fontClamp(48),
               leadingTrim: "Cap height",
               lineHeight: "120%",
               letterSpacing: "0%",
@@ -101,7 +102,7 @@ const WhyChooseTeamgrid = () => {
                 borderColor: "primary.main",
               },
               fontWeight: 400,
-              fontSize: "18px",
+              fontSize: fontClamp(18),
               lineHeight: "150%",
               letterSpacing: "0%",
               color: "#140E13",
@@ -120,7 +121,7 @@ const WhyChooseTeamgrid = () => {
                 sx={{
                   p: { xs: 2, sm: 2.5, md: 2.5 },
                   width: { xs: "280px", sm: "384px" },
-                  height: { xs: "200px", sm: "172px" },
+                  height: "auto",
                   display: "flex",
                   flexDirection: "column",
                   borderRadius: "24px",
@@ -149,7 +150,7 @@ const WhyChooseTeamgrid = () => {
                   sx={{
                     fontFamily: "PayPal Open",
                     fontWeight: 500,
-                    fontSize: { xs: "18px", sm: "20px", md: "20px" },
+                    fontSize: fontClamp(20),
                     leadingTrim: "Cap height",
                     lineHeight: "120%",
                     letterSpacing: "0%",
@@ -165,7 +166,7 @@ const WhyChooseTeamgrid = () => {
                   sx={{
                     fontFamily: "PayPal Open",
                     fontWeight: 400,
-                    fontSize: "16px",
+                    fontSize: fontClamp(16),
                     lineHeight: "150%",
                     letterSpacing: "0%",
                     color: "#140E13",

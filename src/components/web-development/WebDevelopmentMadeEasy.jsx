@@ -7,6 +7,7 @@ import {
   useTheme,
 } from "@mui/material";
 import webDevMadeEasyImage from "../../assets/web-debelopment-made-easy.svg";
+import { fontClamp } from "../../fontUtils";
 
 function WebDevelopmentMadeEasy() {
   const theme = useTheme();
@@ -42,7 +43,7 @@ function WebDevelopmentMadeEasy() {
             sx={{
               fontFamily: "PayPal Open",
               fontWeight: 500,
-              fontSize: "56px",
+              fontSize: fontClamp(56),
               leadingTrim: "Cap height",
               lineHeight: "100%",
               letterSpacing: "0%",
@@ -61,7 +62,7 @@ function WebDevelopmentMadeEasy() {
             sx={{
               fontFamily: "PayPal Open",
               fontWeight: 400,
-              fontSize: "16px",
+              fontSize: fontClamp(16),
               lineHeight: "150%",
               letterSpacing: "0%",
               color: "#000000",
@@ -89,7 +90,7 @@ function WebDevelopmentMadeEasy() {
             sx={{
               fontFamily: "PayPal Open",
               fontWeight: 400,
-              fontSize: "16px",
+              fontSize: fontClamp(16),
               lineHeight: "150%",
               letterSpacing: "0%",
               color: "#000000",
@@ -101,7 +102,7 @@ function WebDevelopmentMadeEasy() {
               sx={{
                 fontFamily: "PayPal Open",
                 fontWeight: 700,
-                fontSize: "16px",
+                fontSize: fontClamp(16),
                 lineHeight: "150%",
                 letterSpacing: "0%",
               }}
@@ -116,7 +117,7 @@ function WebDevelopmentMadeEasy() {
         {/* Right side - Image */}
         <Box
           sx={{
-            width: { xs: "100%", md: "60%" },
+            width: { xs: "100%", md: "50%" },
             display: "flex",
             justifyContent: "center",
           }}

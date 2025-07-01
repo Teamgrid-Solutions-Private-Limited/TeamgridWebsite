@@ -211,7 +211,7 @@ function Technologies() {
                       flexShrink: 0,
                     }}
                   >
-                    {tech.title === "Postman" ? (
+                    {/* {tech.title === "Postman" ? (
                       <Box
                         sx={{
                           width: { xs: 32, sm: 38, md: 44 },
@@ -235,7 +235,7 @@ function Technologies() {
                           }}
                         />
                       </Box>
-                    ) : (
+                    ) : ( */}
                       <Box
                         component="img"
                         src={tech.icon}
@@ -247,7 +247,7 @@ function Technologies() {
                           objectFit: "contain",
                         }}
                       />
-                    )}
+                    {/* )} */}
                   </Box>
                   <Box
                     sx={{
