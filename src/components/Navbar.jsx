@@ -730,7 +730,7 @@ function Navbar() {
         sx={{
           py: { xs: 0.5, sm: 0.75, md: 1 },
           background: !scrolled
-            ? "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)"
+            ? "transparent"
             : "rgba(255, 255, 255, 0.95)",
           backdropFilter: scrolled ? "blur(8px)" : "none",
           boxShadow: scrolled ? "0px 2px 10px rgba(0, 0, 0, 0.05)" : "none",
@@ -743,6 +743,35 @@ function Navbar() {
           maxHeight: { xs: 56, sm: 64, md: 70, lg: 80 },
         }}
       >
+        {/* Gradient overlays */}
+        {!scrolled && (
+          <>
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: { xs: 56*2, sm: 64*2, md: 70*3, lg: 80*3 }, // topmost, most opaque
+                background: "linear-gradient(to bottom, \
+                  rgba(0,0,0,0.70) 0%, \
+                  rgba(0,0,0,0.62) 10%, \
+                  rgba(0,0,0,0.54) 20%, \
+                  rgba(0,0,0,0.46) 30%, \
+                  rgba(0,0,0,0.38) 40%, \
+                  rgba(0,0,0,0.28) 50%, \
+                  rgba(0,0,0,0.20) 60%, \
+                  rgba(0,0,0,0.12) 70%, \
+                  rgba(0,0,0,0.06) 80%, \
+                  rgba(0,0,0,0.03) 90%, \
+                  rgba(0,0,0,0.00) 100%)",
+                pointerEvents: "none",
+                zIndex: 0,
+              }}
+            />
+          </>
+        )}
+
         <Container
           maxWidth="1248px"
           sx={{
