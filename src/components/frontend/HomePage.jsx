@@ -19,6 +19,8 @@ import {
   cssIcon,
   htmlIcon,
   bootstrapIcon,
+  teamgridLogo,
+  figmaIcon,
 } from "../../images";
 
 function HomePage() {
@@ -51,6 +53,7 @@ function HomePage() {
     { name: "Material UI", icon: muiIcon },
     { name: "Bootstrap", icon: bootstrapIcon },
     { name: "WordPress", icon: wordpressIcon },
+    { name: "Figma", icon: figmaIcon },
   ];
 
   // Dynamically adjust orbit scale based on screen size
@@ -124,11 +127,21 @@ function HomePage() {
         width: "100%",
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      <Container maxWidth="1248px">
+      <Container
+        maxWidth="1248px"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
+          maxWidth: "1248px",
+          width: "100%",
+        }}
+      >
         <Box
           sx={{
             display: "flex",
@@ -142,8 +155,7 @@ function HomePage() {
           {/* Left Content */}
           <Box
             sx={{
-              width: { xs: "100%", md: "55%" },
-              pr: { md: 4 },
+              width: { xs: "100%", md: "60%" },
               zIndex: 10,
             }}
           >
@@ -169,7 +181,7 @@ function HomePage() {
             <Typography
               sx={{
                 color: "#E1E0E0",
-                fontSize: fontClamp(18),
+                fontSize: fontClamp(20),
                 lineHeight: 1.6,
                 my: 3,
                 maxWidth: "90%",
@@ -193,7 +205,7 @@ function HomePage() {
                   px: 4,
                   py: 1.5,
                   textTransform: "none",
-                  fontSize: fontClamp(16),
+                  fontSize: fontClamp(18),
                   fontWeight: 500,
                   boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
                   "&:hover": { bgcolor: "#0069d9" },
@@ -211,7 +223,7 @@ function HomePage() {
                   px: 4,
                   py: 1.5,
                   textTransform: "none",
-                  fontSize: fontClamp(16),
+                  fontSize: fontClamp(18),
                   "&:hover": {
                     borderColor: "white",
                     bgcolor: "rgba(255,255,255,0.05)",
@@ -224,323 +236,219 @@ function HomePage() {
           </Box>
 
           {/* Orbital system with tech icons - only visible on md and up */}
-          {(isMd || isLg || isXl) && (
-            <Box
-              sx={{
-                position: "relative",
-                width: { md: "45%" },
-                height: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              {/* Orbits with icons and dots */}
-              {[
-                { icons: techIcons.slice(0, 3), positions: 6 },
-                { icons: techIcons.slice(3, 6), positions: 8 },
-                { icons: techIcons.slice(0, 8), positions: 10 },
-              ].map((orbit, orbitIdx) => {
-                // Use a base radius and progressively increasing gap for each orbit
-                const baseRadius = 180; // starting radius for innermost orbit
-                const gapStart = 80; // px, gap between 1st and 2nd orbit
-                const gapInc = 12; // px, increment for each next gap
-                let orbitRadius = baseRadius;
-                for (let i = 1; i <= orbitIdx; i++) {
-                  orbitRadius += gapStart + (i - 1) * gapInc;
+          <Box
+            sx={{
+              position: "relative",
+              left: "38%",
+              transform: "translateX(-60%)",
+              width: { xs: "100%", md: "40%" },
+              height: { xs: "auto", md: "500px" },
+              display: { xs: "none", md: "flex" },
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {/* Orbits with icons and dots */}
+            {[
+              { icons: techIcons.slice(0, 3), positions: 6 },
+              { icons: techIcons.slice(3, 7), positions: 8 },
+              { icons: techIcons.slice(0, 9), positions: 10 },
+            ].map((orbit, orbitIdx) => {
+              // Use a base radius and progressively increasing gap for each orbit
+              const baseRadius = 280;
+              const gapStart = 150;
+              const gapInc = 18;
+              let orbitRadius = baseRadius;
+              for (let i = 1; i <= orbitIdx; i++) {
+                orbitRadius += gapStart + (i - 1) * gapInc;
+              }
+              orbitRadius = orbitRadius * orbitScale;
+              const animationName = `frontend-orbit-rotate-${orbitIdx}`;
+              const duration = 500 + orbitIdx * 10;
+              const direction = orbitIdx % 2 === 0 ? "normal" : "reverse";
+
+              // Distribute icons at regular intervals, fill rest with dots
+              const iconPositions = Array(orbit.positions).fill(null);
+              const interval = Math.floor(orbit.positions / orbit.icons.length);
+              let pos = 0;
+              orbit.icons.forEach((icon, i) => {
+                iconPositions[pos] = icon;
+                pos = (pos + interval) % orbit.positions;
+                while (
+                  iconPositions[pos] &&
+                  iconPositions.filter(Boolean).length < orbit.icons.length
+                ) {
+                  pos = (pos + 1) % orbit.positions;
                 }
-                orbitRadius = orbitRadius * orbitScale;
-                const animationName = `frontend-orbit-rotate-${orbitIdx}`;
-                const duration = 50 + orbitIdx * 10;
-                const direction = orbitIdx % 2 === 0 ? "normal" : "reverse";
+              });
 
-                // Distribute icons at regular intervals, fill rest with dots
-                const iconPositions = Array(orbit.positions).fill(null);
-                const interval = Math.floor(
-                  orbit.positions / orbit.icons.length
-                );
-                let pos = 0;
-                orbit.icons.forEach((icon, i) => {
-                  iconPositions[pos] = icon;
-                  pos = (pos + interval) % orbit.positions;
-                  while (
-                    iconPositions[pos] &&
-                    iconPositions.filter(Boolean).length < orbit.icons.length
-                  ) {
-                    pos = (pos + 1) % orbit.positions;
-                  }
-                });
-
-                return (
+              return (
+                <Box
+                  key={`orbit-parent-${orbitIdx}`}
+                  sx={{
+                    position: "absolute",
+                    width: `${orbitRadius * 2}px`,
+                    height: `${orbitRadius * 2}px`,
+                    pointerEvents: "none",
+                    zIndex: 2,
+                    transform: `rotate(${
+                      orbitAngle * (orbitIdx % 2 === 0 ? 1 : -1)
+                    }deg)`,
+                    transition: "transform 0.1s linear",
+                    animation: `${animationName} ${duration}s linear infinite`,
+                    animationDirection: direction,
+                    animationPlayState: isPaused ? "paused" : "running",
+                    [`@keyframes ${animationName}`]: {
+                      "0%": { transform: "rotate(0deg)" },
+                      "100%": { transform: "rotate(360deg)" },
+                    },
+                  }}
+                >
+                  {/* Orbit border */}
                   <Box
-                    key={`orbit-parent-${orbitIdx}`}
                     sx={{
                       position: "absolute",
-                      width: `${orbitRadius * 2}px`,
-                      height: `${orbitRadius * 2}px`,
-                      pointerEvents: "none",
-                      zIndex: 2,
-                      transform: `rotate(${
-                        orbitAngle * (orbitIdx % 2 === 0 ? 1 : -1)
-                      }deg)`,
-                      transition: "transform 0.1s linear",
-                      animation: `${animationName} ${duration}s linear infinite`,
-                      animationDirection: direction,
-                      animationPlayState: isPaused ? "paused" : "running",
-                      [`@keyframes ${animationName}`]: {
-                        "0%": { transform: "rotate(0deg)" },
-                        "100%": { transform: "rotate(360deg)" },
-                      },
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: "50%",
+                      border: "2px solid rgba(255,255,255,0.15)",
+                      zIndex: 1,
                     }}
-                  >
-                    {/* Orbit border */}
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
-                        borderRadius: "50%",
-                        border: "1.5px solid rgba(255,255,255,0.15)",
-                        zIndex: 1,
-                      }}
-                    />
+                  />
 
-                    {/* Icons and dots at positions */}
-                    {iconPositions.map((icon, posIdx) => {
-                      const angle = (360 / orbit.positions) * posIdx;
-                      const radians = (angle * Math.PI) / 180;
-                      const x = Math.cos(radians) * orbitRadius;
-                      const y = Math.sin(radians) * orbitRadius;
+                  {/* Icons and dots at positions */}
+                  {iconPositions.map((icon, posIdx) => {
+                    const angle = (360 / orbit.positions) * posIdx;
+                    const radians = (angle * Math.PI) / 180;
+                    const x = Math.cos(radians) * orbitRadius;
+                    const y = Math.sin(radians) * orbitRadius;
 
-                      if (icon) {
-                        // Icon
-                        return (
+                    if (icon) {
+                      // Icon
+                      return (
+                        <Box
+                          key={`icon-${orbitIdx}-${posIdx}`}
+                          sx={{
+                            position: "absolute",
+                            left: `calc(50% + ${x}px)`,
+                            top: `calc(50% + ${y}px)`,
+                            transform: `translate(-50%, -50%) rotate(${
+                              -orbitAngle * (orbitIdx % 2 === 0 ? 1 : -1)
+                            }deg)`,
+                            zIndex: 20,
+                            pointerEvents: "auto",
+                          }}
+                          onMouseEnter={() => setIsPaused(true)}
+                          onMouseLeave={() => setIsPaused(false)}
+                        >
                           <Box
-                            key={`icon-${orbitIdx}-${posIdx}`}
                             sx={{
-                              position: "absolute",
-                              left: `calc(50% + ${x}px)`,
-                              top: `calc(50% + ${y}px)`,
-                              transform: `translate(-50%, -50%) rotate(${
-                                -orbitAngle * (orbitIdx % 2 === 0 ? 1 : -1)
-                              }deg)`,
-                              zIndex: 20,
-                              pointerEvents: "auto",
+                              width: `${92 * orbitScale}px`,
+                              height: `${92 * orbitScale}px`,
+                              borderRadius: "50%",
+                              bgcolor: "#0D264F",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              boxShadow: "0 0 25px 0 rgba(0, 123, 255, 0.5)",
+                              animation: "glowPulse 3s ease-in-out infinite",
+                              "@keyframes glowPulse": {
+                                "0%": {
+                                  boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)",
+                                },
+                                "50%": {
+                                  boxShadow:
+                                    "0 0 25px 0 rgba(0, 123, 255, 0.5)",
+                                },
+                                "100%": {
+                                  boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)",
+                                },
+                              },
+                              border: "1px solid #3B526F",
+                              transition: "transform 0.3s ease-in-out",
+                              "&:hover": {
+                                transform: "scale(1.1)",
+                              },
                             }}
-                            onMouseEnter={() => setIsPaused(true)}
-                            onMouseLeave={() => setIsPaused(false)}
                           >
                             <Box
+                              component="img"
+                              src={icon.icon}
+                              alt={icon.name}
+                              loading="lazy"
                               sx={{
                                 width: `${56 * orbitScale}px`,
                                 height: `${56 * orbitScale}px`,
-                                borderRadius: "50%",
-                                bgcolor: "#0D264F",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)",
-                                animation: "glowPulse 3s ease-in-out infinite",
-                                "@keyframes glowPulse": {
-                                  "0%": {
-                                    boxShadow:
-                                      "0 0 0px 0 rgba(0, 123, 255, 0.0)",
-                                  },
-                                  "50%": {
-                                    boxShadow:
-                                      "0 0 20px 0 rgba(0, 123, 255, 0.4)",
-                                  },
-                                  "100%": {
-                                    boxShadow:
-                                      "0 0 0px 0 rgba(0, 123, 255, 0.0)",
-                                  },
-                                },
-                                border: "1px solid #3B526F",
-                                transition: "transform 0.3s ease-in-out",
+                                objectFit: "contain",
+                                transition: "transform 0.2s ease-in-out",
                                 "&:hover": {
-                                  transform: "scale(1.05)",
+                                  transform: "scale(1.1)",
                                 },
                               }}
-                            >
-                              <Box
-                                component="img"
-                                src={icon.icon}
-                                alt={icon.name}
-                                loading="lazy"
-                                sx={{
-                                  width: `${32 * orbitScale}px`,
-                                  height: `${32 * orbitScale}px`,
-                                  objectFit: "contain",
-                                  transition: "transform 0.2s ease-in-out",
-                                  "&:hover": {
-                                    transform: "scale(1.05)",
-                                  },
-                                }}
-                              />
-                            </Box>
+                            />
                           </Box>
-                        );
-                      } else {
-                        // Dot
-                        return (
-                          <Box
-                            key={`dot-${orbitIdx}-${posIdx}`}
-                            sx={{
-                              position: "absolute",
-                              left: `calc(50% + ${x}px)`,
-                              top: `calc(50% + ${y}px)`,
-                              transform: "translate(-50%, -50%)",
-                              width: { xs: "4px", sm: "6px", md: "6px" },
-                              height: { xs: "4px", sm: "6px", md: "6px" },
-                              borderRadius: "50%",
-                              bgcolor: "#B2D2FC",
-                              pointerEvents: "none",
-                              zIndex: 5,
-                            }}
-                          />
-                        );
-                      }
-                    })}
-                  </Box>
-                );
-              })}
+                        </Box>
+                      );
+                    } else {
+                      // Dot
+                      return (
+                        <Box
+                          key={`dot-${orbitIdx}-${posIdx}`}
+                          sx={{
+                            position: "absolute",
+                            left: `calc(50% + ${x}px)`,
+                            top: `calc(50% + ${y}px)`,
+                            transform: "translate(-50%, -50%)",
+                            width: { xs: "6px", sm: "8px", md: "8px" },
+                            height: { xs: "6px", sm: "8px", md: "8px" },
+                            borderRadius: "50%",
+                            bgcolor: "#B2D2FC",
+                            pointerEvents: "none",
+                            zIndex: 5,
+                          }}
+                        />
+                      );
+                    }
+                  })}
+                </Box>
+              );
+            })}
 
-              {/* React logo in center */}
-              <Box
-                sx={{
-                  position: "relative",
-                  width: `${logoOffset * 1.5}px`,
-                  height: `${logoOffset * 1.5}px`,
-                  borderRadius: "50%",
-                  bgcolor: "#0F4285",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  zIndex: 10,
-                  boxShadow: "0 0 30px rgba(0, 123, 255, 0.4)",
-                }}
-              >
-                <Box
-                  component="img"
-                  src={reactIcon}
-                  alt="React"
-                  sx={{
-                    width: "65%",
-                    height: "65%",
-                    objectFit: "contain",
-                    animation: "pulse 4s ease-in-out infinite",
-                    "@keyframes pulse": {
-                      "0%": { opacity: 0.8 },
-                      "50%": { opacity: 1 },
-                      "100%": { opacity: 0.8 },
-                    },
-                  }}
-                />
-              </Box>
-            </Box>
-          )}
-
-          {/* Mobile view - simplified tech display */}
-          {!(isMd || isLg || isXl) && (
+            {/* React logo in center */}
             <Box
               sx={{
-                width: { xs: "100%" },
-                display: "flex",
-                justifyContent: "center",
                 position: "relative",
-                py: 4,
+                width: `${logoOffset * 2}px`,
+                height: `${logoOffset * 2}px`,
+                borderRadius: "50%",
+                bgcolor: "#0F4285",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                zIndex: 10,
+                boxShadow: "0 0 40px rgba(0, 123, 255, 0.5)",
               }}
             >
-              {/* React Icon */}
               <Box
+                component="img"
+                src={teamgridLogo}
+                alt="React"
                 sx={{
-                  position: "relative",
-                  animation: "float 6s ease-in-out infinite",
-                  "@keyframes float": {
-                    "0%, 100%": { transform: "translateY(0px)" },
-                    "50%": { transform: "translateY(-20px)" },
+                  width: "70%",
+                  height: "70%",
+                  objectFit: "contain",
+                  animation: "pulse 4s ease-in-out infinite",
+                  "@keyframes pulse": {
+                    "0%": { opacity: 0.8 },
+                    "50%": { opacity: 1 },
+                    "100%": { opacity: 0.8 },
                   },
                 }}
-              >
-                <img
-                  src={reactIcon}
-                  alt="React"
-                  style={{
-                    width: "100%",
-                    maxWidth: "180px",
-                    filter: "drop-shadow(0 0 20px rgba(97, 218, 251, 0.5))",
-                  }}
-                />
-              </Box>
-
-              {/* Other icons floating around */}
-              {[
-                { icon: javascriptIcon, top: "15%", left: "20%", size: "50px" },
-                {
-                  icon: typescriptIcon,
-                  bottom: "25%",
-                  left: "15%",
-                  size: "45px",
-                },
-                { icon: htmlIcon, top: "20%", right: "20%", size: "45px" },
-                { icon: cssIcon, bottom: "20%", right: "15%", size: "50px" },
-                { icon: muiIcon, top: "50%", right: "25%", size: "55px" },
-              ].map((item, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    position: "absolute",
-                    top: item.top,
-                    left: item.left,
-                    right: item.right,
-                    bottom: item.bottom,
-                    opacity: 0.7,
-                    transform: "scale(0.8)",
-                    animation: `float${index} ${
-                      3 + index * 0.5
-                    }s ease-in-out infinite`,
-                    [`@keyframes float${index}`]: {
-                      "0%, 100%": { transform: "translateY(0px)" },
-                      "50%": { transform: `translateY(${-10 - index * 2}px)` },
-                    },
-                    zIndex: 1,
-                  }}
-                >
-                  <img
-                    src={item.icon}
-                    alt="Tech Icon"
-                    style={{ width: item.size }}
-                  />
-                </Box>
-              ))}
-
-              {/* Decorative dots/circles */}
-              {[...Array(8)].map((_, i) => (
-                <Box
-                  key={i}
-                  sx={{
-                    position: "absolute",
-                    width: Math.random() * 10 + 5,
-                    height: Math.random() * 10 + 5,
-                    borderRadius: "50%",
-                    backgroundColor: "#ffffff",
-                    opacity: Math.random() * 0.5 + 0.2,
-                    top: `${Math.random() * 100}%`,
-                    left: `${Math.random() * 100}%`,
-                    animation: `pulse ${
-                      Math.random() * 3 + 2
-                    }s ease-in-out infinite`,
-                    "@keyframes pulse": {
-                      "0%, 100%": { opacity: 0.2 },
-                      "50%": { opacity: 0.6 },
-                    },
-                  }}
-                />
-              ))}
+              />
             </Box>
-          )}
+          </Box>
         </Box>
       </Container>
 
@@ -552,8 +460,6 @@ function HomePage() {
           right: 0,
           width: "50%",
           height: "70%",
-          background:
-            "radial-gradient(circle, rgba(97, 218, 251, 0.2) 0%, rgba(7, 36, 73, 0) 70%)",
           transform: "translateY(-50%)",
           zIndex: 1,
         }}

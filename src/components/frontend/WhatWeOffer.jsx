@@ -23,7 +23,9 @@ import {
   bootstrapIcon,
   documentationIcon,
   designIcon,
+  teamIcon,
 } from "../../images";
+import { HiOutlineUserGroup } from "react-icons/hi";
 
 function WhatWeOffer() {
   const theme = useTheme();
@@ -37,46 +39,46 @@ function WhatWeOffer() {
     {
       title: "Design-to-Code Conversion",
       description: "Pixel-perfect UI from Figma, Sketch, or PSD files.",
-      icon: figmaIcon,
-      color: "#0D3C7E",
+      icon: teamIcon,
+      // color: "#0D3C7E",
     },
     {
       title: "Responsive Web Design",
       description: "Optimized layouts for mobile, tablet, and desktop.",
-      icon: designIcon,
-      color: "#F7F9FC",
+      icon: teamIcon,
+      // color: "#F7F9FC",
     },
     {
       title: "React Component Development",
       description: "Reusable, maintainable modern React components.",
-      icon: reactIcon,
-      color: "#0D3C7E",
+      icon: teamIcon,
+      // color: "#0D3C7E",
     },
     {
       title: "API-Driven Integration Service",
       description: "Seamless UI integration with RESTful or headless APIs.",
-      icon: documentationIcon,
-      color: "#F7F9FC",
+      icon: teamIcon,
+      // color: "#F7F9FC",
     },
     {
       title: "Performance Optimisation",
       description: "Fast-loading, efficient front-end experiences.",
-      icon: javascriptIcon,
-      color: "#0D3C7E",
+      icon: teamIcon,
+      // color: "#0D3C7E",
     },
     {
       title: "Cross-Browser Compatibility",
       description:
         "Consistent appearance across Chrome, Firefox, Safari, Edge.",
-      icon: htmlIcon,
-      color: "#F7F9FC",
+      icon: teamIcon,
+      // color: "#F7F9FC",
     },
   ];
 
   return (
     <Box
       sx={{
-        py: { xs: 6, md: 10 },
+        py: { xs: 6, md: 8 },
         backgroundColor: "#FFFFFF",
       }}
     >
@@ -85,6 +87,8 @@ function WhatWeOffer() {
         sx={{
           display: "flex",
           flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-between",
           px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
           maxWidth: "1248px",
           width: "100%",
@@ -96,10 +100,13 @@ function WhatWeOffer() {
             <Typography
               variant="h2"
               sx={{
-                fontSize: fontClamp(36),
-                fontWeight: 700,
-                mb: 3,
-                color: "#222222",
+                fontWeight: 500,
+                fontSize: fontClamp(56),
+                leadingTrim: "Cap height",
+                lineHeight: "100%",
+                letterSpacing: "0%",
+                color: "#140E13",
+                mb: 2,
               }}
             >
               What We Offer
@@ -108,11 +115,12 @@ function WhatWeOffer() {
             <Typography
               variant="h6"
               sx={{
-                fontSize: fontClamp(20),
-                fontWeight: 600,
+                fontWeight: 500,
+                fontSize: fontClamp(18),
+                lineHeight: "150%",
+                letterSpacing: "0%",
                 mb: 3,
-                color: "#222222",
-                lineHeight: 1.4,
+                color: "#000000",
               }}
             >
               Pixel-Perfect Front-End Development, Aligned with Your Designs and
@@ -121,10 +129,11 @@ function WhatWeOffer() {
 
             <Typography
               sx={{
-                fontSize: fontClamp(16),
+                fontWeight: 400,
+                lineHeight: "150%",
+                letterSpacing: "0%",
                 mb: 4,
-                color: "#555555",
-                lineHeight: 1.6,
+                color: "#000000",
               }}
             >
               We help web and digital agencies deliver high-quality user
@@ -138,14 +147,15 @@ function WhatWeOffer() {
               variant="contained"
               endIcon={<ArrowForwardIcon />}
               sx={{
-                bgcolor: "#0D3C7E",
-                color: "white",
-                borderRadius: "4px",
+                bgcolor: "#05408E",
+                color: "#FAFAFA",
                 py: 1.5,
                 px: 3,
                 textTransform: "none",
-                fontSize: fontClamp(16),
-                fontWeight: 500,
+                fontWeight: 400,
+                letterSpacing: "0%",
+                fontSize: fontClamp(18),
+                lineHeight: "150%",
                 boxShadow: "0 4px 10px rgba(13, 60, 126, 0.25)",
                 "&:hover": {
                   bgcolor: "#072758",
@@ -158,94 +168,94 @@ function WhatWeOffer() {
           </Grid>
 
           {/* Right Column - Service Cards */}
-          <Grid item size={{ xs: 12, md: 7 }}>
-            <Grid container spacing={3}>
+          <Grid item size={{ xs: 12, md: 7 }} width="100%">
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: {
+                  xs: "repeat(1, 282px)",
+                  sm:"repeat(2, 282px)",
+                  md: "repeat(3, 282px)",
+                }, // 3 fixed-width columns
+                gridAutoRows: "auto",
+                gap: 3, // 24px gap like your design
+                justifyContent: { xs: "center", md: "flex-start" }, // center on mobile, left-align on md+
+                overflow: "hidden",
+              }}
+            >
               {services.map((service, index) => {
                 const isActive =
                   hoveredCard === index || selectedCard === index;
                 return (
-                  <Grid item size={{ xs: 12, sm: 6 }} key={index}>
-                    <Card
-                      elevation={0}
-                      onMouseEnter={() => setHoveredCard(index)}
-                      onMouseLeave={() => setHoveredCard(null)}
-                      onClick={() => setSelectedCard(index)}
-                      sx={{
-                        bgcolor: isActive ? "#0D3C7E" : "#F7F9FC",
-                        color: isActive ? "white" : "#333333",
-                        height: "100%",
-                        borderRadius: 2,
-                        cursor: "pointer",
-                        transition:
-                          "transform 0.3s, box-shadow 0.3s, background-color 0.3s",
-                        "&:hover": {
-                          transform: "translateY(-4px)",
-                          boxShadow: "0 8px 24px rgba(13, 60, 126, 0.25)",
-                        },
-                      }}
-                    >
-                      <CardContent sx={{ p: 3 }}>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            mb: 2,
-                          }}
-                        >
-                          <Box
-                            sx={{
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              bgcolor: isActive
-                                ? "rgba(255,255,255,0.1)"
-                                : "rgba(13,60,126,0.1)",
-                              borderRadius: "50%",
-                              p: 1.5,
-                              mr: 2,
-                              width: 48,
-                              height: 48,
-                            }}
-                          >
-                            <Box
-                              component="img"
-                              src={service.icon}
-                              alt={service.title}
-                              sx={{
-                                width: 24,
-                                height: 24,
-                                filter: isActive ? "brightness(5)" : "none",
-                              }}
-                            />
-                          </Box>
-                          <Typography
-                            variant="h6"
-                            sx={{
-                              fontSize: fontClamp(18),
-                              fontWeight: 600,
-                            }}
-                          >
-                            {service.title}
-                          </Typography>
-                        </Box>
+                  <Card
+                    key={index}
+                    elevation={0}
+                    onMouseEnter={() => setHoveredCard(index)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                    onClick={() => setSelectedCard(index)}
+                    sx={{
+                      bgcolor: isActive ? "#05408E" : "#F3F3F6",
+                      color: isActive ? "#FFFFFF" : "#05408E",
+                      borderRadius: "24px",
+                      cursor: "pointer",
+                      transition:
+                        "transform 0.3s, box-shadow 0.3s, background-color 0.3s",
+                      "&:hover": {
+                        transform: "translateY(-4px)",
+                        boxShadow: "0 8px 24px rgba(13, 60, 126, 0.25)",
+                      },
+                    }}
+                  >
+                    <CardContent sx={{ p: 3 }}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          bgcolor: isActive ? "#1777F6" : "#F3F3F6",
+                          borderRadius: "14px",
+                          p: 1.5,
+                          mb: 2,
+                          width: "64px",
+                          height: "64px",
+                        }}
+                      >
+                        <HiOutlineUserGroup
+                          size={fontClamp(32)}
+                          color={isActive ? "#FFFFFF" : "#05408E"}
+                        />
+                      </Box>
 
-                        <Typography
-                          sx={{
-                            fontSize: fontClamp(14),
-                            color: isActive
-                              ? "rgba(255,255,255,0.85)"
-                              : "#555555",
-                            lineHeight: 1.5,
-                          }}
-                        >
-                          {service.description}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </Grid>
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          fontWeight: 500,
+                          fontSize: fontClamp(20),
+                          leadingTrim: "Cap height",
+                          lineHeight: "120%",
+                          letterSpacing: 0,
+                          color: isActive ? "#FFFFFF" : "#05408E",
+                          mb: 1,
+                        }}
+                      >
+                        {service.title}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontWeight: 400,
+                          fontSize: fontClamp(16),
+                          lineHeight: "150%",
+                          letterSpacing: 0,
+                          color: isActive ? "#EBF4FF" : "#3E393E",
+                        }}
+                      >
+                        {service.description}
+                      </Typography>
+                    </CardContent>
+                  </Card>
                 );
               })}
-            </Grid>
+            </Box>
           </Grid>
         </Grid>
       </Container>
