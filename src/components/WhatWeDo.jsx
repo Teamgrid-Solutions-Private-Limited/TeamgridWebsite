@@ -111,8 +111,7 @@ function WhatWeDo() {
             overflow: "hidden",
             background: "linear-gradient(180deg, #E1ECF7 0%, #E2E9F0 103.33%)",
             mb: 3,
-            height: "auto",
-            minHeight: { xs: 700, sm: 585 },
+            height: {xs:"clamp(600px, 30.6vw, 1000px)",md:"clamp(600px, 40.6vw, 700px)"},
             position: "relative",
           }}
         >
@@ -131,12 +130,13 @@ function WhatWeDo() {
                 key={i}
                 minWidth={"100%"}
                 spacing={3}
-                height={"100%"}
+                height={"auto"}
               >
                 {/* Left side - text content */}
                 <Grid
                   size={{ xs: 12, md: 6 }}
                   display={"flex"}
+                  height={'auto'}
                   justifyContent={"center"}
                   flexDirection={"column"}
                   p={{ xs: 2.5, md: 4, lg: 5, xl: 6 }}
@@ -288,7 +288,7 @@ function WhatWeDo() {
                 backgroundColor: "rgba(255, 255, 255,1)",
                 backdropFilter: "blur(156.89999389648438px)",
                 borderRadius: 4,
-                width: "95%",
+                width: "98%",
                 padding: { xs: "8px", sm: "8px" },
                 boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.15)",
               }}
@@ -299,7 +299,7 @@ function WhatWeDo() {
                   flexWrap: "wrap",
                   justifyContent: "center",
                   position: "relative",
-                  minHeight: "80px",
+                  // minHeight: "80px",
                   gap: "18px",
 
                   // Special styles for small screens
@@ -314,7 +314,7 @@ function WhatWeDo() {
                         right: 0,
                         top: "50%",
                         transform: "translateY(-50%)",
-                        height: "70%",
+                        height: "auto",
                         width: "1px",
                         backgroundColor: "#DDDDDD",
                         zIndex: 1,
@@ -365,10 +365,10 @@ function WhatWeDo() {
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      padding: { xs: "3px", sm: "0 8px" },
-                      textAlign: "center",
+                      justifyContent: "space-between",
+                      alignItems: "flex-start",
+                      padding: { xs: "8px", md: "10px",lg: "14px" },
+                      textAlign: "left",
                       position: "relative",
                       cursor: "pointer",
                       borderRadius: "8px",

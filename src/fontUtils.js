@@ -1,6 +1,6 @@
 
-export function fontClamp(referencePx, { minPx = 16, maxMultiplier = 1.5 } = {}) {
-  const minAllowed = referencePx * 0.64;
+export function fontClamp(referencePx, { minPx = 16, maxMultiplier = 1.2 } = {}) {
+  const minAllowed = referencePx * 0.8;
   if (minPx < minAllowed) minPx = minAllowed;
   if (referencePx < minPx) minPx = referencePx;
   const vw = ((referencePx / 1440) * 100).toFixed(2);

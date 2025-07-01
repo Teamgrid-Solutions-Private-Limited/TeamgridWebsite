@@ -77,7 +77,7 @@ function Home() {
   // Dynamically adjust orbit scale based on screen size
   useEffect(() => {
     const updateOrbitScale = () => {
-      const scale = Math.max(0.5, Math.min(window.innerWidth / 1440*0.9, 1.2)); // Clamp between 0.5 and 2 for sanity
+      const scale = Math.max(0.5, Math.min(window.innerWidth / 1440, 1.2)); // Clamp between 0.5 and 2 for sanity
       setOrbitScale(scale);
     };
     updateOrbitScale();
@@ -124,8 +124,7 @@ function Home() {
     <Box
       sx={{
         bgcolor: "#072449",
-        height: "90vh",
-       maxHeight:'80%',
+        height: {xs:"100vh",xl:"80vh"},
         overflow: "hidden",
         width: "100%",
         display: "flex",
@@ -145,7 +144,7 @@ function Home() {
           top: 0,
           left: 0,
           width: "100%",
-          height: "90vh",
+          height: "100%",
           backgroundColor: "rgba(0, 28, 66, 0.4)", // Overlay to ensure text is readable
           display: { xs: "block", sm: "block", md: "none" }, // Hide overlay on desktop
           zIndex: 1,
@@ -171,7 +170,7 @@ function Home() {
               <Typography
                 sx={{
                   color: "#E1E0E0",
-                  fontSize: fontClamp(18),
+                  fontSize: fontClamp(18,{minPx:16,maxMultiplier:1.25}),
                   lineHeight: 1.5,
                   textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" },
                   pointerEvents: "none",
@@ -182,7 +181,7 @@ function Home() {
               <Typography
                 sx={{
                   color: "#ffffff",
-                  fontSize: fontClamp(64),
+                  fontSize: fontClamp(64,{minPx:40,maxMultiplier:1.25}),
                   fontWeight: 700,
                   lineHeight: "100%",
                   textShadow: { xs: "0px 1px 3px rgba(0,0,0,0.5)", sm: "none" },
@@ -202,7 +201,7 @@ function Home() {
             <Typography
                 sx={{
                   color: "#E1E0E0",
-                  fontSize: fontClamp(20),
+                  fontSize: fontClamp(20,{minPx:16,maxMultiplier:1.25}),
                   lineHeight: 1.6,
                   fontWeight: 300,
                   textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" },
@@ -475,7 +474,7 @@ function Home() {
                      boxShadow: `0 0 0 0 rgba(11,49,97,0.5), 0 0 0 ${0.0286 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*4 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*7 * rippleDiameter}px rgba(11,49,97,0.5)`
                    },
                    '100%': {
-                     boxShadow: `0 0 0 ${0.0286 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*4 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*7 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*10 * rippleDiameter}px rgba(11,49,97,0)`
+                     boxShadow: `0 0 0 ${0.0286 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*4 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*7 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286*9 * rippleDiameter}px rgba(11,49,97,0)`
                    },
                  },
                }}
