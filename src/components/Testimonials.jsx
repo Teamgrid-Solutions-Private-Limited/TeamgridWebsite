@@ -149,7 +149,9 @@ const SliderNavButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-const TestimonialRow = styled(Box)(
+const TestimonialRow = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'isPaused',
+})(
   ({ theme, direction, speed = 60, isPaused }) => ({
     display: "flex",
     overflowX: "hidden",

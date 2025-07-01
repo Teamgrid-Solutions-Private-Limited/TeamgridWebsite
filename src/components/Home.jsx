@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
   Box,
   Typography,
@@ -120,6 +120,63 @@ function Home() {
   const baseRadius = 280; // must match the orbit's baseRadius
   const rippleDiameter = baseRadius * 2 * orbitScale;
 
+  // Memoize orbits array
+  const orbits = useMemo(() => ([
+    { icons: techIcons.slice(0, 4), positions: 8 },
+    { icons: techIcons.slice(0, 5), positions: 10 },
+    { icons: techIcons.slice(0, 6), positions: 12 },
+    { icons: techIcons.slice(0, 8), positions: 16 },
+  ]), [techIcons]);
+
+  // Memoize orbitConfigs (radius, animation, icon positions)
+  const orbitConfigs = useMemo(() => {
+    return orbits.map((orbit, orbitIdx) => {
+      let orbitRadius = 280;
+      const gapStart = 140;
+      const gapInc = 12;
+      for (let i = 1; i <= orbitIdx; i++) {
+        orbitRadius += gapStart + (i - 1) * gapInc;
+      }
+      orbitRadius = orbitRadius * orbitScale;
+      const animationName = `orbit-rotate-${orbitIdx}`;
+      const duration = 600 + orbitIdx * 60;
+      const direction = orbitIdx % 2 === 0 ? 'normal' : 'reverse';
+      // Distribute icons at regular intervals, fill rest with dots
+      const iconPositions = Array(orbit.positions).fill(null);
+      const interval = Math.floor(orbit.positions / orbit.icons.length);
+      let pos = 0;
+      orbit.icons.forEach((icon, i) => {
+        iconPositions[pos] = icon;
+        pos = (pos + interval) % orbit.positions;
+        while (iconPositions[pos] && iconPositions.filter(Boolean).length < orbit.icons.length) {
+          pos = (pos + 1) % orbit.positions;
+        }
+      });
+      return {
+        ...orbit,
+        orbitRadius,
+        animationName,
+        duration,
+        direction,
+        iconPositions,
+      };
+    });
+  }, [orbitScale, rightPadding, logoOffset, isPaused, orbits]);
+
+  // Memoize logo transform
+  const logoTransform = useMemo(() => {
+    if (!showDescription) return 'translateX(0%) scale(1)';
+    return {
+      md: 'translate(-140%,-200%) scale(15)',
+      lg: 'translate(-160%,-260%) scale(18)',
+    };
+  }, [showDescription]);
+
+  // Memoize active tech icon
+  const activeTechIcon = useMemo(
+    () => techIcons.find(t => t.name === activeTech)?.icon,
+    [activeTech, techIcons]
+  );
 
   return (
     <Box
@@ -282,162 +339,128 @@ function Home() {
             }}
           >
             {/* Orbits with icons and dots, all rotate as a group */}
-            {[
-              { icons: techIcons.slice(0, 4), positions: 8 }, // more dots between 5 icons
-              { icons: techIcons.slice(0, 5), positions: 10 },
-              { icons: techIcons.slice(0, 6), positions: 12 },
-              {
-                icons:
-                  techIcons.slice(0, 8)
-                , positions: 16
-              }, // outermost, repeat to fill 16
-            ].map((orbit, orbitIdx) => {
-              // Use a base radius and progressively increasing gap for each orbit
-              const baseRadius = 280; // starting radius for innermost orbit
-              const gapStart = 140; // px, gap between 1st and 2nd orbit
-              const gapInc = 12; // px, increment for each next gap
-              let orbitRadius = baseRadius;
-              for (let i = 1; i <= orbitIdx; i++) {
-                orbitRadius += gapStart + (i - 1) * gapInc;
-              }
-              orbitRadius = orbitRadius * orbitScale;
-              const animationName = `orbit-rotate-${orbitIdx}`;
-              const duration = 600 + orbitIdx * 60;
-              const direction = orbitIdx % 2 === 0 ? 'normal' : 'reverse';
-              // Distribute icons at regular intervals, fill rest with dots
-              const iconPositions = Array(orbit.positions).fill(null);
-              const interval = Math.floor(orbit.positions / orbit.icons.length);
-              let pos = 0;
-              orbit.icons.forEach((icon, i) => {
-                iconPositions[pos] = icon;
-                pos = (pos + interval) % orbit.positions;
-                while (iconPositions[pos] && iconPositions.filter(Boolean).length < orbit.icons.length) {
-                  pos = (pos + 1) % orbit.positions;
-                }
-              });
-              return (
+            {orbitConfigs.map((orbit, orbitIdx) => (
+              <Box
+                key={`orbit-parent-${orbitIdx}`}
+                sx={{
+                  position: "absolute",
+                  right: `${rightPadding + logoOffset - orbit.orbitRadius}px`,
+                  top: "50%",
+                  width: `${orbit.orbitRadius * 2}px`,
+                  height: `${orbit.orbitRadius * 2}px`,
+                  pointerEvents: "none",
+                  zIndex: 2,
+                  transform: "translateY(-50%)",
+                  animation: `${orbit.animationName} ${orbit.duration}s linear infinite`,
+                  animationDirection: orbit.direction,
+                  animationPlayState: isPaused ? 'paused' : 'running',
+                  [`@keyframes ${orbit.animationName}`]: {
+                    '0%': { transform: 'translateY(-50%) rotate(0deg)' },
+                    '100%': { transform: 'translateY(-50%) rotate(360deg)' },
+                  },
+                }}
+              >
+                {/* Orbit border */}
                 <Box
-                  key={`orbit-parent-${orbitIdx}`}
                   sx={{
                     position: "absolute",
-                    right: `${rightPadding + logoOffset - orbitRadius}px`,
-                    top: "50%",
-                    width: `${orbitRadius * 2}px`,
-                    height: `${orbitRadius * 2}px`,
-                    pointerEvents: "none",
-                    zIndex: 2,
-                    transform: "translateY(-50%)",
-                    animation: `${animationName} ${duration}s linear infinite`,
-                    animationDirection: direction,
-                    animationPlayState: isPaused ? 'paused' : 'running',
-                    [`@keyframes ${animationName}`]: {
-                      '0%': { transform: 'translateY(-50%) rotate(0deg)' },
-                      '100%': { transform: 'translateY(-50%) rotate(360deg)' },
-                    },
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "50%",
+                    border: "1.5px solid rgba(255,255,255,0.15)",
+                    zIndex: 1,
                   }}
-                >
-                  {/* Orbit border */}
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
-                      borderRadius: "50%",
-                      border: "1.5px solid rgba(255,255,255,0.15)",
-                      zIndex: 1,
-                    }}
-                  />
-                  {/* Icons and dots at positions, using user-provided styles */}
-                  {iconPositions.map((icon, posIdx) => {
-                    const angle = (360 / orbit.positions) * posIdx;
-                    const radians = (angle * Math.PI) / 180;
-                    const x = Math.cos(radians) * orbitRadius;
-                    const y = Math.sin(radians) * orbitRadius;
-                    if (icon) {
-                      // Icon style from user-provided TechIcon
-                      return (
+                />
+                {/* Icons and dots at positions, using user-provided styles */}
+                {orbit.iconPositions.map((icon, posIdx) => {
+                  const angle = (360 / orbit.positions) * posIdx;
+                  const radians = (angle * Math.PI) / 180;
+                  const x = Math.cos(radians) * orbit.orbitRadius;
+                  const y = Math.sin(radians) * orbit.orbitRadius;
+                  if (icon) {
+                    // Icon style from user-provided TechIcon
+                    return (
+                      <Box
+                        key={`icon-${orbitIdx}-${posIdx}`}
+                        sx={{
+                          position: "absolute",
+                          left: `calc(50% + ${x}px)`,
+                          top: `calc(50% + ${y}px)`,
+                          transform: `translate(-50%, -50%) rotate(${angle + 180}deg)`,
+                          zIndex: 20,
+                          cursor: "pointer",
+                          pointerEvents: "auto",
+                        }}
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
+                        onClick={() => handleTechClick(icon.name)}
+                      >
                         <Box
-                          key={`icon-${orbitIdx}-${posIdx}`}
                           sx={{
-                            position: "absolute",
-                            left: `calc(50% + ${x}px)`,
-                            top: `calc(50% + ${y}px)`,
-                            transform: `translate(-50%, -50%) rotate(${angle + 180}deg)`,
-                            zIndex: 20,
-                            cursor: "pointer",
-                            pointerEvents: "auto",
+                            width: `${68 * orbitScale}px`,
+                            height: `${68 * orbitScale}px`,
+                            borderRadius: "50%",
+                            bgcolor: "#0D264F",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)",
+                            animation: "glowPulse 3s ease-in-out infinite",
+                            '@keyframes glowPulse': {
+                              '0%': { boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)" },
+                              '50%': { boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)" },
+                              '100%': { boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)" },
+                            },
+                            border: "1px solid #3B526F",
+                            transition: "transform 0.3s ease-in-out",
+                            '&:hover': {
+                              transform: "scale(1.05)",
+                            },
                           }}
-                          onMouseEnter={() => setIsPaused(true)}
-                          onMouseLeave={() => setIsPaused(false)}
-                          onClick={() => handleTechClick(icon.name)}
                         >
                           <Box
+                            component="img"
+                            src={icon.icon}
+                            alt={icon.name}
+                            loading="lazy"
                             sx={{
-                              width: `${68 * orbitScale}px`,
-                              height: `${68 * orbitScale}px`,
-                              borderRadius: "50%",
-                              bgcolor: "#0D264F",
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center",
-                              boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)",
-                              animation: "glowPulse 3s ease-in-out infinite",
-                              '@keyframes glowPulse': {
-                                '0%': { boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)" },
-                                '50%': { boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)" },
-                                '100%': { boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)" },
-                              },
-                              border: "1px solid #3B526F",
-                              transition: "transform 0.3s ease-in-out",
+                              width: `${38 * orbitScale}px`,
+                              height: `${38 * orbitScale}px`,
+                              objectFit: "contain",
+                              transition: "transform 0.2s ease-in-out",
                               '&:hover': {
                                 transform: "scale(1.05)",
                               },
                             }}
-                          >
-                            <Box
-                              component="img"
-                              src={icon.icon}
-                              alt={icon.name}
-                              loading="lazy"
-                              sx={{
-                                width: `${38 * orbitScale}px`,
-                                height: `${38 * orbitScale}px`,
-                                objectFit: "contain",
-                                transition: "transform 0.2s ease-in-out",
-                                '&:hover': {
-                                  transform: "scale(1.05)",
-                                },
-                              }}
-                            />
-                          </Box>
+                          />
                         </Box>
-                      );
-                    } else {
-                      // Dot style from user-provided code
-                      return (
-                        <Box
-                          key={`dot-${orbitIdx}-${posIdx}`}
-                          sx={{
-                            position: "absolute",
-                            left: `calc(50% + ${x}px)`,
-                            top: `calc(50% + ${y}px)`,
-                            transform: "translate(-50%, -50%)",
-                            width: { xs: "4px", sm: "6px", md: "7px" },
-                            height: { xs: "4px", sm: "6px", md: "7px" },
-                            borderRadius: "50%",
-                            bgcolor: "#B2D2FC",
-                            pointerEvents: "none",
-                            zIndex: 5,
-                          }}
-                        />
-                      );
-                    }
-                  })}
-                </Box>
-              );
-            })}
+                      </Box>
+                    );
+                  } else {
+                    // Dot style from user-provided code
+                    return (
+                      <Box
+                        key={`dot-${orbitIdx}-${posIdx}`}
+                        sx={{
+                          position: "absolute",
+                          left: `calc(50% + ${x}px)`,
+                          top: `calc(50% + ${y}px)`,
+                          transform: "translate(-50%, -50%)",
+                          width: { xs: "4px", sm: "6px", md: "7px" },
+                          height: { xs: "4px", sm: "6px", md: "7px" },
+                          borderRadius: "50%",
+                          bgcolor: "#B2D2FC",
+                          pointerEvents: "none",
+                          zIndex: 5,
+                        }}
+                      />
+                    );
+                  }
+                })}
+              </Box>
+            ))}
 
             {/* Center logo with animated glowing ripple effect behind */}
             <Box
@@ -497,13 +520,7 @@ function Home() {
                   sx={{
                     borderRadius: '12px',
                     transition: 'transform 1s',
-                    transform: showDescription
-                      ? {
-                          md: 'translate(-140%,-200%) scale(15)',
-                          lg: 'translate(-160%,-260%) scale(18)',
-                          
-                        }
-                      : 'translateX(0%) scale(1)',
+                    transform: logoTransform,
                     transformOrigin: 'left top',
                     zIndex: 2,
                   }}
@@ -541,7 +558,7 @@ function Home() {
                       <Box sx={{ bgcolor: '#fff', p: 1, borderRadius: '16px', display: 'flex', justifyContent: 'center', alignItems: "center",height:'56px',width:'56px' }}>
                         <Box
                           component="img"
-                          src={techIcons.find(t => t.name === activeTech)?.icon}
+                          src={activeTechIcon}
                           alt={activeTech}
                           sx={{
                             width: { xs: '38px', md: '42px' },
