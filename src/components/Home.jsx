@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ReplyOutlinedIcon from '@mui/icons-material/ReplyOutlined';
+import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 // Import from centralized images file
 import {
   shortLogo as teamgridLogo,
@@ -114,9 +114,39 @@ function Home() {
   };
 
   // Responsive logo and ripple sizes
-  const logoWidth = isXs ? 60 : isSm ? 80 : isMd ? 100 : isLg ? 120 : isXl ? 140 : 105;
-  const logoHeight = isXs ? 90 : isSm ? 120 : isMd ? 140 : isLg ? 160 : isXl ? 180 : 160;
-  const logoOffset = isXs ? 60 : isSm ? 80 : isMd ? 100 : isLg ? 120 : isXl ? 140 : 122.5;
+  const logoWidth = isXs
+    ? 60
+    : isSm
+    ? 80
+    : isMd
+    ? 100
+    : isLg
+    ? 120
+    : isXl
+    ? 140
+    : 105;
+  const logoHeight = isXs
+    ? 90
+    : isSm
+    ? 120
+    : isMd
+    ? 140
+    : isLg
+    ? 160
+    : isXl
+    ? 180
+    : 160;
+  const logoOffset = isXs
+    ? 60
+    : isSm
+    ? 80
+    : isMd
+    ? 100
+    : isLg
+    ? 120
+    : isXl
+    ? 140
+    : 122.5;
   const baseRadius = 280; // must match the orbit's baseRadius
   const rippleDiameter = baseRadius * 2 * orbitScale;
 

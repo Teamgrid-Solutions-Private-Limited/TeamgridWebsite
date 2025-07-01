@@ -27,7 +27,7 @@ import {
   postgresqlIcon,
   mongodbIcon,
   graphQLIcon,
-  redisIcon, 
+  redisIcon,
   dockerIcon,
   mernStackIcon,
   nextJSIcon,
@@ -40,6 +40,7 @@ import {
   acfIcon,
   mySQLIcon,
 } from "../../images";
+import { fontClamp } from "../../fontUtils";
 const services = data.developmentType;
 
 function DevelopmentTypes() {
@@ -155,7 +156,7 @@ function DevelopmentTypes() {
                   onMouseLeave={() => setHoveredService(null)}
                   sx={{
                     width: { xs: "100%", sm: "382px" },
-                    height: { xs: "auto", sm: "113px" },
+                    height: "auto",
                     display: "flex",
                     alignItems: "center",
                     gap: "16px",
@@ -200,7 +201,7 @@ function DevelopmentTypes() {
                       sx={{
                         fontFamily: "PayPal Open",
                         fontWeight: 500,
-                        fontSize: { xs: "18px", sm: "20px", md: "20px" },
+                        fontSize: fontClamp(20),
                         leadingTrim: "Cap height",
                         lineHeight: "150%",
                         letterSpacing: "0%",
@@ -215,7 +216,7 @@ function DevelopmentTypes() {
                       sx={{
                         fontFamily: "PayPal Open",
                         fontWeight: 400,
-                        fontSize: "16px",
+                        fontSize: fontClamp(16),
                         leadingTrim: "Cap height",
                         lineHeight: "150%",
                         letterSpacing: "0%",
@@ -245,7 +246,7 @@ function DevelopmentTypes() {
                 sx={{
                   fontFamily: "PayPal Open",
                   fontWeight: 500,
-                  fontSize: "40px",
+                  fontSize: fontClamp(40),
                   leadingTrim: "Cap height",
                   lineHeight: "100%",
                   letterSpacing: "0%",
@@ -261,7 +262,7 @@ function DevelopmentTypes() {
                 sx={{
                   fontFamily: "PayPal Open",
                   fontWeight: 400,
-                  fontSize: "16px",
+                  fontSize: fontClamp(16),
                   lineHeight: "150%",
                   letterSpacing: "0%",
                   color: "#000000",
@@ -277,7 +278,7 @@ function DevelopmentTypes() {
                 sx={{
                   fontFamily: "PayPal Open",
                   fontWeight: 500,
-                  fontSize: "32px",
+                  fontSize: fontClamp(32),
                   leadingTrim: "Cap height",
                   lineHeight: "100%",
                   letterSpacing: "0%",
@@ -315,7 +316,7 @@ function DevelopmentTypes() {
                       sx={{
                         fontFamily: "PayPal Open",
                         fontWeight: 400,
-                        fontSize: "16px",
+                        fontSize: fontClamp(16),
                         lineHeight: "150%",
                         letterSpacing: "0%",
                         color: "#140E13",
@@ -333,7 +334,7 @@ function DevelopmentTypes() {
                 sx={{
                   fontFamily: "PayPal Open",
                   fontWeight: 500,
-                  fontSize: "32px",
+                  fontSize: fontClamp(32),
                   leadingTrim: "Cap height",
                   lineHeight: "100%",
                   letterSpacing: "0%",
@@ -396,7 +397,7 @@ function DevelopmentTypes() {
                         sx={{
                           fontFamily: "PayPal Open",
                           fontWeight: 500,
-                          fontSize: "16px",
+                          fontSize: fontClamp(16),
                           leadingTrim: "Cap height",
                           lineHeight: "100%",
                           letterSpacing: "0%",

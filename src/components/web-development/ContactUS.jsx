@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { WebDevelopmentContactUsImage as backgroundImage } from "../../images";
 import data from "../../data.json";
+import { fontClamp } from "../../fontUtils";
 
 const { title, subtitle, buttons } = data.webDevelopmentContactUS;
 
@@ -101,7 +102,7 @@ function ContactUs() {
                 variant="h2"
                 sx={{
                   fontWeight: 500,
-                  fontSize: { xs: "32px", sm: "42px", md: "56px" },
+                  fontSize: fontClamp(56),
                   leadingTrim: "Cap height",
                   lineHeight: "100%",
                   letterSpacing: 0,
@@ -114,7 +115,7 @@ function ContactUs() {
                 variant="h5"
                 sx={{
                   fontWeight: 400,
-                  fontSize: "18px",
+                  fontSize: fontClamp(18),
                   lineHeight: "150%",
                   letterSpacing: 0,
                   color: "#FAFAFA",
@@ -144,7 +145,7 @@ function ContactUs() {
                   borderRadius: "39px",
                   px: 5,
                   py: 2,
-                  fontSize: "18px",
+                  fontSize: fontClamp(18),
                   fontWeight: 400,
                   lineHeight: "150%",
                   letterSpacing: "0%",
@@ -166,7 +167,7 @@ function ContactUs() {
                   borderRadius: "39px",
                   px: 5,
                   py: 2,
-                  fontSize: "18px",
+                  fontSize: fontClamp(18),
                   fontWeight: 400,
                   lineHeight: "150%",
                   letterSpacing: "0%",
