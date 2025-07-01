@@ -21,8 +21,10 @@ function WebDevelopment() {
         bgcolor: "#001C42",
         width: "100%",
         minHeight: "70vh",
-        pt: { xs: 12, md: 18 },
-        // pb: { xs: 8, md: 10 },
+        py: { xs: 6, md: 8 },
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         overflow: "hidden",
       }}
     >

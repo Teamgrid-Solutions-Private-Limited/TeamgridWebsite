@@ -304,12 +304,17 @@ function Footer() {
             borderTop: "1px solid rgba(255,255,255,0.1)",
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
-            gap: { xs: 4, md: 0 },
+            gap: { xs: 4, md: 15 },
             justifyContent: "space-between",
           }}
         >
           {/* Contact Section */}
-          <Box sx={{ maxWidth: "40%", width: { xs: "100%", md: "auto" } }}>
+          <Box
+            sx={{
+              maxWidth: { xs: "100%", md: "50%" },
+              width: { xs: "100%", md: "auto" },
+            }}
+          >
             <Typography
               variant="h6"
               sx={{
@@ -359,7 +364,12 @@ function Footer() {
           </Box>
 
           {/* Newsletter Section */}
-          <Box sx={{ maxWidth: "40%", width: { xs: "100%", md: "auto" } }}>
+          <Box
+            sx={{
+              maxWidth: { xs: "100%", md: "50%" },
+              width: { xs: "100%", md: "auto" },
+            }}
+          >
             <Typography
               variant="h6"
               sx={{

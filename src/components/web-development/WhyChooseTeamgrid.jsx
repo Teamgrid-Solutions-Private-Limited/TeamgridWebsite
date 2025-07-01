@@ -47,7 +47,9 @@ const WhyChooseTeamgrid = () => {
         py: { xs: 6, md: 8 },
         bgcolor: "#FFFFFF",
         width: "100%",
-        mb: { md: 8 },
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Container

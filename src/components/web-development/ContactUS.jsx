@@ -66,7 +66,7 @@ function ContactUs() {
           position: "relative",
           zIndex: 2,
           px: { xs: 2.5, md: 4, lg: 4, xl: 0 },
-          py: { xs: 6, md: 0 },
+          py: { xs: 6, md: 8 },
           height: "100%",
           display: "flex",
           alignItems: "center",
@@ -85,7 +85,7 @@ function ContactUs() {
             sx={{
               width: { xs: "100%", sm: "65%" },
               bgcolor: "#072449",
-              borderRadius: { xs: 2, sm: 3 },
+              borderRadius: 6,
               p: { xs: 3, sm: 4, md: 5, lg: 7 },
               display: "flex",
               flexDirection: "column",

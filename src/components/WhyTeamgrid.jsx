@@ -127,7 +127,7 @@ function WhyTeamgrid() {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                borderRadius: "10px",
+                borderRadius: "24px",
               }}
             />
           </Grid>

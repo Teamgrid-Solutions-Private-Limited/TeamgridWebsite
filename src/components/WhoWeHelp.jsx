@@ -66,7 +66,13 @@ const WhoWeHelp = () => {
                 gap: { xs: 2, sm: 3, md: 4 },
               }}
             >
-              <Box sx={{ display: "flex", flexDirection: "column", gap: { xs: 1.5, sm: 2, md: 3 } }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: { xs: 1.5, sm: 2, md: 3 },
+                }}
+              >
                 <Typography
                   variant="h2"
                   sx={{
@@ -147,6 +153,21 @@ const WhoWeHelp = () => {
               <Box sx={{ display: "flex" }}>
                 <Box
                   component="img"
+                  src={image2}
+                  alt="Team member"
+                  loading="lazy"
+                  sx={{
+                    width: "100%",
+                    maxWidth: "272px",
+                    objectFit: "cover",
+                    display: "block",
+                    borderRadius: "24px",
+                  }}
+                />
+              </Box>
+              <Box sx={{ display: "flex" }}>
+                <Box
+                  component="img"
                   src={image1}
                   alt="Team member"
                   loading="lazy"
@@ -155,9 +176,14 @@ const WhoWeHelp = () => {
                     maxWidth: "272px",
                     objectFit: "cover",
                     display: "block",
+                    borderRadius: "24px",
                   }}
                 />
               </Box>
+            </Box>
+
+            {/* Right Column Images */}
+            <Box gap={3} display={"flex"} flexDirection={"column"}>
               <Box sx={{ display: "flex" }}>
                 <Box
                   component="img"
@@ -169,24 +195,7 @@ const WhoWeHelp = () => {
                     maxWidth: "272px",
                     objectFit: "cover",
                     display: "block",
-                  }}
-                />
-              </Box>
-            </Box>
-
-            {/* Right Column Images */}
-            <Box gap={3} display={"flex"} flexDirection={"column"}>
-              <Box sx={{ display: "flex" }}>
-                <Box
-                  component="img"
-                  src={image2}
-                  alt="Team member"
-                  loading="lazy"
-                  sx={{
-                    width: "100%",
-                    maxWidth: "272px",
-                    objectFit: "cover",
-                    display: "block",
+                    borderRadius: "24px",
                   }}
                 />
               </Box>
@@ -201,6 +210,7 @@ const WhoWeHelp = () => {
                     maxWidth: "272px",
                     objectFit: "cover",
                     display: "block",
+                    borderRadius: "24px",
                   }}
                 />
               </Box>

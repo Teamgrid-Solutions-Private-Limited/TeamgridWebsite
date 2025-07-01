@@ -15,7 +15,10 @@ function WebDevelopmentMadeEasy() {
   return (
     <Box
       sx={{
-        py: { xs: 8, md: 12 },
+        py: { xs: 6, md: 8 },
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         bgcolor: "#FFFFFF",
         width: "100%",
       }}
@@ -69,7 +72,7 @@ function WebDevelopmentMadeEasy() {
             <Typography
               variant="span"
               sx={{
-                fontWeight: 700,       
+                fontWeight: 700,
               }}
             >
               Teamgrid
@@ -125,7 +128,7 @@ function WebDevelopmentMadeEasy() {
             sx={{
               maxWidth: "100%",
               height: "auto",
-              borderRadius: "12px",
+              borderRadius: "24px",
               boxShadow: "0 8px 24px rgba(0,0,0,0.05)",
             }}
           />
