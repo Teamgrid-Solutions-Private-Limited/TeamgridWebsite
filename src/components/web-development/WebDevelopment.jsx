@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import webDevelopmentImage from "../../assets/web-development.svg";
+import { fontClamp } from "../../fontUtils";
 
 function WebDevelopment() {
   const theme = useTheme();
@@ -42,12 +43,12 @@ function WebDevelopment() {
         }}
       >
         {/* Text Content */}
-        <Box sx={{ maxWidth: { xs: "100%", md: "55%" } }}>
+        <Box sx={{ maxWidth: { xs: "100%", md: "60%", xl: "70%" } }}>
           <Typography
             variant="h1"
             sx={{
               fontWeight: 700,
-              fontSize: "56px",
+              fontSize: fontClamp(56),
               leadingTrim: "Cap height",
               lineHeight: "100%",
               letterSpacing: "0%",
@@ -75,7 +76,7 @@ function WebDevelopment() {
                 color: "#E1E0E0",
                 fontFamily: "PayPal Open",
                 fontWeight: 300,
-                fontSize: "20px",
+                fontSize: fontClamp(20),
                 lineHeight: "150%",
                 letterSpacing: "0%",
                 mb: 5,
@@ -102,7 +103,7 @@ function WebDevelopment() {
                 textTransform: "none",
                 fontFamily: "PayPal Open",
                 fontWeight: 400,
-                fontSize: "18px",
+                fontSize: fontClamp(18),
                 lineHeight: "150%",
                 letterSpacing: "0%",
                 color: "#FFFFFF",
@@ -125,7 +126,7 @@ function WebDevelopment() {
                 textTransform: "none",
                 fontFamily: "PayPal Open",
                 fontWeight: 400,
-                fontSize: "18px",
+                fontSize: fontClamp(18),
                 lineHeight: "150%",
                 letterSpacing: "0%",
                 color: "#FFFFFF",
