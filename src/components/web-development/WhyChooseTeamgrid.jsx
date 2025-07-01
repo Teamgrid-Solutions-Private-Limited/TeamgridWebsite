@@ -45,7 +45,7 @@ const WhyChooseTeamgrid = () => {
   return (
     <Box
       sx={{
-        py: { xs: 6, md: 8 },
+        my: { xs: 6, md: 8 },
         bgcolor: "#FFFFFF",
         width: "100%",
         display: "flex",
@@ -81,7 +81,7 @@ const WhyChooseTeamgrid = () => {
               letterSpacing: "0%",
               color: "#140E13",
               mb: { xs: 2, md: 0 },
-              maxWidth: "600px",
+              maxWidth: "55%",
             }}
           >
             Why Choose Teamgrid for Web Development?

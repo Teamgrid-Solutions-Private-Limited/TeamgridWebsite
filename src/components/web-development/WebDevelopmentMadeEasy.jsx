@@ -16,7 +16,7 @@ function WebDevelopmentMadeEasy() {
   return (
     <Box
       sx={{
-        py: { xs: 6, md: 8 },
+        my: { xs: 6, md: 8 },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

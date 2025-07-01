@@ -155,7 +155,7 @@ function HomePage() {
           {/* Left Content */}
           <Box
             sx={{
-              width: { xs: "100%", md: "60%" },
+              width: { xs: "100%", md: "80%" },
               zIndex: 10,
             }}
           >
@@ -184,7 +184,7 @@ function HomePage() {
                 fontSize: fontClamp(20),
                 lineHeight: 1.6,
                 my: 3,
-                maxWidth: "90%",
+                maxWidth: "100%",
               }}
             >
               Hire expert front-end developers skilled in ReactJS, Material UI,
@@ -239,7 +239,7 @@ function HomePage() {
           <Box
             sx={{
               position: "relative",
-              left: "38%",
+              left: "30%",
               transform: "translateX(-60%)",
               width: { xs: "100%", md: "40%" },
               height: { xs: "auto", md: "500px" },

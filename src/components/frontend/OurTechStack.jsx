@@ -16,6 +16,7 @@ import {
   cssIcon,
   muiIcon,
   bootstrapIcon,
+  ourTechStackImage,
 } from "../../images";
 import teamImage from "../../assets/livediscussion.jpg";
 
@@ -66,31 +67,64 @@ const techs = [
 
 function OurTechStack() {
   return (
-    <Box sx={{ py: { xs: 6, md: 8 }, background: "#fff" }}>
+    <Box
+      sx={{
+        my: { xs: 6, md: 8 },
+        background: "#fff",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        overflow: "hidden", // Prevent any potential overflow issues
+      }}
+    >
       <Container
         maxWidth="1248px"
-        sx={{ px: { xs: 2.5, md: 3, lg: 4, xl: 0 }, }}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-between",
+          px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
+          maxWidth: "1248px",
+          width: "100%",
+        }}
       >
-        <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center">
+        <Grid
+          container
+          spacing={{ xs: 4, md: 6 }}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: { xs: 4, md: 6 },
+            width: "100%",
+          }}
+        >
           {/* Left: Image with overlay text */}
-          <Grid item xs={12} md={5}>
+          <Grid item size={{ xs: 12, md: 5 }} width={"100%"}>
             <Box
               sx={{
                 position: "relative",
                 borderRadius: 4,
                 overflow: "hidden",
-                minHeight: 380,
+                width: "486px",
+                height: "591px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                bgcolor: "#FFFFFF",
               }}
             >
               <Box
                 component="img"
-                src={teamImage}
+                src={ourTechStackImage}
                 alt="Team discussion"
                 sx={{
-                  width: "100%",
-                  height: { xs: 260, md: 380 },
+                  width: "486px",
+                  height: "591px",
+                  borderRadius: "24px",
                   objectFit: "cover",
-                  borderRadius: 4,
                   display: "block",
                 }}
               />
@@ -108,9 +142,12 @@ function OurTechStack() {
                 <Typography
                   variant="h4"
                   sx={{
-                    color: "white",
-                    fontWeight: 700,
-                    fontSize: fontClamp(28),
+                    fontWeight: 500,
+                    fontSize: "48px",
+                    leadingTrim: "Cap height",
+                    lineHeight: "100%",
+                    letterSpacing: "0%",
+                    color: "#FFFFFF",
                     mb: 0.5,
                   }}
                 >
@@ -125,13 +162,25 @@ function OurTechStack() {
           </Grid>
 
           {/* Right: Tech stack */}
-          <Grid item xs={12} md={7}>
+          <Grid
+            item
+            size={{ xs: 12, md: 6.5 }}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
             <Typography
               variant="h3"
               sx={{
-                fontWeight: 700,
-                fontSize: fontClamp(32),
-                color: "#181A1C",
+                fontWeight: 500,
+                fontSize: fontClamp(56),
+                leadingTrim: "Cap height",
+                lineHeight: "100%",
+                letterSpacing: "0%",
+                color: "#140E13",
                 mb: 2,
               }}
             >
@@ -139,11 +188,13 @@ function OurTechStack() {
             </Typography>
             <Typography
               sx={{
-                color: "#222",
+                fontWeight: 400,
                 fontSize: fontClamp(16),
+                lineHeight: "150%",
+                letterSpacing: "0%",
+                color: "#000000",
                 mb: 4,
-                maxWidth: 600,
-                lineHeight: 1.6,
+                maxWidth: "100%",
               }}
             >
               We use modern, scalable front-end technologies to build fast,
@@ -152,15 +203,16 @@ function OurTechStack() {
             </Typography>
             <Grid container spacing={2}>
               {techs.map((tech, idx) => (
-                <Grid item xs={6} sm={4} md={4} key={tech.name}>
+                <Grid item size={{ xs: 6, sm: 4, md: 3 }} key={tech.name}>
                   <Card
                     elevation={0}
                     sx={{
+                      width: "123px",
+                      height: "115px",
                       bgcolor: "#fff",
                       border: "1.5px solid #E6EAF0",
-                      borderRadius: 3,
+                      borderRadius: 4,
                       p: 0,
-                      height: 90,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -184,11 +236,11 @@ function OurTechStack() {
                         src={tech.icon}
                         alt={tech.name}
                         sx={{
-                          width: 32,
-                          height: 32,
+                          width: "63px",
+                          height: "56px",
                           mb: 1,
                           objectFit: "contain",
-                          background: tech.bg,
+                          // background: tech.bg,
                           borderRadius: 2,
                           p: 0.5,
                         }}
@@ -196,8 +248,11 @@ function OurTechStack() {
                       <Typography
                         sx={{
                           fontWeight: 500,
-                          fontSize: fontClamp(15),
-                          color: "#222",
+                          fontSize: fontClamp(16),
+                          lineHeight: "100%",
+                          letterSpacing: "0%",
+                          textAlign: "center",
+                          color: "#05408E",
                         }}
                       >
                         {tech.name}

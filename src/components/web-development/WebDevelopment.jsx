@@ -21,8 +21,9 @@ function WebDevelopment() {
       sx={{
         bgcolor: "#001C42",
         width: "100%",
-        minHeight: "70vh",
-        py: { xs: 6, md: 8 },
+        minHeight: "625px",
+        pt: { xs: 6, md: 8 },
+        mb: { xs: 6, md: 8 },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
