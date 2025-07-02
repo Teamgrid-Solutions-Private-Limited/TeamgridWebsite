@@ -126,7 +126,7 @@ function Footer() {
                 to={"/"}
                 sx={{
                   textDecoration: "none",
-                  fontSize:fontClamp(16),
+                  fontSize: fontClamp(16),
                   fontWeight: 400,
                   transition: "all 0.2s ease",
                   color: "#A8B6C5",
@@ -354,7 +354,7 @@ function Footer() {
             <Typography
               variant="body2"
               sx={{
-                fontSize:fontClamp(16),
+                fontSize: fontClamp(16),
                 fontWeight: 400,
                 color: "#A8B6C5",
               }}
@@ -407,6 +407,7 @@ function Footer() {
                 placeholder="Your email ID"
                 variant="outlined"
                 sx={{
+                  borderRadius: "12px",
                   transition: "all 0.3s ease",
                   "&:focus-within": {
                     transform: "translateY(-2px)",
