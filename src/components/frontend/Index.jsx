@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import HomePage from "./HomePage";
 import WhatWeOffer from "./WhatWeOffer";
 import OurTechStack from "./OurTechStack";
+import WhyPartnerWithUs from "./WhyPartnerWithUs";
 
 function Index() {
   return (
@@ -10,6 +11,7 @@ function Index() {
       <HomePage />
       <WhatWeOffer />
       <OurTechStack />
+      <WhyPartnerWithUs />
     </Box>
   );
 }
