@@ -326,8 +326,8 @@ function Home() {
             variant={buttons[0].variant}
             sx={{
               bgcolor: "#007BFF",
-              borderRadius: "39px",
-              px: 5,
+              borderRadius: "16px",
+              px: 4,
               py: 2,
               textTransform: "none",
               fontSize: fontClamp(16),
@@ -346,8 +346,9 @@ function Home() {
             sx={{
               color: "white",
               borderColor: "rgba(255,255,255,0.3)",
-              borderRadius: "39px",
-              px: 5,
+              borderRadius: "16px",
+              bgcolor:"#072449",
+              px: 4,
               py: 2,
               textTransform: "none",
               fontSize: fontClamp(16),

@@ -50,7 +50,7 @@ function WhatWeDo() {
     <Box
       component="section"
       sx={{
-        py: { xs: 6, sm: 8, md: 12 },
+        my: { xs: 6, sm: 8, md: 12 },
         bgcolor: "#fff",
         width: "100%",
         overflow: "hidden",
@@ -66,6 +66,7 @@ function WhatWeDo() {
           width: "100%",
           maxWidth: "1248px",
           overflow: "hidden",
+          position: { xs: "relative", lg: 'static' }
         }}
       >
         {/* Heading and intro text */}
@@ -111,8 +112,7 @@ function WhatWeDo() {
             overflow: "hidden",
             background: "linear-gradient(180deg, #E1ECF7 0%, #E2E9F0 103.33%)",
             mb: 3,
-            height: {xs:"clamp(600px, 30.6vw, 1000px)",md:"clamp(600px, 40.6vw, 700px)"},
-            position: "relative",
+            position: { xs: "static", lg: 'relative' }
           }}
         >
           <Box
@@ -176,7 +176,7 @@ function WhatWeDo() {
                         lineHeight: "100%",
                         letterSpacing: 0,
                         border: "1px solid rgba(168, 189, 211, 1)",
-                        borderRadius: "39px",
+                        borderRadius: "16px",
                         px: 5,
                         py: 2,
                         width: "fit-content",
@@ -237,13 +237,14 @@ function WhatWeDo() {
                 </Grid>
 
                 {/* Right side - image showcase */}
-                <Grid size={{ xs: 12, md: 6 }} position={"relative"}>
+                <Grid size={{ xs: 12, md: 6 }} display={'flex'}>
                   <Box
                     sx={{
-                      position: "absolute",
-                      left: "3%",
-                      top: "3%",
-                      width: "50%",
+
+                      marginleft: "3%",
+                      marginTop: "3%",
+                      width: "70%",
+                      // height:'100%',
                       zIndex: 20,
                     }}
                     component="img"
@@ -253,10 +254,10 @@ function WhatWeDo() {
                   />
                   <Box
                     sx={{
-                      position: "absolute",
-                      left: "40%",
-                      width: "50%",
-                      top: "0px",
+                      marginLeft: "-40%",
+                      // width: "50%",
+                      height: '100%',
+                      marginTop: '0%',
                       zIndex: 10,
                     }}
                     component="img"
@@ -272,7 +273,7 @@ function WhatWeDo() {
           <Box
             sx={{
               position: "absolute",
-              bottom: { xs: 10, md: 20 },
+              bottom: 10,
               left: 0,
               right: 0,
               zIndex: 100,
@@ -285,31 +286,26 @@ function WhatWeDo() {
             {/* Services row with dividers using CSS flexbox wrapping */}
             <Box
               sx={{
-                backgroundColor: "rgba(255, 255, 255,1)",
-                backdropFilter: "blur(156.89999389648438px)",
-                borderRadius: 4,
-                width: "auto",
-                maxWidth:'98%',
-                padding: { xs: "8px", sm: "8px" },
-                boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.15)",
+
+                width: "100%",
+                maxWidth: "98%",
+
               }}
             >
               <Box
                 sx={{
+                  backgroundColor: "#FFFFFFFF",
+                  backdropFilter: "blur(156.9px)",
+                  padding: { xs: "8px", sm: "8px" },
+                  boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.15)",
+                  margin: "0 auto",
+                  borderRadius: 4,
                   display: "flex",
-                  flexWrap: "wrap",
-                  justifyContent: "center",
-                  position: "relative",
-                  // gap: { xs: "4px", sm: "3px" },
+                  flexWrap: { xs: "wrap", lg: "nowrap" }, // ✅ wrap below lg, single line on lg+
+                  justifyContent: "flex-start",
                   width: "100%",
-                  // Special styles for small screens
-                  // "@media (max-width: 600px)": {
-                  //   gap: "4px",
-                  // },
-                  // // Styles for medium screens and up
-                  // "@media (min-width: 601px)": {
-                  //   gap: "3px",
-                  // },
+                  overflowX: "hidden", // ✅ prevent scrollbar
+                  gap: { xs: "8px", lg: "0px" },
                 }}
               >
                 {serviceCategories.map((service, idx) => (
@@ -318,6 +314,8 @@ function WhatWeDo() {
                     sx={{
                       display: "flex",
                       alignItems: "stretch",
+                      flexBasis: { xs: "calc(33.333% - 8px)", lg: "auto" }, // ✅ 3-per-row below lg
+                      flexGrow: 1,
                       position: "relative",
                     }}
                   >
@@ -330,16 +328,15 @@ function WhatWeDo() {
                         alignItems: "center",
                         padding: { xs: "8px", md: "10px", lg: "14px" },
                         textAlign: "center",
-                        position: "relative",
                         cursor: "pointer",
                         borderRadius: "8px",
                         transition: "all 0.3s ease",
-                        backgroundColor: index === idx ? "#0b3c7b" : "transparent",
+                        backgroundColor: index === idx ? "#072449" : "transparent",
                         zIndex: 2,
                         gap: 1,
-                        overflow: "visible",
+                        width: "100%",
                         '&:hover': {
-                          backgroundColor: '#0b3c7b',
+                          backgroundColor: '#072449',
                           '& .service-text': {
                             color: 'white',
                           },
@@ -347,18 +344,15 @@ function WhatWeDo() {
                             color: '#9EAAB8',
                           },
                         },
-                        // minWidth: { xs: '80px', sm: '100px', md: '120px' },
-                        flex: '1 1 auto',
                       }}
                     >
                       <Typography
                         className="service-text"
                         variant="subtitle1"
                         sx={{
-                          fontSize: 16,
+                          fontSize: fontClamp(16, { minPx: 13, maxMultiplier: 1 }),
                           fontWeight: 500,
                           lineHeight: "100%",
-                          letterSpacing: 0,
                           color: index === idx ? "#FFFFFF" : "#072449",
                           transition: "color 0.3s ease",
                           whiteSpace: "nowrap",
@@ -372,10 +366,9 @@ function WhatWeDo() {
                         className="service-description"
                         variant="body2"
                         sx={{
-                          fontSize: 14,
+                          fontSize: fontClamp(13, { minPx: 11, maxMultiplier: 1 }),
                           fontWeight: 400,
                           lineHeight: "100%",
-                          letterSpacing: 0,
                           color: index === idx ? "#9EAAB8" : "#0724498C",
                           transition: "color 0.3s ease",
                           whiteSpace: "nowrap",
@@ -386,15 +379,17 @@ function WhatWeDo() {
                         {service.description}
                       </Typography>
                     </Box>
-                    {/* Divider, except after last tab */}
+
+                    {/* Divider for lg+ only */}
                     {idx !== serviceCategories.length - 1 && (
                       <Box
                         sx={{
+                          display: { xs: "none", lg: "block" }, // ✅ only show divider on large screens
                           alignSelf: 'center',
                           height: '50%',
                           width: '1px',
                           backgroundColor: '#DDDDDD',
-                          mx: { xs: '2px', sm: '4px', md: '6px' },
+                          mx: '6px',
                           zIndex: 3,
                         }}
                       />
@@ -403,6 +398,10 @@ function WhatWeDo() {
                 ))}
               </Box>
             </Box>
+
+
+
+
           </Box>
         </Paper>
 

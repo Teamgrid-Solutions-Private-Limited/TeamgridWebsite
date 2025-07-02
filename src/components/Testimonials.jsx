@@ -382,7 +382,7 @@ const Testimonials = () => {
   return (
     <Box
       sx={{
-        py: { xs: 6, sm: 8, md: 12 },
+        my: { xs: 6, sm: 8, md: 12 },
         backgroundColor: "#FFFFFF",
         overflow: "hidden",
         width: "100%",
@@ -562,7 +562,7 @@ const Testimonials = () => {
             endIcon={<ArrowForwardIcon />}
             variant="outlined"
             sx={{
-              borderRadius: "39px",
+              borderRadius: "16px",
               px: 5,
               py: 2,
               fontSize: fontClamp(16),

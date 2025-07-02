@@ -26,7 +26,7 @@ function WhyTeamgrid() {
     <Box
       component="section"
       sx={{
-        py: { xs: 6, sm: 8, md: 12 },
+        my: { xs: 6, sm: 8, md: 12 },
         width: "100%",
         backgroundColor: "#fff",
         display: "flex",
@@ -45,7 +45,7 @@ function WhyTeamgrid() {
           gap: 4,
         }}
       >
-        <Grid container>
+        <Grid container spacing={2}>
           <Grid
             size={{ xs: 12, md: 6 }}
             sx={{ display: "flex", flexDirection: "column" }}
@@ -91,7 +91,7 @@ function WhyTeamgrid() {
               color="primary"
               endIcon={<ArrowRightAltIcon />}
               sx={{
-                borderRadius: "39px",
+                borderRadius: "16px",
                 px: 5,
                 py: 2,
                 borderColor: "rgba(202, 202, 202, 1)",

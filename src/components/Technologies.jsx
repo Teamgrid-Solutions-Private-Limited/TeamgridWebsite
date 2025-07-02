@@ -62,6 +62,7 @@ function Technologies() {
       component="section"
       sx={{
         bgcolor: "#0B3C7B",
+        my: { xs: 6, sm: 8, md: 12 },
         py: { xs: 6, sm: 8, md: 12 },
         overflow: "hidden", // Prevent any potential overflow issues
         width: "100%",
@@ -143,8 +144,8 @@ function Technologies() {
                 "&:hover": {
                   bgcolor: "#003272",
                 },
-                borderRadius: "39px",
-                px: 5,
+                borderRadius: "16px",
+                px: 4,
                 py: 2,
                 fontWeight: 400,
                 fontSize: fontClamp(16),

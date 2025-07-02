@@ -36,7 +36,7 @@ const WhoWeHelp = () => {
     <Box
       component="section"
       sx={{
-        py: { xs: 6, sm: 8, md: 12 },
+        my: { xs: 6, sm: 8, md: 12 },
         bgcolor: "#fff",
         display: "flex",
         justifyContent: "center",
@@ -118,9 +118,9 @@ const WhoWeHelp = () => {
                 color="primary"
                 endIcon={<ArrowRightAltIcon />}
                 sx={{
-                  borderRadius: "39px",
-                  px: 5,
-                  py: 2,
+                  borderRadius: "16px",
+              px: 5,
+              py: 2,
                   textTransform: "none",
                   fontSize: fontClamp(18),
                   fontWeight: 400,

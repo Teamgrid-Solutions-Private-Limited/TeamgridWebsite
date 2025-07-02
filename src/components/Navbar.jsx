@@ -250,7 +250,7 @@ function Navbar() {
                 variant="body1"
                 sx={{
                   fontWeight: 500,
-                  fontSize: fontClamp(16),
+                  fontSize: fontClamp(16,{maxMultiplier:1.1}),
                   color: !scrolled ? "white" : "#05408E",
                   transition: "color 0.25s",
                 }}
@@ -323,7 +323,7 @@ function Navbar() {
                           fontWeight: 400,
                           color: "text.secondary",
                           fontFamily: "PayPal Open, sans-serif",
-                          fontSize: "12px",
+                          fontSize: fontClamp(12,{minPx:10,maxMultiplier:1.1}),
                           mb: 1,
                           display: "block",
                           textTransform: "uppercase",
@@ -404,7 +404,7 @@ function Navbar() {
                                   fontWeight: 500,
                                   color: "#05408E",
                                   fontFamily: "PayPal Open, sans-serif",
-                                  fontSize: "14px",
+                                  fontSize: fontClamp(14,{maxMultiplier:1.1}),
                                   mb: 0.25,
                                   transition: "color 0.25s",
                                   whiteSpace: "normal",
@@ -419,7 +419,7 @@ function Navbar() {
                                 sx={{
                                   color: "text.secondary",
                                   fontFamily: "PayPal Open, sans-serif",
-                                  fontSize: "14px",
+                                  fontSize: fontClamp(14,{maxMultiplier:1.1}),
                                   lineHeight: "150%",
                                   opacity: 0.8,
                                   whiteSpace: "normal",
@@ -450,7 +450,7 @@ function Navbar() {
           boxShadow: "none",
           fontWeight: 500,
           textTransform: "none",
-          fontSize: fontClamp(16),
+          fontSize: fontClamp(16,{maxMultiplier:1.1}),
           whiteSpace: "nowrap",
           display: { xs: "none", md: "flex" },
           color: "white",
