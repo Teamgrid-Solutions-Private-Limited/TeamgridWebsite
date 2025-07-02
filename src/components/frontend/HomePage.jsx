@@ -45,13 +45,13 @@ function HomePage() {
 
   // Frontend tech icons
   const techIcons = [
-    { name: "React", icon: reactIcon },
+    { name: "bootstrap", icon: bootstrapIcon },
     { name: "JavaScript", icon: javascriptIcon },
-    { name: "TypeScript", icon: typescriptIcon },
+    { name: "Figma", icon: figmaIcon },
     { name: "HTML", icon: htmlIcon },
     { name: "CSS", icon: cssIcon },
     { name: "Material UI", icon: muiIcon },
-    { name: "Bootstrap", icon: bootstrapIcon },
+    { name: "React", icon: reactIcon },
     { name: "WordPress", icon: wordpressIcon },
     { name: "Figma", icon: figmaIcon },
   ];
@@ -239,8 +239,8 @@ function HomePage() {
           <Box
             sx={{
               position: "relative",
-              left: "30%",
-              transform: "translateX(-60%)",
+              left: "40%",
+              transform: "translateX(-60%) translateY(90%)",
               width: { xs: "100%", md: "40%" },
               height: { xs: "auto", md: "500px" },
               display: { xs: "none", md: "flex" },
@@ -252,11 +252,11 @@ function HomePage() {
             {[
               { icons: techIcons.slice(0, 3), positions: 6 },
               { icons: techIcons.slice(3, 7), positions: 8 },
-              { icons: techIcons.slice(0, 9), positions: 10 },
+              { icons: techIcons.slice(4, 9), positions: 10 },
             ].map((orbit, orbitIdx) => {
               // Use a base radius and progressively increasing gap for each orbit
-              const baseRadius = 280;
-              const gapStart = 150;
+              const baseRadius = 350;
+              const gapStart = 250;
               const gapInc = 18;
               let orbitRadius = baseRadius;
               for (let i = 1; i <= orbitIdx; i++) {
@@ -291,17 +291,17 @@ function HomePage() {
                     height: `${orbitRadius * 2}px`,
                     pointerEvents: "none",
                     zIndex: 2,
-                    transform: `rotate(${
-                      orbitAngle * (orbitIdx % 2 === 0 ? 1 : -1)
-                    }deg)`,
+                    // transform: `rotate(${
+                    //   orbitAngle * (orbitIdx % 2 === 0 ? 1 : -1)
+                    // }deg)`,
                     transition: "transform 0.1s linear",
-                    animation: `${animationName} ${duration}s linear infinite`,
-                    animationDirection: direction,
-                    animationPlayState: isPaused ? "paused" : "running",
-                    [`@keyframes ${animationName}`]: {
-                      "0%": { transform: "rotate(0deg)" },
-                      "100%": { transform: "rotate(360deg)" },
-                    },
+                    // animation: `${animationName} ${duration}s linear infinite`,
+                    // animationDirection: direction,
+                    // animationPlayState: isPaused ? "paused" : "running",
+                    // [`@keyframes ${animationName}`]: {
+                    //   "0%": { transform: "rotate(0deg)" },
+                    //   "100%": { transform: "rotate(360deg)" },
+                    // },
                   }}
                 >
                   {/* Orbit border */}
@@ -345,8 +345,8 @@ function HomePage() {
                         >
                           <Box
                             sx={{
-                              width: `${92 * orbitScale}px`,
-                              height: `${92 * orbitScale}px`,
+                              width: `${180 * orbitScale}px`,
+                              height: `${180 * orbitScale}px`,
                               borderRadius: "50%",
                               bgcolor: "#0D264F",
                               display: "flex",
@@ -379,8 +379,8 @@ function HomePage() {
                               alt={icon.name}
                               loading="lazy"
                               sx={{
-                                width: `${56 * orbitScale}px`,
-                                height: `${56 * orbitScale}px`,
+                                width: `${130 * orbitScale}px`,
+                                height: `${130 * orbitScale}px`,
                                 objectFit: "contain",
                                 transition: "transform 0.2s ease-in-out",
                                 "&:hover": {
@@ -423,15 +423,15 @@ function HomePage() {
                 width: `${logoOffset * 2}px`,
                 height: `${logoOffset * 2}px`,
                 borderRadius: "50%",
-                bgcolor: "#0F4285",
+                // bgcolor: "#0F4285",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 zIndex: 10,
-                boxShadow: "0 0 40px rgba(0, 123, 255, 0.5)",
+                // boxShadow: "0 0 40px rgba(0, 123, 255, 0.5)",
               }}
             >
-              <Box
+              {/* <Box
                 component="img"
                 src={teamgridLogo}
                 alt="React"
@@ -446,7 +446,7 @@ function HomePage() {
                     "100%": { opacity: 0.8 },
                   },
                 }}
-              />
+              /> */}
             </Box>
           </Box>
         </Box>
