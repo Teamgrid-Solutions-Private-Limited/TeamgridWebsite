@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Box,
   Typography,
@@ -26,6 +26,7 @@ import {
   teamIcon,
 } from "../../images";
 import { HiOutlineUserGroup } from "react-icons/hi";
+import WestIcon from "@mui/icons-material/West";
 
 function WhatWeOffer() {
   const theme = useTheme();
@@ -33,6 +34,16 @@ function WhatWeOffer() {
   const isLg = useMediaQuery(theme.breakpoints.up("lg"));
   const [hoveredCard, setHoveredCard] = useState(null);
   const [selectedCard, setSelectedCard] = useState(0); // Default select first card
+  const scrollRef = useRef();
+
+  const handleScroll = (offset) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: offset,
+        behavior: "smooth",
+      });
+    }
+  };
 
   // Service card data
   const services = [
@@ -78,8 +89,11 @@ function WhatWeOffer() {
   return (
     <Box
       sx={{
-        py: { xs: 6, md: 8 },
+        my: { xs: 6, md: 8 },
         backgroundColor: "#FFFFFF",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Container
@@ -94,9 +108,27 @@ function WhatWeOffer() {
           width: "100%",
         }}
       >
-        <Grid container spacing={{ xs: 4, md: 6 }}>
+        <Grid
+          container
+          spacing={{ xs: 4, md: 6 }}
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           {/* Left Column - Text Content */}
-          <Grid item size={{ xs: 12, md: 5 }}>
+          <Grid
+            item
+            size={{ xs: 12, md: 5 }}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              justifyContent: "center",
+            }}
+          >
             <Typography
               variant="h2"
               sx={{
@@ -169,92 +201,149 @@ function WhatWeOffer() {
 
           {/* Right Column - Service Cards */}
           <Grid item size={{ xs: 12, md: 7 }} width="100%">
+            {/* Scrollable Container */}
             <Box
               sx={{
-                display: "grid",
-                gridTemplateColumns: {
-                  xs: "repeat(1, 282px)",
-                  sm:"repeat(2, 282px)",
-                  md: "repeat(3, 282px)",
-                }, // 3 fixed-width columns
-                gridAutoRows: "auto",
-                gap: 3, // 24px gap like your design
-                justifyContent: { xs: "center", md: "flex-start" }, // center on mobile, left-align on md+
-                overflow: "hidden",
+                width: "100%",
+                overflowX: "auto",
+                scrollBehavior: "smooth",
+                scrollbarWidth: "none", // Firefox
+                "&::-webkit-scrollbar": { display: "none" }, // Chrome, Safari
+              }}
+              ref={scrollRef}
+            >
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(3, 282px)",
+                  gridTemplateRows: "repeat(2, auto)",
+                  gap: 3,
+                  justifyContent: "flex-start",
+                }}
+              >
+                {services.map((service, index) => {
+                  const isActive =
+                    hoveredCard === index || selectedCard === index;
+                  return (
+                    <Card
+                      key={index}
+                      elevation={0}
+                      onMouseEnter={() => setHoveredCard(index)}
+                      onMouseLeave={() => setHoveredCard(null)}
+                      onClick={() => setSelectedCard(index)}
+                      sx={{
+                        bgcolor: isActive ? "#05408E" : "#F3F3F6",
+                        color: isActive ? "#FFFFFF" : "#05408E",
+                        borderRadius: "24px",
+                        cursor: "pointer",
+                        transition:
+                          "transform 0.3s, box-shadow 0.3s, background-color 0.3s",
+                        "&:hover": {
+                          transform: "translateY(-4px)",
+                          boxShadow: "0 8px 24px rgba(13, 60, 126, 0.25)",
+                        },
+                      }}
+                    >
+                      <CardContent sx={{ p: 3 }}>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            bgcolor: isActive ? "#1777F6" : "#F3F3F6",
+                            borderRadius: "14px",
+                            p: 1.5,
+                            mb: 1,
+                            width: "64px",
+                            height: "64px",
+                          }}
+                        >
+                          <HiOutlineUserGroup
+                            size={fontClamp(32)}
+                            color={isActive ? "#FFFFFF" : "#05408E"}
+                          />
+                        </Box>
+
+                        <Typography
+                          variant="h6"
+                          sx={{
+                            fontWeight: 500,
+                            fontSize: fontClamp(20),
+                            lineHeight: "120%",
+                            color: isActive ? "#FFFFFF" : "#05408E",
+                            mb: 1,
+                          }}
+                        >
+                          {service.title}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontWeight: 400,
+                            fontSize: fontClamp(16),
+                            lineHeight: "150%",
+                            color: isActive ? "#EBF4FF" : "#3E393E",
+                          }}
+                        >
+                          {service.description}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </Box>
+            </Box>
+
+            {/* Scroll Buttons */}
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                mt: { xs: 3, md: 3 },
               }}
             >
-              {services.map((service, index) => {
-                const isActive =
-                  hoveredCard === index || selectedCard === index;
-                return (
-                  <Card
-                    key={index}
-                    elevation={0}
-                    onMouseEnter={() => setHoveredCard(index)}
-                    onMouseLeave={() => setHoveredCard(null)}
-                    onClick={() => setSelectedCard(index)}
-                    sx={{
-                      bgcolor: isActive ? "#05408E" : "#F3F3F6",
-                      color: isActive ? "#FFFFFF" : "#05408E",
-                      borderRadius: "24px",
-                      cursor: "pointer",
-                      transition:
-                        "transform 0.3s, box-shadow 0.3s, background-color 0.3s",
-                      "&:hover": {
-                        transform: "translateY(-4px)",
-                        boxShadow: "0 8px 24px rgba(13, 60, 126, 0.25)",
-                      },
-                    }}
-                  >
-                    <CardContent sx={{ p: 3 }}>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          bgcolor: isActive ? "#1777F6" : "#F3F3F6",
-                          borderRadius: "14px",
-                          p: 1.5,
-                          mb: 2,
-                          width: "64px",
-                          height: "64px",
-                        }}
-                      >
-                        <HiOutlineUserGroup
-                          size={fontClamp(32)}
-                          color={isActive ? "#FFFFFF" : "#05408E"}
-                        />
-                      </Box>
-
-                      <Typography
-                        variant="h6"
-                        sx={{
-                          fontWeight: 500,
-                          fontSize: fontClamp(20),
-                          leadingTrim: "Cap height",
-                          lineHeight: "120%",
-                          letterSpacing: 0,
-                          color: isActive ? "#FFFFFF" : "#05408E",
-                          mb: 1,
-                        }}
-                      >
-                        {service.title}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontWeight: 400,
-                          fontSize: fontClamp(16),
-                          lineHeight: "150%",
-                          letterSpacing: 0,
-                          color: isActive ? "#EBF4FF" : "#3E393E",
-                        }}
-                      >
-                        {service.description}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+              <Box
+                sx={{
+                  width: { xs: 45, sm: 56 },
+                  height: { xs: 45, sm: 56 },
+                  borderRadius: "50%",
+                  bgcolor: "#E3EBF2",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  mr: 1,
+                  cursor: "pointer",
+                }}
+                onClick={() => handleScroll(-300)}
+              >
+                <WestIcon
+                  sx={{
+                    fontSize: { xs: 18, sm: 20 },
+                    color: "#000000",
+                  }}
+                />
+              </Box>
+              <Box
+                sx={{
+                  width: { xs: 45, sm: 56 },
+                  height: { xs: 45, sm: 56 },
+                  borderRadius: "50%",
+                  bgcolor: "#E3EBF2",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                }}
+                onClick={() => handleScroll(300)}
+              >
+                <WestIcon
+                  sx={{
+                    fontSize: { xs: 18, sm: 20 },
+                    color: "#000000",
+                    transform: "rotate(180deg)",
+                  }}
+                />
+              </Box>
             </Box>
           </Grid>
         </Grid>
