@@ -49,6 +49,17 @@ const techIcons = [
   { name: "WooCommerce", icon: woo },
   { name: "Shopify", icon: shopifyIcon },
   { name: "Material UI", icon: muiIcon },
+  { name: "React", icon: reactIcon },
+  { name: "Node.js", icon: nodejsIcon },
+  { name: "PostgreSQL", icon: postgresqlIcon },
+  { name: "Figma", icon: figmaIcon },
+  { name: "Bootstrap", icon: bootstrapIcon },
+  { name: "MongoDB", icon: mongoIcon },
+  { name: "WordPress", icon: wordpressIcon },
+  { name: "Postman", icon: postmanIcon },
+  { name: "WooCommerce", icon: woo },
+  { name: "Shopify", icon: shopifyIcon },
+  { name: "Material UI", icon: muiIcon },
 ];
 
 function Home() {
@@ -153,9 +164,9 @@ function Home() {
   // Memoize orbits array
   const orbits = useMemo(() => ([
     { icons: techIcons.slice(0, 4), positions: 8 },
-    { icons: techIcons.slice(0, 5), positions: 10 },
-    { icons: techIcons.slice(0, 6), positions: 12 },
-    { icons: techIcons.slice(0, 8), positions: 16 },
+    { icons: techIcons.slice(0, 7), positions: 14 },
+    { icons: techIcons.slice(0, 10), positions: 20 },
+    { icons: techIcons.slice(0, 14), positions: 28},
   ]), [techIcons]);
 
   // Memoize orbitConfigs (radius, animation, icon positions)
@@ -212,7 +223,7 @@ function Home() {
     <Box
       sx={{
         bgcolor: "#072449",
-        height: { xs: "100vh", xl: "80vh" },
+        height: { xs: "100vh", xl: "80vh",xxl:'60vh' },
         overflow: "hidden",
         width: "100%",
         display: "flex",
@@ -437,16 +448,23 @@ function Home() {
                             justifyContent: "center",
                             alignItems: "center",
                             boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)",
-                            animation: "glowPulse 3s ease-in-out infinite",
+                            animation: "glowPulse 3s ease-in-out infinite, scalePulse 3s ease-in-out infinite",
                             '@keyframes glowPulse': {
                               '0%': { boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)" },
                               '50%': { boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)" },
                               '100%': { boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)" },
                             },
+                            '@keyframes scalePulse': {
+                              '0%': { transform: 'scale(1)' },
+                              '50%': { transform: 'scale(1.05)' },
+                              '100%': { transform: 'scale(1)' },
+                            },
                             border: "1px solid #3B526F",
-                            transition: "transform 0.3s ease-in-out",
+                            transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
                             '&:hover': {
-                              transform: "scale(1.05)",
+                              animation: 'none',
+                              transform: 'scale(1.08)',
+                              boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)",
                             },
                           }}
                         >
@@ -607,7 +625,6 @@ function Home() {
                           lineHeight:1.5,
                           mb: 1,
                           fontSize: fontClamp(36),
-                          textShadow: '0 2px 8px rgba(0,0,0,0.18)',
                           textAlign: 'left',
                         }}
                       >
