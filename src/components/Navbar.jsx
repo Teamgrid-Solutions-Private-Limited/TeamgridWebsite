@@ -308,7 +308,7 @@ function Navbar() {
                     <Box
                       key={catIndex}
                       sx={{
-                        width: { xs: "100%", md: "100%", lg: "24%" },
+                        width: { xs: "100%", md: "100%", lg: "24.5%" },
                         minWidth: { lg: "250px" },
                         height: "auto",
                         display: "flex",

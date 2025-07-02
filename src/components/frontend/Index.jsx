@@ -4,9 +4,10 @@ import HomePage from "./HomePage";
 import WhatWeOffer from "./WhatWeOffer";
 import OurTechStack from "./OurTechStack";
 import WhyPartnerWithUs from "./WhyPartnerWithUs";
-// import HowWeWork from "./HowWeWork";
+import HowWeWork from "./HowWeWork";
 import EngagementModels from "./EngagementModels";
 import GotQuestions from "./GotQuestions";
+import ContactUS from "./ContactUS";
 
 function Index() {
   return (
@@ -15,9 +16,10 @@ function Index() {
       <WhatWeOffer />
       <OurTechStack />
       <WhyPartnerWithUs />
-      {/* <HowWeWork /> */}
+      <HowWeWork />
       <EngagementModels />
       <GotQuestions />
+      <ContactUS/>
     </Box>
   );
 }

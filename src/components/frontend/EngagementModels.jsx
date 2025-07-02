@@ -1,6 +1,18 @@
 import React from "react";
-import { Box, Typography, Paper, Stack, Button, Grid } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Paper,
+  Stack,
+  Button,
+  Grid,
+  Container,
+} from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { fontClamp } from "../../fontUtils";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import { vectorIcon } from "../../images";
 
 const models = [
   {
@@ -31,115 +43,217 @@ const models = [
 
 function EngagementModels() {
   return (
-    <Box sx={{ maxWidth: 1200, mx: "auto", mt: 6, px: 2 }}>
-      <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
-        <Button
-          variant="outlined"
-          sx={{
-            borderRadius: 3,
-            px: 3,
-            py: 1,
-            fontWeight: 500,
-            textTransform: "none",
-            borderColor: "#D1D5DB",
-            color: "#222",
-            boxShadow: "none",
-            "&:hover": { borderColor: "#1976d2", background: "#f5faff" },
-          }}
-          endIcon={<span style={{ fontSize: 18, marginLeft: 4 }}>→</span>}
-        >
-          Explore Services
-        </Button>
-      </Box>
-      <Typography
-        variant="h2"
-        fontWeight={700}
-        sx={{ mb: 1, fontSize: { xs: 32, md: 48 } }}
+    <Box
+      sx={{
+        my: { xs: 6, md: 8 },
+        background: "#fff",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        overflow: "hidden", // Prevent any potential overflow issues
+      }}
+    >
+      <Container
+        maxWidth="1248px"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
+          maxWidth: "1248px",
+          width: "100%",
+        }}
       >
-        Engagement Models
-      </Typography>
-      <Typography sx={{ mb: 5, color: "#222", fontSize: 18 }}>
-        Choose the engagement model that best suits your project needs
-      </Typography>
-      <Grid container spacing={4} justifyContent="center">
-        {models.map((model, idx) => (
-          <Grid item xs={12} md={4} key={model.title}>
-            <Paper
-              elevation={0}
+        <Grid container mb={{ xs: 3, md: 6 }}>
+          <Grid
+            size={{ xs: 12, md: 6 }}
+            sx={{ display: "flex", flexDirection: "column" }}
+          >
+            <Typography
+              variant="h2"
+              color="text.primary"
+              gutterBottom
               sx={{
-                borderRadius: 5,
-                p: 4,
-                bgcolor: "#F7F9FB",
-                minHeight: 320,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                boxShadow: "0 2px 8px 0 rgba(16,30,54,0.04)",
+                fontWeight: 500,
+                fontSize: fontClamp(48),
+                lineHeight: "100%",
+                letterSpacing: 0,
+                color: "#140E13",
               }}
             >
-              <Typography
-                variant="h6"
-                fontWeight={700}
-                color="#1751A1"
-                sx={{ mb: 2 }}
-              >
-                {model.title}
-              </Typography>
-              <Box sx={{ mb: 3 }}>
-                {model.points.map((point, i) => (
-                  <Box
-                    key={i}
-                    sx={{ display: "flex", alignItems: "center", mb: 1.2 }}
-                  >
-                    <CheckCircleIcon
-                      sx={{ color: "#4CE0B3", fontSize: 22, mr: 1 }}
-                    />
-                    <Typography sx={{ color: "#222", fontSize: 16 }}>
-                      {point}
-                    </Typography>
-                  </Box>
-                ))}
-              </Box>
-              <Stack direction="row" spacing={2}>
-                <Button
-                  variant="contained"
-                  sx={{
-                    borderRadius: 2,
-                    px: 3,
-                    fontWeight: 500,
-                    textTransform: "none",
-                    bgcolor: "#1751A1",
-                    "&:hover": { bgcolor: "#0B4C8C" },
-                  }}
-                  endIcon={
-                    <span style={{ fontSize: 18, marginLeft: 4 }}>→</span>
-                  }
-                >
-                  Reach us
-                </Button>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    borderRadius: 2,
-                    px: 3,
-                    fontWeight: 500,
-                    textTransform: "none",
-                    bgcolor: "#fff",
-                    borderColor: "#D1D5DB",
-                    color: "#222",
-                    "&:hover": {
-                      borderColor: "#1976d2",
-                      background: "#f5faff",
-                    },
-                  }}
-                >
-                  Know more...
-                </Button>
-              </Stack>
-            </Paper>
+              Engagement Models
+            </Typography>
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{
+                fontWeight: "500",
+                fontSize: fontClamp(18),
+                lineHeight: "150%",
+                letterSpacing: "0%",
+                color: "#000000",
+              }}
+            >
+              Choose the engagement model that best suits your project needs
+            </Typography>
           </Grid>
-        ))}
-      </Grid>
+
+          <Grid
+            size={{ xs: 12, md: 6 }}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: { xs: "flex-start", md: "flex-end" },
+            }}
+          >
+            <Button
+              variant="outlined"
+              color="primary"
+              endIcon={<ArrowRightAltIcon />}
+              sx={{
+                borderRadius: "16px",
+                px: 5,
+                py: 2,
+                borderColor: "rgba(202, 202, 202, 1)",
+                "&:hover": {
+                  borderColor: "#0D3C7E",
+                  background: "#F7F9FC",
+                },
+                fontWeight: 400,
+                fontSize: fontClamp(18),
+                lineHeight: "150%",
+                letterSpacing: "0%",
+                color: "#140E13",
+                textTransform: "none",
+              }}
+            >
+              Explore Services
+            </Button>
+          </Grid>
+        </Grid>
+        <Grid container spacing={4} justifyContent="center">
+          {models.map((model, idx) => (
+            <Grid item size={{ xs: 12, md: 4 }} key={model.title}>
+              <Paper
+                elevation={0}
+                sx={{
+                  borderRadius: "24px",
+                  p: 3,
+                  bgcolor: "#F3F3F6",
+                  width: "382px",
+                  height: "322px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  boxShadow: "0 2px 8px 0 rgba(16,30,54,0.04)",
+                  border: "1px solid #EAEAEF",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    mb: 2,
+                    fontWeight: 500,
+                    fontSize: fontClamp(24),
+                    leadingTrim: "Cap height",
+                    lineHeight: "120%",
+                    letterSpacing: "0%",
+                    color: "#05408E",
+                  }}
+                >
+                  {model.title}
+                </Typography>
+                <Box sx={{ mb: 2.5 }}>
+                  {model.points.map((point, i) => (
+                    <Box
+                      key={i}
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        mb: 1.5,
+                        gap: 1.5,
+                      }}
+                    >
+                      <Box
+                        component="img"
+                        src={vectorIcon}
+                        alt="Check icon"
+                        loading="lazy"
+                        sx={{
+                          width: "20px",
+                          height: "20px",
+                          objectFit: "contain",
+                        }}
+                      />
+                      <Typography
+                        sx={{
+                          fontWeight: 400,
+                          fontSize: fontClamp(16),
+                          lineHeight: "150%",
+                          letterSpacing: "0%",
+                          color: "#140E13",
+                        }}
+                      >
+                        {point}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    sx={{
+                      borderRadius: "12px",
+                      height: "48px",
+                      px: 2.5,
+                      fontWeight: 400,
+                      fontSize: fontClamp(16),
+                      lineHeight: "150%",
+                      letterSpacing: "0%",
+                      color: "#FAFAFA",
+                      textTransform: "none",
+                      bgcolor: "#1751A1",
+                      "&:hover": { bgcolor: "#0B4C8C" },
+                    }}
+                    endIcon={<ArrowRightAltIcon />}
+                  >
+                    Reach us
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      borderRadius: "12px",
+                      px: 2.5,
+                      height: "48px",
+                      fontWeight: 400,
+                      fontSize: fontClamp(16),
+                      lineHeight: "150%",
+                      letterSpacing: "0%",
+                      borderColor: "#D1D5DB",
+                      color: "#140E13",
+                      "&:hover": {
+                        borderColor: "#1976d2",
+                        background: "#f5faff",
+                      },
+                    }}
+                  >
+                    Know more...
+                  </Button>
+                </Stack>
+              </Paper>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
     </Box>
   );
 }

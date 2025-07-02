@@ -95,8 +95,8 @@ function WhyPartnerWithUs() {
             variant="outlined"
             endIcon={<ArrowForwardIcon />}
             sx={{
-              px: 3,
-              py: 1.2,
+              px: 5,
+              py: 2,
               fontWeight: 400,
               fontSize: fontClamp(18),
               lineHeight: "150%",
@@ -176,7 +176,7 @@ function WhyPartnerWithUs() {
                     fontSize: fontClamp(16),
                     lineHeight: "150%",
                     letterSpacing: "0%",
-                    color: "#140E13"
+                    color: "#140E13",
                   }}
                 >
                   {card.desc}

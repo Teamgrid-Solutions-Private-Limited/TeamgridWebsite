@@ -181,8 +181,8 @@ function WhatWeOffer() {
               sx={{
                 bgcolor: "#05408E",
                 color: "#FAFAFA",
-                py: 1.5,
-                px: 3,
+                px: 5,
+                py: 2,
                 borderRadius: "16px",
                 textTransform: "none",
                 fontWeight: 400,
