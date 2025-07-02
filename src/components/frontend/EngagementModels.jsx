@@ -141,8 +141,8 @@ function EngagementModels() {
                   borderRadius: "24px",
                   p: 3,
                   bgcolor: "#F3F3F6",
-                  width: "382px",
-                  height: "322px",
+                  width: { sm: "382px", md: "100%", lg: "382px" },
+                  height: { lg: "322px", xl: "auto" },
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
@@ -201,7 +201,7 @@ function EngagementModels() {
                   ))}
                 </Box>
                 <Stack
-                  direction="row"
+                  direction={{xs:"column",sm:"row"}}
                   spacing={2}
                   sx={{
                     display: "flex",
@@ -214,7 +214,7 @@ function EngagementModels() {
                     sx={{
                       borderRadius: "12px",
                       height: "48px",
-                      px: 2.5,
+                      px: { xs: 2.5, md: 1, lg: 2.5 },
                       fontWeight: 400,
                       fontSize: fontClamp(16),
                       lineHeight: "150%",

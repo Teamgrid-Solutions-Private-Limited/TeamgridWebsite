@@ -101,6 +101,11 @@ import mySQLImagePath from "./assets/mySQL.png";
 import backIconPath from "./assets/Variant3.svg"
 import ourTechStackImagePath from "./assets/ourtechstack.jpg";
 import whyPartnerWithUsImagePath from "./assets/whypartnerwithus.svg";
+import whiteTeamIconPath from "./assets/white-team.svg";
+import LeftArrowIconPath from "./assets/leftArrow.svg";
+import RightArrowIconPath from "./assets/rightArrow.svg";
+import leftDownIconPath from "./assets/rightArrow.svg";
+import RightDownIconPath from "./assets/rightArrow.svg";
 
 // Cache map for SVG elements to prevent multiple loads
 const svgCache = new Map();
@@ -210,3 +215,8 @@ export const mySQLIcon = getSvgPath(mySQLImagePath);
 export const backIconAnime = getSvgPath(backIconPath);
 export const ourTechStackImage = getSvgPath(ourTechStackImagePath);
 export const whyPartnerWithUsImage = getSvgPath(whyPartnerWithUsImagePath);
+export const whiteTeamIcon = getSvgPath(whiteTeamIconPath)
+export const leftArrowIcon = getSvgPath(LeftArrowIconPath);
+export const rightArrowIcon = getSvgPath(RightArrowIconPath);
+export const leftDownIcon = getSvgPath(leftDownIconPath);
+export const rightDownIcon = getSvgPath(RightDownIconPath);
