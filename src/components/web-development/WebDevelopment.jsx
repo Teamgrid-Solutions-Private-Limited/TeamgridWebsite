@@ -1,32 +1,134 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
-  Container,
   Button,
-  Grid,
+  Container,
+  Stack,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import webDevelopmentImage from "../../assets/web-development.svg";
 import { fontClamp } from "../../fontUtils";
+import {
+  reactIcon,
+  wordpressIcon,
+  muiIcon,
+  javascriptIcon,
+  typescriptIcon,
+  cssIcon,
+  htmlIcon,
+  bootstrapIcon,
+  teamgridLogo,
+  figmaIcon,
+} from "../../images";
 
-function WebDevelopment() {
+function HomePage() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isXs = useMediaQuery(theme.breakpoints.down("sm"));
+  const isSm = useMediaQuery(theme.breakpoints.between("sm", "md"));
+  const isMd = useMediaQuery(theme.breakpoints.between("md", "lg"));
+  const isLg = useMediaQuery(theme.breakpoints.up("lg"));
+  const isXl = useMediaQuery(theme.breakpoints.up("xl"));
+
+  const [isPaused, setIsPaused] = useState(false);
+  const [orbitScale, setOrbitScale] = useState(1);
+  const [orbitAngle, setOrbitAngle] = useState(0);
+
+  // Get the current padding value in px
+  let rightPadding = 0;
+  if (isXl) rightPadding = 0;
+  else if (isLg) rightPadding = parseInt(theme.spacing(8));
+  else if (isMd) rightPadding = parseInt(theme.spacing(4));
+  else if (isSm) rightPadding = parseInt(theme.spacing(2.5));
+  else rightPadding = parseInt(theme.spacing(2.5));
+
+  // Frontend tech icons
+  const techIcons = [
+    { name: "bootstrap", icon: bootstrapIcon },
+    { name: "JavaScript", icon: javascriptIcon },
+    { name: "Figma", icon: figmaIcon },
+    { name: "HTML", icon: htmlIcon },
+    { name: "CSS", icon: cssIcon },
+    { name: "Material UI", icon: muiIcon },
+    { name: "React", icon: reactIcon },
+    { name: "WordPress", icon: wordpressIcon },
+    { name: "Figma", icon: figmaIcon },
+  ];
+
+  // Dynamically adjust orbit scale based on screen size
+  useEffect(() => {
+    const updateOrbitScale = () => {
+      const scale = Math.max(
+        0.5,
+        Math.min((window.innerWidth / 1440) * 0.9, 1.2)
+      );
+      setOrbitScale(scale);
+    };
+    updateOrbitScale();
+    window.addEventListener("resize", updateOrbitScale);
+    return () => window.removeEventListener("resize", updateOrbitScale);
+  }, []);
+
+  // Animation for orbits
+  useEffect(() => {
+    if (isPaused) return;
+    let frame;
+    const animate = () => {
+      setOrbitAngle((prev) => (prev + 0.2) % 360);
+      frame = requestAnimationFrame(animate);
+    };
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, [isPaused]);
+
+  // Responsive logo and ripple sizes
+  const logoWidth = isXs
+    ? 60
+    : isSm
+    ? 80
+    : isMd
+    ? 100
+    : isLg
+    ? 120
+    : isXl
+    ? 140
+    : 105;
+  const logoHeight = isXs
+    ? 90
+    : isSm
+    ? 120
+    : isMd
+    ? 140
+    : isLg
+    ? 160
+    : isXl
+    ? 180
+    : 160;
+  const logoOffset = isXs
+    ? 60
+    : isSm
+    ? 80
+    : isMd
+    ? 100
+    : isLg
+    ? 120
+    : isXl
+    ? 140
+    : 122.5;
+  const baseRadius = 280;
+  const rippleDiameter = baseRadius * 2 * orbitScale;
 
   return (
     <Box
       sx={{
-        bgcolor: "#001C42",
+        bgcolor: "#072449",
+        minHeight: "90vh",
         width: "100%",
-        minHeight: "625px",
-        pt: { xs: 6, md: 8 },
-        mb: { xs: 6, md: 8 },
         display: "flex",
-        justifyContent: "center",
         alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
         overflow: "hidden",
       }}
     >
@@ -34,136 +136,336 @@ function WebDevelopment() {
         maxWidth="1248px"
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          px: { xs: 2.5, md: 4, lg: 4, xl: 0 },
+          flexDirection: "column",
+          px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
           maxWidth: "1248px",
           width: "100%",
-          alignItems: "center",
-          justifyContent: { xs: "center", sm: "center", md: "space-between" },
-          // gap: { xs: 4, md: 2 },
         }}
       >
-        {/* Text Content */}
-        <Box sx={{ maxWidth: { xs: "100%", md: "60%", xl: "70%" } }}>
-          <Typography
-            variant="h1"
-            sx={{
-              fontWeight: 700,
-              fontSize: fontClamp(56),
-              leadingTrim: "Cap height",
-              lineHeight: "100%",
-              letterSpacing: "0%",
-              mb: 3,
-            }}
-          >
-            <Box component="span" sx={{ color: "#FFFFFF" }}>
-              Custom{" "}
-            </Box>
-            <Box component="span" sx={{ color: "#30ECAD" }}>
-              Web Development{" "}
-            </Box>
-            <Box component="span" sx={{ color: "#FFFFFF" }}>
-              Services{" "}
-            </Box>
-            {/* <br /> */}
-            <Box component="span" sx={{ color: "#FFFFFF" }}>
-              for Agencies
-            </Box>
-          </Typography>
-          <Box sx={{ width: { xs: "100%", sm: "90%", md: "95%", lg: "85%" } }}>
-            <Typography
-              variant="body1"
-              sx={{
-                color: "#E1E0E0",
-                fontFamily: "PayPal Open",
-                fontWeight: 300,
-                fontSize: fontClamp(20),
-                lineHeight: "150%",
-                letterSpacing: "0%",
-                mb: 5,
-              }}
-            >
-              Hire expert developers for your front-end, back-end, full-stack,
-              or WordPress projects.
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              gap: 3,
-              flexWrap: { xs: "wrap", sm: "nowrap" },
-            }}
-          >
-            <Button
-              variant="contained"
-              sx={{
-                bgcolor: "#007BFF",
-                borderRadius: "39px",
-                px: 4,
-                py: 1.5,
-                textTransform: "none",
-                fontFamily: "PayPal Open",
-                fontWeight: 400,
-                fontSize: fontClamp(18),
-                lineHeight: "150%",
-                letterSpacing: "0%",
-                color: "#FFFFFF",
-                boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
-                "&:hover": { bgcolor: "#0069d9" },
-                minWidth: { xs: "100%", sm: "auto" },
-              }}
-            >
-              Schedule a Call
-            </Button>
-
-            <Button
-              variant="outlined"
-              endIcon={<ArrowForwardIcon />}
-              sx={{
-                borderColor: "rgba(255,255,255,0.3)",
-                borderRadius: "39px",
-                px: 4,
-                py: 1.5,
-                textTransform: "none",
-                fontFamily: "PayPal Open",
-                fontWeight: 400,
-                fontSize: fontClamp(18),
-                lineHeight: "150%",
-                letterSpacing: "0%",
-                color: "#FFFFFF",
-                "&:hover": { borderColor: "rgba(255,255,255,0.5)" },
-                minWidth: { xs: "100%", sm: "auto" },
-              }}
-            >
-              See Work
-            </Button>
-          </Box>
-        </Box>
-
-        {/* Image */}
         <Box
           sx={{
-            display: { xs: "none", sm: "none", md: "flex" },
-            maxWidth: { xs: "100%", md: "50%" },
-            justifyContent: "flex-end",
-            alignItems: "flex-end",
-            // mt: { xs: 4, md: 0 },
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: "center",
+            justifyContent: "space-between",
+            py: { xs: 6, md: 8 },
+            gap: 4,
           }}
         >
-          {/* <Box
-            component="img"
-            src={webDevelopmentImage}
-            alt="Web Development Services"
+          {/* Left Content */}
+          <Box
             sx={{
-              maxWidth: "100%",
-              height: "auto",
-              maxHeight: "100%",
+              width: { xs: "100%", md: "80%" },
+              zIndex: 10,
             }}
-          /> */}
+          >
+            <Typography
+              variant="h1"
+              sx={{
+                color: "#ffffff",
+                fontSize: fontClamp(56),
+                fontWeight: 700,
+                lineHeight: 1.1,
+                mb: 1,
+              }}
+            >
+              Front-End Development
+              <Box component="span" sx={{ display: "block", mt: 1 }}>
+                for <span style={{ color: "#00E5A0" }}>Fast & Scalable</span>
+              </Box>
+              <Box component="span" sx={{ display: "block" }}>
+                Interfaces
+              </Box>
+            </Typography>
+
+            <Typography
+              sx={{
+                color: "#E1E0E0",
+                fontSize: fontClamp(20),
+                lineHeight: 1.6,
+                my: 3,
+                maxWidth: "100%",
+              }}
+            >
+              Hire expert front-end developers skilled in ReactJS, Material UI,
+              and modern frameworks. Ideal for agencies looking to scale
+              delivery without growing overhead.
+            </Typography>
+
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={2}
+              sx={{ mt: 4 }}
+            >
+              <Button
+                variant="contained"
+                sx={{
+                  bgcolor: "#007BFF",
+                  borderRadius: "39px",
+                  px: 4,
+                  py: 1.5,
+                  textTransform: "none",
+                  fontSize: fontClamp(18),
+                  fontWeight: 500,
+                  boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
+                  "&:hover": { bgcolor: "#0069d9" },
+                }}
+              >
+                Hire Developers
+              </Button>
+              <Button
+                variant="outlined"
+                endIcon={<ArrowForwardIcon />}
+                sx={{
+                  color: "white",
+                  borderColor: "rgba(255,255,255,0.3)",
+                  borderRadius: "39px",
+                  px: 4,
+                  py: 1.5,
+                  textTransform: "none",
+                  fontSize: fontClamp(18),
+                  "&:hover": {
+                    borderColor: "white",
+                    bgcolor: "rgba(255,255,255,0.05)",
+                  },
+                }}
+              >
+                Get a Free Estimate
+              </Button>
+            </Stack>
+          </Box>
+
+          {/* Orbital system with tech icons - only visible on md and up */}
+          <Box
+            sx={{
+              position: "relative",
+              left: "40%",
+              transform: "translateX(-60%) translateY(90%)",
+              width: { xs: "100%", md: "40%" },
+              height: { xs: "auto", md: "500px" },
+              display: { xs: "none", md: "flex" },
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {/* Orbits with icons and dots */}
+            {[
+              { icons: techIcons.slice(0, 3), positions: 6 },
+              { icons: techIcons.slice(3, 7), positions: 8 },
+              { icons: techIcons.slice(4, 9), positions: 10 },
+            ].map((orbit, orbitIdx) => {
+              // Use a base radius and progressively increasing gap for each orbit
+              const baseRadius = 350;
+              const gapStart = 250;
+              const gapInc = 18;
+              let orbitRadius = baseRadius;
+              for (let i = 1; i <= orbitIdx; i++) {
+                orbitRadius += gapStart + (i - 1) * gapInc;
+              }
+              orbitRadius = orbitRadius * orbitScale;
+              const animationName = `frontend-orbit-rotate-${orbitIdx}`;
+              const duration = 500 + orbitIdx * 10;
+              const direction = orbitIdx % 2 === 0 ? "normal" : "reverse";
+
+              // Distribute icons at regular intervals, fill rest with dots
+              const iconPositions = Array(orbit.positions).fill(null);
+              const interval = Math.floor(orbit.positions / orbit.icons.length);
+              let pos = 0;
+              orbit.icons.forEach((icon, i) => {
+                iconPositions[pos] = icon;
+                pos = (pos + interval) % orbit.positions;
+                while (
+                  iconPositions[pos] &&
+                  iconPositions.filter(Boolean).length < orbit.icons.length
+                ) {
+                  pos = (pos + 1) % orbit.positions;
+                }
+              });
+
+              return (
+                <Box
+                  key={`orbit-parent-${orbitIdx}`}
+                  sx={{
+                    position: "absolute",
+                    width: `${orbitRadius * 2}px`,
+                    height: `${orbitRadius * 2}px`,
+                    pointerEvents: "none",
+                    zIndex: 2,
+                    // transform: `rotate(${
+                    //   orbitAngle * (orbitIdx % 2 === 0 ? 1 : -1)
+                    // }deg)`,
+                    transition: "transform 0.1s linear",
+                    // animation: `${animationName} ${duration}s linear infinite`,
+                    // animationDirection: direction,
+                    // animationPlayState: isPaused ? "paused" : "running",
+                    // [`@keyframes ${animationName}`]: {
+                    //   "0%": { transform: "rotate(0deg)" },
+                    //   "100%": { transform: "rotate(360deg)" },
+                    // },
+                  }}
+                >
+                  {/* Orbit border */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: "50%",
+                      border: "2px solid rgba(255,255,255,0.15)",
+                      zIndex: 1,
+                    }}
+                  />
+
+                  {/* Icons and dots at positions */}
+                  {iconPositions.map((icon, posIdx) => {
+                    const angle = (360 / orbit.positions) * posIdx;
+                    const radians = (angle * Math.PI) / 180;
+                    const x = Math.cos(radians) * orbitRadius;
+                    const y = Math.sin(radians) * orbitRadius;
+
+                    if (icon) {
+                      // Icon
+                      return (
+                        <Box
+                          key={`icon-${orbitIdx}-${posIdx}`}
+                          sx={{
+                            position: "absolute",
+                            left: `calc(50% + ${x}px)`,
+                            top: `calc(50% + ${y}px)`,
+                            transform: `translate(-50%, -50%) rotate(${
+                              -orbitAngle * (orbitIdx % 2 === 0 ? 1 : -1)
+                            }deg)`,
+                            zIndex: 20,
+                            pointerEvents: "auto",
+                          }}
+                          onMouseEnter={() => setIsPaused(true)}
+                          onMouseLeave={() => setIsPaused(false)}
+                        >
+                          <Box
+                            sx={{
+                              width: `${180 * orbitScale}px`,
+                              height: `${180 * orbitScale}px`,
+                              borderRadius: "50%",
+                              bgcolor: "#0D264F",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              boxShadow: "0 0 25px 0 rgba(0, 123, 255, 0.5)",
+                              animation: "glowPulse 3s ease-in-out infinite",
+                              "@keyframes glowPulse": {
+                                "0%": {
+                                  boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)",
+                                },
+                                "50%": {
+                                  boxShadow:
+                                    "0 0 25px 0 rgba(0, 123, 255, 0.5)",
+                                },
+                                "100%": {
+                                  boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)",
+                                },
+                              },
+                              border: "1px solid #3B526F",
+                              transition: "transform 0.3s ease-in-out",
+                              "&:hover": {
+                                transform: "scale(1.1)",
+                              },
+                            }}
+                          >
+                            <Box
+                              component="img"
+                              src={icon.icon}
+                              alt={icon.name}
+                              loading="lazy"
+                              sx={{
+                                width: `${130 * orbitScale}px`,
+                                height: `${130 * orbitScale}px`,
+                                objectFit: "contain",
+                                transition: "transform 0.2s ease-in-out",
+                                "&:hover": {
+                                  transform: "scale(1.1)",
+                                },
+                              }}
+                            />
+                          </Box>
+                        </Box>
+                      );
+                    } else {
+                      // Dot
+                      return (
+                        <Box
+                          key={`dot-${orbitIdx}-${posIdx}`}
+                          sx={{
+                            position: "absolute",
+                            left: `calc(50% + ${x}px)`,
+                            top: `calc(50% + ${y}px)`,
+                            transform: "translate(-50%, -50%)",
+                            width: { xs: "6px", sm: "8px", md: "8px" },
+                            height: { xs: "6px", sm: "8px", md: "8px" },
+                            borderRadius: "50%",
+                            bgcolor: "#B2D2FC",
+                            pointerEvents: "none",
+                            zIndex: 5,
+                          }}
+                        />
+                      );
+                    }
+                  })}
+                </Box>
+              );
+            })}
+
+            {/* React logo in center */}
+            <Box
+              sx={{
+                position: "relative",
+                width: `${logoOffset * 2}px`,
+                height: `${logoOffset * 2}px`,
+                borderRadius: "50%",
+                // bgcolor: "#0F4285",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                zIndex: 10,
+                // boxShadow: "0 0 40px rgba(0, 123, 255, 0.5)",
+              }}
+            >
+              {/* <Box
+                component="img"
+                src={teamgridLogo}
+                alt="React"
+                sx={{
+                  width: "70%",
+                  height: "70%",
+                  objectFit: "contain",
+                  animation: "pulse 4s ease-in-out infinite",
+                  "@keyframes pulse": {
+                    "0%": { opacity: 0.8 },
+                    "50%": { opacity: 1 },
+                    "100%": { opacity: 0.8 },
+                  },
+                }}
+              /> */}
+            </Box>
+          </Box>
         </Box>
       </Container>
+
+      {/* Background gradient effect */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "50%",
+          right: 0,
+          width: "50%",
+          height: "70%",
+          transform: "translateY(-50%)",
+          zIndex: 1,
+        }}
+      />
     </Box>
   );
 }
 
-export default WebDevelopment;
+export default HomePage;

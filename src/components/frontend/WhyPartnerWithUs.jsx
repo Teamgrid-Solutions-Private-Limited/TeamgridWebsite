@@ -10,68 +10,83 @@ import {
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { fontClamp } from "../../fontUtils";
-import { teamIcon } from "../../images";
+import { whyPartnerWithUsImage } from "../../images";
 
 const cards = [
   {
     title: "Agency-Centric",
     desc: "Specifically designed to support digital and creative agencies with reliable, scalable front-end development services.",
-    bg: "#FFF7CC",
-    iconBg: "#FFF0A6",
-    color: "#0D3C7E",
+    bg: "#FFF7C7",
+    iconBg: "#FDE658",
   },
   {
     title: "Speed & Flexibility",
     desc: "Kickstart projects quickly and scale up or down as your client demands change — no overhead, just results.",
-    bg: "#E6E9FF",
-    iconBg: "#D6DBFF",
-    color: "#0D3C7E",
+    bg: "#EAEAFF",
+    iconBg: "#DADAFD",
   },
   {
     title: "UI-First Thinking",
     desc: "Our developers prioritize design fidelity with responsive, pixel-perfect implementations that bring your mockups to life flawlessly.",
-    bg: "#E6FFE6",
-    iconBg: "#C8F7C5",
-    color: "#0D3C7E",
+    bg: "#E7FFD7",
+    iconBg: "#CDF5B3",
   },
   {
     title: "NDA-Compliant",
     desc: "We work under strict non-disclosure agreements, ensuring full confidentiality while representing your brand seamlessly.",
-    bg: "#FCEEFF",
-    iconBg: "#F6D6FF",
-    color: "#0D3C7E",
+    bg: "#FFEFFC",
+    iconBg: "#FFDDF9",
   },
   {
     title: "Seamless Integration",
     desc: "We collaborate smoothly with your in-house designers, backend developers, and project managers.",
-    bg: "#E6F7FF",
-    iconBg: "#C6EFFF",
-    color: "#0D3C7E",
+    bg: "#ECF9FF",
+    iconBg: "#CBEFFF",
   },
 ];
 
 function WhyPartnerWithUs() {
   return (
-    <Box sx={{ py: { xs: 6, md: 10 }, background: "#fff" }}>
+    <Box
+      sx={{
+        my: { xs: 6, md: 10 },
+        backgroundColor: "#FFFFFF",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Container
         maxWidth="1248px"
-        sx={{ px: { xs: 2.5, md: 3, lg: 4, xl: 0 } }}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
+          maxWidth: "1248px",
+          width: "100%",
+        }}
       >
         <Box
           sx={{
+            width: "100%",
             display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
             justifyContent: "space-between",
-            alignItems: "center",
+            gap: { xs: 2, sm: 4 },
             mb: 4,
           }}
         >
           <Typography
             variant="h2"
             sx={{
-              fontWeight: 700,
-              fontSize: fontClamp(40),
-              color: "#181A1C",
-              letterSpacing: 0,
+              fontWeight: 500,
+              fontSize: fontClamp(48),
+              leadingTrim: "Cap height",
+              lineHeight: "100%",
+              letterSpacing: "0%",
+              color: "#140E13",
             }}
           >
             Why Partner With Us
@@ -80,15 +95,17 @@ function WhyPartnerWithUs() {
             variant="outlined"
             endIcon={<ArrowForwardIcon />}
             sx={{
-              borderRadius: 2,
               px: 3,
               py: 1.2,
-              fontWeight: 500,
-              fontSize: fontClamp(16),
-              color: "#181A1C",
+              fontWeight: 400,
+              fontSize: fontClamp(18),
+              lineHeight: "150%",
+              letterSpacing: "0%",
+              color: "#140E13",
               borderColor: "#D6D6D6",
               background: "#fff",
               boxShadow: "none",
+              borderRadius: 3,
               "&:hover": {
                 borderColor: "#0D3C7E",
                 background: "#F7F9FC",
@@ -102,9 +119,7 @@ function WhyPartnerWithUs() {
           {cards.map((card, idx) => (
             <Grid
               item
-              xs={12}
-              sm={6}
-              md={4}
+              size={{ xs: 12, sm: 6, md: 4 }}
               key={card.title}
               sx={{ display: "flex" }}
             >
@@ -112,7 +127,7 @@ function WhyPartnerWithUs() {
                 elevation={0}
                 sx={{
                   bgcolor: card.bg,
-                  borderRadius: 4,
+                  borderRadius: 6,
                   width: "100%",
                   minHeight: 180,
                   display: "flex",
@@ -126,9 +141,9 @@ function WhyPartnerWithUs() {
                 <Box
                   sx={{
                     bgcolor: card.iconBg,
-                    borderRadius: 2,
-                    width: 48,
-                    height: 48,
+                    borderRadius: 3.5,
+                    width: 64,
+                    height: 64,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -137,16 +152,19 @@ function WhyPartnerWithUs() {
                 >
                   <Box
                     component="img"
-                    src={teamIcon}
+                    src={whyPartnerWithUsImage}
                     alt="icon"
-                    sx={{ width: 28, height: 28 }}
+                    sx={{ width: 32, height: 32 }}
                   />
                 </Box>
                 <Typography
                   sx={{
-                    fontWeight: 700,
-                    fontSize: fontClamp(18),
-                    color: card.color,
+                    fontWeight: 500,
+                    fontSize: fontClamp(20),
+                    leadingTrim: "Cap height",
+                    lineHeight: "120%",
+                    letterSpacing: "0%",
+                    color: "#05408E",
                     mb: 1,
                   }}
                 >
@@ -154,10 +172,11 @@ function WhyPartnerWithUs() {
                 </Typography>
                 <Typography
                   sx={{
-                    color: "#222",
-                    fontSize: fontClamp(15),
                     fontWeight: 400,
-                    lineHeight: 1.6,
+                    fontSize: fontClamp(16),
+                    lineHeight: "150%",
+                    letterSpacing: "0%",
+                    color: "#140E13"
                   }}
                 >
                   {card.desc}

@@ -278,7 +278,7 @@ function Navbar() {
                 onMouseLeave={handleDropdownLeave}
                 sx={{
                   position: "fixed",
-                  top: { md: "76px", lg: "84px" },
+                  top: { md: "62px", lg: "73px" },
                   left: "50%",
                   transform: "translateX(-50%)",
                   width: "100%",
@@ -287,150 +287,155 @@ function Navbar() {
                   px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
                 }}
               >
-                <Box sx={{backgroundColor:"#fff", height: "auto",
-                  minHeight: { md: "250px", lg: "300px" },
-                  maxHeight: { xs: "75vh", md: "75vh", lg: "80vh" },
-                  borderRadius: "12px",
-                  boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.15)",
-                  p: { xs: 1.5, md: 2, lg: 3 },
-                  zIndex: 1300,
-                  overflowY: "auto",
-                  overflowX: "hidden",
-                  display: "flex",
-                  flexDirection: { xs: "column", md: "column", lg: "row" },
-                  flexWrap: { xs: "nowrap", md: "nowrap", lg: "nowrap" },
-                  justifyContent: { xs: "flex-start", lg: "space-between" },
-                  gap: { xs: 1, md: 2, lg: 3 },}}>
-                {serviceCategories.map((category, catIndex) => (
-                  <Box
-                    key={catIndex}
-                    sx={{
-                      width: { xs: "100%", md: "100%", lg: "23%" },
-                      minWidth: { lg: "250px" },
-                      height: "auto",
-                      display: "flex",
-                      flexDirection: "column",
-                      mb: { xs: 2, md: 2.5, lg: 0 },
-                      flexShrink: 0,
-                    }}
-                  >
-                    <Typography
-                      variant="overline"
+                <Box
+                  sx={{
+                    backgroundColor: "#fff",
+                    height: "auto",
+                    minHeight: { md: "250px", lg: "300px" },
+                    maxHeight: { xs: "75vh", md: "75vh", lg: "80vh" },
+                    borderRadius: "24px",
+                    boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.15)",
+                    p: { xs: 1.5, md: 2, lg: 3 },
+                    zIndex: 1300,
+                    overflowY: "auto",
+                    overflowX: "hidden",
+                    display: "flex",
+                    flexDirection: { xs: "column", md: "column", lg: "row" },
+                    flexWrap: { xs: "nowrap", md: "nowrap", lg: "nowrap" },
+                    justifyContent: { xs: "flex-start", lg: "space-between" },
+                    gap: { xs: 1, md: 1 },
+                  }}
+                >
+                  {serviceCategories.map((category, catIndex) => (
+                    <Box
+                      key={catIndex}
                       sx={{
-                        fontWeight: 400,
-                        color: "text.secondary",
-                        fontFamily: "PayPal Open, sans-serif",
-                        fontSize: fontClamp(12),
-                        mb: 0,
-                        display: "block",
-                        textTransform: "uppercase",
-                        opacity: 0.7,
-                        letterSpacing: "0.5px",
-                        pl: 2.5,
-                        lineHeight: '150%',
+                        width: { xs: "100%", md: "100%", lg: "25%" },
+                        minWidth: { lg: "250px" },
+                        height: "auto",
+                        display: "flex",
+                        flexDirection: "column",
+                        // mb: { xs: 2, md: 2.5, lg: 0 },
+                        flexShrink: 0,
                       }}
                     >
-                      {category.title}
-                    </Typography>
+                      <Typography
+                        variant="overline"
+                        sx={{
+                          fontWeight: 400,
+                          color: "text.secondary",
+                          fontFamily: "PayPal Open, sans-serif",
+                          fontSize: "12px",
+                          mb: 0,
+                          display: "block",
+                          textTransform: "uppercase",
+                          opacity: 0.7,
+                          letterSpacing: "0.5px",
+                          pl: 1.2,
+                          lineHeight: "150%",
+                        }}
+                      >
+                        {category.title}
+                      </Typography>
 
-                    <Box sx={{ mt: 0 }}>
-                      {category.services.map((service, serviceIndex) => (
-                        <Box
-                          key={serviceIndex}
-                          sx={{
-                            mb: 0,
-                            display: "flex",
-                            alignItems: "flex-start",
-                            gap: 1,
-                            cursor: "pointer",
-                            width: "100%",
-                            height: "auto",
-                            minHeight: { xs: "50px", md: "55px", lg: "60px" },
-                            "&:hover": {
-                              bgcolor: "rgba(14, 65, 133, 0.03)",
-                              "& .service-title": {
-                                color: "#072449",
-                              },
-                              backgroundColor: "#F3F3F6",
-                              borderRadius: "20px",
-                              '& .service-icon-bg': {
-                                bgcolor: '#FFFFFF',
-                              },
-                            },
-                            px: { xs: 1.2, md: 1.5 },
-                            py: { xs: 1.2, md: 1.5 },
-                            transition: "all 0.2s ease",
-                          }}
-                          onClick={() => {
-                            // Handle service item click
-                            setActiveDropdown(null); // Close dropdown
-                          }}
-                        >
+                      <Box sx={{ mt: 0 }}>
+                        {category.services.map((service, serviceIndex) => (
                           <Box
-                          className='service-icon-bg'
+                            key={serviceIndex}
                             sx={{
+                              mb: 0,
                               display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              width: { xs: "40px", md: "45px" },
-                              height: { xs: "40px", md: "45px" },
-                              flexShrink: 0,
-                              borderRadius: "8px",
-                              backgroundColor: "rgba(5, 64, 142, 0.06)",
-                              padding: { xs: "6px", md: "8px" },
-                              mt: "3px",
+                              alignItems: "flex-start",
+                              gap: 2,
+                              cursor: "pointer",
+                              width: "100%",
+                              height: "auto",
+                              minHeight: { xs: "50px", md: "55px", lg: "60px" },
+                              "&:hover": {
+                                bgcolor: "rgba(14, 65, 133, 0.03)",
+                                "& .service-title": {
+                                  color: "#072449",
+                                },
+                                backgroundColor: "#F3F3F6",
+                                borderRadius: "16px",
+                                "& .service-icon-bg": {
+                                  bgcolor: "#FFFFFF",
+                                },
+                              },
+                              px: { xs: 1.2, md: 1.5 },
+                              py: { xs: 1.2, md: 1.5 },
+                              transition: "all 0.2s ease",
+                            }}
+                            onClick={() => {
+                              // Handle service item click
+                              setActiveDropdown(null); // Close dropdown
                             }}
                           >
                             <Box
-                              component="img"
-                              src={service.icon}
-                              alt={service.title}
-                              loading="lazy"
+                              className="service-icon-bg"
                               sx={{
-                                width: "24px",
-                                height: "24px",
-                                objectFit: "contain",
-                              }}
-                            />
-                          </Box>
-                          <Box sx={{ flexGrow: 1, minWidth: 0 }}>
-                            <Typography
-                              className="service-title"
-                              variant="subtitle1"
-                              sx={{
-                                fontWeight: 500,
-                                color: "#05408E",
-                                fontFamily: "PayPal Open, sans-serif",
-                                fontSize: fontClamp(14),
-                                mb: 0.25,
-                                transition: "color 0.25s",
-                                whiteSpace: "normal",
-                                wordWrap: "break-word",
-                                lineHeight: '150%',
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                width: { xs: "40px", md: "45px" },
+                                height: { xs: "40px", md: "45px" },
+                                flexShrink: 0,
+                                borderRadius: "8px",
+                                backgroundColor: "rgba(5, 64, 142, 0.06)",
+                                padding: { xs: "6px", md: "8px" },
+                                mt: "3px",
                               }}
                             >
-                              {service.title}
-                            </Typography>
-                            <Typography
-                              variant="body2"
-                              sx={{
-                                color: "text.secondary",
-                                fontFamily: "PayPal Open, sans-serif",
-                                fontSize: fontClamp(14),
-                                lineHeight: '150%',
-                                opacity: 0.8,
-                                whiteSpace: "normal",
-                                wordWrap: "break-word",
-                              }}
-                            >
-                              {service.description}
-                            </Typography>
+                              <Box
+                                component="img"
+                                src={service.icon}
+                                alt={service.title}
+                                loading="lazy"
+                                sx={{
+                                  width: "24px",
+                                  height: "24px",
+                                  objectFit: "contain",
+                                }}
+                              />
+                            </Box>
+                            <Box sx={{ flexGrow: 1, minWidth: 0 }}>
+                              <Typography
+                                className="service-title"
+                                variant="subtitle1"
+                                sx={{
+                                  fontWeight: 500,
+                                  color: "#05408E",
+                                  fontFamily: "PayPal Open, sans-serif",
+                                  fontSize: "14px",
+                                  mb: 0.25,
+                                  transition: "color 0.25s",
+                                  whiteSpace: "normal",
+                                  wordWrap: "break-word",
+                                  lineHeight: "150%",
+                                }}
+                              >
+                                {service.title}
+                              </Typography>
+                              <Typography
+                                variant="body2"
+                                sx={{
+                                  color: "text.secondary",
+                                  fontFamily: "PayPal Open, sans-serif",
+                                  fontSize: "14px",
+                                  lineHeight: "150%",
+                                  opacity: 0.8,
+                                  whiteSpace: "normal",
+                                  wordWrap: "break-word",
+                                }}
+                              >
+                                {service.description}
+                              </Typography>
+                            </Box>
                           </Box>
-                        </Box>
-                      ))}
+                        ))}
+                      </Box>
                     </Box>
-                  </Box>
-                ))}
+                  ))}
                 </Box>
               </Box>
             )}

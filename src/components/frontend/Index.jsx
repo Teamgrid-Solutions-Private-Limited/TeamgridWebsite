@@ -4,6 +4,7 @@ import HomePage from "./HomePage";
 import WhatWeOffer from "./WhatWeOffer";
 import OurTechStack from "./OurTechStack";
 import WhyPartnerWithUs from "./WhyPartnerWithUs";
+// import HowWeWork from "./HowWeWork";
 
 function Index() {
   return (
@@ -12,6 +13,7 @@ function Index() {
       <WhatWeOffer />
       <OurTechStack />
       <WhyPartnerWithUs />
+      {/* <HowWeWork /> */}
     </Box>
   );
 }

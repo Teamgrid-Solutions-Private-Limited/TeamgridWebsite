@@ -100,6 +100,7 @@ import acfImagePath from "./assets/acf.png";
 import mySQLImagePath from "./assets/mySQL.png";
 import backIconPath from "./assets/Variant3.svg"
 import ourTechStackImagePath from "./assets/ourtechstack.jpg";
+import whyPartnerWithUsImagePath from "./assets/whypartnerwithus.svg";
 
 // Cache map for SVG elements to prevent multiple loads
 const svgCache = new Map();
@@ -208,3 +209,4 @@ export const acfIcon = getSvgPath(acfImagePath);
 export const mySQLIcon = getSvgPath(mySQLImagePath);
 export const backIconAnime = getSvgPath(backIconPath);
 export const ourTechStackImage = getSvgPath(ourTechStackImagePath);
+export const whyPartnerWithUsImage = getSvgPath(whyPartnerWithUsImagePath);
