@@ -230,17 +230,15 @@ function Navbar() {
                 display: "flex",
                 alignItems: "center",
                 "&:hover": {
-                  bgcolor: !scrolled
-                    ? "rgba(5, 64, 142, 0.2)"
-                    : "rgba(5, 64, 142, 0.05)",
+                  bgcolor: !scrolled ? "#3082EC3B" : "#F3F3F6",
                 },
                 bgcolor:
                   activeTab === index || activeDropdown === index
                     ? !scrolled
-                      ? "rgba(5, 64, 142, 0.2)"
-                      : "rgba(5, 64, 142, 0.05)"
+                      ? "#3082EC3B"
+                      : "#F3F3F6"
                     : "transparent",
-                borderRadius: "30px",
+                borderRadius: "12px",
                 transition: "background 0.25s, color 0.25s",
                 fontWeight: 500,
                 fontSize: { md: "0.8rem", lg: "0.9rem", xl: "1rem" },
@@ -310,7 +308,7 @@ function Navbar() {
                     <Box
                       key={catIndex}
                       sx={{
-                        width: { xs: "100%", md: "100%", lg: "25%" },
+                        width: { xs: "100%", md: "100%", lg: "23%" },
                         minWidth: { lg: "250px" },
                         height: "auto",
                         display: "flex",
@@ -326,12 +324,12 @@ function Navbar() {
                           color: "text.secondary",
                           fontFamily: "PayPal Open, sans-serif",
                           fontSize: "12px",
-                          mb: 0,
+                          mb: 1,
                           display: "block",
                           textTransform: "uppercase",
                           opacity: 0.7,
                           letterSpacing: "0.5px",
-                          pl: 1.2,
+                          pl: 1.5,
                           lineHeight: "150%",
                         }}
                       >
@@ -446,7 +444,7 @@ function Navbar() {
       <Button
         variant="contained"
         sx={{
-          borderRadius: "39px",
+          borderRadius: "12px",
           px: { md: 2, lg: 4, xl: 5 },
           py: 1.5,
           boxShadow: "none",

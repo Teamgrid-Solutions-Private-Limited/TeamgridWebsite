@@ -142,7 +142,7 @@ function ContactUs() {
                   "&:hover": {
                     bgcolor: "rgba(255, 255, 255, 0.9)",
                   },
-                  borderRadius: "39px",
+                  borderRadius: "16px",
                   px: 5,
                   py: 2,
                   fontSize: fontClamp(18),
@@ -164,7 +164,7 @@ function ContactUs() {
                   "&:hover": {
                     bgcolor: "#e54b24",
                   },
-                  borderRadius: "39px",
+                  borderRadius: "16px",
                   px: 5,
                   py: 2,
                   fontSize: fontClamp(18),

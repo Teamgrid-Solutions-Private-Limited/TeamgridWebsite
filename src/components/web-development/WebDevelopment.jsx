@@ -201,7 +201,7 @@ function HomePage() {
                 variant="contained"
                 sx={{
                   bgcolor: "#007BFF",
-                  borderRadius: "39px",
+                  borderRadius: "16px",
                   px: 4,
                   py: 1.5,
                   textTransform: "none",
@@ -219,7 +219,7 @@ function HomePage() {
                 sx={{
                   color: "white",
                   borderColor: "rgba(255,255,255,0.3)",
-                  borderRadius: "39px",
+                  borderRadius: "16px",
                   px: 4,
                   py: 1.5,
                   textTransform: "none",

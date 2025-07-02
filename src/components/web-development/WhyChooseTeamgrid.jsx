@@ -92,7 +92,7 @@ const WhyChooseTeamgrid = () => {
             color="primary"
             endIcon={<ArrowRightAltIcon />}
             sx={{
-              borderRadius: "39px",
+              borderRadius: "16px",
               px: 5,
               py: 2,
               borderColor: "rgba(202, 202, 202, 1)",
