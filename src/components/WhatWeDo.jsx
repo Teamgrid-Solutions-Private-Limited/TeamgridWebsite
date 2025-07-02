@@ -288,7 +288,8 @@ function WhatWeDo() {
                 backgroundColor: "rgba(255, 255, 255,1)",
                 backdropFilter: "blur(156.89999389648438px)",
                 borderRadius: 4,
-                width: "98%",
+                width: "auto",
+                maxWidth:'98%',
                 padding: { xs: "8px", sm: "8px" },
                 boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.15)",
               }}
@@ -299,126 +300,105 @@ function WhatWeDo() {
                   flexWrap: "wrap",
                   justifyContent: "center",
                   position: "relative",
-                  // minHeight: "80px",
-                  gap: "18px",
-
+                  // gap: { xs: "4px", sm: "3px" },
+                  width: "100%",
                   // Special styles for small screens
-                  "@media (max-width: 600px)": {
-                    gap: "4px",
-                    "& > div": {
-                      width: "calc(33.33% - 4px)",
-                      position: "relative",
-                      "&:not(:nth-of-type(3n))::after": {
-                        content: '""',
-                        position: "absolute",
-                        right: 0,
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        height: "auto",
-                        width: "1px",
-                        backgroundColor: "#DDDDDD",
-                        zIndex: 1,
-                      },
-                      "&:hover::after, &:nth-of-type(1)::after": {
-                        opacity: 0,
-                      },
-                      "&:nth-of-type(-n+3)": {
-                        borderBottom: "1px solid #DDDDDD",
-                        marginBottom: "2px",
-                        paddingBottom: "8px",
-                      },
-                      "&:nth-of-type(n+4)": {
-                        marginTop: "2px",
-                        paddingTop: "8px",
-                      },
-                    },
-                  },
-
-                  // Styles for medium screens and up
-                  "@media (min-width: 601px)": {
-                    flexWrap: "nowrap",
-                    gap: "3px",
-                    "& > div": {
-                      flex: "1 1 calc(16.66% - 3px)",
-                      "&:not(:last-child)::after": {
-                        content: '""',
-                        position: "absolute",
-                        right: 0,
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        height: "40%",
-                        width: "1px",
-                        backgroundColor: "#DDDDDD",
-                        zIndex: 1,
-                      },
-                      "&:hover::after, &:nth-of-type(1)::after": {
-                        opacity: 0,
-                      },
-                    },
-                  },
+                  // "@media (max-width: 600px)": {
+                  //   gap: "4px",
+                  // },
+                  // // Styles for medium screens and up
+                  // "@media (min-width: 601px)": {
+                  //   gap: "3px",
+                  // },
                 }}
               >
                 {serviceCategories.map((service, idx) => (
                   <Box
                     key={service.id}
-                    onClick={() => setIndex(idx)}
                     sx={{
                       display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      alignItems: "flex-start",
-                      padding: { xs: "8px", md: "10px",lg: "14px" },
-                      textAlign: "left",
+                      alignItems: "stretch",
                       position: "relative",
-                      cursor: "pointer",
-                      borderRadius: "8px",
-                      transition: "all 0.3s ease",
-                      backgroundColor:
-                        index === idx ? "#0b3c7b" : "transparent",
-                      zIndex: 2,
-                      gap: 1,
-                      "&:hover": {
-                        backgroundColor: "#0b3c7b",
-                        "& .service-text": {
-                          color: "white",
-                        },
-                        "& .service-description": {
-                          color: "#9EAAB8",
-                        },
-                        "&::after": {
-                          opacity: 0,
-                        },
-                      },
                     }}
                   >
-                    <Typography
-                      className="service-text"
-                      variant="subtitle1"
+                    <Box
+                      onClick={() => setIndex(idx)}
                       sx={{
-                        fontSize: fontClamp(16),
-                        fontWeight: 500,
-                        lineHeight: "100%",
-                        letterSpacing: 0,
-                        color: index === idx ? "#FFFFFF" : "#072449",
-                        transition: "color 0.3s ease",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: { xs: "8px", md: "10px", lg: "14px" },
+                        textAlign: "center",
+                        position: "relative",
+                        cursor: "pointer",
+                        borderRadius: "8px",
+                        transition: "all 0.3s ease",
+                        backgroundColor: index === idx ? "#0b3c7b" : "transparent",
+                        zIndex: 2,
+                        gap: 1,
+                        overflow: "visible",
+                        '&:hover': {
+                          backgroundColor: '#0b3c7b',
+                          '& .service-text': {
+                            color: 'white',
+                          },
+                          '& .service-description': {
+                            color: '#9EAAB8',
+                          },
+                        },
+                        // minWidth: { xs: '80px', sm: '100px', md: '120px' },
+                        flex: '1 1 auto',
                       }}
                     >
-                      {service.name}
-                    </Typography>
-                    <Typography
-                      className="service-description"
-                      variant="body2"
-                      sx={{
-                        fontSize: fontClamp(14),
-                        fontWeight: 400,
-                        lineHeight: "100%",
-                        letterSpacing: 0,
-                        color: index === idx ? "#9EAAB8" : "#0724498C",
-                        transition: "color 0.3s ease",
-                      }}
-                    >
-                      {service.description}
-                    </Typography>
+                      <Typography
+                        className="service-text"
+                        variant="subtitle1"
+                        sx={{
+                          fontSize: 16,
+                          fontWeight: 500,
+                          lineHeight: "100%",
+                          letterSpacing: 0,
+                          color: index === idx ? "#FFFFFF" : "#072449",
+                          transition: "color 0.3s ease",
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        {service.name}
+                      </Typography>
+                      <Typography
+                        className="service-description"
+                        variant="body2"
+                        sx={{
+                          fontSize: 14,
+                          fontWeight: 400,
+                          lineHeight: "100%",
+                          letterSpacing: 0,
+                          color: index === idx ? "#9EAAB8" : "#0724498C",
+                          transition: "color 0.3s ease",
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        {service.description}
+                      </Typography>
+                    </Box>
+                    {/* Divider, except after last tab */}
+                    {idx !== serviceCategories.length - 1 && (
+                      <Box
+                        sx={{
+                          alignSelf: 'center',
+                          height: '50%',
+                          width: '1px',
+                          backgroundColor: '#DDDDDD',
+                          mx: { xs: '2px', sm: '4px', md: '6px' },
+                          zIndex: 3,
+                        }}
+                      />
+                    )}
                   </Box>
                 ))}
               </Box>

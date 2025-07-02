@@ -349,10 +349,13 @@ function Navbar() {
                             "&:hover": {
                               bgcolor: "rgba(14, 65, 133, 0.03)",
                               "& .service-title": {
-                                color: "#05408E",
+                                color: "#072449",
                               },
-                              backgroundColor: "rgba(5, 64, 142, 0.03)",
+                              backgroundColor: "#F3F3F6",
                               borderRadius: "20px",
+                              '& .service-icon-bg': {
+                                bgcolor: '#FFFFFF',
+                              },
                             },
                             px: { xs: 1.2, md: 1.5 },
                             py: { xs: 1.2, md: 1.5 },
@@ -364,6 +367,7 @@ function Navbar() {
                           }}
                         >
                           <Box
+                          className='service-icon-bg'
                             sx={{
                               display: "flex",
                               alignItems: "center",
@@ -374,9 +378,6 @@ function Navbar() {
                               borderRadius: "8px",
                               backgroundColor: "rgba(5, 64, 142, 0.06)",
                               padding: { xs: "6px", md: "8px" },
-                              "&:hover": {
-                                bgcolor: "#FFFFFF",
-                              },
                               mt: "3px",
                             }}
                           >
