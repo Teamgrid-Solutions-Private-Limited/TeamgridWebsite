@@ -12,6 +12,7 @@ import Letstalk from "./components/Letstalk";
 import Footer from "./components/Footer";
 import Index from "./components/web-development/Index";
 import Frontend from "./components/frontend/Index";
+import Backend from './components/backend/Index'
 
 function App() {
   const theme = useTheme();
@@ -57,7 +58,8 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="/web-development" element={<Index />} />
           <Route path="/frontend" element={<Frontend />} />
-        </Routes>
+          <Route path="/backend" element={<Backend/>} />
+        </Routes> 
         <Footer />
       </Box>
     </BrowserRouter>

@@ -29,7 +29,7 @@
             "title": "Back-End Development",
             "description": "Scalable, secure, and efficient architecture.",
             "icon": "storageIcon",
-            "link": "/web-development"
+            "link": "/backend"
           },
           {
             "title": "WordPress & CMS",
@@ -537,7 +537,7 @@
 
   "webDevelopmentContactUS": {
     "title": "Need a reliable web development partner?",
-    "subtitle": "— Let’s talk about your next project or developer requirement.",
+    "subtitle": "— Let's talk about your next project or developer requirement.",
     "buttons": [
       {
         "text": "Contact Us",
@@ -783,7 +783,7 @@
     },
     "contactUS": {
       "title": "Need expert front-end developers?",
-      "subtitle": "Let’s talk about how we can support your agency or project. Our flexible team structure lets you start fast and scale when needed.",
+      "subtitle": "Let's talk about how we can support your agency or project. Our flexible team structure lets you start fast and scale when needed.",
       "buttons": [
         { "text": "Let's Talk", "variant": "contained", "color": "white" },
         {
@@ -793,5 +793,220 @@
         }
       ]
     }
+  },
+  "backend": {
+    "homePage": {
+      "heroTitle": "Back-End Development Services for Scalable and Secure Web Applications",
+      "heroSubtitle": "Hire skilled back-end developers to build fast, API-driven systems using Node.js, PostgreSQL, MongoDB, and modern backend frameworks.",
+      "heroHighlight": "",
+      "description": "Hire expert back-end developers skilled in Node.js, Express, and modern backend frameworks. Ideal for agencies and businesses looking to scale delivery without growing overhead.",
+      "buttons": [
+        { "text": "Hire Back-End Developers", "variant": "contained" },
+        { "text": "Request a Free Quote", "variant": "outlined" }
+      ],
+      "techIcons": []
+    },
+    "whatWeOffer": {
+      "title": "What We Offer",
+      "subtitle": "Robust, Scalable, and API-First Back-End Solutions",
+      "description": "We build the invisible engines that power your web and mobile applications. From simple database-driven sites to complex SaaS platforms, our back-end developers ensure your systems are scalable, secure, and built for performance.",
+      "buttonText": "Explore Services",
+      "services": [
+        {
+          "title": "RESTful API Development & Integration",
+          "description": "Build and integrate robust RESTful APIs for seamless data exchange.",
+          "icon": "apiIcon"
+        },
+        {
+          "title": "Authentication & Authorization (JWT, OAuth)",
+          "description": "Secure your applications with modern authentication and authorization.",
+          "icon": "securityIcon"
+        },
+        {
+          "title": "Microservices Architecture",
+          "description": "Design and implement scalable microservices for modular systems.",
+          "icon": "modularIcon"
+        },
+        {
+          "title": "Database Design & Optimization",
+          "description": "Efficient, scalable, and secure database solutions.",
+          "icon": "databaseIcon"
+        },
+        {
+          "title": "Admin Panel & Dashboard Back-Ends",
+          "description": "Custom admin panels and dashboards for business operations.",
+          "icon": "dashboardIcon"
+        },
+        {
+          "title": "Third-Party Integrations (Payment, Email, etc.)",
+          "description": "Integrate with payment gateways, email services, and more.",
+          "icon": "integrationIcon"
+        },
+        {
+          "title": "Backend Performance Tuning & Security Hardening",
+          "description": "Optimize performance and secure your backend systems.",
+          "icon": "performanceIcon"
+        },
+        {
+          "title": "CI/CD Setup for Development Pipelines",
+          "description": "Automate deployments and streamline development workflows.",
+          "icon": "cicdIcon"
+        }
+      ]
+    },
+    "ourTechStack": {
+      "title": "Our Tech Stack",
+      "description": "We use modern, scalable backend technologies to build fast, secure, and modular systems. Our tech stack ensures performance, maintainability, and future-ready web experiences.",
+      "techs": [
+        { "name": "Node.js", "icon": "nodejsIcon", "bg": "#E8F4FD", "color": "#0D3C7E" },
+        { "name": "Express.js", "icon": "expressIcon", "bg": "#F5F0FF", "color": "#000000" },
+        { "name": "JavaScript", "icon": "javascriptIcon", "bg": "#FFF9E5", "color": "#F7DF1E" },
+        { "name": "TypeScript", "icon": "typescriptIcon", "bg": "#EAF6FF", "color": "#3178C6" },
+        { "name": "PostgreSQL", "icon": "postgresqlIcon", "bg": "#EDF6FF", "color": "#336791" },
+        { "name": "MySQL", "icon": "mySQLIcon", "bg": "#FFF3ED", "color": "#00758F" },
+        { "name": "MongoDB", "icon": "mongodbIcon", "bg": "#E7FFD7", "color": "#47A248" },
+        { "name": "Redis", "icon": "redisIcon", "bg": "#FFEFFC", "color": "#D82C20" },
+        { "name": "SQL Server", "icon": "sqlServerIcon", "bg": "#ECF9FF", "color": "#CC2927" },
+        { "name": "Docker", "icon": "dockerIcon", "bg": "#F0F7FF", "color": "#2496ED" },
+        { "name": "AWS", "icon": "awsIcon", "bg": "#FFF7C7", "color": "#FF9900" },
+        { "name": "Git", "icon": "gitIcon", "bg": "#FFE5E5", "color": "#F05032" },
+        { "name": "Postman", "icon": "postmanIcon", "bg": "#FFF3ED", "color": "#FF6C37" },
+        { "name": "Swagger", "icon": "swaggerIcon", "bg": "#E7FFD7", "color": "#85EA2D" },
+        { "name": "PM2", "icon": "pm2Icon", "bg": "#F5F0FF", "color": "#2B037A" },
+        { "name": "Nginx", "icon": "nginxIcon", "bg": "#EAF6FF", "color": "#009639" }
+      ]
+    },
+    "whyPartnerWithUs": {
+      "title": "Why Partner With Us",
+      "buttonText": "Explore Services",
+      "cards": [
+        {
+          "title": "API-First Development",
+          "desc": "Built for front-end integration, mobile compatibility, and speed.",
+          "bg": "#FFF7C7",
+          "iconBg": "#FDE658"
+        },
+        {
+          "title": "Security-Focused",
+          "desc": "Role-based access, input validation, and secure data storage.",
+          "bg": "#EAEAFF",
+          "iconBg": "#DADAFD"
+        },
+        {
+          "title": "Modular Architecture",
+          "desc": "Clean, well-documented code built for long-term maintainability.",
+          "bg": "#E7FFD7",
+          "iconBg": "#CDF5B3"
+        },
+        {
+          "title": "Agency Friendly",
+          "desc": "Flexible to integrate with your existing front-end or design team.",
+          "bg": "#FFEFFC",
+          "iconBg": "#FFDDF9"
+        },
+        {
+          "title": "Performance-Oriented",
+          "desc": "Query optimization, caching, and load balancing where needed.",
+          "bg": "#ECF9FF",
+          "iconBg": "#CBEFFF"
+        }
+      ]
+    },
+    "howWeWork": {
+      "title": "How We Work",
+      "description": "Our back-end development process is built to deliver speed, quality, and collaboration.",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Requirement Discovery",
+          "desc": "We start with a deep dive into your business logic, data flow, and scalability requirements."
+        },
+        {
+          "number": "02",
+          "title": "Architecture Design",
+          "desc": "We propose database structures, API schemas, and microservice strategies aligned with your goals."
+        },
+        {
+          "number": "03",
+          "title": "Development & Integration",
+          "desc": "Our developers build backend systems using Node.js and connect them to your front-end or mobile app via secure APIs."
+        },
+        {
+          "number": "04",
+          "title": "Testing & Optimization",
+          "desc": "We perform unit and integration testing, tune query performance, and conduct security reviews."
+        },
+        {
+          "number": "05",
+          "title": "Deployment",
+          "desc": "We deploy on cloud platforms (like AWS) or deliver clean, production-ready code for your team to integrate."
+        },
+        {
+          "number": "06",
+          "title": "Ongoing Support (Optional)",
+          "desc": "Post-deployment support for monitoring, updates, and iterative changes based on user feedback."
+        }
+      ]
+    },
+    "engagementModels": {
+      "title": "Engagement Models",
+      "description": "Choose the engagement model that best suits your project needs",
+      "models": [
+        {
+          "title": "Time & Material",
+          "points": [
+            "Best for evolving or modular systems",
+            "Weekly tracking and flexibility",
+            "Ideal for long-term agile projects"
+          ]
+        },
+        {
+          "title": "Dedicated Back-End Developer",
+          "points": [
+            "Full-time backend resource under your control",
+            "Monthly billing",
+            "Priority availability & flexible resourcing"
+          ]
+        },
+        {
+          "title": "Fixed Cost Projects",
+          "points": [
+            "Suitable for defined admin panels, APIs, or dashboards",
+            "Milestone-based delivery",
+            "Transparent scoping and pricing"
+          ]
+        }
+      ]
+    },
+    "gotQuestions": {
+      "title": "FAQs",
+      "description": "Clear responses to common questions about how we work and what we deliver.",
+      "questions": [
+        {
+          "q": "Do you support database migration or restructuring?",
+          "a": "Yes, we can migrate data, restructure legacy schemas, or set up completely new databases."
+        },
+        {
+          "q": "Can your backend developers work with our front-end or mobile team?",
+          "a": "Absolutely. We specialize in collaborative, decoupled development that syncs with your delivery pipeline."
+        },
+        {
+          "q": "What if I need DevOps or deployment help too?",
+          "a": "We offer optional support for deployment setup on AWS, DigitalOcean, or custom VPS."
+        }
+      ]
+    },
+    "contactUS": {
+      "title": "Let's build the engine behind your next great product.",
+      "subtitle": "From APIs to admin dashboards, our backend developers can help you deliver faster and scale smarter.",
+      "buttons": [
+        { "text": "Talk to Us", "variant": "contained" },
+        { "text": "Get a Free Estimate", "variant": "outlined" },
+        { "text": "Hire a Developer", "variant": "contained" }
+      ]
+    }
   }
 }
+
+
+
