@@ -449,22 +449,17 @@ function Home() {
                             justifyContent: "center",
                             alignItems: "center",
                             boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)",
-                            animation: "glowPulse 3s ease-in-out infinite, scalePulse 3s ease-in-out infinite",
+                            animation: "glowPulse 3s ease-in-out infinite",
                             '@keyframes glowPulse': {
                               '0%': { boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)" },
                               '50%': { boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)" },
                               '100%': { boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)" },
                             },
-                            '@keyframes scalePulse': {
-                              '0%': { transform: 'scale(1)' },
-                              '50%': { transform: 'scale(1.05)' },
-                              '100%': { transform: 'scale(1)' },
-                            },
                             border: "1px solid #3B526F",
-                            transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
                             '&:hover': {
+                              transition: "transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out",
                               animation: 'none',
-                              transform: 'scale(1.08)',
+                              transform: 'scale(1.05)',
                               boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)",
                             },
                           }}
