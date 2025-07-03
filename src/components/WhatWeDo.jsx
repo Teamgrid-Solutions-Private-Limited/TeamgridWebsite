@@ -139,7 +139,7 @@ function WhatWeDo() {
                   height={'auto'}
                   justifyContent={"center"}
                   flexDirection={"column"}
-                  p={{ xs: 2.5, md: 4, lg: 5, xl: 6 }}
+                  p={{ xs: 4, md: 6,}}
                   gap={{ xs: 1, sm: 2, md: 3 }}
                 >
                   <Typography
@@ -164,7 +164,6 @@ function WhatWeDo() {
                   >
                     {item.description}
                   </Typography>
-                  <Box>
                     <Button
                       variant="text"
                       endIcon={<ArrowRightAltIcon />}
@@ -189,7 +188,7 @@ function WhatWeDo() {
                       {item.buttonText}
                     </Button>
 
-                    <Box sx={{ display: "flex", mt: { xs: 3, md: 3 }, mb: 2 }}>
+                    <Box sx={{ display: { xs: "none", lg: "flex" } }}>
                       <Box
                         sx={{
                           width: { xs: 45, sm: 56 },
@@ -233,7 +232,7 @@ function WhatWeDo() {
                         />
                       </Box>
                     </Box>
-                  </Box>
+
                 </Grid>
 
                 {/* Right side - image showcase */}
@@ -286,10 +285,8 @@ function WhatWeDo() {
             {/* Services row with dividers using CSS flexbox wrapping */}
             <Box
               sx={{
-
                 width: "100%",
                 maxWidth: "98%",
-
               }}
             >
               <Box
@@ -386,8 +383,8 @@ function WhatWeDo() {
                         sx={{
                           display: { xs: "none", lg: "block" }, // ✅ only show divider on large screens
                           alignSelf: 'center',
-                          height: '50%',
-                          width: '1px',
+                          height: '40%',
+                          width: '2px',
                           backgroundColor: '#DDDDDD',
                           mx: '6px',
                           zIndex: 3,
