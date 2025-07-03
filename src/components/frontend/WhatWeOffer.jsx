@@ -288,7 +288,7 @@ function WhatWeOffer() {
             <Box
               sx={{
                 display: { xs: "none", md: "flex" },
-                justifyContent: "center",
+                justifyContent: "flex-start",
                 alignItems: "center",
                 mt: { xs: 3, md: 3 },
               }}

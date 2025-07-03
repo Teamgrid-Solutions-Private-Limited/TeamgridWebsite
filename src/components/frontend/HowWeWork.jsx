@@ -27,6 +27,7 @@ function HowWeWork() {
       sx={{
         bgcolor: "#005DD5",
         position: "relative",
+        boxShadow:'none',
         gap: 1,
         width: "100%",
         height: "100%",
@@ -46,15 +47,15 @@ function HowWeWork() {
           alignItems: "center",
           minWidth: "fit-content",
           position: "absolute",
-          top: "-20%",
-          left: "-10%",
+          top: "-12%",
+          left: "-7%",
         }}
       >
         <Typography
           variant="h6"
           sx={{
             fontWeight: 300,
-            fontSize: fontClamp(40),
+            fontSize: fontClamp(36),
             leadingTrim: "Cap height",
             lineHeight: "100%",
             letterSpacing: "0%",
@@ -70,13 +71,13 @@ function HowWeWork() {
           color: "white",
           borderRadius: 4,
           p: 3,
-          ml: { md: 3 },
+          ml: 5,
           width: "100%",
           height: "100%",
           maxWidth: "384px",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           gap: 2,
         }}
       >
@@ -87,6 +88,7 @@ function HowWeWork() {
               fontWeight: 500,
               fontSize: fontClamp(20),
               lineHeight: "120%",
+              textAlign:'left',
               letterSpacing: 0,
               color: "#FFFFFF",
             }}
@@ -99,6 +101,7 @@ function HowWeWork() {
               fontWeight: 400,
               fontSize: fontClamp(16),
               lineHeight: "150%",
+              textAlign:'left',
               letterSpacing: 0,
               color: "#B2D2FC",
             }}
@@ -202,6 +205,7 @@ function HowWeWork() {
             sx={{
               width: "100%",
               display: "flex",
+              gap:2,
               justifyContent: "center",
               alignItems: "center",
             }}

@@ -130,7 +130,7 @@ function HomePage() {
     <Box
       sx={{
         bgcolor: "#072449",
-        minHeight: "90vh",
+        height: { xs: "100vh", xl: "80vh",xxl:'60vh' },
         width: "100%",
         display: "flex",
         alignItems: "center",

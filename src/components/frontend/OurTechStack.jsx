@@ -98,8 +98,7 @@ function OurTechStack() {
                   objectFit: "cover",
                   display: "block",
                   backgroundRepeat: "no-repeat",
-                  // backgroundSize: "cover",
-                  backgroundPosition: "left",
+                  objectPosition: "left",
                 }}
               />
               <Box
