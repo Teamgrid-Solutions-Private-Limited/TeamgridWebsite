@@ -178,7 +178,10 @@ function HomePage() {
             >
               {frontendData.heroTitle}
               <Box component="span" sx={{ display: "block", mt: 1 }}>
-                {frontendData.heroSubtitle}
+                {frontendData.heroSubtitle[0]}{" "}
+                <Box component="span" sx={{ color: "#30ECAD" }}>
+                  {frontendData.heroSubtitle[1]}
+                </Box>
               </Box>
               <Box component="span" sx={{ display: "block" }}>
                 {frontendData.heroHighlight}

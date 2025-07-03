@@ -556,7 +556,7 @@
   "frontend": {
     "homePage": {
       "heroTitle": "Front-End Development",
-      "heroSubtitle": "for Fast & Scalable",
+      "heroSubtitle": ["for", "Fast & Scalable"],
       "heroHighlight": "Interfaces",
       "description": "Hire expert front-end developers skilled in ReactJS, Material UI, and modern frameworks. Ideal for agencies looking to scale delivery without growing overhead.",
       "buttons": [
