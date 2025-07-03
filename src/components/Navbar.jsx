@@ -231,13 +231,13 @@ function Navbar() {
                 display: "flex",
                 alignItems: "center",
                 "&:hover": {
-                  bgcolor: !scrolled ? "#3082EC3B" : "#F3F3F6",
+                  bgcolor: !scrolled ? "#3082EC3B" : "rgba(14, 65, 133, 0.05)",
                 },
                 bgcolor:
                   activeTab === index || activeDropdown === index
                     ? !scrolled
                       ? "#3082EC3B"
-                      : "#F3F3F6"
+                      : "rgba(14, 65, 133, 0.05)"
                     : "transparent",
                 borderRadius: "12px",
                 transition: "background 0.25s, color 0.25s",
