@@ -63,28 +63,24 @@ function OurTechStack() {
       >
         <Grid
           container
-          spacing={{ xs: 4, md: 6 }}
+          spacing={6}
           sx={{
             display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: { xs: 4, md: 6 },
+            // alignItems: "center",
             width: "100%",
           }}
         >
           {/* Left: Image with overlay text */}
-          <Grid item size={{ xs: 12, md: 5 }} width={"100%"}>
+          <Grid  size={{ xs: 12, md: 6 }} width={'100%'}>
             <Box
               sx={{
                 position: "relative",
                 borderRadius: 4,
                 overflow: "hidden",
-                width: "486px",
-                height: "591px",
+                width:'100%',
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                bgcolor: "#FFFFFF",
               }}
             >
               <Box
@@ -92,7 +88,7 @@ function OurTechStack() {
                 src={ourTechStackImage}
                 alt="Team discussion"
                 sx={{
-                  width: "486px",
+                  width: "90%",
                   height: "591px",
                   borderRadius: "24px",
                   objectFit: "cover",
@@ -106,7 +102,9 @@ function OurTechStack() {
                   position: "absolute",
                   left: 0,
                   bottom: 0,
-                  width: "100%",
+                  width: "90%",
+                  borderBottomLeftRadius:"24px",
+                  borderBottomRightRadius:"24px",
                   p: 3,
                   background:
                     "linear-gradient(0deg, rgba(0,0,0,0.65) 60%, rgba(0,0,0,0.0) 100%)",
@@ -136,13 +134,12 @@ function OurTechStack() {
 
           {/* Right: Tech stack */}
           <Grid
-            item
-            size={{ xs: 12, md: 6.5 }}
+            size={{ xs: 12, md: 6 }}
             sx={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-between",
-              width: "100%",
+              justifyContent: "center",
+              gap:2
             }}
           >
             <Typography
@@ -172,9 +169,9 @@ function OurTechStack() {
             >
               {frontendData.description}
             </Typography>
-            <Grid container spacing={2}>
+            <Box  gap={2} display={'flex'} justifyContent={'flex-start'} flexWrap={'wrap'}>
               {techs.map((tech, idx) => (
-                <Grid item size={{ xs: 6, sm: 4, md: 3 }} key={tech.name}>
+                <Box key={tech.name}>
                   <Card
                     elevation={0}
                     sx={{
@@ -230,9 +227,9 @@ function OurTechStack() {
                       </Typography>
                     </CardContent>
                   </Card>
-                </Grid>
+                </Box>
               ))}
-            </Grid>
+            </Box>
           </Grid>
         </Grid>
       </Container>

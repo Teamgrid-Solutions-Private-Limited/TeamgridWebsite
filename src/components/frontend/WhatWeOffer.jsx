@@ -201,6 +201,7 @@ function WhatWeOffer() {
                   display: "grid",
                   gridTemplateColumns: {
                     xs: "repeat(1, 282px)",
+                    sm:'repeat(2, 282px)',
                     md: "repeat(3, 282px)",
                   },
                   gridTemplateRows: { xs: "auto", md: "repeat(2, auto)" },
@@ -306,17 +307,19 @@ function WhatWeOffer() {
                   cursor: "pointer",
                   "&:hover": {
                     bgcolor: "#E3EBF2",
+                    "& .left_icon": {
+                      color: "#000000",
+                    },
                   },
                 }}
                 onClick={() => handleScroll(-300)}
               >
                 <WestIcon
+                className={'left_icon'}
                   sx={{
                     fontSize: { xs: 18, sm: 20 },
                     color: "#9d9e9e",
-                    "&:hover": {
-                      color: "#000000",
-                    },
+                    
                   }}
                 />
               </Box>
@@ -333,17 +336,19 @@ function WhatWeOffer() {
                   cursor: "pointer",
                   "&:hover": {
                     bgcolor: "#E3EBF2",
+                    "& .right_icon": {
+                      color: "#000000",
+                    },
                   },
                 }}
                 onClick={() => handleScroll(300)}
               >
                 <WestIcon
+                className={'right_icon'}
                   sx={{
                     fontSize: { xs: 18, sm: 20 },
                     color: "#9d9e9e",
-                    "&:hover": {
-                      color: "#000000",
-                    },
+                   
                     transform: "rotate(180deg)",
                   }}
                 />
