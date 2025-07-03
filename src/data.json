@@ -487,7 +487,7 @@
       "title": "WordPress & CMS",
       "description": "Custom WordPress sites with Elementor, and more.",
       "heading": "Custom WordPress solutions for content-driven websites.",
-      "icon":"wordpressIcon",
+      "icon": "wordpressIcon",
       "content": "We build customized WordPress websites that go beyond templates. From custom plugins to e-commerce solutions, our WordPress experts create optimized, secure, and user-friendly CMS experiences.",
       "offerings": [
         "Custom theme and plugin development",
@@ -507,40 +507,35 @@
     }
   ],
 
-   "whyChooseTeamgrid" : [
+  "whyChooseTeamgrid": [
     {
       "icon": "teamIcon",
       "title": "Dedicated developers or full teams",
-      "description":
-        "Get skilled individuals or complete teams tailored to your project needs."
+      "description": "Get skilled individuals or complete teams tailored to your project needs."
     },
     {
       "icon": "NdaIcon",
       "title": "NDA-compliant & agency-friendly",
-      "description":
-        "We protect your privacy and work seamlessly under your brand."
+      "description": "We protect your privacy and work seamlessly under your brand."
     },
     {
       "icon": "modelIcon",
       "title": "Flexible engagement models",
-      "description":
-        "Choose hourly, retainer, or project-based models that fit your workflow."
+      "description": "Choose hourly, retainer, or project-based models that fit your workflow."
     },
     {
       "icon": "documentationIcon",
       "title": "Modular code with documentation",
-      "description":
-        "We write scalable code that's easy to maintain and well-documented."
+      "description": "We write scalable code that's easy to maintain and well-documented."
     },
     {
       "icon": "qualityIcon",
       "title": "Quality Assured. High Performance.",
-      "description":
-        "Every solution is thoroughly tested for speed, stability, and reliability."
+      "description": "Every solution is thoroughly tested for speed, stability, and reliability."
     }
   ],
 
-    "webDevelopmentContactUS": {
+  "webDevelopmentContactUS": {
     "title": "Need a reliable web development partner?",
     "subtitle": "— Let’s talk about your next project or developer requirement.",
     "buttons": [
@@ -556,6 +551,247 @@
       }
     ],
     "backgroundImage": "WebDevelopmentContactUsImage"
-  }
+  },
 
+  "frontend": {
+    "homePage": {
+      "heroTitle": "Front-End Development",
+      "heroSubtitle": "for Fast & Scalable",
+      "heroHighlight": "Interfaces",
+      "description": "Hire expert front-end developers skilled in ReactJS, Material UI, and modern frameworks. Ideal for agencies looking to scale delivery without growing overhead.",
+      "buttons": [
+        { "text": "Hire Developers", "variant": "contained" },
+        { "text": "Get a Free Estimate", "variant": "outlined" }
+      ],
+      "techIcons": [
+        { "name": "bootstrap", "icon": "bootstrapIcon" },
+        { "name": "JavaScript", "icon": "javascriptIcon" },
+        { "name": "Figma", "icon": "figmaIcon" },
+        { "name": "HTML", "icon": "htmlIcon" },
+        { "name": "CSS", "icon": "cssIcon" },
+        { "name": "Material UI", "icon": "muiIcon" },
+        { "name": "React", "icon": "reactIcon" },
+        { "name": "TypeScript", "icon": "typescriptIcon" },
+        { "name": "WordPress", "icon": "wordpressIcon" }
+      ]
+    },
+    "whatWeOffer": {
+      "title": "What We Offer",
+      "subtitle": "Pixel-Perfect Front-End Development, Aligned with Your Designs and Deadlines",
+      "description": "We help web and digital agencies deliver high-quality user interfaces that are responsive, accessible, and fast. Whether you're building a simple landing page or a complex web app, our front-end developers work as an extension of your team to bring your vision to life.",
+      "buttonText": "Explore Services",
+      "services": [
+        {
+          "title": "Design-to-Code Conversion",
+          "description": "Pixel-perfect UI from Figma, Sketch, or PSD files.",
+          "icon": "teamIcon"
+        },
+        {
+          "title": "Responsive Web Design",
+          "description": "Optimized layouts for mobile, tablet, and desktop.",
+          "icon": "teamIcon"
+        },
+        {
+          "title": "React Component Development",
+          "description": "Reusable, maintainable modern React components.",
+          "icon": "teamIcon"
+        },
+        {
+          "title": "API-Driven Integration Service",
+          "description": "Seamless UI integration with RESTful or headless APIs.",
+          "icon": "teamIcon"
+        },
+        {
+          "title": "Performance Optimisation",
+          "description": "Fast-loading, efficient front-end experiences.",
+          "icon": "teamIcon"
+        },
+        {
+          "title": "Cross-Browser Compatibility",
+          "description": "Consistent appearance across Chrome, Firefox, Safari, Edge.",
+          "icon": "teamIcon"
+        }
+      ]
+    },
+    "ourTechStack": {
+      "title": "Our Tech Stack",
+      "description": "We use modern, scalable front-end technologies to build fast, responsive, and modular interfaces. Our tech stack ensures performance, maintainability, and future-ready web experiences.",
+      "techs": [
+        {
+          "name": "ReactJS",
+          "icon": "reactIcon",
+          "bg": "#E8F4FD",
+          "color": "#0D3C7E"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "javascriptIcon",
+          "bg": "#FFF9E5",
+          "color": "#F7DF1E"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "typescriptIcon",
+          "bg": "#EAF6FF",
+          "color": "#3178C6"
+        },
+        {
+          "name": "HTML5",
+          "icon": "htmlIcon",
+          "bg": "#FFF3ED",
+          "color": "#E44D26"
+        },
+        {
+          "name": "CSS3",
+          "icon": "cssIcon",
+          "bg": "#EDF6FF",
+          "color": "#1572B6"
+        },
+        {
+          "name": "Material UI",
+          "icon": "muiIcon",
+          "bg": "#F0F7FF",
+          "color": "#007FFF"
+        },
+        {
+          "name": "Bootstrap",
+          "icon": "bootstrapIcon",
+          "bg": "#F5F0FF",
+          "color": "#7952B3"
+        }
+      ]
+    },
+    "whyPartnerWithUs": {
+      "title": "Why Partner With Us",
+      "buttonText": "Explore Services",
+      "cards": [
+        {
+          "title": "Agency-Centric",
+          "desc": "Specifically designed to support digital and creative agencies with reliable, scalable front-end development services.",
+          "bg": "#FFF7C7",
+          "iconBg": "#FDE658"
+        },
+        {
+          "title": "Speed & Flexibility",
+          "desc": "Kickstart projects quickly and scale up or down as your client demands change — no overhead, just results.",
+          "bg": "#EAEAFF",
+          "iconBg": "#DADAFD"
+        },
+        {
+          "title": "UI-First Thinking",
+          "desc": "Our developers prioritize design fidelity with responsive, pixel-perfect implementations that bring your mockups to life flawlessly.",
+          "bg": "#E7FFD7",
+          "iconBg": "#CDF5B3"
+        },
+        {
+          "title": "NDA-Compliant",
+          "desc": "We work under strict non-disclosure agreements, ensuring full confidentiality while representing your brand seamlessly.",
+          "bg": "#FFEFFC",
+          "iconBg": "#FFDDF9"
+        },
+        {
+          "title": "Seamless Integration",
+          "desc": "We collaborate smoothly with your in-house designers, backend developers, and project managers.",
+          "bg": "#ECF9FF",
+          "iconBg": "#CBEFFF"
+        }
+      ]
+    },
+    "howWeWork": {
+      "title": "How We Work",
+      "description": "Our front-end development process is built to deliver speed, quality, and collaboration.",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Discovery & Requirements",
+          "desc": "We define goals, user types, and key screens to ensure alignment before design or development begins."
+        },
+        {
+          "number": "02",
+          "title": "Design Handoff & Planning",
+          "desc": "We review design files, clarify edge cases, and outline technical scope for smooth project execution."
+        },
+        {
+          "number": "03",
+          "title": "Development",
+          "desc": "We build responsive, pixel-perfect interfaces using React and modern CSS with clean, scalable code."
+        },
+        {
+          "number": "04",
+          "title": "API Integration",
+          "desc": "We connect front-end with backend or CMS APIs to handle real-time data and error states reliably."
+        },
+        {
+          "number": "05",
+          "title": "QA & Testing",
+          "desc": "We test on all screen sizes, ensure WCAG compliance, and validate performance across major browsers."
+        },
+        {
+          "number": "06",
+          "title": "Deployment or Handover",
+          "desc": "We deliver clean, version-controlled code or coordinate handoff to backend teams for integration."
+        }
+      ]
+    },
+    "engagementModels": {
+      "title": "Engagement Models",
+      "description": "Choose the engagement model that best suits your project needs",
+      "models": [
+        {
+          "title": "Flexible Time & Material Model for Evolving Needs",
+          "points": [
+            "Pay only for hours worked",
+            "Ideal for ongoing or evolving tasks",
+            "Transparent weekly timesheets"
+          ]
+        },
+        {
+          "title": "Dedicated Front-End Developer",
+          "points": [
+            "Full-time resource working under your brand",
+            "Monthly fixed cost",
+            "Flexible replacement or scaling"
+          ]
+        },
+        {
+          "title": "Fixed-Cost Model for Defined Scopes",
+          "points": [
+            "Ideal for defined scopes like landing pages or small apps",
+            "Detailed estimate upfront",
+            "Milestone-based delivery & billing"
+          ]
+        }
+      ]
+    },
+    "gotQuestions": {
+      "title": "Got Questions",
+      "description": "Clear responses to common questions about how we work and what we deliver.",
+      "questions": [
+        {
+          "q": "Can I hire a front-end developer for just a week or two?",
+          "a": "Yes, we offer short-term engagements perfectly suited for urgent UI needs, one-off tasks, or overflow support when your internal team is at capacity."
+        },
+        {
+          "q": "Do your developers follow responsive and accessibility guidelines?",
+          "a": "Yes, our developers strictly adhere to responsive design principles and established accessibility standards (such as WCAG) to ensure our solutions work seamlessly across devices and are inclusive for all users."
+        },
+        {
+          "q": "Can you work with our in-house backend team?",
+          "a": "Absolutely! We frequently collaborate with in-house backend teams and other stakeholders, ensuring smooth integration, clear communication, and a cohesive development process."
+        }
+      ]
+    },
+    "contactUS": {
+      "title": "Need expert front-end developers?",
+      "subtitle": "Let’s talk about how we can support your agency or project. Our flexible team structure lets you start fast and scale when needed.",
+      "buttons": [
+        { "text": "Let's Talk", "variant": "contained", "color": "white" },
+        {
+          "text": "Request a Free Quote",
+          "variant": "contained",
+          "color": "#FF5A2D"
+        }
+      ]
+    }
+  }
 }

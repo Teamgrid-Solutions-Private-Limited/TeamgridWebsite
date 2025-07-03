@@ -22,6 +22,19 @@ import {
   teamgridLogo,
   figmaIcon,
 } from "../../images";
+import data from "../../data.json";
+
+const iconMap = {
+  reactIcon,
+  wordpressIcon,
+  muiIcon,
+  javascriptIcon,
+  typescriptIcon,
+  cssIcon,
+  htmlIcon,
+  bootstrapIcon,
+  figmaIcon,
+};
 
 function HomePage() {
   const theme = useTheme();
@@ -35,6 +48,13 @@ function HomePage() {
   const [orbitScale, setOrbitScale] = useState(1);
   const [orbitAngle, setOrbitAngle] = useState(0);
 
+  // Get frontend data from data.json
+  const frontendData = data.frontend.homePage;
+  const techIcons = frontendData.techIcons.map((icon) => ({
+    ...icon,
+    icon: iconMap[icon.icon],
+  }));
+
   // Get the current padding value in px
   let rightPadding = 0;
   if (isXl) rightPadding = 0;
@@ -42,19 +62,6 @@ function HomePage() {
   else if (isMd) rightPadding = parseInt(theme.spacing(4));
   else if (isSm) rightPadding = parseInt(theme.spacing(2.5));
   else rightPadding = parseInt(theme.spacing(2.5));
-
-  // Frontend tech icons
-  const techIcons = [
-    { name: "bootstrap", icon: bootstrapIcon },
-    { name: "JavaScript", icon: javascriptIcon },
-    { name: "Figma", icon: figmaIcon },
-    { name: "HTML", icon: htmlIcon },
-    { name: "CSS", icon: cssIcon },
-    { name: "Material UI", icon: muiIcon },
-    { name: "React", icon: reactIcon },
-    { name: "TypeScript", icon: typescriptIcon },
-    { name: "WordPress", icon: wordpressIcon },
-  ];
 
   // Dynamically adjust orbit scale based on screen size
   useEffect(() => {
@@ -169,12 +176,12 @@ function HomePage() {
                 mb: 1,
               }}
             >
-              Front-End Development
+              {frontendData.heroTitle}
               <Box component="span" sx={{ display: "block", mt: 1 }}>
-                for <span style={{ color: "#00E5A0" }}>Fast & Scalable</span>
+                {frontendData.heroSubtitle}
               </Box>
               <Box component="span" sx={{ display: "block" }}>
-                Interfaces
+                {frontendData.heroHighlight}
               </Box>
             </Typography>
 
@@ -187,9 +194,7 @@ function HomePage() {
                 maxWidth: "100%",
               }}
             >
-              Hire expert front-end developers skilled in ReactJS, Material UI,
-              and modern frameworks. Ideal for agencies looking to scale
-              delivery without growing overhead.
+              {frontendData.description}
             </Typography>
 
             <Stack
@@ -198,9 +203,12 @@ function HomePage() {
               sx={{ mt: 4 }}
             >
               <Button
-                variant="contained"
+                variant={frontendData.buttons[0].variant}
                 sx={{
-                  bgcolor: "#007BFF",
+                  bgcolor:
+                    frontendData.buttons[0].variant === "contained"
+                      ? "#007BFF"
+                      : undefined,
                   borderRadius: "16px",
                   px: 4,
                   py: 1.5,
@@ -211,10 +219,10 @@ function HomePage() {
                   "&:hover": { bgcolor: "#0069d9" },
                 }}
               >
-                Hire Developers
+                {frontendData.buttons[0].text}
               </Button>
               <Button
-                variant="outlined"
+                variant={frontendData.buttons[1].variant}
                 endIcon={<ArrowForwardIcon />}
                 sx={{
                   color: "white",
@@ -230,7 +238,7 @@ function HomePage() {
                   },
                 }}
               >
-                Get a Free Estimate
+                {frontendData.buttons[1].text}
               </Button>
             </Stack>
           </Box>

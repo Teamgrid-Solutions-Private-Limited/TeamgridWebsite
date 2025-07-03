@@ -10,21 +10,10 @@ import {
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { fontClamp } from "../../fontUtils";
+import data from "../../data.json";
 
-const questions = [
-  {
-    q: "Can I hire a front-end developer for just a week or two?",
-    a: "Yes, we offer short-term engagements perfectly suited for urgent UI needs, one-off tasks, or overflow support when your internal team is at capacity.",
-  },
-  {
-    q: "Do your developers follow responsive and accessibility guidelines?",
-    a: "Yes, our developers strictly adhere to responsive design principles and established accessibility standards (such as WCAG) to ensure our solutions work seamlessly across devices and are inclusive for all users.",
-  },
-  {
-    q: "Can you work with our in-house backend team?",
-    a: "Absolutely! We frequently collaborate with in-house backend teams and other stakeholders, ensuring smooth integration, clear communication, and a cohesive development process.",
-  },
-];
+const frontendData = data.frontend.gotQuestions;
+const questions = frontendData.questions;
 
 function GotQuestions() {
   const [openIdx, setOpenIdx] = useState(0);
@@ -75,7 +64,7 @@ function GotQuestions() {
             }}
             gutterBottom
           >
-            Got Questions
+            {frontendData.title}
           </Typography>
           <Typography
             sx={{
@@ -87,8 +76,7 @@ function GotQuestions() {
               color: "#000000",
             }}
           >
-            Clear responses to common questions about how we work and what we
-            deliver.
+            {frontendData.description}
           </Typography>
         </Box>
         <Box

@@ -13,33 +13,10 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { fontClamp } from "../../fontUtils";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { vectorIcon } from "../../images";
+import data from "../../data.json";
 
-const models = [
-  {
-    title: "Flexible Time & Material Model for Evolving Needs",
-    points: [
-      "Pay only for hours worked",
-      "Ideal for ongoing or evolving tasks",
-      "Transparent weekly timesheets",
-    ],
-  },
-  {
-    title: "Dedicated Front-End Developer",
-    points: [
-      "Full-time resource working under your brand",
-      "Monthly fixed cost",
-      "Flexible replacement or scaling",
-    ],
-  },
-  {
-    title: "Fixed-Cost Model for Defined Scopes",
-    points: [
-      "Ideal for defined scopes like landing pages or small apps",
-      "Detailed estimate upfront",
-      "Milestone-based delivery & billing",
-    ],
-  },
-];
+const frontendData = data.frontend.engagementModels;
+const models = frontendData.models;
 
 function EngagementModels() {
   return (
@@ -82,7 +59,7 @@ function EngagementModels() {
                 color: "#140E13",
               }}
             >
-              Engagement Models
+              {frontendData.title}
             </Typography>
             <Typography
               variant="body1"
@@ -95,7 +72,7 @@ function EngagementModels() {
                 color: "#000000",
               }}
             >
-              Choose the engagement model that best suits your project needs
+              {frontendData.description}
             </Typography>
           </Grid>
 
@@ -201,7 +178,7 @@ function EngagementModels() {
                   ))}
                 </Box>
                 <Stack
-                  direction={{xs:"column",sm:"row"}}
+                  direction={{ xs: "column", sm: "row" }}
                   spacing={2}
                   sx={{
                     display: "flex",

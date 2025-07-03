@@ -19,51 +19,22 @@ import {
   ourTechStackImage,
 } from "../../images";
 import teamImage from "../../assets/livediscussion.jpg";
+import data from "../../data.json";
 
-const techs = [
-  {
-    name: "ReactJS",
-    icon: reactIcon,
-    bg: "#E8F4FD",
-    color: "#0D3C7E",
-  },
-  {
-    name: "JavaScript",
-    icon: javascriptIcon,
-    bg: "#FFF9E5",
-    color: "#F7DF1E",
-  },
-  {
-    name: "TypeScript",
-    icon: typescriptIcon,
-    bg: "#EAF6FF",
-    color: "#3178C6",
-  },
-  {
-    name: "HTML5",
-    icon: htmlIcon,
-    bg: "#FFF3ED",
-    color: "#E44D26",
-  },
-  {
-    name: "CSS3",
-    icon: cssIcon,
-    bg: "#EDF6FF",
-    color: "#1572B6",
-  },
-  {
-    name: "Material UI",
-    icon: muiIcon,
-    bg: "#F0F7FF",
-    color: "#007FFF",
-  },
-  {
-    name: "Bootstrap",
-    icon: bootstrapIcon,
-    bg: "#F5F0FF",
-    color: "#7952B3",
-  },
-];
+const frontendData = data.frontend.ourTechStack;
+const iconMap = {
+  reactIcon,
+  javascriptIcon,
+  typescriptIcon,
+  htmlIcon,
+  cssIcon,
+  muiIcon,
+  bootstrapIcon,
+};
+const techs = frontendData.techs.map((tech) => ({
+  ...tech,
+  icon: iconMap[tech.icon],
+}));
 
 function OurTechStack() {
   return (
@@ -187,7 +158,7 @@ function OurTechStack() {
                 mb: 2,
               }}
             >
-              Our Tech Stack
+              {frontendData.title}
             </Typography>
             <Typography
               sx={{
@@ -200,9 +171,7 @@ function OurTechStack() {
                 maxWidth: "100%",
               }}
             >
-              We use modern, scalable front-end technologies to build fast,
-              responsive, and modular interfaces. Our tech stack ensures
-              performance, maintainability, and future-ready web experiences.
+              {frontendData.description}
             </Typography>
             <Grid container spacing={2}>
               {techs.map((tech, idx) => (

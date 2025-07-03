@@ -12,7 +12,7 @@ import { WebDevelopmentContactUsImage as backgroundImage } from "../../images";
 import data from "../../data.json";
 import { fontClamp } from "../../fontUtils";
 
-const { title, subtitle, buttons } = data.webDevelopmentContactUS;
+const { title, subtitle, buttons } = data.frontend.contactUS;
 
 function ContactUs() {
   const theme = useTheme();
@@ -108,7 +108,7 @@ function ContactUs() {
                   letterSpacing: 0,
                 }}
               >
-                Need expert front-end developers?
+                {title}
               </Typography>
 
               <Typography
@@ -121,9 +121,7 @@ function ContactUs() {
                   color: "#FAFAFA",
                 }}
               >
-                Let’s talk about how we can support your agency or project. Our
-                flexible team structure lets you start fast and scale when
-                needed.
+                {subtitle}
               </Typography>
             </Box>
 

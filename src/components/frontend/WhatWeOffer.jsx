@@ -29,6 +29,23 @@ import {
 } from "../../images";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import WestIcon from "@mui/icons-material/West";
+import data from "../../data.json";
+
+const iconMap = {
+  reactIcon,
+  figmaIcon,
+  cssIcon,
+  htmlIcon,
+  javascriptIcon,
+  muiIcon,
+  typescriptIcon,
+  bootstrapIcon,
+  documentationIcon,
+  designIcon,
+  teamIcon,
+  whyPartnerWithUsImage,
+  whiteTeamIcon,
+};
 
 function WhatWeOffer() {
   const theme = useTheme();
@@ -38,6 +55,13 @@ function WhatWeOffer() {
   const [selectedCard, setSelectedCard] = useState(0); // Default select first card
   const scrollRef = useRef();
 
+  // Get frontend data from data.json
+  const frontendData = data.frontend.whatWeOffer;
+  const services = frontendData.services.map((service) => ({
+    ...service,
+    icon: iconMap[service.icon],
+  }));
+
   const handleScroll = (offset) => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
@@ -46,47 +70,6 @@ function WhatWeOffer() {
       });
     }
   };
-
-  // Service card data
-  const services = [
-    {
-      title: "Design-to-Code Conversion",
-      description: "Pixel-perfect UI from Figma, Sketch, or PSD files.",
-      icon: teamIcon,
-      // color: "#0D3C7E",
-    },
-    {
-      title: "Responsive Web Design",
-      description: "Optimized layouts for mobile, tablet, and desktop.",
-      icon: teamIcon,
-      // color: "#F7F9FC",
-    },
-    {
-      title: "React Component Development",
-      description: "Reusable, maintainable modern React components.",
-      icon: teamIcon,
-      // color: "#0D3C7E",
-    },
-    {
-      title: "API-Driven Integration Service",
-      description: "Seamless UI integration with RESTful or headless APIs.",
-      icon: teamIcon,
-      // color: "#F7F9FC",
-    },
-    {
-      title: "Performance Optimisation",
-      description: "Fast-loading, efficient front-end experiences.",
-      icon: teamIcon,
-      // color: "#0D3C7E",
-    },
-    {
-      title: "Cross-Browser Compatibility",
-      description:
-        "Consistent appearance across Chrome, Firefox, Safari, Edge.",
-      icon: teamIcon,
-      // color: "#F7F9FC",
-    },
-  ];
 
   return (
     <Box
@@ -143,7 +126,7 @@ function WhatWeOffer() {
                 mb: 2,
               }}
             >
-              What We Offer
+              {frontendData.title}
             </Typography>
 
             <Typography
@@ -157,8 +140,7 @@ function WhatWeOffer() {
                 color: "#000000",
               }}
             >
-              Pixel-Perfect Front-End Development, Aligned with Your Designs and
-              Deadlines
+              {frontendData.subtitle}
             </Typography>
 
             <Typography
@@ -170,11 +152,7 @@ function WhatWeOffer() {
                 color: "#000000",
               }}
             >
-              We help web and digital agencies deliver high-quality user
-              interfaces that are responsive, accessible, and fast. Whether
-              you're building a simple landing page or a complex web app, our
-              front-end developers work as an extension of your team to bring
-              your vision to life.
+              {frontendData.description}
             </Typography>
 
             <Button
@@ -198,7 +176,7 @@ function WhatWeOffer() {
                 },
               }}
             >
-              Explore Services
+              {frontendData.buttonText}
             </Button>
           </Grid>
 

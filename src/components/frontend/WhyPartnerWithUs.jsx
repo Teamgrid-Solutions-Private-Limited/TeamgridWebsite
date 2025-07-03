@@ -11,39 +11,10 @@ import {
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { fontClamp } from "../../fontUtils";
 import { whyPartnerWithUsImage } from "../../images";
+import data from "../../data.json";
 
-const cards = [
-  {
-    title: "Agency-Centric",
-    desc: "Specifically designed to support digital and creative agencies with reliable, scalable front-end development services.",
-    bg: "#FFF7C7",
-    iconBg: "#FDE658",
-  },
-  {
-    title: "Speed & Flexibility",
-    desc: "Kickstart projects quickly and scale up or down as your client demands change — no overhead, just results.",
-    bg: "#EAEAFF",
-    iconBg: "#DADAFD",
-  },
-  {
-    title: "UI-First Thinking",
-    desc: "Our developers prioritize design fidelity with responsive, pixel-perfect implementations that bring your mockups to life flawlessly.",
-    bg: "#E7FFD7",
-    iconBg: "#CDF5B3",
-  },
-  {
-    title: "NDA-Compliant",
-    desc: "We work under strict non-disclosure agreements, ensuring full confidentiality while representing your brand seamlessly.",
-    bg: "#FFEFFC",
-    iconBg: "#FFDDF9",
-  },
-  {
-    title: "Seamless Integration",
-    desc: "We collaborate smoothly with your in-house designers, backend developers, and project managers.",
-    bg: "#ECF9FF",
-    iconBg: "#CBEFFF",
-  },
-];
+const frontendData = data.frontend.whyPartnerWithUs;
+const cards = frontendData.cards;
 
 function WhyPartnerWithUs() {
   return (
@@ -89,7 +60,7 @@ function WhyPartnerWithUs() {
               color: "#140E13",
             }}
           >
-            Why Partner With Us
+            {frontendData.title}
           </Typography>
           <Button
             variant="outlined"
@@ -112,7 +83,7 @@ function WhyPartnerWithUs() {
               },
             }}
           >
-            Explore Services
+            {frontendData.buttonText}
           </Button>
         </Box>
         <Grid container spacing={3}>

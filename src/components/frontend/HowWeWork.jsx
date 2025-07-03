@@ -15,40 +15,11 @@ import {
   rightArrowIcon,
   rightDownIcon,
 } from "../../images";
+import data from "../../data.json";
 
 function HowWeWork() {
-  const steps = [
-    {
-      number: "01",
-      title: "Discovery & Requirements",
-      desc: "We define goals, user types, and key screens to ensure alignment before design or development begins.",
-    },
-    {
-      number: "02",
-      title: "Design Handoff & Planning",
-      desc: "We review design files, clarify edge cases, and outline technical scope for smooth project execution.",
-    },
-    {
-      number: "03",
-      title: "Development",
-      desc: "We build responsive, pixel-perfect interfaces using React and modern CSS with clean, scalable code.",
-    },
-    {
-      number: "04",
-      title: "API Integration",
-      desc: "We connect front-end with backend or CMS APIs to handle real-time data and error states reliably.",
-    },
-    {
-      number: "05",
-      title: "QA & Testing",
-      desc: "We test on all screen sizes, ensure WCAG compliance, and validate performance across major browsers.",
-    },
-    {
-      number: "06",
-      title: "Deployment or Handover",
-      desc: "We deliver clean, version-controlled code or coordinate handoff to backend teams for integration.",
-    },
-  ];
+  const frontendData = data.frontend.howWeWork;
+  const steps = frontendData.steps;
 
   const StepCard = ({ step }) => (
     <Paper
@@ -148,10 +119,7 @@ function HowWeWork() {
         // transform: reversed ? "scaleX(-1)" : "none",
       }}
     >
-      <Box
-        component="img"
-        src={reversed ? rightArrowIcon : leftArrowIcon}
-      />
+      <Box component="img" src={reversed ? rightArrowIcon : leftArrowIcon} />
     </Box>
   );
 
@@ -164,10 +132,7 @@ function HowWeWork() {
         // transform: reversed ? "scaleX(-1)" : "none",
       }}
     >
-      <Box
-        component="img"
-        src={reversed ? leftDownIcon : rightDownIcon}
-      />
+      <Box component="img" src={reversed ? leftDownIcon : rightDownIcon} />
     </Box>
   );
 
@@ -216,7 +181,7 @@ function HowWeWork() {
               color: "#FFFFFF",
             }}
           >
-            How We Work
+            {frontendData.title}
           </Typography>
           <Typography
             sx={{
@@ -229,9 +194,7 @@ function HowWeWork() {
               mb: { xs: 6, md: 8 },
             }}
           >
-            Our front-end development process is built to deliver speed,
-            <br />
-            quality, and collaboration.
+            {frontendData.description}
           </Typography>
 
           <Grid
