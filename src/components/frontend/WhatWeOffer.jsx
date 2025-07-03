@@ -79,6 +79,7 @@ function WhatWeOffer() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        overflow:'visible'
       }}
     >
       <Container
@@ -91,6 +92,7 @@ function WhatWeOffer() {
           px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
           maxWidth: "1248px",
           width: "100%",
+          overflow:'visible'
         }}
       >
         <Grid
@@ -101,6 +103,7 @@ function WhatWeOffer() {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
+            overflow:'visible'
           }}
         >
           {/* Left Column - Text Content */}
@@ -186,7 +189,7 @@ function WhatWeOffer() {
             <Box
               sx={{
                 width: "100%",
-                overflowX: "auto",
+                overflow:'visible',
                 scrollBehavior: "smooth",
                 scrollbarWidth: "none", // Firefox
                 "&::-webkit-scrollbar": { display: "none" }, // Chrome, Safari

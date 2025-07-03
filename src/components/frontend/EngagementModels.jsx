@@ -109,17 +109,17 @@ function EngagementModels() {
             </Button>
           </Grid>
         </Grid>
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={4} alignItems="stretch">
           {models.map((model, idx) => (
-            <Grid item size={{ xs: 12, md: 4 }} key={model.title}>
+            <Grid size={{ xs: 6, md: 4 }} key={model.title} sx={{ display: "flex" }}>
               <Paper
                 elevation={0}
                 sx={{
                   borderRadius: "24px",
                   p: 3,
                   bgcolor: "#F3F3F6",
-                  width: { sm: "382px", md: "100%", lg: "382px" },
-                  height: { lg: "322px", xl: "auto" },
+                  width: "auto",
+                  minHeight: 350,
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
