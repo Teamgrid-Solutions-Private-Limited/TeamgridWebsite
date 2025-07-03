@@ -24,6 +24,8 @@ import {
   documentationIcon,
   designIcon,
   teamIcon,
+  whyPartnerWithUsImage,
+  whiteTeamIcon,
 } from "../../images";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import WestIcon from "@mui/icons-material/West";
@@ -216,8 +218,11 @@ function WhatWeOffer() {
               <Box
                 sx={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(3, 282px)",
-                  gridTemplateRows: "repeat(2, auto)",
+                  gridTemplateColumns: {
+                    xs: "repeat(1, 282px)",
+                    md: "repeat(3, 282px)",
+                  },
+                  gridTemplateRows: { xs: "auto", md: "repeat(2, auto)" },
                   gap: 3,
                   justifyContent: "flex-start",
                 }}
@@ -240,8 +245,8 @@ function WhatWeOffer() {
                         transition:
                           "transform 0.3s, box-shadow 0.3s, background-color 0.3s",
                         "&:hover": {
-                          transform: "translateY(-4px)",
-                          boxShadow: "0 8px 24px rgba(13, 60, 126, 0.25)",
+                          transform: "translateY(-2px)",
+                          // boxShadow: "0 8px 24px rgba(13, 60, 126, 0.25)",
                         },
                       }}
                     >
@@ -259,9 +264,13 @@ function WhatWeOffer() {
                             height: "64px",
                           }}
                         >
-                          <HiOutlineUserGroup
-                            size={fontClamp(32)}
-                            color={isActive ? "#FFFFFF" : "#05408E"}
+                          <Box
+                            component="img"
+                            src={
+                              isActive ? whiteTeamIcon : whyPartnerWithUsImage
+                            }
+                            alt="icon"
+                            sx={{ width: 32, height: 32 }}
                           />
                         </Box>
 
@@ -297,7 +306,7 @@ function WhatWeOffer() {
             {/* Scroll Buttons */}
             <Box
               sx={{
-                display: "flex",
+                display: { xs: "none", md: "flex" },
                 justifyContent: "center",
                 alignItems: "center",
                 mt: { xs: 3, md: 3 },
@@ -308,19 +317,25 @@ function WhatWeOffer() {
                   width: { xs: 45, sm: 56 },
                   height: { xs: 45, sm: 56 },
                   borderRadius: "50%",
-                  bgcolor: "#E3EBF2",
+                  bgcolor: "#f0f4f7",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   mr: 1,
                   cursor: "pointer",
+                  "&:hover": {
+                    bgcolor: "#E3EBF2",
+                  },
                 }}
                 onClick={() => handleScroll(-300)}
               >
                 <WestIcon
                   sx={{
                     fontSize: { xs: 18, sm: 20 },
-                    color: "#000000",
+                    color: "#9d9e9e",
+                    "&:hover": {
+                      color: "#000000",
+                    },
                   }}
                 />
               </Box>
@@ -329,18 +344,25 @@ function WhatWeOffer() {
                   width: { xs: 45, sm: 56 },
                   height: { xs: 45, sm: 56 },
                   borderRadius: "50%",
-                  bgcolor: "#E3EBF2",
+                  bgcolor: "#f0f4f7",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  mr: 1,
                   cursor: "pointer",
+                  "&:hover": {
+                    bgcolor: "#E3EBF2",
+                  },
                 }}
                 onClick={() => handleScroll(300)}
               >
                 <WestIcon
                   sx={{
                     fontSize: { xs: 18, sm: 20 },
-                    color: "#000000",
+                    color: "#9d9e9e",
+                    "&:hover": {
+                      color: "#000000",
+                    },
                     transform: "rotate(180deg)",
                   }}
                 />

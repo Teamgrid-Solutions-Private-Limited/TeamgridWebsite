@@ -23,7 +23,7 @@ import {
   figmaIcon,
 } from "../../images";
 
-function HomePage() {
+function WebDevelopment() {
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.down("sm"));
   const isSm = useMediaQuery(theme.breakpoints.between("sm", "md"));
@@ -52,8 +52,8 @@ function HomePage() {
     { name: "CSS", icon: cssIcon },
     { name: "Material UI", icon: muiIcon },
     { name: "React", icon: reactIcon },
+    { name: "TypeScript", icon: typescriptIcon },
     { name: "WordPress", icon: wordpressIcon },
-    { name: "Figma", icon: figmaIcon },
   ];
 
   // Dynamically adjust orbit scale based on screen size
@@ -251,8 +251,8 @@ function HomePage() {
             {/* Orbits with icons and dots */}
             {[
               { icons: techIcons.slice(0, 3), positions: 6 },
-              { icons: techIcons.slice(3, 7), positions: 8 },
-              { icons: techIcons.slice(4, 9), positions: 10 },
+              { icons: techIcons.slice(3, 7), positions: 9 },
+              { icons: techIcons.slice(4, 9), positions: 14 },
             ].map((orbit, orbitIdx) => {
               // Use a base radius and progressively increasing gap for each orbit
               const baseRadius = 350;
@@ -334,9 +334,7 @@ function HomePage() {
                             position: "absolute",
                             left: `calc(50% + ${x}px)`,
                             top: `calc(50% + ${y}px)`,
-                            transform: `translate(-50%, -50%) rotate(${
-                              -orbitAngle * (orbitIdx % 2 === 0 ? 1 : -1)
-                            }deg)`,
+                            transform: `translate(-50%, -50%)`,
                             zIndex: 20,
                             pointerEvents: "auto",
                           }}
@@ -468,4 +466,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default WebDevelopment;

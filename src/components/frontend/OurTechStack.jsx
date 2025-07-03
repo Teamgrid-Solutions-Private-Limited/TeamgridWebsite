@@ -126,6 +126,9 @@ function OurTechStack() {
                   borderRadius: "24px",
                   objectFit: "cover",
                   display: "block",
+                  backgroundRepeat: "no-repeat",
+                  // backgroundSize: "cover",
+                  backgroundPosition: "left",
                 }}
               />
               <Box

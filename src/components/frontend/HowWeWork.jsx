@@ -9,6 +9,12 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { fontClamp } from "../../fontUtils";
+import {
+  leftArrowIcon,
+  leftDownIcon,
+  rightArrowIcon,
+  rightDownIcon,
+} from "../../images";
 
 function HowWeWork() {
   const steps = [
@@ -48,12 +54,13 @@ function HowWeWork() {
     <Paper
       elevation={6}
       sx={{
-        bgcolor: "transparent",
+        bgcolor: "#005DD5",
         position: "relative",
         gap: 1,
         width: "100%",
         height: "100%",
-        maxWidth: 384,
+        maxWidth: "400px",
+        borderRadius: "24px",
       }}
     >
       <Box
@@ -76,7 +83,7 @@ function HowWeWork() {
           variant="h6"
           sx={{
             fontWeight: 300,
-            fontSize: "40px",
+            fontSize: fontClamp(40),
             leadingTrim: "Cap height",
             lineHeight: "100%",
             letterSpacing: "0%",
@@ -92,10 +99,10 @@ function HowWeWork() {
           color: "white",
           borderRadius: 4,
           p: 3,
-          pl: { md: 5 },
+          ml: { md: 3 },
           width: "100%",
           height: "100%",
-          maxWidth: 384,
+          maxWidth: "384px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -138,64 +145,29 @@ function HowWeWork() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        transform: reversed ? "scaleX(-1)" : "none",
+        // transform: reversed ? "scaleX(-1)" : "none",
       }}
     >
-      <svg
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#4CE0B3"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M5 12h14" />
-        <path d="m12 5 7 7-7 7" />
-      </svg>
+      <Box
+        component="img"
+        src={reversed ? rightArrowIcon : leftArrowIcon}
+      />
     </Box>
   );
 
-  const CurvedArrow = () => (
+  const CurvedArrow = ({ reversed = false }) => (
     <Box
       sx={{
         display: "flex",
-        justifyContent: "center",
         alignItems: "center",
-        width: "100%",
-        height: 80,
-        mt: 4,
-        mb: 4,
+        justifyContent: "center",
+        // transform: reversed ? "scaleX(-1)" : "none",
       }}
     >
-      <svg
-        width="300"
-        height="80"
-        viewBox="0 0 200 80"
-        fill="none"
-        style={{ transform: "scaleX(-1)" }}
-      >
-        <path
-          d="M20 20 Q 100 60, 180 20"
-          stroke="#4CE0B3"
-          strokeWidth="3"
-          fill="none"
-          markerEnd="url(#arrowhead)"
-        />
-        <defs>
-          <marker
-            id="arrowhead"
-            markerWidth="12"
-            markerHeight="8"
-            refX="10"
-            refY="4"
-            orient="auto"
-          >
-            <polygon points="0 0, 12 4, 0 8" fill="#4CE0B3" />
-          </marker>
-        </defs>
-      </svg>
+      <Box
+        component="img"
+        src={reversed ? leftDownIcon : rightDownIcon}
+      />
     </Box>
   );
 
@@ -254,7 +226,7 @@ function HowWeWork() {
               letterSpacing: "0%",
               textAlign: "center",
               color: "#B2D2FC",
-              mb: 6,
+              mb: { xs: 6, md: 8 },
             }}
           >
             Our front-end development process is built to deliver speed,
@@ -262,69 +234,77 @@ function HowWeWork() {
             quality, and collaboration.
           </Typography>
 
-          {/* Top Row: Steps 1 → 2 → 3 */}
           <Grid
             container
-            spacing={4}
-            alignItems="center"
-            justifyContent="center"
-            sx={{ mb: 6 }}
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            <Grid item size={{ xs: 12, md: 4 }}>
-              <StepCard step={steps[0]} />
+            {/* Top Row: Steps 1 → 2 → 3 */}
+            <Grid
+              container
+              spacing={4}
+              alignItems="center"
+              justifyContent="center"
+              sx={{ mb: 6 }}
+            >
+              <Grid item size={{ xs: 12, md: 5 }}>
+                <StepCard step={steps[0]} />
+              </Grid>
+              <Grid item size={{ xs: 0, md: 1 }}>
+                <ArrowIcon />
+              </Grid>
+              <Grid item size={{ xs: 12, md: 5 }}>
+                <StepCard step={steps[1]} />
+              </Grid>
+              <Grid item size={{ xs: 0, md: 1 }}>
+                <CurvedArrow reversed />
+              </Grid>
             </Grid>
-            <Grid item size={{ xs: 12, md: 1 }}>
-              <ArrowIcon />
-            </Grid>
-            <Grid item size={{ xs: 12, md: 4 }}>
-              <StepCard step={steps[1]} />
-            </Grid>
-            <Grid item size={{ xs: 12, md: 1 }}>
-              <CurvedArrow />
-            </Grid>
-          </Grid>
 
-          <Grid
-            container
-            spacing={4}
-            alignItems="center"
-            justifyContent="center"
-            sx={{ mb: 6 }}
-          >
-            <Grid item size={{ xs: 12, md: 1 }}>
-              <CurvedArrow />
+            <Grid
+              container
+              spacing={4}
+              alignItems="center"
+              justifyContent="center"
+              sx={{ mb: { xs: 6, md: 6 } }}
+            >
+              <Grid item size={{ xs: 0, md: 1 }}>
+                <CurvedArrow />
+              </Grid>
+              <Grid item size={{ xs: 12, md: 5 }}>
+                <StepCard step={steps[2]} />
+              </Grid>
+              <Grid item size={{ xs: 0, md: 1 }}>
+                <ArrowIcon reversed />
+              </Grid>
+              <Grid item size={{ xs: 12, md: 5 }}>
+                <StepCard step={steps[3]} />
+              </Grid>
             </Grid>
-            <Grid item size={{ xs: 12, md: 4 }}>
-              <StepCard step={steps[2]} />
-            </Grid>
-            <Grid item size={{ xs: 12, md: 1 }}>
-              <ArrowIcon />
-            </Grid>
-            <Grid item size={{ xs: 12, md: 4 }}>
-              <StepCard step={steps[3]} />
-            </Grid>
-            <Grid item size={{ xs: 12, md: 1 }}>
-              <ArrowIcon />
-            </Grid>
-          </Grid>
 
-          {/* Curved Arrow */}
+            {/* Curved Arrow */}
 
-          {/* Bottom Row: Steps 4 ← 5 ← 6 */}
-          <Grid
-            container
-            spacing={5}
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Grid item size={{ xs: 12, md: 4 }}>
-              <StepCard step={steps[4]} />
-            </Grid>
-            <Grid item size={{ xs: 12, md: 1 }}>
-              <ArrowIcon />
-            </Grid>
-            <Grid item size={{ xs: 12, md: 4 }}>
-              <StepCard step={steps[5]} />
+            {/* Bottom Row: Steps 4 ← 5 ← 6 */}
+            <Grid
+              container
+              spacing={5}
+              alignItems="center"
+              justifyContent="flex-start"
+              sx={{ mb: 4 }}
+            >
+              <Grid item size={{ xs: 12, md: 5 }}>
+                <StepCard step={steps[4]} />
+              </Grid>
+              <Grid item size={{ xs: 0, md: 1.5 }}>
+                <ArrowIcon />
+              </Grid>
+              <Grid item size={{ xs: 12, md: 5 }}>
+                <StepCard step={steps[5]} />
+              </Grid>
             </Grid>
           </Grid>
         </Box>

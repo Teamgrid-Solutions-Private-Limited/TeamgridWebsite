@@ -104,8 +104,8 @@ import whyPartnerWithUsImagePath from "./assets/whypartnerwithus.svg";
 import whiteTeamIconPath from "./assets/white-team.svg";
 import LeftArrowIconPath from "./assets/leftArrow.svg";
 import RightArrowIconPath from "./assets/rightArrow.svg";
-import leftDownIconPath from "./assets/rightArrow.svg";
-import RightDownIconPath from "./assets/rightArrow.svg";
+import leftDownIconPath from "./assets/leftDown.svg";
+import RightDownIconPath from "./assets/rightDown.svg";
 
 // Cache map for SVG elements to prevent multiple loads
 const svgCache = new Map();
