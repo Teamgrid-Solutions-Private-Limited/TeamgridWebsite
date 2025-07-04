@@ -21,19 +21,27 @@ import {
   bootstrapIcon,
   teamgridLogo,
   figmaIcon,
+  dockerIcon,
+  nodejsIcon,
+  mongodbIcon,
+  expressIcon,
+  postgresqlIcon,
+  mongoIcon,
+  graphQLIcon,
+  redisIcon,
 } from "../../images";
 import data from "../../data.json";
 
 const iconMap = {
-  reactIcon,
-  wordpressIcon,
-  muiIcon,
   javascriptIcon,
   typescriptIcon,
-  cssIcon,
-  htmlIcon,
-  bootstrapIcon,
-  figmaIcon,
+  dockerIcon,
+  nodejsIcon,
+  mongodbIcon,
+  expressIcon,
+  postgresqlIcon,
+  graphQLIcon,
+  redisIcon,
 };
 
 function HomePage() {
@@ -50,10 +58,10 @@ function HomePage() {
 
   // Get backend data from data.json
   const backendData = data.backend.homePage;
-  const techIcons = backendData.techIcons ? backendData.techIcons.map((icon) => ({
+  const techIcons = backendData.techIcons.map((icon) => ({
     ...icon,
     icon: iconMap[icon.icon],
-  })) : [];
+  }));
 
   // Get the current padding value in px
   let rightPadding = 0;
@@ -130,7 +138,7 @@ function HomePage() {
     <Box
       sx={{
         bgcolor: "#072449",
-        height: { xs: "100vh", xl: "80vh",xxl:'60vh' },
+        height: { xs: "100vh", xl: "80vh", xxl: "60vh" },
         width: "100%",
         display: "flex",
         alignItems: "center",

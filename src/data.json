@@ -804,7 +804,19 @@
         { "text": "Hire Back-End Developers", "variant": "contained" },
         { "text": "Request a Free Quote", "variant": "outlined" }
       ],
-      "techIcons": []
+      "techIcons": [
+        { "name": "bootstrap", "icon": "bootstrapIcon" },
+        { "name": "JavaScript", "icon": "javascriptIcon" },
+        { "name": "Node.js", "icon": "nodejsIcon" },
+        { "name": "PostgreSQL", "icon": "postgresqlIcon" },
+
+        { "name": "GraphQL", "icon": "graphQLIcon" },
+        { "name": "Redis", "icon": "redisIcon" },
+        { "name": "Express", "icon": "expressIcon" },
+        { "name": "Docker", "icon": "dockerIcon" },
+
+        { "name": "MongoDB", "icon": "mongodbIcon" }
+      ]
     },
     "whatWeOffer": {
       "title": "What We Offer",
