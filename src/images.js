@@ -98,7 +98,7 @@ import elementorImagePath from "./assets/elementor.png";
 import jQueryImagePath from "./assets/jQuery.png";
 import acfImagePath from "./assets/acf.png";
 import mySQLImagePath from "./assets/mySQL.png";
-import backIconPath from "./assets/Variant3.svg"
+import backIconPath from "./assets/Variant3.svg";
 import ourTechStackImagePath from "./assets/ourtechstack.jpg";
 import whyPartnerWithUsImagePath from "./assets/whypartnerwithus.svg";
 import whiteTeamIconPath from "./assets/white-team.svg";
@@ -106,6 +106,11 @@ import LeftArrowIconPath from "./assets/leftArrow.svg";
 import RightArrowIconPath from "./assets/rightArrow.svg";
 import leftDownIconPath from "./assets/leftDown.svg";
 import RightDownIconPath from "./assets/rightDown.svg";
+import expressIconPath from "./assets/express-js.png";
+import swaggerIconPath from "./assets/Swagger-logo.png";
+import pm2IconPath from "./assets/pm2.jpeg";
+import nginxIconPath from "./assets/nginx.png";
+import sqlServerPath from "./assets/sqlServer.png";
 
 // Cache map for SVG elements to prevent multiple loads
 const svgCache = new Map();
@@ -208,15 +213,20 @@ export const nextJSIcon = getSvgPath(NextJsImagePath);
 export const awsIcon = getSvgPath(AWSImagePath);
 export const gitIcon = getSvgPath(GitImagePath);
 export const phpIcon = getSvgPath(phpImagePath);
-export const elementorIcon = getSvgPath(elementorImagePath);  
+export const elementorIcon = getSvgPath(elementorImagePath);
 export const jQueryIcon = getSvgPath(jQueryImagePath);
 export const acfIcon = getSvgPath(acfImagePath);
 export const mySQLIcon = getSvgPath(mySQLImagePath);
 export const backIconAnime = getSvgPath(backIconPath);
 export const ourTechStackImage = getSvgPath(ourTechStackImagePath);
 export const whyPartnerWithUsImage = getSvgPath(whyPartnerWithUsImagePath);
-export const whiteTeamIcon = getSvgPath(whiteTeamIconPath)
+export const whiteTeamIcon = getSvgPath(whiteTeamIconPath);
 export const leftArrowIcon = getSvgPath(LeftArrowIconPath);
 export const rightArrowIcon = getSvgPath(RightArrowIconPath);
 export const leftDownIcon = getSvgPath(leftDownIconPath);
 export const rightDownIcon = getSvgPath(RightDownIconPath);
+export const expressIcon = getSvgPath(expressIconPath);
+export const nginxIcon = getSvgPath(nginxIconPath);
+export const pm2Icon = getSvgPath(pm2IconPath);
+export const swaggerIcon = getSvgPath(swaggerIconPath);
+export const sqlServerIcon = getSvgPath(sqlServerPath);

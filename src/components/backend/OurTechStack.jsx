@@ -17,19 +17,42 @@ import {
   muiIcon,
   bootstrapIcon,
   ourTechStackImage,
+  nodejsIcon,
+  postgresqlIcon,
+  mySQLIcon,
+  mongodbIcon,
+  redisIcon,
+  dockerIcon,
+  awsIcon,
+  gitIcon,
+  postmanIcon,
+  expressIcon,
+  swaggerIcon,
+  nginxIcon,
+  pm2Icon,
+  sqlServerIcon,
 } from "../../images";
 import teamImage from "../../assets/livediscussion.jpg";
 import data from "../../data.json";
 
 const backendData = data.backend.ourTechStack;
 const iconMap = {
-  reactIcon,
+  nodejsIcon,
   javascriptIcon,
   typescriptIcon,
-  htmlIcon,
-  cssIcon,
-  muiIcon,
-  bootstrapIcon,
+  postgresqlIcon,
+  mySQLIcon,
+  mongodbIcon,
+  redisIcon,
+  dockerIcon,
+  awsIcon,
+  gitIcon,
+  postmanIcon,
+  expressIcon,
+  swaggerIcon,
+  nginxIcon,
+  pm2Icon,
+  sqlServerIcon
 };
 const techs = backendData.techs.map((tech) => ({
   ...tech,
@@ -71,13 +94,13 @@ function OurTechStack() {
           }}
         >
           {/* Left: Image with overlay text */}
-          <Grid  size={{ xs: 12, md: 6 }} width={'100%'}>
+          <Grid size={{ xs: 12, md: 6 }} width={"100%"}>
             <Box
               sx={{
                 position: "relative",
                 borderRadius: 4,
                 overflow: "hidden",
-                width:'100%',
+                width: "100%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
@@ -103,8 +126,8 @@ function OurTechStack() {
                   left: 0,
                   bottom: 0,
                   width: "90%",
-                  borderBottomLeftRadius:"24px",
-                  borderBottomRightRadius:"24px",
+                  borderBottomLeftRadius: "24px",
+                  borderBottomRightRadius: "24px",
                   p: 3,
                   background:
                     "linear-gradient(0deg, rgba(0,0,0,0.65) 60%, rgba(0,0,0,0.0) 100%)",
@@ -139,7 +162,7 @@ function OurTechStack() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              gap:2
+              gap: 2,
             }}
           >
             <Typography
@@ -169,7 +192,12 @@ function OurTechStack() {
             >
               {backendData.description}
             </Typography>
-            <Box  gap={2} display={'flex'} justifyContent={'flex-start'} flexWrap={'wrap'}>
+            <Box
+              gap={2}
+              display={"flex"}
+              justifyContent={"flex-start"}
+              flexWrap={"wrap"}
+            >
               {techs.map((tech, idx) => (
                 <Box key={tech.name}>
                   <Card

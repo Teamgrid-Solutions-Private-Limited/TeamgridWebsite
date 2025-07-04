@@ -858,22 +858,102 @@
       "title": "Our Tech Stack",
       "description": "We use modern, scalable backend technologies to build fast, secure, and modular systems. Our tech stack ensures performance, maintainability, and future-ready web experiences.",
       "techs": [
-        { "name": "Node.js", "icon": "nodejsIcon", "bg": "#E8F4FD", "color": "#0D3C7E" },
-        { "name": "Express.js", "icon": "expressIcon", "bg": "#F5F0FF", "color": "#000000" },
-        { "name": "JavaScript", "icon": "javascriptIcon", "bg": "#FFF9E5", "color": "#F7DF1E" },
-        { "name": "TypeScript", "icon": "typescriptIcon", "bg": "#EAF6FF", "color": "#3178C6" },
-        { "name": "PostgreSQL", "icon": "postgresqlIcon", "bg": "#EDF6FF", "color": "#336791" },
-        { "name": "MySQL", "icon": "mySQLIcon", "bg": "#FFF3ED", "color": "#00758F" },
-        { "name": "MongoDB", "icon": "mongodbIcon", "bg": "#E7FFD7", "color": "#47A248" },
-        { "name": "Redis", "icon": "redisIcon", "bg": "#FFEFFC", "color": "#D82C20" },
-        { "name": "SQL Server", "icon": "sqlServerIcon", "bg": "#ECF9FF", "color": "#CC2927" },
-        { "name": "Docker", "icon": "dockerIcon", "bg": "#F0F7FF", "color": "#2496ED" },
-        { "name": "AWS", "icon": "awsIcon", "bg": "#FFF7C7", "color": "#FF9900" },
-        { "name": "Git", "icon": "gitIcon", "bg": "#FFE5E5", "color": "#F05032" },
-        { "name": "Postman", "icon": "postmanIcon", "bg": "#FFF3ED", "color": "#FF6C37" },
-        { "name": "Swagger", "icon": "swaggerIcon", "bg": "#E7FFD7", "color": "#85EA2D" },
-        { "name": "PM2", "icon": "pm2Icon", "bg": "#F5F0FF", "color": "#2B037A" },
-        { "name": "Nginx", "icon": "nginxIcon", "bg": "#EAF6FF", "color": "#009639" }
+        {
+          "name": "Node.js",
+          "icon": "nodejsIcon",
+          "bg": "#E8F4FD",
+          "color": "#0D3C7E"
+        },
+        {
+          "name": "Express.js",
+          "icon": "expressIcon",
+          "bg": "#F5F0FF",
+          "color": "#000000"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "javascriptIcon",
+          "bg": "#FFF9E5",
+          "color": "#F7DF1E"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "typescriptIcon",
+          "bg": "#EAF6FF",
+          "color": "#3178C6"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "postgresqlIcon",
+          "bg": "#EDF6FF",
+          "color": "#336791"
+        },
+        {
+          "name": "MySQL",
+          "icon": "mySQLIcon",
+          "bg": "#FFF3ED",
+          "color": "#00758F"
+        },
+        {
+          "name": "MongoDB",
+          "icon": "mongodbIcon",
+          "bg": "#E7FFD7",
+          "color": "#47A248"
+        },
+        {
+          "name": "Redis",
+          "icon": "redisIcon",
+          "bg": "#FFEFFC",
+          "color": "#D82C20"
+        },
+        {
+          "name": "SQL Server",
+          "icon": "sqlServerIcon",
+          "bg": "#ECF9FF",
+          "color": "#CC2927"
+        },
+        {
+          "name": "Docker",
+          "icon": "dockerIcon",
+          "bg": "#F0F7FF",
+          "color": "#2496ED"
+        },
+        {
+          "name": "AWS",
+          "icon": "awsIcon",
+          "bg": "#FFF7C7",
+          "color": "#FF9900"
+        },
+        {
+          "name": "Git",
+          "icon": "gitIcon",
+          "bg": "#FFE5E5",
+          "color": "#F05032"
+        },
+        {
+          "name": "Postman",
+          "icon": "postmanIcon",
+          "bg": "#FFF3ED",
+          "color": "#FF6C37"
+        },
+        {
+          "name": "Swagger",
+          "icon": "swaggerIcon",
+          "bg": "#E7FFD7",
+          "color": "#85EA2D"
+        },
+        {
+          "name": "PM2",
+          "icon": "pm2Icon",
+          "bg": "#F5F0FF",
+          "color": "#2B037A"
+        },
+        {
+          "name": "Nginx",
+          "icon": "nginxIcon",
+          "bg": "#EAF6FF",
+          "color": "#009639"
+        }
       ]
     },
     "whyPartnerWithUs": {
@@ -1000,13 +1080,14 @@
       "title": "Let's build the engine behind your next great product.",
       "subtitle": "From APIs to admin dashboards, our backend developers can help you deliver faster and scale smarter.",
       "buttons": [
-        { "text": "Talk to Us", "variant": "contained" },
-        { "text": "Get a Free Estimate", "variant": "outlined" },
+        { "text": "Talk to Us", "variant": "contained", "color": "#FFFFFF" },
+        {
+          "text": "Get a Free Estimate",
+          "variant": "outlined",
+          "color": "#FF4D00"
+        },
         { "text": "Hire a Developer", "variant": "contained" }
       ]
     }
   }
 }
-
-
-

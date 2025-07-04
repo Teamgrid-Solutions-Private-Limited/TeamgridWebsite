@@ -202,7 +202,7 @@ function WhatWeOffer() {
                   gridTemplateColumns: {
                     xs: "repeat(1, 282px)",
                     sm:'repeat(2, 282px)',
-                    md: "repeat(3, 282px)",
+                    md: "repeat(4, 282px)",
                   },
                   gridTemplateRows: { xs: "auto", md: "repeat(2, auto)" },
                   gap: 3,

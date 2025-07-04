@@ -39,6 +39,7 @@ import {
   jQueryIcon,
   acfIcon,
   mySQLIcon,
+  expressIcon,
 } from "../../images";
 import { fontClamp } from "../../fontUtils";
 const services = data.developmentType;
@@ -81,7 +82,7 @@ function DevelopmentTypes() {
       case "postgresqlIcon":
         return postgresqlIcon;
       case "expressIcon":
-        return "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png"; // Example URL for Express.js icon
+        return expressIcon; // Example URL for Express.js icon
       case "mongodbIcon":
         return mongodbIcon;
       case "graphQLIcon":
