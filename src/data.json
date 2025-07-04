@@ -796,9 +796,9 @@
   },
   "backend": {
     "homePage": {
-      "heroTitle": "Back-End Development Services for Scalable and Secure Web Applications",
-      "heroSubtitle": "Hire skilled back-end developers to build fast, API-driven systems using Node.js, PostgreSQL, MongoDB, and modern backend frameworks.",
-      "heroHighlight": "",
+      "heroTitle": "Back-End Development",
+      "heroSubtitle": ["for", "Scalable & Secure"],
+      "heroHighlight": "Web Applications",
       "description": "Hire expert back-end developers skilled in Node.js, Express, and modern backend frameworks. Ideal for agencies and businesses looking to scale delivery without growing overhead.",
       "buttons": [
         { "text": "Hire Back-End Developers", "variant": "contained" },
