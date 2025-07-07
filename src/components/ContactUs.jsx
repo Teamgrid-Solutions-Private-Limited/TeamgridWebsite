@@ -326,7 +326,7 @@ function ContactUs() {
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "center",
-                        gap: 5, // Reduced from 5 for better vertical centering
+                        gap: 3, // Reduced from 5 for better vertical centering
                         width: "100%",
                         height: "100%",
                       }}
