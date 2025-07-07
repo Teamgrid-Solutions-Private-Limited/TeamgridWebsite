@@ -9,11 +9,13 @@ import {
   Stack,
   useTheme,
   useMediaQuery,
+  InputAdornment,
+  Fade,
 } from "@mui/material";
+import { Email, Phone, Person, Message } from "@mui/icons-material";
 
 const CONTACT_INFO = {
-  address:
-    "123 Innovation Street, Tech Park, San Francisco, CA 94103, United States",
+  address: "Kolkata",
   email: "hello@teamgrid.com",
   phone: "+1 (555) 123-4567",
 };
@@ -36,7 +38,6 @@ function ContactUs() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    // Here you would handle sending the form data to your backend or email service
   };
 
   return (
@@ -47,21 +48,38 @@ function ContactUs() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        py: { xs: 4, md: 8 },
+        py: { xs: 6, md: 8, lg: 12 },
       }}
     >
       <Paper
-        elevation={6}
+        elevation={8}
         sx={{
+          backdropFilter: "blur(15px)",
+          backgroundColor: "rgba(255,255,255,0.15)",
+          border: "1px solid rgba(255,255,255,0.2)",
           borderRadius: 6,
-          maxWidth: 900,
+          maxWidth: 1000,
           width: "100%",
           p: { xs: 3, md: 6 },
-          mx: 2,
+          color: "white",
+          display: "flex",
+          // flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        <Grid container spacing={4} alignItems="stretch">
-          <Grid item xs={12} md={6}>
+        <Grid
+          container
+          spacing={4}
+          sx={{
+            display: "flex",
+            // flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {/* Left Info Section */}
+          <Grid item size={{ xs: 12, md: 6 }}>
             <Box
               sx={{
                 height: "100%",
@@ -71,19 +89,18 @@ function ContactUs() {
               }}
             >
               <Typography
-                variant="h2"
+                variant="h3"
                 sx={{
                   fontWeight: 700,
-                  color: theme.palette.primary.main,
-                  mb: 1,
-                  fontSize: { xs: "2rem", md: "2.5rem" },
+                  mb: 2,
+                  color: "#fff",
                 }}
               >
                 Contact Us
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ mb: 3, color: theme.palette.text.secondary }}
+                sx={{ mb: 4, color: "rgba(255,255,255,0.8)" }}
               >
                 Have a project in mind or want to learn more? Fill out the form
                 and our team will get back to you soon.
@@ -93,7 +110,10 @@ function ContactUs() {
                   <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Address
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "rgba(255,255,255,0.8)" }}
+                  >
                     {CONTACT_INFO.address}
                   </Typography>
                 </Box>
@@ -101,7 +121,10 @@ function ContactUs() {
                   <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Email
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "rgba(255,255,255,0.8)" }}
+                  >
                     {CONTACT_INFO.email}
                   </Typography>
                 </Box>
@@ -109,36 +132,50 @@ function ContactUs() {
                   <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Phone
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "rgba(255,255,255,0.8)" }}
+                  >
                     {CONTACT_INFO.phone}
                   </Typography>
                 </Box>
               </Stack>
             </Box>
           </Grid>
-          <Grid item xs={12} md={6}>
+
+          {/* Right Form Section */}
+          <Grid
+            item
+            spacing={6}
+            size={{ xs: 12, md: 6 }}
+            sx={{
+              display: "flex",
+              // flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Box
               component="form"
               onSubmit={handleSubmit}
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 2,
-                height: "100%",
+                gap: 2.5,
                 justifyContent: "center",
+                
               }}
             >
-              {submitted ? (
-                <Box sx={{ textAlign: "center", py: 6 }}>
-                  <Typography variant="h5" color="success.main" gutterBottom>
-                    Thank you for contacting us!
-                  </Typography>
-                  <Typography variant="body1">
-                    We'll get back to you soon.
-                  </Typography>
-                </Box>
-              ) : (
-                <>
+              <Fade in={!submitted} timeout={500} unmountOnExit>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 3,
+                  }}
+                >
                   <TextField
                     label="Name"
                     name="name"
@@ -146,7 +183,24 @@ function ContactUs() {
                     onChange={handleChange}
                     required
                     fullWidth
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <Person />
+                        </InputAdornment>
+                      ),
+                    }}
+                    variant="outlined"
+                    sx={{
+                      input: { color: "#fff" },
+                      "& label": { color: "#fff" },
+                      "& .MuiOutlinedInput-root": {
+                        "& fieldset": { borderColor: "#fff" },
+                        "&:hover fieldset": { borderColor: "#ccc" },
+                      },
+                    }}
                   />
+
                   <TextField
                     label="Email"
                     name="email"
@@ -155,14 +209,48 @@ function ContactUs() {
                     onChange={handleChange}
                     required
                     fullWidth
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <Email />
+                        </InputAdornment>
+                      ),
+                    }}
+                    variant="outlined"
+                    sx={{
+                      input: { color: "#fff" },
+                      "& label": { color: "#fff" },
+                      "& .MuiOutlinedInput-root": {
+                        "& fieldset": { borderColor: "#fff" },
+                        "&:hover fieldset": { borderColor: "#ccc" },
+                      },
+                    }}
                   />
+
                   <TextField
                     label="Phone"
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
                     fullWidth
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <Phone />
+                        </InputAdornment>
+                      ),
+                    }}
+                    variant="outlined"
+                    sx={{
+                      input: { color: "#fff" },
+                      "& label": { color: "#fff" },
+                      "& .MuiOutlinedInput-root": {
+                        "& fieldset": { borderColor: "#fff" },
+                        "&:hover fieldset": { borderColor: "#ccc" },
+                      },
+                    }}
                   />
+
                   <TextField
                     label="Message"
                     name="message"
@@ -172,18 +260,57 @@ function ContactUs() {
                     fullWidth
                     multiline
                     minRows={4}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <Message />
+                        </InputAdornment>
+                      ),
+                    }}
+                    variant="outlined"
+                    sx={{
+                      textarea: { color: "#fff" },
+                      "& label": { color: "#fff" },
+                      "& .MuiOutlinedInput-root": {
+                        "& fieldset": { borderColor: "#fff" },
+                        "&:hover fieldset": { borderColor: "#ccc" },
+                      },
+                    }}
                   />
+
                   <Button
                     type="submit"
                     variant="contained"
-                    color="primary"
+                    color="secondary"
                     size="large"
-                    sx={{ borderRadius: "40px", mt: 1 }}
+                    fullWidth
+                    sx={{
+                      borderRadius: "30px",
+                      mt: 1,
+                      textTransform: "none",
+                      fontWeight: 600,
+                      backgroundColor: "#fff",
+                      color: theme.palette.primary.main,
+                      "&:hover": {
+                        backgroundColor: "#e0e0e0",
+                      },
+                    }}
                   >
                     Send Message
                   </Button>
-                </>
-              )}
+                </Box>
+              </Fade>
+
+              <Fade in={submitted} timeout={500}>
+                <Box sx={{ textAlign: "center", py: 6 }}>
+                  <Typography variant="h5" color="success.main" gutterBottom>
+                    Thank you for contacting us!
+                  </Typography>
+                  <Typography variant="body1" sx={{ color: "#fff" }}>
+                    We'll get back to you soon.
+                  </Typography>
+                </Box>
+              </Fade>
             </Box>
           </Grid>
         </Grid>

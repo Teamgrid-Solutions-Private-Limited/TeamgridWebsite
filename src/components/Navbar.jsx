@@ -38,7 +38,7 @@ import {
 } from "../images";
 import data from "../data.json";
 import { fontClamp } from "../fontUtils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Get menu items from data.json
 const { menuItems: menuItemsData, serviceCategories: serviceCategoriesData } =
@@ -61,6 +61,7 @@ const iconMap = {
 
 function Navbar() {
   const theme = useTheme();
+  const navigate = useNavigate()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isTablet = useMediaQuery(theme.breakpoints.between("md", "lg"));
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
