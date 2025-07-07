@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import Index from "./components/web-development/Index";
 import Frontend from "./components/frontend/Index";
 import Backend from './components/backend/Index'
+import ContactUs from "./components/ContactUs";
 
 function App() {
   const theme = useTheme();
@@ -59,7 +60,8 @@ function App() {
           <Route path="/web-development" element={<Index />} />
           <Route path="/frontend" element={<Frontend />} />
           <Route path="/backend" element={<Backend/>} />
-        </Routes> 
+          <Route path="/contact-us" element={<ContactUs />} />
+        </Routes>
         <Footer />
       </Box>
     </BrowserRouter>

@@ -1,0 +1,548 @@
+import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  Paper,
+  Grid,
+  Stack,
+  useTheme,
+  useMediaQuery,
+  InputAdornment,
+  Fade,
+} from "@mui/material";
+import { Email, Phone, Person, Message } from "@mui/icons-material";
+import axios from "axios";
+import backgroundImage from "../assets/backgroundImage.svg";
+import shortLogo from "../assets/shortLogo.svg";
+import Avatar from "@mui/material/Avatar";
+import CircularProgress from "@mui/material/CircularProgress";
+import Grow from "@mui/material/Grow";
+
+const CONTACT_INFO = {
+  address:
+    "Stesalit Tower, GP Block, Sector V, Bidhannagar, West Bengal, 700091",
+  email: "hello@teamgrid.com",
+  phone: "+1 (555) 123-4567",
+};
+
+const TOPIC_OPTIONS = ["General Inquiry", "Partnership", "Support", "Other"];
+
+const initialForm = {
+  fullName: "",
+  workEmail: "",
+  phoneNumber: "",
+  company: "",
+  topics: [],
+  message: "",
+  attachments: [],
+};
+
+function ContactUs() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [form, setForm] = useState(initialForm);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value, type, files } = e.target;
+    if (type === "file") {
+      setForm((prev) => ({ ...prev, attachments: files }));
+    } else if (name === "topics") {
+      const checked = e.target.checked;
+      const topic = value;
+      setForm((prev) => ({
+        ...prev,
+        topics: checked
+          ? [...prev.topics, topic]
+          : prev.topics.filter((t) => t !== topic),
+      }));
+    } else {
+      setForm((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(null);
+    const formData = new FormData();
+    Object.entries(form).forEach(([key, value]) => {
+      if (key === "attachments") {
+        for (let i = 0; i < value.length; i++) {
+          formData.append("attachments", value[i]);
+        }
+      } else if (key === "topics") {
+        value.forEach((topic) => formData.append("topics", topic));
+      } else {
+        formData.append(key, value);
+      }
+    });
+    try {
+      await axios.post("http://localhost:5000/api/contact/", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      setSubmitted(true);
+    } catch (err) {
+      setError(
+        err.response?.data?.message ||
+          err.response?.data?.errors?.[0]?.msg ||
+          "Submission failed"
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <Box
+      sx={{
+        height: "100%",
+        width: "100vw",
+        position: "relative",
+        overflow: "hidden",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        py: { xs: 6, md: 8, lg: 12 },
+        background: `linear-gradient(135deg, #05408E 0%, #0070FF 100%)`,
+      }}
+    >
+      {/* Soft SVG background */}
+      <Box
+        component="img"
+        src={backgroundImage}
+        alt="Background abstract"
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center",
+          opacity: 0.5,
+          filter: "blur(1px)",
+          zIndex: 0,
+          pointerEvents: "none",
+        }}
+      />
+      <Grow in timeout={700}>
+        <Paper
+          elevation={12}
+          sx={{
+            backdropFilter: "blur(18px)",
+            backgroundColor: "rgba(255,255,255,0.18)",
+            border: "1.5px solid rgba(255,255,255,0.25)",
+            borderRadius: 6,
+            maxWidth: 1000,
+            width: "100%",
+            height:"100%",
+            p: { xs: 3, md: 6 },
+            color: "white",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 8px 40px 0 rgba(5,64,142,0.18)",
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          <Grid
+            container
+            spacing={4}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%", // Ensure grid takes full height
+            }}
+          >
+            {/* Left Info Section */}
+            <Grid item size={{ xs: 12, md: 6 }}>
+              <Box
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  position: "relative",
+                }}
+              >
+                {/* Vertical accent bar */}
+                <Box
+                  sx={{
+                    position: "absolute",
+                    left: -32,
+                    top: 0,
+                    bottom: 0,
+                    width: 8,
+                    borderRadius: 8,
+                    background:
+                      "linear-gradient(180deg, #05408E 0%, #0070FF 100%)",
+                    display: { xs: "none", md: "block" },
+                  }}
+                />
+                {/* Avatar/logo */}
+                <Box
+                  sx={{ display: "flex", justifyContent: "flex-start", mb: 2 }}
+                >
+                  <Avatar
+                    src={shortLogo}
+                    alt="Teamgrid Logo"
+                    sx={{
+                      width: 84,
+                      height: 84,
+                      bgcolor: "#fff",
+                      boxShadow: 2,
+                      borderRadius: "16px",
+                      p: 1,
+                    }}
+                    imgProps={{ style: { objectFit: "contain" } }}
+                  />
+                </Box>
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontWeight: 700,
+                    mb: 2,
+                    color: "#fff",
+                    fontFamily: theme.typography.fontFamily,
+                  }}
+                >
+                  Contact Us
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    mb: 4,
+                    color: "rgba(255,255,255,0.85)",
+                    fontFamily: theme.typography.fontFamily,
+                  }}
+                >
+                  Have a project in mind or want to learn more? Fill out the
+                  form and our team will get back to you soon.
+                </Typography>
+                <Stack spacing={2}>
+                  <Box>
+                    <Typography
+                      variant="subtitle1"
+                      sx={{ fontWeight: 600, color: "#fff" }}
+                    >
+                      Address
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "rgba(255,255,255,0.8)" }}
+                    >
+                      {CONTACT_INFO.address}
+                    </Typography>
+                  </Box>
+                  <Box>
+                    <Typography
+                      variant="subtitle1"
+                      sx={{ fontWeight: 600, color: "#fff" }}
+                    >
+                      Email
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "rgba(255,255,255,0.8)" }}
+                    >
+                      {CONTACT_INFO.email}
+                    </Typography>
+                  </Box>
+                  <Box>
+                    <Typography
+                      variant="subtitle1"
+                      sx={{ fontWeight: 600, color: "#fff" }}
+                    >
+                      Phone
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "rgba(255,255,255,0.8)" }}
+                    >
+                      {CONTACT_INFO.phone}
+                    </Typography>
+                  </Box>
+                </Stack>
+              </Box>
+            </Grid>
+
+            {/* Right Form Section */}
+            <Grid
+              item
+              size={{ xs: 12, md: 6 }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%", // Ensure grid item takes full height
+              }}
+            >
+              <Box
+                component="form"
+                onSubmit={handleSubmit}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2, // Reduced from 2.5 for better spacing
+                  justifyContent: "center",
+                  alignItems: "center", // Center form elements horizontally
+                  width: "100%",
+                  maxWidth: 400,
+                  bgcolor: "rgba(255,255,255,0.04)",
+                  borderRadius: 4,
+                  boxShadow: "0 2px 16px 0 rgba(5,64,142,0.08)",
+                  p: { xs: 2, md: 3 },
+                  zIndex: 2,
+                  height: "100%", // Allow form to size naturally
+                }}
+                aria-label="Contact form"
+                encType="multipart/form-data"
+              >
+                <Fade in={!submitted} timeout={500} unmountOnExit>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: 2, // Reduced from 5 for better vertical centering
+                      width: "100%",
+                      height:"100%"
+                    }}
+                  >
+                    <TextField
+                      label="Full Name"
+                      name="fullName"
+                      value={form.fullName}
+                      onChange={handleChange}
+                      required
+                      fullWidth
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <Person />
+                          </InputAdornment>
+                        ),
+                      }}
+                      variant="outlined"
+                      sx={{
+                        input: { color: "#fff" },
+                        "& label": { color: "#fff" },
+                        "& .MuiOutlinedInput-root": {
+                          "& fieldset": { borderColor: "#fff" },
+                          "&:hover fieldset": { borderColor: "#ccc" },
+                        },
+                      }}
+                      aria-label="Full Name"
+                    />
+
+                    <TextField
+                      label="Work Email"
+                      name="workEmail"
+                      type="email"
+                      value={form.workEmail}
+                      onChange={handleChange}
+                      required
+                      fullWidth
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <Email />
+                          </InputAdornment>
+                        ),
+                      }}
+                      variant="outlined"
+                      sx={{
+                        input: { color: "#fff" },
+                        "& label": { color: "#fff" },
+                        "& .MuiOutlinedInput-root": {
+                          "& fieldset": { borderColor: "#fff" },
+                          "&:hover fieldset": { borderColor: "#ccc" },
+                        },
+                      }}
+                      aria-label="Work Email"
+                    />
+
+                    <TextField
+                      label="Phone Number"
+                      name="phoneNumber"
+                      value={form.phoneNumber}
+                      onChange={handleChange}
+                      fullWidth
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <Phone />
+                          </InputAdornment>
+                        ),
+                      }}
+                      variant="outlined"
+                      sx={{
+                        input: { color: "#fff" },
+                        "& label": { color: "#fff" },
+                        "& .MuiOutlinedInput-root": {
+                          "& fieldset": { borderColor: "#fff" },
+                          "&:hover fieldset": { borderColor: "#ccc" },
+                        },
+                      }}
+                      aria-label="Phone Number"
+                    />
+
+                    <TextField
+                      label="Company"
+                      name="company"
+                      value={form.company}
+                      onChange={handleChange}
+                      fullWidth
+                      variant="outlined"
+                      sx={{
+                        input: { color: "#fff" },
+                        "& label": { color: "#fff" },
+                        "& .MuiOutlinedInput-root": {
+                          "& fieldset": { borderColor: "#fff" },
+                          "&:hover fieldset": { borderColor: "#ccc" },
+                        },
+                      }}
+                      aria-label="Company"
+                    />
+
+                    <Box sx={{ width: "100%", color: "#fff" }}>
+                      <Typography
+                        variant="subtitle1"
+                        sx={{ mb: 1, color: "#fff" }}
+                      >
+                        Topics
+                      </Typography>
+                      <Stack direction="row" spacing={2} flexWrap="wrap">
+                        {TOPIC_OPTIONS.map((topic) => (
+                          <label
+                            key={topic}
+                            style={{ display: "flex", alignItems: "center" }}
+                          >
+                            <input
+                              type="checkbox"
+                              name="topics"
+                              value={topic}
+                              checked={form.topics.includes(topic)}
+                              onChange={handleChange}
+                              style={{ marginRight: 6 }}
+                            />
+                            <Typography variant="body2" sx={{ color: "#fff" }}>
+                              {topic}
+                            </Typography>
+                          </label>
+                        ))}
+                      </Stack>
+                    </Box>
+
+                    <TextField
+                      label="Message"
+                      name="message"
+                      value={form.message}
+                      onChange={handleChange}
+                      required
+                      fullWidth
+                      multiline
+                      rows={3} // Reduced from minRows={4} for better spacing
+                      variant="outlined"
+                      sx={{
+                        textarea: { color: "#fff" },
+                        "& label": { color: "#fff" },
+                        "& .MuiOutlinedInput-root": {
+                          "& fieldset": { borderColor: "#fff" },
+                          "&:hover fieldset": { borderColor: "#ccc" },
+                        },
+                      }}
+                      aria-label="Message"
+                    />
+
+                    <Box sx={{ width: "100%" }}>
+                      <Button
+                        variant="contained"
+                        component="label"
+                        sx={{
+                          borderRadius: "12px",
+                          backgroundColor: "#fff",
+                          color: theme.palette.primary.main,
+                          fontWeight: 600,
+                          textTransform: "none",
+                          mb: 1,
+                          width: "100%",
+                          "&:hover": { backgroundColor: "#e0e0e0" },
+                        }}
+                      >
+                        Upload Attachments
+                        <input
+                          type="file"
+                          name="attachments"
+                          multiple
+                          hidden
+                          onChange={handleChange}
+                        />
+                      </Button>
+                      {form.attachments && form.attachments.length > 0 && (
+                        <Typography variant="caption" sx={{ color: "#fff" }}>
+                          {Array.from(form.attachments)
+                            .map((file) => file.name)
+                            .join(", ")}
+                        </Typography>
+                      )}
+                    </Box>
+
+                    {error && (
+                      <Typography variant="body2" color="error">
+                        {error}
+                      </Typography>
+                    )}
+
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      size="large"
+                      disabled={submitting}
+                      fullWidth
+                      sx={{
+                        borderRadius: "12px",
+                        textTransform: "none",
+                        fontWeight: 600,
+                        boxShadow: submitting ? 4 : 2,
+                        transition: "all 0.2s cubic-bezier(.4,2,.6,1)",
+                      }}
+                      aria-label="Send message"
+                    >
+                      {submitting ? (
+                        <CircularProgress size={24} color="inherit" />
+                      ) : (
+                        "Send Message"
+                      )}
+                    </Button>
+                  </Box>
+                </Fade>
+                <Fade in={submitted} timeout={500}>
+                  <Box sx={{ textAlign: "center", py: 6 }}>
+                    <Typography variant="h5" color="success.main" gutterBottom>
+                      Thank you for contacting us!
+                    </Typography>
+                    <Typography variant="body1" sx={{ color: "#fff" }}>
+                      We'll get back to you soon.
+                    </Typography>
+                  </Box>
+                </Fade>
+              </Box>
+            </Grid>
+          </Grid>
+        </Paper>
+      </Grow>
+    </Box>
+  );
+}
+
+export default ContactUs;
