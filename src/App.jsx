@@ -14,6 +14,7 @@ import Index from "./components/web-development/Index";
 import Frontend from "./components/frontend/Index";
 import Backend from './components/backend/Index'
 import ContactUs from "./components/ContactUs";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   const theme = useTheme();
@@ -44,6 +45,7 @@ function App() {
 
   return (
     <BrowserRouter basename="/teamgrid">
+      <ScrollToTop />
       <Box
         sx={{
           overflowX: "hidden",
