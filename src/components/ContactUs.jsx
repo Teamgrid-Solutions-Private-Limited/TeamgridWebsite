@@ -100,8 +100,6 @@ function ContactUs() {
   return (
     <Box
       sx={{
-        height: "100%",
-        width: "100vw",
         position: "relative",
         overflow: "hidden",
         display: "flex",
@@ -138,7 +136,7 @@ function ContactUs() {
             backgroundColor: "rgba(255,255,255,0.18)",
             border: "1.5px solid rgba(255,255,255,0.25)",
             borderRadius: 6,
-            maxWidth: 1000,
+            maxWidth: "1248px",
             width: "100%",
             height:"100%",
             p: { xs: 3, md: 6 },
@@ -149,11 +147,12 @@ function ContactUs() {
             boxShadow: "0 8px 40px 0 rgba(5,64,142,0.18)",
             position: "relative",
             zIndex: 1,
+
           }}
         >
           <Grid
             container
-            spacing={4}
+            spacing={6}
             sx={{
               display: "flex",
               alignItems: "center",
@@ -294,7 +293,7 @@ function ContactUs() {
                   justifyContent: "center",
                   alignItems: "center", // Center form elements horizontally
                   width: "100%",
-                  maxWidth: 400,
+                  // maxWidth: 400,
                   bgcolor: "rgba(255,255,255,0.04)",
                   borderRadius: 4,
                   boxShadow: "0 2px 16px 0 rgba(5,64,142,0.08)",
@@ -312,9 +311,9 @@ function ContactUs() {
                       flexDirection: "column",
                       alignItems: "center",
                       justifyContent: "center",
-                      gap: 2, // Reduced from 5 for better vertical centering
+                      gap: 5, // Reduced from 5 for better vertical centering
                       width: "100%",
-                      height:"100%"
+                      height:"100%",
                     }}
                   >
                     <TextField
