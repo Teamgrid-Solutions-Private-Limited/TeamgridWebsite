@@ -21,7 +21,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Grow from "@mui/material/Grow";
 
 const CONTACT_INFO = {
-  address: "Kolkata",
+  address:
+    "Stesalit Tower, GP Block, Sector V, Bidhannagar, West Bengal, 700091",
   email: "hello@teamgrid.com",
   phone: "+1 (555) 123-4567",
 };
@@ -81,7 +82,7 @@ function ContactUs() {
       }
     });
     try {
-      await axios.post("http://localhost:5000/api/contact", formData, {
+      await axios.post("http://localhost:5000/api/contact/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setSubmitted(true);
@@ -99,7 +100,7 @@ function ContactUs() {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
+        height: "100%",
         width: "100vw",
         position: "relative",
         overflow: "hidden",
@@ -122,8 +123,9 @@ function ContactUs() {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          opacity: 0.18,
-          filter: "blur(2px)",
+          objectPosition: "center",
+          opacity: 0.5,
+          filter: "blur(1px)",
           zIndex: 0,
           pointerEvents: "none",
         }}
@@ -138,6 +140,7 @@ function ContactUs() {
             borderRadius: 6,
             maxWidth: 1000,
             width: "100%",
+            height:"100%",
             p: { xs: 3, md: 6 },
             color: "white",
             display: "flex",
@@ -155,10 +158,11 @@ function ContactUs() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              height: "100%", // Ensure grid takes full height
             }}
           >
             {/* Left Info Section */}
-            <Grid item size={{xs:12, md:6}}>
+            <Grid item size={{ xs: 12, md: 6 }}>
               <Box
                 sx={{
                   height: "100%",
@@ -190,10 +194,12 @@ function ContactUs() {
                     src={shortLogo}
                     alt="Teamgrid Logo"
                     sx={{
-                      width: 64,
-                      height: 64,
+                      width: 84,
+                      height: 84,
                       bgcolor: "#fff",
                       boxShadow: 2,
+                      borderRadius: "16px",
+                      p: 1,
                     }}
                     imgProps={{ style: { objectFit: "contain" } }}
                   />
@@ -275,6 +281,7 @@ function ContactUs() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                height: "100%", // Ensure grid item takes full height
               }}
             >
               <Box
@@ -283,8 +290,9 @@ function ContactUs() {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: 2.5,
+                  gap: 2, // Reduced from 2.5 for better spacing
                   justifyContent: "center",
+                  alignItems: "center", // Center form elements horizontally
                   width: "100%",
                   maxWidth: 400,
                   bgcolor: "rgba(255,255,255,0.04)",
@@ -292,6 +300,7 @@ function ContactUs() {
                   boxShadow: "0 2px 16px 0 rgba(5,64,142,0.08)",
                   p: { xs: 2, md: 3 },
                   zIndex: 2,
+                  height: "100%", // Allow form to size naturally
                 }}
                 aria-label="Contact form"
                 encType="multipart/form-data"
@@ -303,7 +312,9 @@ function ContactUs() {
                       flexDirection: "column",
                       alignItems: "center",
                       justifyContent: "center",
-                      gap: 3,
+                      gap: 2, // Reduced from 5 for better vertical centering
+                      width: "100%",
+                      height:"100%"
                     }}
                   >
                     <TextField
@@ -409,7 +420,7 @@ function ContactUs() {
                       >
                         Topics
                       </Typography>
-                      <Stack direction="row" spacing={2}>
+                      <Stack direction="row" spacing={2} flexWrap="wrap">
                         {TOPIC_OPTIONS.map((topic) => (
                           <label
                             key={topic}
@@ -439,14 +450,7 @@ function ContactUs() {
                       required
                       fullWidth
                       multiline
-                      minRows={4}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <Message />
-                          </InputAdornment>
-                        ),
-                      }}
+                      rows={3} // Reduced from minRows={4} for better spacing
                       variant="outlined"
                       sx={{
                         textarea: { color: "#fff" },
@@ -464,7 +468,7 @@ function ContactUs() {
                         variant="contained"
                         component="label"
                         sx={{
-                          borderRadius: "30px",
+                          borderRadius: "12px",
                           backgroundColor: "#fff",
                           color: theme.palette.primary.main,
                           fontWeight: 600,
@@ -493,7 +497,7 @@ function ContactUs() {
                     </Box>
 
                     {error && (
-                      <Typography variant="body2" color="error" sx={{ mt: 1 }}>
+                      <Typography variant="body2" color="error">
                         {error}
                       </Typography>
                     )}
@@ -501,24 +505,16 @@ function ContactUs() {
                     <Button
                       type="submit"
                       variant="contained"
-                      color="secondary"
+                      color="primary"
                       size="large"
                       disabled={submitting}
                       fullWidth
                       sx={{
-                        borderRadius: "30px",
-                        mt: 1,
+                        borderRadius: "12px",
                         textTransform: "none",
                         fontWeight: 600,
-                        backgroundColor: "#fff",
-                        color: theme.palette.primary.main,
                         boxShadow: submitting ? 4 : 2,
                         transition: "all 0.2s cubic-bezier(.4,2,.6,1)",
-                        "&:hover": {
-                          backgroundColor: "#e0e0e0",
-                          transform: "scale(1.03)",
-                          boxShadow: 6,
-                        },
                       }}
                       aria-label="Send message"
                     >
