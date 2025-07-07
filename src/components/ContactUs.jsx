@@ -138,7 +138,7 @@ function ContactUs() {
             borderRadius: 6,
             maxWidth: "1248px",
             width: "100%",
-            height:"100%",
+            height: "100%",
             p: { xs: 3, md: 6 },
             color: "white",
             display: "flex",
@@ -147,7 +147,6 @@ function ContactUs() {
             boxShadow: "0 8px 40px 0 rgba(5,64,142,0.18)",
             position: "relative",
             zIndex: 1,
-
           }}
         >
           <Grid
@@ -304,237 +303,247 @@ function ContactUs() {
                 aria-label="Contact form"
                 encType="multipart/form-data"
               >
-                <Fade in={!submitted} timeout={500} unmountOnExit>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: 5, // Reduced from 5 for better vertical centering
-                      width: "100%",
-                      height:"100%",
-                    }}
-                  >
-                    <TextField
-                      label="Full Name"
-                      name="fullName"
-                      value={form.fullName}
-                      onChange={handleChange}
-                      required
-                      fullWidth
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <Person />
-                          </InputAdornment>
-                        ),
-                      }}
-                      variant="outlined"
-                      sx={{
-                        input: { color: "#fff" },
-                        "& label": { color: "#fff" },
-                        "& .MuiOutlinedInput-root": {
-                          "& fieldset": { borderColor: "#fff" },
-                          "&:hover fieldset": { borderColor: "#ccc" },
-                        },
-                      }}
-                      aria-label="Full Name"
-                    />
-
-                    <TextField
-                      label="Work Email"
-                      name="workEmail"
-                      type="email"
-                      value={form.workEmail}
-                      onChange={handleChange}
-                      required
-                      fullWidth
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <Email />
-                          </InputAdornment>
-                        ),
-                      }}
-                      variant="outlined"
-                      sx={{
-                        input: { color: "#fff" },
-                        "& label": { color: "#fff" },
-                        "& .MuiOutlinedInput-root": {
-                          "& fieldset": { borderColor: "#fff" },
-                          "&:hover fieldset": { borderColor: "#ccc" },
-                        },
-                      }}
-                      aria-label="Work Email"
-                    />
-
-                    <TextField
-                      label="Phone Number"
-                      name="phoneNumber"
-                      value={form.phoneNumber}
-                      onChange={handleChange}
-                      fullWidth
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <Phone />
-                          </InputAdornment>
-                        ),
-                      }}
-                      variant="outlined"
-                      sx={{
-                        input: { color: "#fff" },
-                        "& label": { color: "#fff" },
-                        "& .MuiOutlinedInput-root": {
-                          "& fieldset": { borderColor: "#fff" },
-                          "&:hover fieldset": { borderColor: "#ccc" },
-                        },
-                      }}
-                      aria-label="Phone Number"
-                    />
-
-                    <TextField
-                      label="Company"
-                      name="company"
-                      value={form.company}
-                      onChange={handleChange}
-                      fullWidth
-                      variant="outlined"
-                      sx={{
-                        input: { color: "#fff" },
-                        "& label": { color: "#fff" },
-                        "& .MuiOutlinedInput-root": {
-                          "& fieldset": { borderColor: "#fff" },
-                          "&:hover fieldset": { borderColor: "#ccc" },
-                        },
-                      }}
-                      aria-label="Company"
-                    />
-
-                    <Box sx={{ width: "100%", color: "#fff" }}>
+                {submitted ? (
+                  <Fade in={submitted} timeout={500}>
+                    <Box sx={{ textAlign: "center", py: 6 }}>
                       <Typography
-                        variant="subtitle1"
-                        sx={{ mb: 1, color: "#fff" }}
+                        variant="h5"
+                        color="success.main"
+                        gutterBottom
                       >
-                        Topics
+                        Thank you for contacting us!
                       </Typography>
-                      <Stack direction="row" spacing={2} flexWrap="wrap">
-                        {TOPIC_OPTIONS.map((topic) => (
-                          <label
-                            key={topic}
-                            style={{ display: "flex", alignItems: "center" }}
-                          >
-                            <input
-                              type="checkbox"
-                              name="topics"
-                              value={topic}
-                              checked={form.topics.includes(topic)}
-                              onChange={handleChange}
-                              style={{ marginRight: 6 }}
-                            />
-                            <Typography variant="body2" sx={{ color: "#fff" }}>
-                              {topic}
-                            </Typography>
-                          </label>
-                        ))}
-                      </Stack>
+                      <Typography variant="body1" sx={{ color: "#fff" }}>
+                        We'll get back to you soon.
+                      </Typography>
                     </Box>
-
-                    <TextField
-                      label="Message"
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      required
-                      fullWidth
-                      multiline
-                      rows={3} // Reduced from minRows={4} for better spacing
-                      variant="outlined"
+                  </Fade>
+                ) : (
+                  <Fade in={!submitted} timeout={500} unmountOnExit>
+                    <Box
                       sx={{
-                        textarea: { color: "#fff" },
-                        "& label": { color: "#fff" },
-                        "& .MuiOutlinedInput-root": {
-                          "& fieldset": { borderColor: "#fff" },
-                          "&:hover fieldset": { borderColor: "#ccc" },
-                        },
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 5, // Reduced from 5 for better vertical centering
+                        width: "100%",
+                        height: "100%",
                       }}
-                      aria-label="Message"
-                    />
-
-                    <Box sx={{ width: "100%" }}>
-                      <Button
-                        variant="contained"
-                        component="label"
-                        sx={{
-                          borderRadius: "12px",
-                          backgroundColor: "#fff",
-                          color: theme.palette.primary.main,
-                          fontWeight: 600,
-                          textTransform: "none",
-                          mb: 1,
-                          width: "100%",
-                          "&:hover": { backgroundColor: "#e0e0e0" },
+                    >
+                      <TextField
+                        label="Full Name"
+                        name="fullName"
+                        value={form.fullName}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                        InputProps={{
+                          startAdornment: (
+                            <InputAdornment position="start">
+                              <Person />
+                            </InputAdornment>
+                          ),
                         }}
-                      >
-                        Upload Attachments
-                        <input
-                          type="file"
-                          name="attachments"
-                          multiple
-                          hidden
-                          onChange={handleChange}
-                        />
-                      </Button>
-                      {form.attachments && form.attachments.length > 0 && (
-                        <Typography variant="caption" sx={{ color: "#fff" }}>
-                          {Array.from(form.attachments)
-                            .map((file) => file.name)
-                            .join(", ")}
+                        variant="outlined"
+                        sx={{
+                          input: { color: "#fff" },
+                          "& label": { color: "#fff" },
+                          "& .MuiOutlinedInput-root": {
+                            "& fieldset": { borderColor: "#fff" },
+                            "&:hover fieldset": { borderColor: "#ccc" },
+                          },
+                        }}
+                        aria-label="Full Name"
+                      />
+
+                      <TextField
+                        label="Work Email"
+                        name="workEmail"
+                        type="email"
+                        value={form.workEmail}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                        InputProps={{
+                          startAdornment: (
+                            <InputAdornment position="start">
+                              <Email />
+                            </InputAdornment>
+                          ),
+                        }}
+                        variant="outlined"
+                        sx={{
+                          input: { color: "#fff" },
+                          "& label": { color: "#fff" },
+                          "& .MuiOutlinedInput-root": {
+                            "& fieldset": { borderColor: "#fff" },
+                            "&:hover fieldset": { borderColor: "#ccc" },
+                          },
+                        }}
+                        aria-label="Work Email"
+                      />
+
+                      <TextField
+                        label="Phone Number"
+                        name="phoneNumber"
+                        value={form.phoneNumber}
+                        onChange={handleChange}
+                        fullWidth
+                        InputProps={{
+                          startAdornment: (
+                            <InputAdornment position="start">
+                              <Phone />
+                            </InputAdornment>
+                          ),
+                        }}
+                        variant="outlined"
+                        sx={{
+                          input: { color: "#fff" },
+                          "& label": { color: "#fff" },
+                          "& .MuiOutlinedInput-root": {
+                            "& fieldset": { borderColor: "#fff" },
+                            "&:hover fieldset": { borderColor: "#ccc" },
+                          },
+                        }}
+                        aria-label="Phone Number"
+                      />
+
+                      <TextField
+                        label="Company"
+                        name="company"
+                        value={form.company}
+                        onChange={handleChange}
+                        fullWidth
+                        variant="outlined"
+                        sx={{
+                          input: { color: "#fff" },
+                          "& label": { color: "#fff" },
+                          "& .MuiOutlinedInput-root": {
+                            "& fieldset": { borderColor: "#fff" },
+                            "&:hover fieldset": { borderColor: "#ccc" },
+                          },
+                        }}
+                        aria-label="Company"
+                      />
+
+                      <Box sx={{ width: "100%", color: "#fff" }}>
+                        <Typography
+                          variant="subtitle1"
+                          sx={{ mb: 1, color: "#fff" }}
+                        >
+                          Topics
+                        </Typography>
+                        <Stack direction="row" spacing={2} flexWrap="wrap">
+                          {TOPIC_OPTIONS.map((topic) => (
+                            <label
+                              key={topic}
+                              style={{ display: "flex", alignItems: "center" }}
+                            >
+                              <input
+                                type="checkbox"
+                                name="topics"
+                                value={topic}
+                                checked={form.topics.includes(topic)}
+                                onChange={handleChange}
+                                style={{ marginRight: 6 }}
+                              />
+                              <Typography
+                                variant="body2"
+                                sx={{ color: "#fff" }}
+                              >
+                                {topic}
+                              </Typography>
+                            </label>
+                          ))}
+                        </Stack>
+                      </Box>
+
+                      <TextField
+                        label="Message"
+                        name="message"
+                        value={form.message}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                        multiline
+                        rows={3} // Reduced from minRows={4} for better spacing
+                        variant="outlined"
+                        sx={{
+                          textarea: { color: "#fff" },
+                          "& label": { color: "#fff" },
+                          "& .MuiOutlinedInput-root": {
+                            "& fieldset": { borderColor: "#fff" },
+                            "&:hover fieldset": { borderColor: "#ccc" },
+                          },
+                        }}
+                        aria-label="Message"
+                      />
+
+                      <Box sx={{ width: "100%" }}>
+                        <Button
+                          variant="contained"
+                          component="label"
+                          sx={{
+                            borderRadius: "12px",
+                            backgroundColor: "#fff",
+                            color: theme.palette.primary.main,
+                            fontWeight: 600,
+                            textTransform: "none",
+                            // mb: 1,
+                            width: "100%",
+                            "&:hover": { backgroundColor: "#e0e0e0" },
+                          }}
+                        >
+                          Upload Attachments
+                          <input
+                            type="file"
+                            name="attachments"
+                            multiple
+                            hidden
+                            onChange={handleChange}
+                          />
+                        </Button>
+                        {form.attachments && form.attachments.length > 0 && (
+                          <Typography variant="caption" sx={{ color: "#fff" }}>
+                            {Array.from(form.attachments)
+                              .map((file) => file.name)
+                              .join(", ")}
+                          </Typography>
+                        )}
+                      </Box>
+
+                      {error && (
+                        <Typography variant="body2" color="error">
+                          {error}
                         </Typography>
                       )}
+
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        disabled={submitting}
+                        fullWidth
+                        sx={{
+                          borderRadius: "12px",
+                          textTransform: "none",
+                          fontWeight: 600,
+                          boxShadow: submitting ? 4 : 2,
+                          transition: "all 0.2s cubic-bezier(.4,2,.6,1)",
+                        }}
+                        aria-label="Send message"
+                      >
+                        {submitting ? (
+                          <CircularProgress size={24} color="inherit" />
+                        ) : (
+                          "Send Message"
+                        )}
+                      </Button>
                     </Box>
-
-                    {error && (
-                      <Typography variant="body2" color="error">
-                        {error}
-                      </Typography>
-                    )}
-
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      color="primary"
-                      size="large"
-                      disabled={submitting}
-                      fullWidth
-                      sx={{
-                        borderRadius: "12px",
-                        textTransform: "none",
-                        fontWeight: 600,
-                        boxShadow: submitting ? 4 : 2,
-                        transition: "all 0.2s cubic-bezier(.4,2,.6,1)",
-                      }}
-                      aria-label="Send message"
-                    >
-                      {submitting ? (
-                        <CircularProgress size={24} color="inherit" />
-                      ) : (
-                        "Send Message"
-                      )}
-                    </Button>
-                  </Box>
-                </Fade>
-                <Fade in={submitted} timeout={500}>
-                  <Box sx={{ textAlign: "center", py: 6 }}>
-                    <Typography variant="h5" color="success.main" gutterBottom>
-                      Thank you for contacting us!
-                    </Typography>
-                    <Typography variant="body1" sx={{ color: "#fff" }}>
-                      We'll get back to you soon.
-                    </Typography>
-                  </Box>
-                </Fade>
+                  </Fade>
+                )}
               </Box>
             </Grid>
           </Grid>
