@@ -479,6 +479,9 @@ function Navbar() {
           minWidth: { md: 100, lg: 140 },
           transition: "background 0.25s, color 0.25s",
         }}
+        onClick={() => {
+          navigate("/contact-us");
+        }}
       >
         Lets Talk
       </Button>
@@ -730,6 +733,9 @@ function Navbar() {
               },
             }}
             fullWidth
+            onClick={() => {
+              navigate("/contact-us");
+            }}
           >
             Let's Talk
           </Button>

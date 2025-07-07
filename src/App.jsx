@@ -12,6 +12,7 @@ import Letstalk from "./components/Letstalk";
 import Footer from "./components/Footer";
 import Index from "./components/web-development/Index";
 import Frontend from "./components/frontend/Index";
+import ContactUs from "./components/ContactUs";
 
 function App() {
   const theme = useTheme();
@@ -57,6 +58,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="/web-development" element={<Index />} />
           <Route path="/frontend" element={<Frontend />} />
+          <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
         <Footer />
       </Box>
