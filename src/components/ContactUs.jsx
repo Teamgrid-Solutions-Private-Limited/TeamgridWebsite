@@ -581,6 +581,21 @@ function ContactUs() {
                               >
                                 {file.name}
                               </span>
+                              <IconButton
+                                size="small"
+                                aria-label="Remove file"
+                                onClick={() => {
+                                  setForm((prev) => ({
+                                    ...prev,
+                                    attachments: prev.attachments.filter(
+                                      (_, i) => i !== idx
+                                    ),
+                                  }));
+                                }}
+                                sx={{ ml: 1, color: "#d32f2f" }}
+                              >
+                                <CloseIcon fontSize="small" />
+                              </IconButton>
                             </Box>
                           ))}
                           {form.attachmentLinks.map((url, idx) => (
@@ -620,6 +635,22 @@ function ContactUs() {
                               >
                                 {url}
                               </a>
+                              <IconButton
+                                size="small"
+                                aria-label="Remove link"
+                                onClick={() => {
+                                  setForm((prev) => ({
+                                    ...prev,
+                                    attachmentLinks:
+                                      prev.attachmentLinks.filter(
+                                        (_, i) => i !== idx
+                                      ),
+                                  }));
+                                }}
+                                sx={{ ml: 1, color: "#d32f2f" }}
+                              >
+                                <CloseIcon fontSize="small" />
+                              </IconButton>
                             </Box>
                           ))}
                         </Box>
