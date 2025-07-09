@@ -11,6 +11,7 @@ import {
   useMediaQuery,
   InputAdornment,
   Fade,
+  LinearProgress,
 } from "@mui/material";
 import { Email, Phone, Person, Message } from "@mui/icons-material";
 import axios from "axios";
@@ -43,7 +44,7 @@ const initialForm = {
   company: "",
   topics: [],
   message: "",
-  attachments: [], // files
+  attachments: [], // files with upload status
   attachmentLinks: [], // google docs links
 };
 
@@ -56,14 +57,86 @@ function ContactUs() {
   const [submitted, setSubmitted] = useState(false);
   const [googleDocsModalOpen, setGoogleDocsModalOpen] = useState(false);
   const [googleDocsLink, setGoogleDocsLink] = useState("");
+  const [uploading, setUploading] = useState(false);
 
-  const handleChange = (e) => {
+  // Function to upload files
+  const uploadFiles = async (files) => {
+    setUploading(true);
+    const uploadPromises = Array.from(files).map(async (file) => {
+      const fileData = new FormData();
+      fileData.append("file", file);
+
+      try {
+        // Simulate upload progress - replace with your actual upload endpoint
+        const response = await axios.post(
+          "http://localhost:5000/api/contact/upload",
+          fileData,
+          {
+            headers: { "Content-Type": "multipart/form-data" },
+            onUploadProgress: (progressEvent) => {
+              const percentCompleted = Math.round(
+                (progressEvent.loaded * 100) / progressEvent.total
+              );
+              // Update progress for this specific file
+              setForm((prev) => ({
+                ...prev,
+                attachments: prev.attachments.map((attachment) =>
+                  attachment.file === file
+                    ? { ...attachment, progress: percentCompleted }
+                    : attachment
+                ),
+              }));
+            },
+          }
+        );
+
+        return {
+          file,
+          uploadedUrl: response.data.url, // Assuming your API returns the uploaded file URL
+          status: "completed",
+          progress: 100,
+        };
+      } catch (error) {
+        return {
+          file,
+          status: "error",
+          progress: 0,
+          error: error.message,
+        };
+      }
+    });
+
+    const results = await Promise.all(uploadPromises);
+
+    // Update form with upload results
+    setForm((prev) => ({
+      ...prev,
+      attachments: prev.attachments.map((attachment) => {
+        const result = results.find((r) => r.file === attachment.file);
+        return result ? { ...attachment, ...result } : attachment;
+      }),
+    }));
+
+    setUploading(false);
+  };
+
+  const handleChange = async (e) => {
     const { name, value, type, files } = e.target;
     if (type === "file") {
+      // Add files to form with initial upload state
+      const newAttachments = Array.from(files).map((file) => ({
+        file,
+        status: "uploading",
+        progress: 0,
+      }));
+
       setForm((prev) => ({
         ...prev,
-        attachments: [...prev.attachments, ...Array.from(files)],
+        attachments: [...prev.attachments, ...newAttachments],
       }));
+
+      // Start uploading files
+      await uploadFiles(files);
     } else if (name === "topics") {
       const checked = e.target.checked;
       const topic = value;
@@ -83,6 +156,7 @@ function ContactUs() {
     setSubmitting(true);
     setError(null);
     const formData = new FormData();
+
     // Add all fields except attachments and attachmentLinks
     Object.entries(form).forEach(([key, value]) => {
       if (key !== "attachments" && key !== "attachmentLinks") {
@@ -93,14 +167,23 @@ function ContactUs() {
         }
       }
     });
-    // Add files
-    form.attachments.forEach((file) => {
-      formData.append("attachments", file);
+
+    // Add successfully uploaded files (use uploadedUrl or file based on your backend)
+    form.attachments.forEach((attachment) => {
+      if (attachment.status === "completed") {
+        if (attachment.uploadedUrl) {
+          formData.append("attachmentUrls", attachment.uploadedUrl);
+        } else {
+          formData.append("attachments", attachment.file);
+        }
+      }
     });
+
     // Add links
     form.attachmentLinks.forEach((link) => {
       formData.append("attachmentLinks", link);
     });
+
     try {
       await axios.post("http://localhost:5000/api/contact/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -116,6 +199,15 @@ function ContactUs() {
       setSubmitting(false);
     }
   };
+
+  // Check if any files are still uploading or if there are failed uploads
+  const hasUploadingFiles = form.attachments.some(
+    (att) => att.status === "uploading"
+  );
+  const hasFailedUploads = form.attachments.some(
+    (att) => att.status === "error"
+  );
+  const isSubmitDisabled = submitting || uploading || hasUploadingFiles;
 
   return (
     <Box
@@ -176,7 +268,7 @@ function ContactUs() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              height: "100%", // Ensure grid takes full height
+              height: "100%",
             }}
           >
             {/* Left Info Section */}
@@ -299,7 +391,7 @@ function ContactUs() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                height: "100%", // Ensure grid item takes full height
+                height: "100%",
               }}
             >
               <Box
@@ -308,17 +400,16 @@ function ContactUs() {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: 2, // Reduced from 2.5 for better spacing
+                  gap: 2,
                   justifyContent: "center",
-                  alignItems: "center", // Center form elements horizontally
+                  alignItems: "center",
                   width: "100%",
-                  // maxWidth: 400,
                   bgcolor: "rgba(255,255,255,0.04)",
                   borderRadius: 4,
                   boxShadow: "0 2px 16px 0 rgba(5,64,142,0.08)",
                   p: { xs: 2, md: 3 },
                   zIndex: 2,
-                  height: "100%", // Allow form to size naturally
+                  height: "100%",
                 }}
                 aria-label="Contact form"
                 encType="multipart/form-data"
@@ -346,7 +437,7 @@ function ContactUs() {
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "center",
-                        gap: 3, // Reduced from 5 for better vertical centering
+                        gap: 3,
                         width: "100%",
                         height: "100%",
                       }}
@@ -432,7 +523,7 @@ function ContactUs() {
                       <TextField
                         label="Company"
                         name="company"
-                        value={form.company}             
+                        value={form.company}
                         onChange={handleChange}
                         fullWidth
                         variant="outlined"
@@ -487,7 +578,7 @@ function ContactUs() {
                         required
                         fullWidth
                         multiline
-                        rows={3} // Reduced from minRows={4} for better spacing
+                        rows={3}
                         variant="outlined"
                         sx={{
                           textarea: { color: "#fff" },
@@ -548,56 +639,121 @@ function ContactUs() {
                           onChange={handleChange}
                         />
                       </Box>
+
+                      {/* Display uploaded files with progress */}
                       {(form.attachments.length > 0 ||
                         form.attachmentLinks.length > 0) && (
-                        <Box sx={{ mt: 2 }}>
-                          {form.attachments.map((file, idx) => (
+                        <Box sx={{ mt: 2, width: "100%" }}>
+                          {form.attachments.map((attachment, idx) => (
                             <Box
                               key={"file-" + idx}
                               sx={{
                                 display: "flex",
-                                alignItems: "center",
-                                mb: 0.5,
-                                color: "#05408E",
-                                fontSize: 15,
-                                bgcolor: "#E5F1FF",
-                                borderRadius: 1,
-                                px: 1.5,
-                                py: 0.5,
-                                maxWidth: 350,
-                                overflow: "hidden",
+                                flexDirection: "column",
+                                mb: 2,
+                                bgcolor:
+                                  attachment.status === "error"
+                                    ? "rgba(244, 67, 54, 0.1)"
+                                    : "rgba(255,255,255,0.1)",
+                                borderRadius: 2,
+                                p: 2,
+                                border: `1px solid ${
+                                  attachment.status === "error"
+                                    ? "#f44336"
+                                    : "rgba(255,255,255,0.2)"
+                                }`,
                               }}
                             >
-                              <AttachFileIcon sx={{ fontSize: 18, mr: 1 }} />
-                              <span
-                                style={{
-                                  whiteSpace: "nowrap",
-                                  overflow: "hidden",
-                                  textOverflow: "ellipsis",
-                                  maxWidth: 250,
-                                  display: "inline-block",
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  mb: 1,
                                 }}
-                                title={file.name}
                               >
-                                {file.name}
-                              </span>
-                              <IconButton
-                                size="small"
-                                aria-label="Remove file"
-                                onClick={() => {
-                                  setForm((prev) => ({
-                                    ...prev,
-                                    attachments: prev.attachments.filter(
-                                      (_, i) => i !== idx
-                                    ),
-                                  }));
-                                }}
-                                sx={{ ml: 1, color: "#d32f2f" }}
-                              >
-                                <CloseIcon fontSize="small" />
-                              </IconButton>
+                                <AttachFileIcon
+                                  sx={{ fontSize: 18, mr: 1, color: "#4CAF50" }}
+                                />
+                                <Typography
+                                  variant="body2"
+                                  sx={{
+                                    color: "#fff",
+                                    flexGrow: 1,
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap",
+                                  }}
+                                  title={attachment.file.name}
+                                >
+                                  {attachment.file.name}
+                                </Typography>
+                                <IconButton
+                                  size="small"
+                                  aria-label="Remove file"
+                                  onClick={() => {
+                                    setForm((prev) => ({
+                                      ...prev,
+                                      attachments: prev.attachments.filter(
+                                        (_, i) => i !== idx
+                                      ),
+                                    }));
+                                  }}
+                                  sx={{ ml: 1, color: "#d32f2f" }}
+                                >
+                                  <CloseIcon fontSize="small" />
+                                </IconButton>
+                              </Box>
+
+                              {attachment.status === "uploading" && (
+                                <Box
+                                  sx={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: 1,
+                                  }}
+                                >
+                                  <LinearProgress
+                                    variant="determinate"
+                                    value={attachment.progress}
+                                    sx={{
+                                      flexGrow: 1,
+                                      height: 6,
+                                      borderRadius: 3,
+                                      backgroundColor: "rgba(255,255,255,0.2)",
+                                      "& .MuiLinearProgress-bar": {
+                                        backgroundColor: "#4CAF50",
+                                      },
+                                    }}
+                                  />
+                                  <Typography
+                                    variant="caption"
+                                    sx={{ color: "#fff", minWidth: 40 }}
+                                  >
+                                    {attachment.progress}%
+                                  </Typography>
+                                </Box>
+                              )}
+
+                              {attachment.status === "completed" && (
+                                <Typography
+                                  variant="caption"
+                                  sx={{ color: "#4CAF50" }}
+                                >
+                                  ✓ Upload completed
+                                </Typography>
+                              )}
+
+                              {attachment.status === "error" && (
+                                <Typography
+                                  variant="caption"
+                                  sx={{ color: "#f44336" }}
+                                >
+                                  ✗ Upload failed: {attachment.error}
+                                </Typography>
+                              )}
                             </Box>
                           ))}
+
                           {form.attachmentLinks.map((url, idx) => (
                             <Box
                               key={"link-" + idx}
@@ -662,24 +818,41 @@ function ContactUs() {
                         </Typography>
                       )}
 
+                      {hasFailedUploads && (
+                        <Typography variant="body2" sx={{ color: "#f44336" }}>
+                          Some files failed to upload. Please remove them or try
+                          again.
+                        </Typography>
+                      )}
+
                       <Button
                         type="submit"
                         variant="contained"
                         color="primary"
                         size="large"
-                        disabled={submitting}
+                        disabled={isSubmitDisabled}
                         fullWidth
                         sx={{
                           borderRadius: "12px",
                           textTransform: "none",
                           fontWeight: 600,
-                          boxShadow: submitting ? 4 : 2,
+                          boxShadow: isSubmitDisabled ? 4 : 2,
                           transition: "all 0.2s cubic-bezier(.4,2,.6,1)",
+                          opacity: isSubmitDisabled ? 0.7 : 1,
                         }}
                         aria-label="Send message"
                       >
                         {submitting ? (
                           <CircularProgress size={24} color="inherit" />
+                        ) : uploading || hasUploadingFiles ? (
+                          <>
+                            <CircularProgress
+                              size={20}
+                              color="inherit"
+                              sx={{ mr: 1 }}
+                            />
+                            Uploading Files...
+                          </>
                         ) : (
                           "Send Message"
                         )}
@@ -760,20 +933,6 @@ function ContactUs() {
             gap: 2,
           }}
         >
-          {/* <Button
-            onClick={() => setGoogleDocsModalOpen(false)}
-            variant="outlined"
-            sx={{
-              borderRadius: 2,
-              color: "#05408E",
-              borderColor: "#05408E",
-              fontWeight: 600,
-              px: 3,
-              "&:hover": { borderColor: "#0070FF", color: "#0070FF" },
-            }}
-          >
-            Cancel
-          </Button> */}
           <Button
             onClick={() => {
               setForm((prev) => ({
