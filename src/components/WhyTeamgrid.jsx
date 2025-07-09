@@ -5,22 +5,46 @@ import {
   Button,
   Container,
   Grid,
-  Stack,
-  Toolbar,
+  IconButton,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import { rectangleImage51, vectorIcon } from "../images";
+import WestIcon from "@mui/icons-material/West";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import data from "../data.json";
 import { fontClamp } from "../fontUtils";
+import {
+  rectangleImage1,
+  rectangleImage2,
+  rectangleImage3,
+  rectangleImage4,
+  group19Png,
+  rectangleImage51,
+  leftArrowIcon,
+  rightArrowIcon,
+} from "../images";
+
+const cardImages = [
+  rectangleImage1,
+  rectangleImage2,
+  rectangleImage3,
+  rectangleImage4,
+  group19Png,
+  rectangleImage51,
+];
 
 function WhyTeamgrid() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const isTablet = useMediaQuery(theme.breakpoints.between("md", "lg"));
-  const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const { title, subtitle, buttonText, features } = data.whyTeamgrid;
+
+  // Fill up to 6 cards (if features < 6, repeat last)
+  const featuresToShow = [...features];
+  while (featuresToShow.length < 6) {
+    featuresToShow.push(featuresToShow[featuresToShow.length - 1]);
+  }
 
   return (
     <Box
@@ -42,23 +66,26 @@ function WhyTeamgrid() {
           maxWidth: "1248px",
           display: "flex",
           flexDirection: "column",
-          gap: 4,
+          alignItems: "center",
         }}
       >
-        <Grid container spacing={2}>
-          <Grid
-            size={{ xs: 12, md: 6 }}
-            sx={{ display: "flex", flexDirection: "column" }}
-          >
+        {/* Header Row */}
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            mb: 4,
+          }}
+        >
+          <Box>
             <Typography
               variant="h2"
-              color="text.primary"
-              gutterBottom
               sx={{
                 fontWeight: 500,
                 fontSize: fontClamp(56),
                 lineHeight: "100%",
-                letterSpacing: 0,
                 color: "#140E13",
               }}
             >
@@ -66,132 +93,183 @@ function WhyTeamgrid() {
             </Typography>
             <Typography
               variant="body1"
-              color="text.secondary"
               sx={{
-                fontWeight: "400",
+                fontWeight: 400,
                 fontSize: fontClamp(18),
                 lineHeight: "150%",
-                letterSpacing: "0%",
+                color: "#140E13",
+                mt: 1,
               }}
             >
               {subtitle}
             </Typography>
-          </Grid>
-
-          <Grid
-            size={{ xs: 12, md: 6 }}
+          </Box>
+          <Box
             sx={{
-              display: "flex",
+              display: { xs: "none", md: "flex" },
+              justifyContent: "flex-start",
               alignItems: "center",
-              justifyContent: { xs: "flex-start", md: "flex-end" },
+              mt: { xs: 3, md: 3 },
             }}
           >
-            <Button
-              variant="outlined"
-              color="primary"
-              endIcon={<ArrowRightAltIcon />}
+            <Box
               sx={{
-                borderRadius: "16px",
-                px: 5,
-                py: 2,
-                borderColor: "rgba(202, 202, 202, 1)",
+                width: { xs: 45, sm: 56 },
+                height: { xs: 45, sm: 56 },
+                borderRadius: "50%",
+                bgcolor: "#f0f4f7",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                mr: 1,
+                cursor: "pointer",
                 "&:hover": {
-                  backgroundColor: "primary.main",
-                  color: "white",
-                  borderColor: "primary.main",
+                  bgcolor: "#E3EBF2",
+                  "& .left_icon": {
+                    color: "#000000",
+                  },
                 },
-                fontWeight: 400,
-                fontSize: fontClamp(18),
-                lineHeight: "150%",
-                letterSpacing: "0%",
-                color: "#140E13",
-                textTransform: "none",
               }}
             >
-              Explore Services
-            </Button>
-          </Grid>
-        </Grid>
-        <Grid
-          container
-          spacing={{ xs: 2, md: 4, lg: 8, xl: 10 }}
-          sx={{ display: "flex", flexDirection: { xs: "column", md: "row" } }}
-        >
-          <Grid size={{ xs: 12, md: 7 }}>
+              <WestIcon
+                className={"left_icon"}
+                sx={{
+                  fontSize: { xs: 18, sm: 20 },
+                  color: "#9d9e9e",
+                }}
+              />
+            </Box>
             <Box
-              component="img"
-              src={rectangleImage51}
-              alt="Team collaboration"
-              loading="lazy"
               sx={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                borderRadius: "24px",
+                width: { xs: 45, sm: 56 },
+                height: { xs: 45, sm: 56 },
+                borderRadius: "50%",
+                bgcolor: "#f0f4f7",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                mr: 1,
+                cursor: "pointer",
+                "&:hover": {
+                  bgcolor: "#E3EBF2",
+                  "& .right_icon": {
+                    color: "#000000",
+                  },
+                },
               }}
-            />
-          </Grid>
-          <Grid
-            size={{ xs: 12, md: 5 }}
-            sx={{ display: "flex", alignItems: "center" }}
-          >
-            <Stack spacing={4}>
-              {features.map((feature, index) => (
+            >
+              <WestIcon
+                className={"right_icon"}
+                sx={{
+                  fontSize: { xs: 18, sm: 20 },
+                  color: "#9d9e9e",
+
+                  transform: "rotate(180deg)",
+                }}
+              />
+            </Box>
+          </Box>
+        </Box>
+        {/* Card Grid */}
+        <Grid container spacing={3} sx={{ mb: 6 }}>
+          {featuresToShow.slice(0, 6).map((feature, idx) => (
+            <Grid
+              item
+              size={{ xs: 12, sm: 6, md: 4 }}
+              key={idx}
+              sx={{ display: "flex" }}
+            >
+              <Box
+                sx={{
+                  background: "#F3F3F6",
+                  borderRadius: "24px",
+                  overflow: "hidden",
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "396px",
+                  width: "384px",
+                  boxShadow: "0 2px 8px 0 rgba(20,14,19,0.04)",
+                }}
+              >
                 <Box
-                  key={index}
+                  component="img"
+                  src={cardImages[idx]}
+                  alt={feature.title}
+                  sx={{
+                    width: "100%",
+                    height: "207px",
+                    objectFit: "cover",
+                  }}
+                />
+                <Box
                   sx={{
                     display: "flex",
-                    gap: 2,
-                    alignItems: "flex-start",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    // alignItems: "center",
+                    p: 3.5,
                   }}
                 >
-                  <Box
-                    component="img"
-                    src={vectorIcon}
-                    alt="Check icon"
-                    loading="lazy"
+                  <Typography
+                    variant="h6"
                     sx={{
-                      width: "20px",
-                      height: "20px",
-                      objectFit: "contain",
-                      mt: 0.5,
+                      fontWeight: 500,
+                      fontStyle: "Medium",
+                      leadingTrim: "CAP_HEIGHT",
+                      lineHeight: "120%",
+                      letterSpacing: "0%",
+                      fontSize: fontClamp(24),
+                      color: "#05408E",
+                      mb: 1,
                     }}
-                  />
-                  <Box>
-                    <Typography
-                      variant="h6"
-                      color="primary.main"
-                      gutterBottom
-                      sx={{
-                        fontWeight: 500,
-                        fontSize: fontClamp(20),
-                        leadingTrim: "Cap height",
-                        lineHeight: "120%",
-                        letterSpacing: "0%",
-                        color: "#05408E",
-                      }}
-                    >
-                      {feature.title}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="text.secondary"
-                      sx={{
-                     fontWeight: 400,
-                     fontSize: fontClamp(16),
-                     lineHeight: "150%",
-                     letterSpacing: "0%",
-                     color: "#140E13"
-                      }}
-                    >
-                      {feature.description}
-                    </Typography>
-                  </Box>
+                  >
+                    {feature.title}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontWeight: 400,
+                      fontStyle: "Regular",
+                      leadingTrim: "CAP_HEIGHT",
+                      lineHeight: "150%",
+                      letterSpacing: "0%",
+                      fontSize: fontClamp(16),
+                      color: "#000000",
+                    }}
+                  >
+                    {feature.description}
+                  </Typography>
                 </Box>
-              ))}
-            </Stack>
-          </Grid>
+              </Box>
+            </Grid>
+          ))}
         </Grid>
+        {/* Explore Services Button */}
+        <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
+          <Button
+            variant="contained"
+            color="primary"
+            endIcon={<ArrowRightAltIcon />}
+            sx={{
+              borderRadius: "39px",
+              px: 5,
+              py: 2,
+              fontWeight: 400,
+              fontSize: fontClamp(18),
+              lineHeight: "150%",
+              textTransform: "none",
+              background: "#05408E",
+              color: "#fff",
+              boxShadow: "none",
+              mt: 2,
+              "&:hover": {
+                background: "#032B5A",
+              },
+            }}
+          >
+            {buttonText}
+          </Button>
+        </Box>
       </Container>
     </Box>
   );

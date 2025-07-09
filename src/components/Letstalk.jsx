@@ -133,9 +133,9 @@ function Letstalk() {
                   "&:hover": {
                     bgcolor: "rgba(255, 255, 255, 0.9)",
                   },
-                  borderRadius: "16px",
+                  borderRadius: "39px",
                   px: 5,
-                  py: 2,
+                  py: 1.8,
                   fontSize: fontClamp(18,{maxMultiplier:1.1}),
                   fontWeight: 400,
                   lineHeight: "150%",
@@ -155,9 +155,9 @@ function Letstalk() {
                   "&:hover": {
                     bgcolor: "#e54b24",
                   },
-                  borderRadius: "16px",
+                  borderRadius: "39px",
                   px: 5,
-                  py: 2,
+                  py: 1.8,
                   fontSize: fontClamp(18,{maxMultiplier:1.1}),
                   fontWeight: 400,
                   lineHeight: "150%",

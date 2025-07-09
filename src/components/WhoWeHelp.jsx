@@ -118,9 +118,9 @@ const WhoWeHelp = () => {
                 color="primary"
                 endIcon={<ArrowRightAltIcon />}
                 sx={{
-                  borderRadius: "16px",
-              px: 5,
-              py: 2,
+                  borderRadius: "39px",
+                  px: 5,
+                  py: 2,
                   textTransform: "none",
                   fontSize: fontClamp(18),
                   fontWeight: 400,

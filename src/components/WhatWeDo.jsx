@@ -66,7 +66,7 @@ function WhatWeDo() {
           width: "100%",
           maxWidth: "1248px",
           overflow: "hidden",
-          position: { xs: "relative", lg: 'static' }
+          position: { xs: "relative", lg: "static" },
         }}
       >
         {/* Heading and intro text */}
@@ -112,7 +112,7 @@ function WhatWeDo() {
             overflow: "hidden",
             background: "linear-gradient(180deg, #E1ECF7 0%, #E2E9F0 103.33%)",
             mb: 3,
-            position: { xs: "static", lg: 'relative' }
+            position: { xs: "static", lg: "relative" },
           }}
         >
           <Box
@@ -136,10 +136,10 @@ function WhatWeDo() {
                 <Grid
                   size={{ xs: 12, md: 6 }}
                   display={"flex"}
-                  height={'auto'}
+                  height={"auto"}
                   justifyContent={"center"}
                   flexDirection={"column"}
-                  p={{ xs: 4, md: 6,}}
+                  p={{ xs: 4, md: 6 }}
                   gap={{ xs: 1, sm: 2, md: 3 }}
                 >
                   <Typography
@@ -164,82 +164,80 @@ function WhatWeDo() {
                   >
                     {item.description}
                   </Typography>
-                    <Button
-                      variant="text"
-                      endIcon={<ArrowRightAltIcon />}
+                  <Button
+                    variant="text"
+                    endIcon={<ArrowRightAltIcon />}
+                    sx={{
+                      color: "#000000",
+                      textTransform: "none",
+                      fontSize: fontClamp(16),
+                      fontWeight: 500,
+                      lineHeight: "100%",
+                      letterSpacing: 0,
+                      border: "1px solid rgba(168, 189, 211, 1)",
+                      borderRadius: "39px",
+                      px: 5,
+                      py: 2,
+                      width: "fit-content",
+                      "&:hover": {
+                        bgcolor: "transparent",
+                        opacity: 0.8,
+                      },
+                    }}
+                  >
+                    {item.buttonText}
+                  </Button>
+
+                  <Box sx={{ display: { xs: "none", lg: "flex" } }}>
+                    <Box
                       sx={{
-                        color: "#000000",
-                        textTransform: "none",
-                        fontSize: fontClamp(16),
-                        fontWeight: 500,
-                        lineHeight: "100%",
-                        letterSpacing: 0,
-                        border: "1px solid rgba(168, 189, 211, 1)",
-                        borderRadius: "16px",
-                        px: 5,
-                        py: 2,
-                        width: "fit-content",
-                        "&:hover": {
-                          bgcolor: "transparent",
-                          opacity: 0.8,
-                        },
+                        width: { xs: 45, sm: 56 },
+                        height: { xs: 45, sm: 56 },
+                        borderRadius: "50%",
+                        bgcolor: "#edf1f7",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        mr: 1,
+                        cursor: "pointer",
                       }}
+                      onClick={handlePrev}
                     >
-                      {item.buttonText}
-                    </Button>
-
-                    <Box sx={{ display: { xs: "none", lg: "flex" } }}>
-                      <Box
+                      <WestIcon
                         sx={{
-                          width: { xs: 45, sm: 56 },
-                          height: { xs: 45, sm: 56 },
-                          borderRadius: "50%",
-                          bgcolor: "#edf1f7",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          mr: 1,
-                          cursor: "pointer",
+                          fontSize: { xs: 18, sm: 20 },
+                          color: "#0b3c7b",
                         }}
-                        onClick={handlePrev}
-                      >
-                        <WestIcon
-                          sx={{
-                            fontSize: { xs: 18, sm: 20 },
-                            color: "#0b3c7b",
-                          }}
-                        />
-                      </Box>
-                      <Box
-                        sx={{
-                          width: { xs: 45, sm: 56 },
-                          height: { xs: 45, sm: 56 },
-                          borderRadius: "50%",
-                          bgcolor: "#FFFFFFA6",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          cursor: "pointer",
-                        }}
-                        onClick={handleNext}
-                      >
-                        <WestIcon
-                          sx={{
-                            fontSize: { xs: 18, sm: 20 },
-                            color: "#0b3c7b",
-                            transform: "rotate(180deg)",
-                          }}
-                        />
-                      </Box>
+                      />
                     </Box>
-
+                    <Box
+                      sx={{
+                        width: { xs: 45, sm: 56 },
+                        height: { xs: 45, sm: 56 },
+                        borderRadius: "50%",
+                        bgcolor: "#FFFFFFA6",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        cursor: "pointer",
+                      }}
+                      onClick={handleNext}
+                    >
+                      <WestIcon
+                        sx={{
+                          fontSize: { xs: 18, sm: 20 },
+                          color: "#0b3c7b",
+                          transform: "rotate(180deg)",
+                        }}
+                      />
+                    </Box>
+                  </Box>
                 </Grid>
 
                 {/* Right side - image showcase */}
-                <Grid size={{ xs: 12, md: 6 }} display={'flex'}>
+                <Grid size={{ xs: 12, md: 6 }} display={"flex"}>
                   <Box
                     sx={{
-
                       marginleft: "3%",
                       marginTop: "3%",
                       width: "70%",
@@ -255,8 +253,8 @@ function WhatWeDo() {
                     sx={{
                       marginLeft: "-40%",
                       // width: "50%",
-                      height: '100%',
-                      marginTop: '0%',
+                      height: "100%",
+                      marginTop: "0%",
                       zIndex: 10,
                     }}
                     component="img"
@@ -328,17 +326,18 @@ function WhatWeDo() {
                         cursor: "pointer",
                         borderRadius: "8px",
                         transition: "all 0.3s ease",
-                        backgroundColor: index === idx ? "#072449" : "transparent",
+                        backgroundColor:
+                          index === idx ? "#072449" : "transparent",
                         zIndex: 2,
                         gap: 1,
                         width: "100%",
-                        '&:hover': {
-                          backgroundColor: '#072449',
-                          '& .service-text': {
-                            color: 'white',
+                        "&:hover": {
+                          backgroundColor: "#072449",
+                          "& .service-text": {
+                            color: "white",
                           },
-                          '& .service-description': {
-                            color: '#9EAAB8',
+                          "& .service-description": {
+                            color: "#9EAAB8",
                           },
                         },
                       }}
@@ -347,7 +346,10 @@ function WhatWeDo() {
                         className="service-text"
                         variant="subtitle1"
                         sx={{
-                          fontSize: fontClamp(16, { minPx: 13, maxMultiplier: 1 }),
+                          fontSize: fontClamp(16, {
+                            minPx: 13,
+                            maxMultiplier: 1,
+                          }),
                           fontWeight: 500,
                           lineHeight: "100%",
                           color: index === idx ? "#FFFFFF" : "#072449",
@@ -363,7 +365,10 @@ function WhatWeDo() {
                         className="service-description"
                         variant="body2"
                         sx={{
-                          fontSize: fontClamp(13, { minPx: 11, maxMultiplier: 1 }),
+                          fontSize: fontClamp(13, {
+                            minPx: 11,
+                            maxMultiplier: 1,
+                          }),
                           fontWeight: 400,
                           lineHeight: "100%",
                           color: index === idx ? "#9EAAB8" : "#0724498C",
@@ -382,11 +387,11 @@ function WhatWeDo() {
                       <Box
                         sx={{
                           display: { xs: "none", lg: "block" }, // ✅ only show divider on large screens
-                          alignSelf: 'center',
-                          height: '40%',
-                          width: '2px',
-                          backgroundColor: '#DDDDDD',
-                          mx: '6px',
+                          alignSelf: "center",
+                          height: "40%",
+                          width: "2px",
+                          backgroundColor: "#DDDDDD",
+                          mx: "6px",
                           zIndex: 3,
                         }}
                       />
@@ -395,10 +400,6 @@ function WhatWeDo() {
                 ))}
               </Box>
             </Box>
-
-
-
-
           </Box>
         </Paper>
 

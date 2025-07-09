@@ -562,9 +562,9 @@ const Testimonials = () => {
             endIcon={<ArrowForwardIcon />}
             variant="outlined"
             sx={{
-              borderRadius: "16px",
+              borderRadius: "39px",
               px: 5,
-              py: 2,
+              py: 1.8,
               fontSize: fontClamp(16),
               textTransform: "none",
             }}

@@ -144,8 +144,8 @@ function Technologies() {
                 "&:hover": {
                   bgcolor: "#003272",
                 },
-                borderRadius: "16px",
-                px: 4,
+                borderRadius: "39px",
+                px: 5,
                 py: 2,
                 fontWeight: 400,
                 fontSize: fontClamp(16),

@@ -423,7 +423,7 @@ function Footer() {
 
                   sx: {
                     bgcolor: "rgba(255,255,255,0.05)",
-                    borderRadius: "12px",
+                    borderRadius: "41px",
                     color: "white",
                     "& .MuiOutlinedInput-notchedOutline": {
                       borderColor: "rgba(255,255,255,0.2)",

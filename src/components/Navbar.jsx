@@ -319,7 +319,7 @@ function Navbar() {
                         flexShrink: 0,
                       }}
                     >
-                      <Typography
+                      {/* <Typography
                         variant="overline"
                         sx={{
                           fontWeight: 400,
@@ -339,7 +339,7 @@ function Navbar() {
                         }}
                       >
                         {category.title}
-                      </Typography>
+                      </Typography> */}
 
                       <Box sx={{ mt: 0 }}>
                         {category.services.map((service, serviceIndex) => (
@@ -461,10 +461,11 @@ function Navbar() {
 
       <Button
         variant="contained"
+        size="small"
         sx={{
           borderRadius: "37px",
           px: 0,
-          py: 1.2,
+          py: 1.4,
           boxShadow: "none",
           fontWeight: 500,
           textTransform: "none",
