@@ -183,8 +183,9 @@ function Home() {
       }
       orbitRadius = orbitRadius * orbitScale;
       const animationName = `orbit-rotate-${orbitIdx}`;
-      const duration = 600 + orbitIdx * 60;
-      const direction = orbitIdx % 2 === 0 ? "normal" : "reverse";
+      const duration = 600 + orbitIdx * 200;
+      // const direction = orbitIdx % 2 === 0 ? "normal" : "reverse";
+      const direction = "normal"; // Always clockwise
       // Distribute icons at regular intervals, fill rest with dots
       const iconPositions = Array(orbit.positions).fill(null);
       const interval = Math.floor(orbit.positions / orbit.icons.length);
@@ -700,7 +701,7 @@ function Home() {
                       endIcon={<ArrowRightAltIcon />}
                       sx={{
                         borderRadius: "40px",
-                        px: 1,
+                        px: 3,
                         py: 1,
                         textTransform: "none",
                         fontSize: fontClamp(18),
