@@ -232,15 +232,15 @@ function Navbar() {
                 display: "flex",
                 alignItems: "center",
                 "&:hover": {
-                  bgcolor: !scrolled ? "#3082EC3B" : "rgba(14, 65, 133, 0.05)",
+                  bgcolor: !scrolled ? "#0E4FA2" : "rgba(14, 65, 133, 0.05)",
                 },
                 bgcolor:
                   activeTab === index || activeDropdown === index
                     ? !scrolled
-                      ? "#3082EC3B"
+                      ? "#0E4FA2"
                       : "rgba(14, 65, 133, 0.05)"
                     : "transparent",
-                borderRadius: "12px",
+                borderRadius: "47px",
                 transition: "background 0.25s, color 0.25s",
                 fontWeight: 500,
                 fontSize: { md: "0.8rem", lg: "0.9rem", xl: "1rem" },
@@ -252,7 +252,7 @@ function Navbar() {
                 variant="body1"
                 sx={{
                   fontWeight: 500,
-                  fontSize: fontClamp(16,{maxMultiplier:1.1}),
+                  fontSize: fontClamp(16, { maxMultiplier: 1.1 }),
                   color: !scrolled ? "white" : "#05408E",
                   transition: "color 0.25s",
                 }}
@@ -325,7 +325,10 @@ function Navbar() {
                           fontWeight: 400,
                           color: "text.secondary",
                           fontFamily: "PayPal Open, sans-serif",
-                          fontSize: fontClamp(12,{minPx:10,maxMultiplier:1.1}),
+                          fontSize: fontClamp(12, {
+                            minPx: 10,
+                            maxMultiplier: 1.1,
+                          }),
                           mb: 1,
                           display: "block",
                           textTransform: "uppercase",
@@ -459,13 +462,13 @@ function Navbar() {
       <Button
         variant="contained"
         sx={{
-          borderRadius: "12px",
-          px: { md: 2, lg: 4, xl: 5 },
-          py: 1.5,
+          borderRadius: "37px",
+          px: 0,
+          py: 1.2,
           boxShadow: "none",
           fontWeight: 500,
           textTransform: "none",
-          fontSize: fontClamp(16,{maxMultiplier:1.1}),
+          fontSize: fontClamp(16, { maxMultiplier: 1.1 }),
           whiteSpace: "nowrap",
           display: { xs: "none", md: "flex" },
           color: "white",

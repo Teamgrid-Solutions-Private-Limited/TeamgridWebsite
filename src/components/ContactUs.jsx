@@ -432,7 +432,7 @@ function ContactUs() {
                       <TextField
                         label="Company"
                         name="company"
-                        value={form.company}
+                        value={form.company}             
                         onChange={handleChange}
                         fullWidth
                         variant="outlined"

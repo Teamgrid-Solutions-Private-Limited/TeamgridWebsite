@@ -99,10 +99,10 @@
   "home": {
     "hero": {
       "subtitle": "Powering growth through talent",
-      "title": "Extend Your Team, Accelerate Your Growth",
-      "description": "We helps agencies and startups scale smarter — with dedicated professionals, high-quality solutions, and flexible engagement models that fit your workflow and goals.",
+      "title": "Hire Better. Build Faster. Scale Smarter.",
+      "description": "Whether you need developers, designers, or operations support — we provide pre-vetted talent with the speed, flexibility, and reliability to grow your business.",
       "buttons": [
-        { "text": "Let's Talk", "variant": "contained", "link": "#lets-talk" },
+        { "text": "Request a Free Consultation", "variant": "contained", "link": "#lets-talk" },
         {
           "text": "Explore Services",
           "variant": "outlined",
@@ -126,9 +126,9 @@
   },
   "whoWeHelp": {
     "title": "Who We Help",
-    "subtitle": "A Trusted Partner for Growing Teams",
-    "description": "We work with agencies, startups, and businesses of all sizes — supporting their teams and projects. We specialize in design, development, and everything in between that matters most.",
-    "buttonText": "Explore Services",
+    "subtitle": "Agencies. Startups. Growth Teams.",
+    "description": "We partner with growing teams — from startups to digital agencies — who need flexible, dependable talent to move faster and stay focused. Whether you're short on capacity or scaling up delivery, we help you fill the gaps without adding overhead.",
+    "buttonText": "Explore Our Capabilities",
     "images": [
       {
         "id": 1,
@@ -158,7 +158,7 @@
   },
   "whatWeDo": {
     "title": "What We Do",
-    "description": "We build AI-powered web and mobile apps with innovative design and scalable development. Our team delivers seamless UI/UX and solutions to help your business grow smarter and faster.",
+    "description": "As a reliable delivery partner, we help businesses scale by providing skilled talent across development, design, AI, and operations. Our teams integrate seamlessly into your workflow — delivering results through collaboration, consistency, and deep technical expertise. Here’s what we can help you build and manage:",
     "serviceCategories": [
       {
         "id": 1,

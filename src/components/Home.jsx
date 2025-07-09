@@ -26,7 +26,7 @@ import {
   mongoIcon,
   woo,
   mobileBackground,
-  backIconAnime
+  backIconAnime,
 } from "../images";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import CloseIcon from "@mui/icons-material/Close";
@@ -162,12 +162,15 @@ function Home() {
   const rippleDiameter = baseRadius * 2 * orbitScale;
 
   // Memoize orbits array
-  const orbits = useMemo(() => ([
-    { icons: techIcons.slice(0, 4), positions: 8 },
-    { icons: techIcons.slice(0, 7), positions: 14 },
-    { icons: techIcons.slice(0, 10), positions: 20 },
-    { icons: techIcons.slice(0, 14), positions: 28},
-  ]), [techIcons]);
+  const orbits = useMemo(
+    () => [
+      { icons: techIcons.slice(0, 4), positions: 8 },
+      { icons: techIcons.slice(0, 7), positions: 14 },
+      { icons: techIcons.slice(0, 10), positions: 20 },
+      { icons: techIcons.slice(0, 14), positions: 28 },
+    ],
+    [techIcons]
+  );
 
   // Memoize orbitConfigs (radius, animation, icon positions)
   const orbitConfigs = useMemo(() => {
@@ -181,7 +184,7 @@ function Home() {
       orbitRadius = orbitRadius * orbitScale;
       const animationName = `orbit-rotate-${orbitIdx}`;
       const duration = 600 + orbitIdx * 60;
-      const direction = orbitIdx % 2 === 0 ? 'normal' : 'reverse';
+      const direction = orbitIdx % 2 === 0 ? "normal" : "reverse";
       // Distribute icons at regular intervals, fill rest with dots
       const iconPositions = Array(orbit.positions).fill(null);
       const interval = Math.floor(orbit.positions / orbit.icons.length);
@@ -189,7 +192,10 @@ function Home() {
       orbit.icons.forEach((icon, i) => {
         iconPositions[pos] = icon;
         pos = (pos + interval) % orbit.positions;
-        while (iconPositions[pos] && iconPositions.filter(Boolean).length < orbit.icons.length) {
+        while (
+          iconPositions[pos] &&
+          iconPositions.filter(Boolean).length < orbit.icons.length
+        ) {
           pos = (pos + 1) % orbit.positions;
         }
       });
@@ -206,16 +212,16 @@ function Home() {
 
   // Memoize logo transform
   const logoTransform = useMemo(() => {
-    if (!showDescription) return 'translateX(0%) scale(1)';
+    if (!showDescription) return "translateX(0%) scale(1)";
     return {
-      md: 'translate(-140%,-200%) scale(15)',
-      lg: 'translate(-160%,-260%) scale(18)',
+      md: "translate(-140%,-200%) scale(15)",
+      lg: "translate(-160%,-260%) scale(18)",
     };
   }, [showDescription]);
 
   // Memoize active tech icon
   const activeTechIcon = useMemo(
-    () => techIcons.find(t => t.name === activeTech)?.icon,
+    () => techIcons.find((t) => t.name === activeTech)?.icon,
     [activeTech, techIcons]
   );
 
@@ -223,7 +229,7 @@ function Home() {
     <Box
       sx={{
         bgcolor: "#072449",
-        height: { xs: "100vh", xl: "80vh",xxl:'60vh' },
+        height: { xs: "100vh", xl: "80vh", xxl: "60vh" },
         overflow: "hidden",
         width: "100%",
         display: "flex",
@@ -256,17 +262,27 @@ function Home() {
         sx={{
           position: "relative",
           display: "flex",
-          flexDirection: 'column',
-          justifyContent: 'flex-start',
+          flexDirection: "column",
+          justifyContent: "flex-start",
           px: { xs: 2.5, md: 3, lg: 4, xl: 0 },
           maxWidth: "1248px",
           width: "100%",
           zIndex: 2, // Ensure content is above the background
         }}
       >
-        {/* Text Section - pointer events none */}
-        <Box sx={{ pointerEvents: "none", display: "flex", flexDirection: "column", gap: 1.8, zIndex: 3 }}>
-          <Typography
+   
+          {/* Text Section - pointer events none */}
+          <Box
+            sx={{
+              pointerEvents: "none",
+              display: "flex",
+              flexDirection: "column",
+              gap: 1.8,
+              zIndex: 3,
+              mt:5
+            }}
+          >
+            {/* <Typography
             sx={{
               color: "#E1E0E0",
               fontSize: fontClamp(18, { minPx: 16, maxMultiplier: 1.25 }),
@@ -276,80 +292,81 @@ function Home() {
             }}
           >
             {subtitle}
-          </Typography>
+          </Typography> */}
+            <Typography
+              sx={{
+                color: "#ffffff",
+                fontSize: fontClamp(64, { minPx: 40, maxMultiplier: 1.25 }),
+                fontWeight: 700,
+                lineHeight: "100%",
+                textShadow: { xs: "0px 1px 3px rgba(0,0,0,0.5)", sm: "none" },
+                pointerEvents: "none",
+              }}
+            >
+              {/* {title.split(".").map((part, idx, arr) => (
+              <React.Fragment key={idx}>
+                {part}
+                {idx < arr.length - 1 && "."}
+                {idx < arr.length - 1 && <br />}
+              </React.Fragment>
+            ))} */}
+              Hire Better. Build Faster.
+              <br /> Scale Smarter.
+            </Typography>
+          </Box>
           <Typography
             sx={{
-              color: "#ffffff",
-              fontSize: fontClamp(64, { minPx: 40, maxMultiplier: 1.25 }),
-              fontWeight: 700,
-              lineHeight: "100%",
-              textShadow: { xs: "0px 1px 3px rgba(0,0,0,0.5)", sm: "none" },
+              color: "#E1E0E0",
+              fontSize: fontClamp(20, { minPx: 16, maxMultiplier: 1.25 }),
+              lineHeight: 1.6,
+              fontWeight: 300,
+              textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" },
+              pointerEvents: "none",
+              zIndex: 3,
+              my: { xs: "15px", sm: "20px", md: "30px", lg: "40px" },
+              maxWidth: { xs: "80%", md: "75%" },
+            }}
+          >
+            {description}
+          </Typography>
+          {/* Button Section - pointer events auto */}
+          <Stack
+            direction={{ xs: "column", sm: "column", md: "row" }}
+            spacing={"10px"}
+            sx={{
+              display: "flex",
+              zIndex: 3,
               pointerEvents: "none",
             }}
           >
-            {title.split(",").map((part, idx, arr) => (
-              <React.Fragment key={idx}>
-                {part}
-                {idx < arr.length - 1 && ","}
-                {idx < arr.length - 1 && <br />}
-              </React.Fragment>
-            ))}
-          </Typography>
-
-        </Box>
-        <Typography
-          sx={{
-            color: "#E1E0E0",
-            fontSize: fontClamp(20, { minPx: 16, maxMultiplier: 1.25 }),
-            lineHeight: 1.6,
-            fontWeight: 300,
-            textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" },
-            pointerEvents: "none",
-            zIndex: 3,
-            my: { xs: "15px", sm: '20px', md: '30px', lg: '40px' },
-            maxWidth: { xs: '80%', md: '75%' }
-          }}
-        >
-          {description}
-        </Typography>
-        {/* Button Section - pointer events auto */}
-        <Stack
-          direction={{ xs: "column", sm: "column", md: "row" }}
-          spacing={'10px'}
-          sx={{
-            display: "flex",
-            zIndex: 3,
-            pointerEvents: 'none'
-          }}
-        >
-          <Button
-            variant={buttons[0].variant}
-            sx={{
-              bgcolor: "#007BFF",
-              borderRadius: "16px",
-              px: 4,
-              py: 2,
-              textTransform: "none",
-              fontSize: fontClamp(16),
-              fontWeight: 500,
-              boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
-              "&:hover": { bgcolor: "#0069d9" },
-              width: { xs: "100%", sm: "auto" },
-              pointerEvents: 'auto'
-            }}
-          >
-            {buttons[0].text}
-          </Button>
-          <Button
+            <Button
+              variant={buttons[0].variant}
+              sx={{
+                bgcolor: "#007BFF",
+                borderRadius: "40px",
+                px: 3,
+                py: 1.5,
+                textTransform: "none",
+                fontSize: fontClamp(16),
+                fontWeight: 500,
+                boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
+                "&:hover": { bgcolor: "#0069d9" },
+                width: { xs: "100%", sm: "auto" },
+                pointerEvents: "auto",
+              }}
+            >
+              {buttons[0].text}
+            </Button>
+            <Button
             variant={buttons[1].variant}
             endIcon={<ArrowForwardIcon />}
             sx={{
               color: "white",
               borderColor: "rgba(255,255,255,0.3)",
-              borderRadius: "16px",
+              borderRadius: "40px",
               bgcolor:"#072449",
-              px: 4,
-              py: 2,
+              px: 3,
+              py: 1.5,
               textTransform: "none",
               fontSize: fontClamp(16),
               fontWeight: 500,
@@ -360,7 +377,7 @@ function Home() {
           >
             {buttons[1].text}
           </Button>
-        </Stack>
+          </Stack>
 
         {/* </Box> */}
 
@@ -395,10 +412,10 @@ function Home() {
                   transform: "translateY(-50%)",
                   animation: `${orbit.animationName} ${orbit.duration}s linear infinite`,
                   animationDirection: orbit.direction,
-                  animationPlayState: isPaused ? 'paused' : 'running',
+                  animationPlayState: isPaused ? "paused" : "running",
                   [`@keyframes ${orbit.animationName}`]: {
-                    '0%': { transform: 'translateY(-50%) rotate(0deg)' },
-                    '100%': { transform: 'translateY(-50%) rotate(360deg)' },
+                    "0%": { transform: "translateY(-50%) rotate(0deg)" },
+                    "100%": { transform: "translateY(-50%) rotate(360deg)" },
                   },
                 }}
               >
@@ -430,7 +447,9 @@ function Home() {
                           position: "absolute",
                           left: `calc(50% + ${x}px)`,
                           top: `calc(50% + ${y}px)`,
-                          transform: `translate(-50%, -50%) rotate(${angle + 180}deg)`,
+                          transform: `translate(-50%, -50%) rotate(${
+                            angle + 180
+                          }deg)`,
                           zIndex: 20,
                           cursor: "pointer",
                           pointerEvents: "auto",
@@ -450,16 +469,23 @@ function Home() {
                             alignItems: "center",
                             boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)",
                             animation: "glowPulse 3s ease-in-out infinite",
-                            '@keyframes glowPulse': {
-                              '0%': { boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)" },
-                              '50%': { boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)" },
-                              '100%': { boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)" },
+                            "@keyframes glowPulse": {
+                              "0%": {
+                                boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)",
+                              },
+                              "50%": {
+                                boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)",
+                              },
+                              "100%": {
+                                boxShadow: "0 0 0px 0 rgba(0, 123, 255, 0.0)",
+                              },
                             },
                             border: "1px solid #3B526F",
-                            '&:hover': {
-                              transition: "transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out",
-                              animation: 'none',
-                              transform: 'scale(1.05)',
+                            "&:hover": {
+                              transition:
+                                "transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out",
+                              animation: "none",
+                              transform: "scale(1.05)",
                               boxShadow: "0 0 20px 0 rgba(0, 123, 255, 0.4)",
                             },
                           }}
@@ -474,7 +500,7 @@ function Home() {
                               height: `${38 * orbitScale}px`,
                               objectFit: "contain",
                               transition: "transform 0.2s ease-in-out",
-                              '&:hover': {
+                              "&:hover": {
                                 transform: "scale(1.05)",
                               },
                             }}
@@ -538,13 +564,27 @@ function Home() {
                   transform: "translate(-50%, -50%)",
                   zIndex: -14,
                   pointerEvents: "none",
-                  animation: 'ripple 1.5s linear infinite',
-                  '@keyframes ripple': {
-                    '0%': {
-                      boxShadow: `0 0 0 0 rgba(11,49,97,0.5), 0 0 0 ${0.0286 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286 * 4 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286 * 7 * rippleDiameter}px rgba(11,49,97,0.5)`
+                  animation: "ripple 7s linear infinite",
+                  "@keyframes ripple": {
+                    "0%": {
+                      boxShadow: `0 0 0 0 rgba(11,49,97,0.5), 0 0 0 ${
+                        0.0286 * rippleDiameter
+                      }px rgba(11,49,97,0.5), 0 0 0 ${
+                        0.0286 * 4 * rippleDiameter
+                      }px rgba(11,49,97,0.5), 0 0 0 ${
+                        0.0286 * 7 * rippleDiameter
+                      }px rgba(11,49,97,0.5)`,
                     },
-                    '100%': {
-                      boxShadow: `0 0 0 ${0.0286 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286 * 4 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286 * 7 * rippleDiameter}px rgba(11,49,97,0.5), 0 0 0 ${0.0286 * 9 * rippleDiameter}px rgba(11,49,97,0)`
+                    "100%": {
+                      boxShadow: `0 0 0 ${
+                        0.0286 * rippleDiameter
+                      }px rgba(11,49,97,0.5), 0 0 0 ${
+                        0.0286 * 4 * rippleDiameter
+                      }px rgba(11,49,97,0.5), 0 0 0 ${
+                        0.0286 * 7 * rippleDiameter
+                      }px rgba(11,49,97,0.5), 0 0 0 ${
+                        0.0286 * 9 * rippleDiameter
+                      }px rgba(11,49,97,0)`,
                     },
                   },
                 }}
@@ -562,80 +602,94 @@ function Home() {
                   src={teamgridLogo}
                   alt="Teamgrid logo"
                   sx={{
-                    borderRadius: '12px',
-                    transition: 'transform 1s',
+                    borderRadius: "12px",
+                    transition: "transform 1s",
                     transform: logoTransform,
-                    transformOrigin: 'left top',
+                    transformOrigin: "left top",
                     zIndex: 2,
                   }}
                 />
                 {showDescription && (
                   <Box
                     sx={{
-                      position: 'absolute',
-                      left: '0%',
-                      top: '50%',
+                      position: "absolute",
+                      left: "0%",
+                      top: "50%",
                       transform: {
-                        md: 'translate(-47%,-30%)',
-                        lg: 'translate(-37%,-30%)',
-                        
+                        md: "translate(-47%,-30%)",
+                        lg: "translate(-37%,-30%)",
                       },
-                      height: '500px',
-                      width: {md:"300px",lg:'400px'},
+                      height: "500px",
+                      width: { md: "300px", lg: "400px" },
                       zIndex: 3,
-                      color: '#fff',
+                      color: "#fff",
 
                       p: { xs: 2, sm: 4 },
                       //  boxShadow: '0 8px 40px 0 rgba(0,0,0,0.18)',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '30px',
-                      alignItems: 'flex-start',
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "30px",
+                      alignItems: "flex-start",
                       opacity: showDescriptionText ? 1 : 0,
-                      transition: 'opacity 0.4s cubic-bezier(.7,.2,.2,1)',
+                      transition: "opacity 0.4s cubic-bezier(.7,.2,.2,1)",
                     }}
                   >
                     {/* Tech icon at the top */}
 
-                    <Box src={backIconAnime} component="img" width="28px" height='24px' onClick={closeDescription} />
+                    <Box
+                      src={backIconAnime}
+                      component="img"
+                      width="28px"
+                      height="24px"
+                      onClick={closeDescription}
+                    />
                     <Box>
-                      <Box sx={{ bgcolor: '#fff', p: 1, borderRadius: '16px', display: 'flex', justifyContent: 'center', alignItems: "center",height:'56px',width:'56px' }}>
+                      <Box
+                        sx={{
+                          bgcolor: "#fff",
+                          p: 1,
+                          borderRadius: "16px",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          height: "56px",
+                          width: "56px",
+                        }}
+                      >
                         <Box
                           component="img"
                           src={activeTechIcon}
                           alt={activeTech}
                           sx={{
-                            width: { xs: '38px', md: '42px' },
-                            height: { xs: '38px', md: '42px' },
-                            objectFit: 'contain',
-                            display: 'block',
+                            width: { xs: "38px", md: "42px" },
+                            height: { xs: "38px", md: "42px" },
+                            objectFit: "contain",
+                            display: "block",
                           }}
                         />
                       </Box>
 
                       <Typography
-
                         sx={{
-                          color: '#fff',
+                          color: "#fff",
                           fontWeight: 500,
-                          lineHeight:1.5,
+                          lineHeight: 1.5,
                           mb: 1,
                           fontSize: fontClamp(36),
-                          textAlign: 'left',
+                          textAlign: "left",
                         }}
                       >
                         {activeTech}
                       </Typography>
                     </Box>
                     <Typography
-
                       sx={{
-                        color: '#fff',
+                        color: "#fff",
                         fontSize: fontClamp(18),
                         fontWeight: 400,
                         lineHeight: 1.5,
                         mb: 3,
-                        textAlign: 'left',
+                        textAlign: "left",
                       }}
                     >
                       {techDescriptions[activeTech]}
@@ -645,9 +699,9 @@ function Home() {
                       color="primary"
                       endIcon={<ArrowRightAltIcon />}
                       sx={{
-                        borderRadius: "39px",
-                        px: 5,
-                        py: 2,
+                        borderRadius: "40px",
+                        px: 1,
+                        py: 1,
                         textTransform: "none",
                         fontSize: fontClamp(18),
                         fontWeight: 400,
@@ -660,7 +714,6 @@ function Home() {
                     >
                       Explore Services
                     </Button>
-
                   </Box>
                 )}
               </Box>
