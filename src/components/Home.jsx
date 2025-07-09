@@ -128,36 +128,36 @@ function Home() {
   const logoWidth = isXs
     ? 60
     : isSm
-    ? 80
-    : isMd
-    ? 100
-    : isLg
-    ? 120
-    : isXl
-    ? 140
-    : 105;
+      ? 80
+      : isMd
+        ? 100
+        : isLg
+          ? 120
+          : isXl
+            ? 140
+            : 105;
   const logoHeight = isXs
     ? 90
     : isSm
-    ? 120
-    : isMd
-    ? 140
-    : isLg
-    ? 160
-    : isXl
-    ? 180
-    : 160;
+      ? 120
+      : isMd
+        ? 140
+        : isLg
+          ? 160
+          : isXl
+            ? 180
+            : 160;
   const logoOffset = isXs
     ? 60
     : isSm
-    ? 80
-    : isMd
-    ? 100
-    : isLg
-    ? 120
-    : isXl
-    ? 140
-    : 122.5;
+      ? 80
+      : isMd
+        ? 100
+        : isLg
+          ? 120
+          : isXl
+            ? 140
+            : 122.5;
   const baseRadius = 280; // must match the orbit's baseRadius
   const rippleDiameter = baseRadius * 2 * orbitScale;
 
@@ -183,8 +183,9 @@ function Home() {
       }
       orbitRadius = orbitRadius * orbitScale;
       const animationName = `orbit-rotate-${orbitIdx}`;
-      const duration = 600 + orbitIdx * 60;
-      const direction = orbitIdx % 2 === 0 ? "normal" : "reverse";
+      const duration = 600 + orbitIdx * 200;
+      // const direction = orbitIdx % 2 === 0 ? "normal" : "reverse";
+      const direction = "normal"; // Always clockwise
       // Distribute icons at regular intervals, fill rest with dots
       const iconPositions = Array(orbit.positions).fill(null);
       const interval = Math.floor(orbit.positions / orbit.icons.length);
@@ -224,6 +225,14 @@ function Home() {
     () => techIcons.find((t) => t.name === activeTech)?.icon,
     [activeTech, techIcons]
   );
+
+  const firstOrbitRadius = useMemo(() => {
+    let orbitRadius = baseRadius;
+    // The first orbit (orbitIdx = 0) does not add any gap, so just scale
+    return orbitRadius * orbitScale;
+  }, [baseRadius, orbitScale]);
+  const rippleStartDiameter = logoOffset * 2;
+  const rippleEndDiameter = firstOrbitRadius * 2;
 
   return (
     <Box
@@ -270,19 +279,19 @@ function Home() {
           zIndex: 2, // Ensure content is above the background
         }}
       >
-   
-          {/* Text Section - pointer events none */}
-          <Box
-            sx={{
-              pointerEvents: "none",
-              display: "flex",
-              flexDirection: "column",
-              gap: 1.8,
-              zIndex: 3,
-              mt:5
-            }}
-          >
-            {/* <Typography
+
+        {/* Text Section - pointer events none */}
+        <Box
+          sx={{
+            pointerEvents: "none",
+            display: "flex",
+            flexDirection: "column",
+            gap: 1.8,
+            zIndex: 3,
+            mt: 5
+          }}
+        >
+          {/* <Typography
             sx={{
               color: "#E1E0E0",
               fontSize: fontClamp(18, { minPx: 16, maxMultiplier: 1.25 }),
@@ -293,78 +302,78 @@ function Home() {
           >
             {subtitle}
           </Typography> */}
-            <Typography
-              sx={{
-                color: "#ffffff",
-                fontSize: fontClamp(64, { minPx: 40, maxMultiplier: 1.25 }),
-                fontWeight: 700,
-                lineHeight: "100%",
-                textShadow: { xs: "0px 1px 3px rgba(0,0,0,0.5)", sm: "none" },
-                pointerEvents: "none",
-              }}
-            >
-              {/* {title.split(".").map((part, idx, arr) => (
+          <Typography
+            sx={{
+              color: "#ffffff",
+              fontSize: fontClamp(64, { minPx: 40, maxMultiplier: 1.25 }),
+              fontWeight: 700,
+              lineHeight: "100%",
+              textShadow: { xs: "0px 1px 3px rgba(0,0,0,0.5)", sm: "none" },
+              pointerEvents: "none",
+            }}
+          >
+            {/* {title.split(".").map((part, idx, arr) => (
               <React.Fragment key={idx}>
                 {part}
                 {idx < arr.length - 1 && "."}
                 {idx < arr.length - 1 && <br />}
               </React.Fragment>
             ))} */}
-              Hire Better. Build Faster.
-              <br /> Scale Smarter.
-            </Typography>
-          </Box>
-          <Typography
-            sx={{
-              color: "#E1E0E0",
-              fontSize: fontClamp(20, { minPx: 16, maxMultiplier: 1.25 }),
-              lineHeight: 1.6,
-              fontWeight: 300,
-              textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" },
-              pointerEvents: "none",
-              zIndex: 3,
-              my: { xs: "15px", sm: "20px", md: "30px", lg: "40px" },
-              maxWidth: { xs: "80%", md: "75%" },
-            }}
-          >
-            {description}
+            Hire Better. Build Faster.
+            <br /> Scale Smarter.
           </Typography>
-          {/* Button Section - pointer events auto */}
-          <Stack
-            direction={{ xs: "column", sm: "column", md: "row" }}
-            spacing={"10px"}
+        </Box>
+        <Typography
+          sx={{
+            color: "#E1E0E0",
+            fontSize: fontClamp(20, { minPx: 16, maxMultiplier: 1.25 }),
+            lineHeight: 1.6,
+            fontWeight: 300,
+            textShadow: { xs: "0px 1px 2px rgba(0,0,0,0.5)", sm: "none" },
+            pointerEvents: "none",
+            zIndex: 3,
+            my: { xs: "15px", sm: "20px", md: "30px", lg: "40px" },
+            maxWidth: { xs: "80%", md: "75%" },
+          }}
+        >
+          {description}
+        </Typography>
+        {/* Button Section - pointer events auto */}
+        <Stack
+          direction={{ xs: "column", sm: "column", md: "row" }}
+          spacing={"10px"}
+          sx={{
+            display: "flex",
+            zIndex: 3,
+            pointerEvents: "none",
+          }}
+        >
+          <Button
+            variant={buttons[0].variant}
             sx={{
-              display: "flex",
-              zIndex: 3,
-              pointerEvents: "none",
+              bgcolor: "#007BFF",
+              borderRadius: "40px",
+              px: 3,
+              py: 1.5,
+              textTransform: "none",
+              fontSize: fontClamp(16),
+              fontWeight: 500,
+              boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
+              "&:hover": { bgcolor: "#0069d9" },
+              width: { xs: "100%", sm: "auto" },
+              pointerEvents: "auto",
             }}
           >
-            <Button
-              variant={buttons[0].variant}
-              sx={{
-                bgcolor: "#007BFF",
-                borderRadius: "40px",
-                px: 3,
-                py: 1.5,
-                textTransform: "none",
-                fontSize: fontClamp(16),
-                fontWeight: 500,
-                boxShadow: "0 4px 10px rgba(0, 123, 255, 0.25)",
-                "&:hover": { bgcolor: "#0069d9" },
-                width: { xs: "100%", sm: "auto" },
-                pointerEvents: "auto",
-              }}
-            >
-              {buttons[0].text}
-            </Button>
-            <Button
+            {buttons[0].text}
+          </Button>
+          <Button
             variant={buttons[1].variant}
             endIcon={<ArrowForwardIcon />}
             sx={{
               color: "white",
               borderColor: "rgba(255,255,255,0.3)",
               borderRadius: "40px",
-              bgcolor:"#072449",
+              bgcolor: "#072449",
               px: 3,
               py: 1.5,
               textTransform: "none",
@@ -377,7 +386,7 @@ function Home() {
           >
             {buttons[1].text}
           </Button>
-          </Stack>
+        </Stack>
 
         {/* </Box> */}
 
@@ -447,9 +456,8 @@ function Home() {
                           position: "absolute",
                           left: `calc(50% + ${x}px)`,
                           top: `calc(50% + ${y}px)`,
-                          transform: `translate(-50%, -50%) rotate(${
-                            angle + 180
-                          }deg)`,
+                          transform: `translate(-50%, -50%) rotate(${angle + 180
+                            }deg)`,
                           zIndex: 20,
                           cursor: "pointer",
                           pointerEvents: "auto",
@@ -463,7 +471,7 @@ function Home() {
                             width: `${68 * orbitScale}px`,
                             height: `${68 * orbitScale}px`,
                             borderRadius: "50%",
-                            bgcolor: "#0D264F",
+                            bgcolor: "#072449",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
@@ -558,35 +566,31 @@ function Home() {
                   position: "absolute",
                   top: "50%",
                   left: "50%",
-                  width: `${logoOffset * 2}px`,
-                  height: `${logoOffset * 2}px`,
+                  width: `${rippleStartDiameter}px`,
+                  height: `${rippleStartDiameter}px`,
                   borderRadius: "50%",
                   transform: "translate(-50%, -50%)",
                   zIndex: -14,
                   pointerEvents: "none",
-                  animation: "ripple 7s linear infinite",
+                  animation: "ripple 4s linear infinite",
                   "@keyframes ripple": {
                     "0%": {
-                      boxShadow: `0 0 0 0 rgba(11,49,97,0.5), 0 0 0 ${
-                        0.0286 * rippleDiameter
-                      }px rgba(11,49,97,0.5), 0 0 0 ${
-                        0.0286 * 4 * rippleDiameter
-                      }px rgba(11,49,97,0.5), 0 0 0 ${
-                        0.0286 * 7 * rippleDiameter
-                      }px rgba(11,49,97,0.5)`,
+                      boxShadow: `
+                       0 0 0 0 rgba(11,49,97,0.5),
+                       0 0 0 ${0.15 * (rippleEndDiameter - rippleStartDiameter)}px rgba(11,49,97,0.5),
+                       0 0 0 ${0.25 * (rippleEndDiameter - rippleStartDiameter)}px rgba(11,49,97,0.5),
+                       0 0 0 ${0.35 * (rippleEndDiameter - rippleStartDiameter)}px rgba(11,49,97,0.5)
+                                                                                                        `
                     },
                     "100%": {
-                      boxShadow: `0 0 0 ${
-                        0.0286 * rippleDiameter
-                      }px rgba(11,49,97,0.5), 0 0 0 ${
-                        0.0286 * 4 * rippleDiameter
-                      }px rgba(11,49,97,0.5), 0 0 0 ${
-                        0.0286 * 7 * rippleDiameter
-                      }px rgba(11,49,97,0.5), 0 0 0 ${
-                        0.0286 * 9 * rippleDiameter
-                      }px rgba(11,49,97,0)`,
-                    },
-                  },
+                      boxShadow: `
+                              0 0 0 ${(rippleEndDiameter - rippleStartDiameter) * 0.15}px rgba(11,49,97,0.5),
+                        0 0 0 ${(rippleEndDiameter - rippleStartDiameter) * 0.25}px rgba(11,49,97,0.5),
+                        0 0 0 ${(rippleEndDiameter - rippleStartDiameter) * 0.35}px rgba(11,49,97,0.5),
+                                      0 0 0 ${(rippleEndDiameter - rippleStartDiameter) / 2}px rgba(11,49,97,0)
+                                    `
+                    }
+                  }
                 }}
               />
 
@@ -700,7 +704,7 @@ function Home() {
                       endIcon={<ArrowRightAltIcon />}
                       sx={{
                         borderRadius: "40px",
-                        px: 1,
+                        px: 3,
                         py: 1,
                         textTransform: "none",
                         fontSize: fontClamp(18),

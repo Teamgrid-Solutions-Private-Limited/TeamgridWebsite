@@ -780,7 +780,7 @@ function Navbar() {
                 top: 0,
                 left: 0,
                 width: "100%",
-                height: { xs: 56*2, sm: 64*2, md: 70*3, lg: 80*3 }, // topmost, most opaque
+                height: { xs: 56*2, sm: 64*2, md: 70*2, lg: 80*2 }, // topmost, most opaque
                 background: "linear-gradient(to bottom, \
                   rgba(0,0,0,0.70) 0%, \
                   rgba(0,0,0,0.62) 10%, \
