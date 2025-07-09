@@ -220,7 +220,7 @@ function HomePage() {
                     backendData.buttons[0].variant === "contained"
                       ? "#007BFF"
                       : undefined,
-                  borderRadius: "16px",
+                  borderRadius: "39px",
                   px: 4,
                   py: 1.5,
                   textTransform: "none",
@@ -238,7 +238,7 @@ function HomePage() {
                 sx={{
                   color: "white",
                   borderColor: "rgba(255,255,255,0.3)",
-                  borderRadius: "16px",
+                  borderRadius: "39px",
                   px: 4,
                   py: 1.5,
                   textTransform: "none",

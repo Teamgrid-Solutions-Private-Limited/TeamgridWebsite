@@ -76,7 +76,7 @@ function WhyPartnerWithUs() {
               borderColor: "#D6D6D6",
               background: "#fff",
               boxShadow: "none",
-              borderRadius: "16px",
+              borderRadius: "39px",
               "&:hover": {
                 borderColor: "#0D3C7E",
                 background: "#F7F9FC",

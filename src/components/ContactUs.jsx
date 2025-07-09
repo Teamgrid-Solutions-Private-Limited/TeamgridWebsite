@@ -833,7 +833,7 @@ function ContactUs() {
                         disabled={isSubmitDisabled}
                         fullWidth
                         sx={{
-                          borderRadius: "12px",
+                          borderRadius: "41px",
                           textTransform: "none",
                           fontWeight: 600,
                           boxShadow: isSubmitDisabled ? 4 : 2,

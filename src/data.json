@@ -234,24 +234,34 @@
     "checkIcon": "vectorIcon",
     "features": [
       {
+        "image": "whyTeamgridImage1",
         "title": "Right Talent, Matched Your Needs",
         "description": "We align expertise with your business objectives and workflows."
       },
       {
+        "image": "whyTeamgridImage2",
         "title": "Flexible Engagement Models",
         "description": "Work the way you prefer — retainers, sprints, or fixed-cost projects."
       },
       {
+        "image": "whyTeamgridImage3",
         "title": "Trustworthy and Confidential",
         "description": "NDA-backed, process-driven, and fully aligned with your brand."
       },
       {
+        "image": "whyTeamgridImage4",
         "title": "Optional Project Oversight",
         "description": "NDA-backed, process-driven, and fully aligned with your brand."
       },
       {
+        "image": "whyTeamgridImage5",
         "title": "Seamless Collaboration",
         "description": "Slack, Trello, GitHub, or your tools — we work your way."
+      },
+      {
+        "image": "whyTeamgridImage6",
+        "title": "Trustworthy and Confidential",
+        "description": "NDA-backed, process-driven, and fully aligned with your brand."
       }
     ]
   },

@@ -16,23 +16,21 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import data from "../data.json";
 import { fontClamp } from "../fontUtils";
 import {
-  rectangleImage1,
-  rectangleImage2,
-  rectangleImage3,
-  rectangleImage4,
-  group19Png,
-  rectangleImage51,
-  leftArrowIcon,
-  rightArrowIcon,
+  whyTeamgridImage1,
+  whyTeamgridImage2,
+  whyTeamgridImage3,
+  whyTeamgridImage4,
+  whyTeamgridImage5,
+  whyTeamgridImage6,
 } from "../images";
 
 const cardImages = [
-  rectangleImage1,
-  rectangleImage2,
-  rectangleImage3,
-  rectangleImage4,
-  group19Png,
-  rectangleImage51,
+  whyTeamgridImage1,
+  whyTeamgridImage2,
+  whyTeamgridImage3,
+  whyTeamgridImage4,
+  whyTeamgridImage5,
+  whyTeamgridImage6,
 ];
 
 function WhyTeamgrid() {
@@ -41,7 +39,10 @@ function WhyTeamgrid() {
   const { title, subtitle, buttonText, features } = data.whyTeamgrid;
 
   // Fill up to 6 cards (if features < 6, repeat last)
-  const featuresToShow = [...features];
+  const featuresToShow = features.map((tech) => ({
+    ...tech,
+    image: cardImages[tech.icon],
+  }));;
   while (featuresToShow.length < 6) {
     featuresToShow.push(featuresToShow[featuresToShow.length - 1]);
   }

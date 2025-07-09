@@ -89,7 +89,7 @@ function EngagementModels() {
               color="primary"
               endIcon={<ArrowRightAltIcon />}
               sx={{
-                borderRadius: "16px",
+                borderRadius: "39px",
                 px: 5,
                 py: 2,
                 borderColor: "rgba(202, 202, 202, 1)",
@@ -189,9 +189,9 @@ function EngagementModels() {
                   <Button
                     variant="contained"
                     sx={{
-                      borderRadius: "12px",
+                      borderRadius: "39px",
                       height: "48px",
-                      px: { xs: 2.5, md: 1, lg: 2.5 },
+                      px: 2.5,
                       fontWeight: 400,
                       fontSize: fontClamp(16),
                       lineHeight: "150%",
@@ -208,7 +208,7 @@ function EngagementModels() {
                   <Button
                     variant="outlined"
                     sx={{
-                      borderRadius: "12px",
+                      borderRadius: "39px",
                       px: 2.5,
                       height: "48px",
                       fontWeight: 400,

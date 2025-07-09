@@ -111,6 +111,12 @@ import swaggerIconPath from "./assets/Swagger-logo.png";
 import pm2IconPath from "./assets/pm2.jpeg";
 import nginxIconPath from "./assets/nginx.png";
 import sqlServerPath from "./assets/sqlServer.png";
+import whyTeamgridImage1Path from "./assets/whyTeamgridImage1.jpg";
+import whyTeamgridImage2Path from "./assets/whyTeamgridImage2.jpg";
+import whyTeamgridImage3Path from "./assets/whyTeamgridImage3.jpg";
+import whyTeamgridImage4Path from "./assets/whyTeamgridImage4.jpg";
+import whyTeamgridImage5Path from "./assets/whyTeamgridImage5.jpg";
+import whyTeamgridImage6Path from "./assets/whyTeamgridImage6.jpg";
 
 // Cache map for SVG elements to prevent multiple loads
 const svgCache = new Map();
@@ -230,3 +236,9 @@ export const nginxIcon = getSvgPath(nginxIconPath);
 export const pm2Icon = getSvgPath(pm2IconPath);
 export const swaggerIcon = getSvgPath(swaggerIconPath);
 export const sqlServerIcon = getSvgPath(sqlServerPath);
+export const whyTeamgridImage1 = getSvgPath(whyTeamgridImage1Path);
+export const whyTeamgridImage2 = getSvgPath(whyTeamgridImage2Path);
+export const whyTeamgridImage3 = getSvgPath(whyTeamgridImage3Path);
+export const whyTeamgridImage4 = getSvgPath(whyTeamgridImage4Path);
+export const whyTeamgridImage5 = getSvgPath(whyTeamgridImage5Path);
+export const whyTeamgridImage6 = getSvgPath(whyTeamgridImage6Path);

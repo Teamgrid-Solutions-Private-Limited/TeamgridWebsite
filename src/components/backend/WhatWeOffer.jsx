@@ -166,7 +166,7 @@ function WhatWeOffer() {
                 color: "#FAFAFA",
                 px: 5,
                 py: 2,
-                borderRadius: "16px",
+                borderRadius: "39px",
                 textTransform: "none",
                 fontWeight: 400,
                 letterSpacing: "0%",
